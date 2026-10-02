@@ -154,7 +154,7 @@ footer p{margin:0 0 6px}
     <p class="eyebrow">How a project runs</p>
     <h2 id="h-console">The agents do the heavy lifting. A human signs off.</h2>
     <p class="lead">Every project gets its own agentic workflow. Brian directs it, reviews what it produces, and is the one person accountable to you.</p>
-    <p><small>The console on the right is an illustration of a typical small job, not a live feed and not a real client.</small></p>
+    <p><small>This console is an illustration of a typical small job, not a live feed and not a real client.</small></p>
    </div>
    <div class="console" role="region" aria-label="Illustrative agent console">
     <div class="bar"><span class="dots"><i></i><i></i><i></i>workflow · example project</span><span class="badge">ILLUSTRATIVE</span></div>
@@ -259,6 +259,7 @@ footer p{margin:0 0 6px}
  function tick(){if(paused)return;line(L[i%L.length]);i++;if(i%L.length===0){timer=setTimeout(function(){log.innerHTML='';tick()},2600)}else{timer=setTimeout(tick,900)}}
  function all(){log.innerHTML='';L.forEach(line)}
  if(reduce){all()}else{
+  for(;i<3;i++)line(L[i]);
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!timer&&!paused)tick()})},{threshold:.25});io.observe(log);
  }
  var pb=document.getElementById('pause');
