@@ -1869,7 +1869,7 @@
    "tag": "header",
    "parent": null,
    "page": "5",
-   "text": "Meissner Services Prices Terms If it goes wrong FAQ Contact Light / dark"
+   "text": "Meissner Services Prices Pick a price Terms Scope changes If it goes wrong FAQ Contact Light / dark"
   },
   {
    "cid": "5.HERO",
@@ -2214,6 +2214,33 @@
    "text": "One correction round per milestone"
   },
   {
+   "cid": "5.PICK",
+   "type": "demo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.PICK Pick a price Pick a price. See exactly what it buys, and what it does not. Built from the table above, which is drawn from quotes we wrote in October 2026. It is a scope example, not a quote for your job; a human reviews every quote before it is sent."
+  },
+  {
+   "cid": "5.PICK.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.PICK",
+   "page": "5",
+   "text": "Pick a price"
+  },
+  {
+   "cid": "5.PICK.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.PICK",
+   "page": "5",
+   "text": "Pick a price. See exactly what it buys, and what it does not."
+  },
+  {
    "cid": "5.TERMS",
    "type": "terms",
    "kind": "section",
@@ -2329,6 +2356,42 @@
    "parent": "5.TERMS",
    "page": "5",
    "text": "Payment and disputes Pay through the platform you found us on, under its escrow and dispute rules, or by the method agreed at the quote. We do not ask you to go around the platform."
+  },
+  {
+   "cid": "5.CHANGE",
+   "type": "demo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.CHANGE What if the job changes? Tick a change. See whether it is included, needs a review, or changes the scope. The terms above, applied to the changes clients most often ask for after a quote. It never shows a new price or a date: those are agreed in writing, and only after a human has looked. Start from an agreed scope"
+  },
+  {
+   "cid": "5.CHANGE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.CHANGE",
+   "page": "5",
+   "text": "What if the job changes?"
+  },
+  {
+   "cid": "5.CHANGE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.CHANGE",
+   "page": "5",
+   "text": "Tick a change. See whether it is included, needs a review, or changes the scope."
+  },
+  {
+   "cid": "5.CHANGE.base-select",
+   "type": "cta",
+   "kind": "component",
+   "tag": "select",
+   "parent": "5.CHANGE",
+   "page": "5",
+   "text": ""
   },
   {
    "cid": "5.WRONG",
@@ -3458,6 +3521,69 @@
    "parent": "7.CANON.card",
    "page": "7",
    "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "7.WABRIEF",
+   "type": "feature",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "Write your brief, send it on WhatsApp What do you need? Tools you use (optional) Timing Pick one This week This month No rush Budget Pick one About USD 100 About USD 300 About USD 500 Not sure yet Your message (edit it freely) Open WhatsApp with this message Copy message Email it instead Rebuild from the fields Nothing is sent from this page. WhatsApp opens with your message ready, and you press send there."
+  },
+  {
+   "cid": "7.WABRIEF.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.WABRIEF",
+   "page": "7",
+   "text": "Write your brief, send it on WhatsApp"
+  },
+  {
+   "cid": "7.WABRIEF.card",
+   "type": "card",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.WABRIEF",
+   "page": "7",
+   "text": "What do you need? Tools you use (optional) Timing Pick one This week This month No rush Budget Pick one About USD 100 About USD 300 About USD 500 Not sure yet Your message (edit it freely) Open WhatsApp with this message Copy message Email it instead Rebuild from the fields Nothing is sent from this page. WhatsApp opens with your message ready, and you press send there."
+  },
+  {
+   "cid": "7.WABRIEF.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "7.WABRIEF.card",
+   "page": "7",
+   "text": "Open WhatsApp with this message"
+  },
+  {
+   "cid": "7.VOICE",
+   "type": "feature",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "Or just say it: a 60-second voice brief Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email. ● Record ■ Stop Nothing recorded. Save to your device Delete Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp."
+  },
+  {
+   "cid": "7.VOICE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.VOICE",
+   "page": "7",
+   "text": "Or just say it: a 60-second voice brief"
+  },
+  {
+   "cid": "7.VOICE.card",
+   "type": "card",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.VOICE",
+   "page": "7",
+   "text": "Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email. ● Record ■ Stop Nothing recorded. Save to your device Delete Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp."
   },
   {
    "cid": "7.METHOD",

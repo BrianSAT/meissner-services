@@ -45,10 +45,23 @@ blockquote cite{display:block;margin-top:8px;font-style:normal;color:var(--muted
 .ring{stroke:var(--accent);fill:none}
 footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;color:var(--muted)}
 .mark{position:relative}.mark>.review-section-tag{position:absolute;top:0;left:0;margin:0}
+.feat .card{display:block}
+.fl{display:block;font-size:14px;font-weight:700;margin:12px 0 6px}
+.fi{width:100%;font:16px/1.5 inherit;font-family:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--them);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.fbtn{min-height:44px;padding:10px 16px;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.fbtn.ghost{background:transparent;color:var(--ink)}
+.fbtn:disabled{opacity:.5;cursor:not-allowed}
+.feat .btn.wa{min-height:44px;font-size:16px;padding:10px 16px;border-radius:999px}
+.fi:focus-visible,.fbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.v-status{font-weight:700;margin:12px 0 0}
+.v-after audio{width:100%;margin-top:10px}
 </style>
 <link rel="stylesheet" href="/assets/shared.css">
 <script defer src="/assets/shared.js"></script>
 <script type="module" src="/assets/echo-review.js"></script>
+<script type="module" src="/7/features.js"></script>
 </head>
 <body>
 <div class="bar" role="banner">
@@ -102,6 +115,51 @@ footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;co
 <section id="7.CANON" data-tag aria-labelledby="h-canon" data-component="7.CANON" data-type="canonical">
   <h2 id="h-canon" data-component="7.CANON.headline" data-type="headline">In my words</h2>
   <div class="card" data-component="7.CANON.card" data-type="card"><blockquote data-component="7.CANON.canonical-quote" data-type="canonical-quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote></div>
+</section>
+
+<section id="7.WABRIEF" class="feat" data-tag aria-labelledby="h-wabrief" data-feature="wabrief" data-component="7.WABRIEF" data-type="feature">
+  <h2 id="h-wabrief" data-component="7.WABRIEF.headline" data-type="headline">Write your brief, send it on WhatsApp</h2>
+  <div class="card" data-component="7.WABRIEF.card" data-type="card">
+    <label class="fl" for="wa-need">What do you need?</label>
+    <textarea id="wa-need" class="fi" rows="3" maxlength="600" placeholder="Clean up our customer list and merge the duplicates"></textarea>
+    <label class="fl" for="wa-tools">Tools you use (optional)</label>
+    <input id="wa-tools" class="fi" type="text" maxlength="160" placeholder="Google Sheets, Shopify">
+    <div class="two">
+      <div><label class="fl" for="wa-timing">Timing</label>
+        <select id="wa-timing" class="fi"><option value="">Pick one</option><option>This week</option><option>This month</option><option>No rush</option></select></div>
+      <div><label class="fl" for="wa-band">Budget</label>
+        <select id="wa-band" class="fi"><option value="">Pick one</option><option>About USD 100</option><option>About USD 300</option><option>About USD 500</option><option>Not sure yet</option></select></div>
+    </div>
+    <label class="fl" for="wa-preview">Your message (edit it freely)</label>
+    <textarea id="wa-preview" class="fi" rows="6" maxlength="1200"></textarea>
+    <div class="row">
+      <a class="btn wa wa-open" href="https://wa.me/12623661718" rel="noopener" data-component="7.WABRIEF.cta" data-type="cta">Open WhatsApp with this message</a>
+      <button type="button" class="fbtn wa-copy">Copy message</button>
+      <a class="fbtn ghost wa-mail" href="mailto:team@meissner.services">Email it instead</a>
+      <button type="button" class="fbtn ghost wa-reset">Rebuild from the fields</button>
+    </div>
+    <p class="fine">Nothing is sent from this page. WhatsApp opens with your message ready, and you press send there.</p>
+  </div>
+</section>
+
+<section id="7.VOICE" class="feat" data-tag aria-labelledby="h-voice" data-feature="voice" data-component="7.VOICE" data-type="feature">
+  <h2 id="h-voice" data-component="7.VOICE.headline" data-type="headline">Or just say it: a 60-second voice brief</h2>
+  <div class="card" data-component="7.VOICE.card" data-type="card">
+    <p class="fine">Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email.</p>
+    <div class="row">
+      <button type="button" class="fbtn v-rec">● Record</button>
+      <button type="button" class="fbtn ghost v-stop" disabled>■ Stop</button>
+    </div>
+    <p class="v-status" aria-live="polite">Nothing recorded.</p>
+    <div class="v-after" hidden>
+      <audio controls preload="none"></audio>
+      <div class="row">
+        <button type="button" class="fbtn v-save">Save to your device</button>
+        <button type="button" class="fbtn ghost v-del">Delete</button>
+      </div>
+      <p class="fine">Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp.</p>
+    </div>
+  </div>
 </section>
 
 <section id="7.METHOD" class="echo-method" data-tag aria-labelledby="h-7-method" data-component="7.METHOD" data-type="method"><style>.echo-method ol,.echo-method ul{padding-left:1.3em;max-width:62ch}.echo-method li{margin:.5em 0;opacity:1;animation:none;white-space:normal;break-inside:auto}.echo-method .examples-lead{margin-top:1.4em}</style>
