@@ -1,4 +1,5 @@
 import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates, compactLayout, swapLayout} from './echo-core.mjs';
+import {activityRecorder} from './echo-activity.mjs';
 
 const config = {...{api: 'https://api.meissner.services/review', catalog: '/review/components.json'}, ...(window.EchoReviewConfig || {})};
 const params = new URLSearchParams(location.search);
@@ -11,6 +12,41 @@ const privacy=document.createElement('meta');privacy.name='referrer';privacy.con
 let enabled = params.get('review') !== 'off' && !!sid;
 let session = {ratings: [], layouts: {}, requests: []}, ratings = new Map(), catalog = [], selected = null, layout = null;
 let syncError = '', moveFrom = null, pointerStart = null, loadPromise = null;
+let activity=null, activitySid='';
+const activityEpoch=Date.now(), activityMonotonic=performance.now();
+function browserId(storage,key) {
+  try {const target=window[storage];let value=target.getItem(key);if(!value){value=crypto.randomUUID();target.setItem(key,value);}return value;}
+  catch {return crypto.randomUUID();}
+}
+const activityDevice=browserId('localStorage','echo:activity-device');
+const activityTab=browserId('sessionStorage','echo:activity-tab');
+function startActivity() {
+  if(!sid)return;
+  if(activitySid!==sid){
+    const key=`echo:activity:${sid}:${rater}:${activityDevice}:${activityTab}`;
+    let fallback=[];
+    activity=activityRecorder({now:()=>Math.round(activityEpoch+performance.now()-activityMonotonic),device:activityDevice,rater,
+      read:()=>{try{return JSON.parse(stored(key) || JSON.stringify(fallback));}catch{return fallback;}},write:spans=>{fallback=spans;store(key,JSON.stringify(spans));},
+      send:async body=>{
+        const response=await fetch(`${config.api}/s/${encodeURIComponent(sid)}/activity`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),referrerPolicy:'no-referrer',keepalive:true});
+        if(!response.ok)throw new Error(`Active-time sync returned ${response.status}`);return response.json();
+      }});
+    activitySid=sid;activity.visible(document.visibilityState==='visible');
+  }
+  activity.enabled(enabled);
+}
+async function flushActivity() {
+  if(!activity)return;
+  await activity.flush();
+  const status=document.querySelector('[data-echo-activity-status]');
+  if(status)status.textContent=activity.pending()?'Active review time saved on this device; sync pending.':'Active review time synced.';
+}
+for(const event of ['pointerdown','keydown','wheel','scroll'])document.addEventListener(event,e=>{if(e.isTrusted)activity?.input();},{passive:true});
+document.addEventListener('visibilitychange',()=>{activity?.visible(document.visibilityState==='visible');if(document.visibilityState!=='visible')flushActivity();});
+window.addEventListener('pagehide',()=>{activity?.enabled(false);flushActivity();});
+window.addEventListener('pageshow',()=>{startActivity();});
+window.addEventListener('online',()=>flushActivity());
+setInterval(()=>flushActivity(),15000);
 const ui = document.createElement('div'); ui.className = 'echo-ui'; ui.dataset.echoUi = '';
 const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('./echo-review.css', import.meta.url); document.head.append(sheet);
 function stored(key) { try { return localStorage.getItem(key); } catch { return null; } }
@@ -63,6 +99,7 @@ function components() {
   }));
 }
 function reflect() {
+  startActivity();
   document.documentElement.classList.toggle('echo-on', enabled); toggle.setAttribute('aria-pressed',String(enabled));
   toggle.textContent = enabled ? 'Rating on · turn off' : 'Rate this';
   for(const a of modeNav.querySelectorAll('a'))a.href=link(iteration>1 && a.textContent==='Pages'?'/review/iterate/':a.dataset.path);
@@ -196,6 +233,10 @@ async function summaryPage() {
   if(!sid){host.replaceChildren(node('p','Start a review to see your preferences.'),node('a','Start a review',{href:'/review/'}));return;}
   await loadCatalog(); const signals=inheritSignals(catalog,ratings);const summaries=summarize(catalog,signals);
   host.replaceChildren(node('h1','Your echoes, side by side.'),node('p','Style and copy are separate. N/A is respected; unrated parts never become zero. Partial ratings are enough to explore.'));
+  await flushActivity();
+  try {const fresh=await api(`/s/${encodeURIComponent(sid)}`),ms=fresh.activity?.per_rater_ms?.[rater];
+    if(Number.isFinite(ms))host.append(node('p',`${rater==='owner'?"Brian’s":"Your"} active review time: ${(ms/60000).toFixed(1)} minutes saved. Idle and background time excluded; overlapping devices counted once.`));
+  }catch{host.append(node('p','Saved active review time is temporarily unavailable.'));}
   const team=aggregateRatings(session.ratings,iteration);
   if(team.splits.length){const group=node('section',null,{class:'echo-summary-group'});group.append(node('h2','Teammate agreement and splits'),node('p','Each rater keeps separate ratings. These comparisons exclude N/A; your own preferences remain above.'));
     for(const split of team.splits)group.append(node('p',`${split.cid} · ${split.measure}: ${split.raters} raters, ${split.min.toFixed(1)}–${split.max.toFixed(1)} echoes · ${split.agreement?'agreement':'different preferences'}.`));host.append(group);}
@@ -417,6 +458,7 @@ async function sharing() {
   box.append(button('Close',()=>{box.close();box.remove();}));box.showModal();
 }
 const extras=node('details',null,{class:'echo-more'});extras.append(node('summary','Resume · invite'));bar.append(extras);
+extras.append(node('span','',{role:'status','data-echo-activity-status':''}));
 extras.append(button('Continue on another device',sharing),button('Invite a teammate',async()=>{
   if(!sid)await ensureSession();const name=prompt('Teammate name (shown inside this review only)');if(!name)return;
   try{const invite=await api(`/s/${encodeURIComponent(sid)}/raters`,'POST',{name});const u=new URL(privateLink());u.searchParams.set('r',invite.rater);const box=node('dialog',null,{class:'echo-dialog','data-echo-ui':''});box.append(node('h2','Private teammate link'),node('input',null,{type:'url',value:u.href,readonly:'','aria-label':'Teammate private review link'}),button('Close',()=>{box.close();box.remove();}));ui.append(box);box.showModal();}catch(error){meter.textContent=error.message;}

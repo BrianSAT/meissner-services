@@ -58,15 +58,24 @@ verified with owner and an invited test rater writing the SAME iteration/cid wit
 overwrite. Local pending storage is partitioned by sid AND rater. elapsed_ms is
 a monotonic modal-open-to-save duration and is confirmed persisted by the backend.
 Total active time must exclude background/idle and union overlapping recorder spans.
-The exact backend time route/field is awaiting Cuz; no unsupported persistence is
-claimed. No QR or link payload is sent to a third-party QR service.
+The live backend contract is POST /review/s/:sid/activity with {rater,device,spans},
+epoch-ms pairs, at most200 per call, each1ms–1h. Device is a stable per-browser
+identifier; a per-tab outbox retains failed uploads across navigation/reload.
+The client uses epoch-anchored monotonic time, flushes every15s and on page hide,
+stops after60s idle, excludes hidden/off review, and retries idempotently.
+Worker start-key dedup and per-rater unions prevent overlapping-device double
+counting. GET session.activity.per_rater_ms[rater] is the saved personal total;
+session_union_ms is wall-clock and summed_rater_ms is person-time, not substitutes.
+Summary labels owner time as Brian's active review time. Pending outbox time is
+distinct from saved time. No QR or link payload is sent to a third-party QR service.
 
 Three modes share the same `iN:logical-id` rating per rater. `mode` is `tour`,
 `compare` or `rank`; latest direct values replace earlier ones. Rank preserves the
 other measure, stores raw order and skips in layout-1 `rankings`, and uses exact
 finite scores `5 - 4 * position / (includedCount - 1)`. A singleton is 5; an
 empty included list writes only N/A for skipped candidates. Backend fractional
-scores currently return HTTP400 and are an explicit deployment dependency.
+scores are accepted in1..5 and rounded by the Worker to3decimals;0 remains N/A,
+null unrated. Values between0 and1 are rejected. Raw ranking preserves exact order.
 Style and copy inheritance use separate same-page DIRECT-measure averages.
 No evidence for a measure means unknown; inferred scores never feed averages.
 
@@ -93,6 +102,7 @@ viewer choices made while crew works; if a copy source changed, that slot uses
 its selected source and labels the older crew-copy source. Canonical copy stays
 verbatim. Unsaved modal/rank choices stay on the same device until Save; API
 pending ratings remain visibly pending rather than claiming remote durability.
-Active-time clock logic excludes idle/background and passes its unit check;
-remote total active time remains unimplemented until Cuz supplies the exact
-persistence contract. Rating elapsed_ms and multi-rater isolation are live/proven.
+Active-time recorder lives in echo-activity.mjs; injected storage/clock/transport
+tests exercise offline reload,200-span batches, rejects, concurrent acknowledgement,
+idle/background and review-off. Browser wiring lives in echo-review.js.
+Rating elapsed_ms and multi-rater isolation remain separate from total active time.
