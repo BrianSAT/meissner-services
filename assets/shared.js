@@ -12,7 +12,8 @@
       const script = document.createElement('script');
       script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
       script.async = true; script.defer = true;
-      script.onload = () => window.turnstile.ready(() => resolve(window.turnstile));
+      // This script loads after DOM ready; use its load event, not a second ready wait.
+      script.onload = () => resolve(window.turnstile);
       script.onerror = reject; document.head.append(script);
     });
     return turnstile;
