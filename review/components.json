@@ -244,6 +244,96 @@
    "text": "A clear price Fixed price for the agreed scope. No unapproved overages. Timing includes the inputs and review rounds we agree together."
   },
   {
+   "cid": "1.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "1.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "1.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "1.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "1.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "1.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "1.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "1.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "1.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "1.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
+  },
+  {
    "cid": "1.CONTACT",
    "type": "contact",
    "kind": "section",
@@ -667,6 +757,96 @@
    "parent": "2.CANON",
    "page": "2",
    "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "2.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "2.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "2.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "2.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "2.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "2.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "2.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "2.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "2.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "2.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
   },
   {
    "cid": "2.CONTACT",
@@ -1103,6 +1283,96 @@
    "text": "BA Economics , University of Wisconsin–Madison"
   },
   {
+   "cid": "3.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "3.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "3.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "3.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "3.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "3.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "3.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "3.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "3.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "3.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.METHOD",
+   "page": "3",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
+  },
+  {
    "cid": "3.CONTACT",
    "type": "contact",
    "kind": "section",
@@ -1382,6 +1652,96 @@
    "parent": "4.OPERATOR",
    "page": "4",
    "text": "Brian founded SA Trails, a Wi-Fi SaaS with offices in six countries. His work ran from custom firmware to automated guest surveys."
+  },
+  {
+   "cid": "4.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "4.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "4.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "4.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "4.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "4.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "4.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "4.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "4.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "4.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.METHOD",
+   "page": "4",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
   },
   {
    "cid": "4.CONTACT",
@@ -2214,6 +2574,96 @@
    "text": ""
   },
   {
+   "cid": "5.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "5.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "5.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "5.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "5.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "5.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "5.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "5.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "5.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "5.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.METHOD",
+   "page": "5",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
+  },
+  {
    "cid": "5.CONTACT",
    "type": "contact",
    "kind": "section",
@@ -2412,6 +2862,96 @@
    "parent": "6.HUMAN",
    "page": "6",
    "text": "You bring the idea. Or the task you wish you could hand off. We bring a human-led team built around getting it done."
+  },
+  {
+   "cid": "6.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "6.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "6.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "6.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "6.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "6.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "6.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "6.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "6.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "6.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
   },
   {
    "cid": "6.CONTACT",
@@ -2882,6 +3422,96 @@
    "parent": "7.CANON.card",
    "page": "7",
    "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "7.METHOD",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+  },
+  {
+   "cid": "7.METHOD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "How we work, on any task"
+  },
+  {
+   "cid": "7.METHOD.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "7.METHOD.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "7.METHOD.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "7.METHOD.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "7.METHOD.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "7.METHOD.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "7.METHOD.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "7.METHOD.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked."
   },
   {
    "cid": "7.CONTACT",
