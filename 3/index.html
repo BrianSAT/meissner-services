@@ -95,6 +95,53 @@ body.light .echo>svg,body.light .logo-study{color:var(--fg)}
 .contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 footer{max-width:1240px;margin:0 auto;padding:32px 22px 60px;font:13px/1.7 ui-monospace,Menlo,monospace;color:var(--dim)}
 footer p{margin:0 0 6px}
+/* STACK + PLAN */
+.sp-tool,.pl-tool{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.sp-form label{display:block;font:12px ui-monospace,Menlo,monospace;color:var(--dim);margin-bottom:8px}
+.sp-row{display:flex;gap:10px}
+.sp-row input{flex:1;min-width:0;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:13px 18px;font:inherit}
+.sp-row input:focus-visible,.pl-add input:focus-visible,.pl-add select:focus-visible{outline:3px solid var(--neon);outline-offset:2px}
+.sp-try{margin:14px 0 0;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.sp-try button,.sp-chip,.pl-del{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:5px 11px;font:12px ui-monospace,Menlo,monospace;cursor:pointer;margin:3px 2px}
+.sp-chips{display:flex;flex-wrap:wrap;gap:4px;margin:12px 0}
+.sp-chip{border-color:var(--neon)}.sp-chip.unknown{border-color:var(--hot)}
+.sp-empty{color:var(--dim);font-size:15px}
+.sp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.sp-cards:empty{display:none}
+.sp-card{background:var(--bg);padding:18px}
+.sp-card h3{margin-bottom:10px}
+.sp-card dl{margin:0;font-size:14px}.sp-card dt{font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--neon);margin-top:8px}
+.sp-card dd{margin:2px 0 0;color:var(--dim)}
+.sp-card.unknown h3{color:var(--hot)}.sp-card p{font-size:14px;color:var(--dim);margin:0}
+.sp-caveat{margin-top:10px!important;font-size:13px!important;border-left:2px solid var(--hot);padding-left:8px}
+.sp-flowbox{margin-top:20px}.sp-flows{margin:0;padding-left:1.2em;color:var(--dim);font-size:15px}.sp-flows b{color:var(--fg)}
+.sp-note{margin:18px 0 0;font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-summary{font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+.pl-col{flex:0 0 220px;scroll-snap-align:start}
+.pl-col h3{font:12px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--neon);margin:0 0 8px}
+.pl-col.stuck h3{color:var(--hot)}.pl-col.stuck p{font-size:13px;color:var(--dim)}
+.pl-stage{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pl-task{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.4}
+.pl-task.you{border-color:var(--hot)}.pl-task.both{border-style:dashed}
+.pl-who{display:inline-block;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:999px;border:1px solid var(--hot);color:var(--hot);margin-right:6px}
+.pl-task.us .pl-who,.pl-who.us{border-color:var(--neon);color:var(--neon)}.pl-task.both .pl-who,.pl-who.both{border-color:var(--dim);color:var(--dim)}
+.pl-legend{font:12px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.pl-actions .btn{padding:11px 16px;font-size:14px;cursor:pointer}
+.pl-status{min-height:1.4em;font-size:14px;color:var(--neon);margin:10px 0 0}
+.pl-text{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px;font:12px ui-monospace,Menlo,monospace}
+.pl-more{margin-top:16px}.pl-more summary{cursor:pointer;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-add{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:14px 0}
+.pl-add label{display:grid;gap:4px;font:12px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-add input,.pl-add select{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:14px system-ui,sans-serif;max-width:100%}
+.pl-add .btn{padding:9px 14px;font-size:13px;cursor:pointer}
+.pl-editor{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.pl-edit{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0;min-width:0}
+.pl-edit legend{font-size:14px;font-weight:700;padding:0 4px}
+.pl-hint{font:11px ui-monospace,Menlo,monospace;color:var(--dim);margin:0 0 4px}
+.pl-deps{display:grid;gap:2px;font-size:13px;color:var(--dim);max-height:180px;overflow:auto}
+.pl-deps label{display:flex;gap:6px;align-items:flex-start}
+@media(max-width:520px){.sp-row{flex-direction:column}.pl-col{flex-basis:78vw}.sp-tool,.pl-tool{padding:16px}}
 @media(max-width:900px){
  .hero{grid-template-columns:1fr;min-height:auto;padding-top:28px}
  .echo{justify-self:center;max-width:380px;order:-1}
@@ -117,6 +164,7 @@ footer p{margin:0 0 6px}
  .log li{opacity:1}
 }
 </style>
+<script defer src="/3/stack-plan.js"></script>
 <script type="module" src="/assets/echo-review.js"></script>
 </head>
 <body>
@@ -178,6 +226,46 @@ footer p{margin:0 0 6px}
    <article class="card" data-component="3.ANSWERS.answer-2" data-type="answer"><span class="q">Will you answer me?</span><h3>Your channel, your hours.</h3><p>Email, WhatsApp, the platform's own chat, Slack or Teams. English and Spanish; Portuguese conversational.</p></article>
    <article class="card" data-component="3.ANSWERS.answer-3" data-type="answer"><span class="q">Will it cost more?</span><h3>Fixed price, agreed first.</h3><p>The price is agreed before work starts. If the scope grows, we quote the extra before doing it.</p></article>
    <article class="card" data-component="3.ANSWERS.answer-4" data-type="answer"><span class="q">My tools?</span><h3>We map onto your stack.</h3><p>Your tools, languages and accounts. You own everything from day one.</p></article>
+  </div>
+ </section>
+
+ <section id="3.STACK" class="sp" aria-labelledby="h-stack" data-component="3.STACK" data-type="demo">
+  <span class="tag">3.STACK</span>
+  <p class="eyebrow" data-component="3.STACK.eyebrow" data-type="eyebrow">Your stack, mapped</p>
+  <h2 id="h-stack" data-component="3.STACK.headline" data-type="headline">Type your tools. See where we plug in.</h2>
+  <p class="lead" data-component="3.STACK.subhead" data-type="subhead">For each tool: how we connect, the narrowest access we'd ask for, and what we usually build on it.</p>
+  <div class="sp-tool" data-stack-mapper data-component="3.STACK.mapper" data-type="tool" data-label="Your-stack mapper">
+   <form class="sp-form" autocomplete="off">
+    <label for="sp-in">Your tools, separated by commas</label>
+    <div class="sp-row"><input id="sp-in" list="sp-list" maxlength="200" placeholder="Airtable, Shopify, Google Sheets…"><button class="btn" type="submit">Map</button></div>
+    <datalist id="sp-list"></datalist>
+   </form>
+   <p class="sp-try">Try: <button type="button" data-try="Shopify,QuickBooks Online,Google Sheets,Slack">a store</button> <button type="button" data-try="Formstack,Airtable,HubSpot,Gmail">a services firm</button> <button type="button" data-try="WhatsApp Business,Google Calendar,ChatGPT / OpenAI">bookings by chat</button> <button type="button" class="sp-clear">clear</button> <span class="sp-count" aria-live="polite"></span></p>
+   <div class="sp-chips"></div>
+   <p class="sp-empty">Your mapped tools appear here.</p>
+   <div class="sp-cards" aria-live="polite"></div>
+   <div class="sp-flowbox" hidden><h3>Between your tools</h3><ul class="sp-flows"></ul></div>
+   <p class="sp-note">Written by the crew from each vendor's public developer docs, October 2026. Not generated by AI as you type. Your plan or edition can change what's available, so we confirm before quoting. Nothing you type leaves this page.</p>
+  </div>
+ </section>
+
+ <section id="3.PLAN" class="pl" aria-labelledby="h-plan" data-component="3.PLAN" data-type="demo">
+  <span class="tag">3.PLAN</span>
+  <p class="eyebrow" data-component="3.PLAN.eyebrow" data-type="eyebrow">What has to happen first</p>
+  <h2 id="h-plan" data-component="3.PLAN.headline" data-type="headline">Your project, in order.</h2>
+  <p class="lead" data-component="3.PLAN.subhead" data-type="subhead">Built from the tools above. Steps in the same stage run side by side, which is where parallel agents save you time. Change what waits on what, add your own steps, and send the plan with your note.</p>
+  <div class="pl-tool" data-order-planner data-component="3.PLAN.planner" data-type="tool" data-label="Dependency and order planner">
+   <p class="pl-summary" aria-live="polite"></p>
+   <div class="pl-board"></div>
+   <p class="pl-legend"><span class="pl-who">you</span> waits on you · <span class="pl-who us">us</span> we run it · <span class="pl-who both">together</span> both of us</p>
+   <div class="pl-actions"><button type="button" class="btn pl-attach">Add plan to my project note</button><button type="button" class="btn ghost pl-copy">Copy plan</button><button type="button" class="btn ghost pl-reset">Rebuild from my tools</button></div>
+   <p class="pl-status" role="status"></p>
+   <textarea class="pl-text" rows="6" readonly hidden aria-label="Plan as text"></textarea>
+   <details class="pl-more"><summary>Edit steps and what they wait on</summary>
+    <form class="pl-add"><label>New step <input name="label" maxlength="80" required placeholder="e.g. Legal approves the wording"></label><label>Who <select name="who"><option value="you">you</option><option value="us">us</option><option value="both">together</option></select></label><label>Starts after <select name="after"></select></label><button class="btn ghost" type="submit">Add step</button></form>
+    <div class="pl-editor"></div>
+   </details>
+   <p class="sp-note">Order only, no dates: we agree timing with you, not here. Changing your tools rebuilds the plan. Saved only in this browser.</p>
   </div>
  </section>
 
