@@ -1,7 +1,7 @@
 /* One shared contact source: facts.json. Only Turnstile for the separately commissioned Worker form. */
 (() => {
   'use strict';
-  const facts = fetch('/assets/facts.json').then(r => {
+  const facts = fetch('/assets/facts.json?v=a960d195b99443a9', {cache: 'no-store'}).then(r => {
     if (!r.ok) throw new Error('Contact facts unavailable');
     return r.json();
   });
@@ -114,7 +114,17 @@
       }
       const note = document.createElement('p'); note.className = 'shared-contact-note';
       note.textContent = `${contact.email} · ${contact.whatsapp_display} · ${spanish ? 'Inglés o español. Portugués conversacional.' : 'English or Spanish. Portuguese conversational.'}`;
-      this.append(links, note, projectForm(spanish, contact.form));
+      // Render the contact channels before optional form setup: cached legacy facts
+      // must never remove the owner's real WhatsApp or email link.
+      this.append(links, note);
+      if (contact.form?.endpoint && contact.form?.turnstile_sitekey) {
+        try { this.append(projectForm(spanish, contact.form)); }
+        catch {
+          const error = document.createElement('p'); error.className = 'shared-contact-note';
+          error.textContent = spanish ? 'Formulario no disponible. Usa email o WhatsApp.' : 'Form unavailable. Use email or WhatsApp.';
+          this.append(error);
+        }
+      }
     }
   }
   if (!customElements.get('meissner-contact')) customElements.define('meissner-contact', MeissnerContact);
