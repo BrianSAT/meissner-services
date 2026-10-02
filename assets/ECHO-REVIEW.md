@@ -84,3 +84,15 @@ QR code generation runs locally from the MIT qrcode-generator module pinned to
 A mid-tier engineer can trace this kit in twenty minutes: pure preferences and
 layout in echo-core.mjs, DOM/network UI in echo-review.js, scoped presentation in
 CSS, and the private native-task/refinement bridge in tools/echo-refine.py.
+
+Production follow-up receipts: compact source layouts fixed Worker size rejection;
+real rating/save/reload/deep-link/next,11-slot draft and request, persisted hide,
+Compare7, singleton/all-skipped Rank, private QR, actual Face-refined ready link,
+and concurrent copy/style swap reload tested on390px. Refinement preserves
+viewer choices made while crew works; if a copy source changed, that slot uses
+its selected source and labels the older crew-copy source. Canonical copy stays
+verbatim. Unsaved modal/rank choices stay on the same device until Save; API
+pending ratings remain visibly pending rather than claiming remote durability.
+Active-time clock logic excludes idle/background and passes its unit check;
+remote total active time remains unimplemented until Cuz supplies the exact
+persistence contract. Rating elapsed_ms and multi-rater isolation are live/proven.

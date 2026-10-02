@@ -67,7 +67,7 @@ function reflect() {
   toggle.textContent = enabled ? 'Rating on · turn off' : 'Rate this';
   for(const a of modeNav.querySelectorAll('a'))a.href=link(iteration>1 && a.textContent==='Pages'?'/review/iterate/':a.dataset.path);
   const first=ratingsFor(session.ratings,1,rater);if(iteration===1)for(const [id,row] of ratings)first.set(id,row);
-  const state=pageProgress(first);meter.textContent=`${state.answered} of 7 pages rated · one 1–5 score anywhere per page`;
+  const state=pageProgress(first);meter.textContent=`${state.answered} of 7 pages rated · one 1–5 score anywhere per page${Object.keys(cachePending()).length?' · saved on this device; sync pending':''}`;
   progressBar.value=state.answered;nextButton.textContent=state.next?'Next rating':'Review complete · summary';
   summaryLink.href = link('/review/summary/'); propagate();
 }
@@ -126,26 +126,28 @@ function openModal(component) {
   const ancestry=[]; let el=component.el;
   while(el) { if(el.dataset?.component) ancestry.unshift(el); el=el.parentElement; }
   for(const ancestor of ancestry) crumbs.append(button(ancestor.dataset.label || ancestor.dataset.component,()=>openModal(components().find(c=>c.el===ancestor))));
-  const values={style:null,copy:null,note:'',...(ratings.get(component.cid)||{})};
-  const rows=[],changedMeasures=new Set();
+  const draftKey=`echo:modal-draft:${sid}:${rater}:${iteration}:${component.cid}`;let draft=null;try{draft=JSON.parse(stored(draftKey) || 'null');}catch{}
+  const values={style:null,copy:null,note:'',...(ratings.get(component.cid)||{}),...(draft?.values || {})};
+  const rows=[],changedMeasures=new Set(draft?.changedMeasures || []);
+  function remember(){store(draftKey,JSON.stringify({values:{style:values.style,copy:values.copy,note:values.note},changedMeasures:[...changedMeasures]}));}
   for(const measure of ['style','copy']) {
     const field=node('fieldset'); const legend=node('legend',measure==='style'?'STYLE · how it looks':'COPY · what it says');
     const choices=node('div',null,{class:'echo-choices'});
     for(const value of [1,2,3,4,5,0]) {
       const label=value===0?'N/A':`${value} ${value===1?'echo':'echoes'}`;
-      const b=button(value===0?'N/A':String(value),()=>{changedMeasures.add(measure);values[measure]=value; for(const choice of choices.children)choice.setAttribute('aria-pressed',String(Number(choice.dataset.value)===value));},
+      const b=button(value===0?'N/A':String(value),()=>{changedMeasures.add(measure);values[measure]=value;remember(); for(const choice of choices.children)choice.setAttribute('aria-pressed',String(Number(choice.dataset.value)===value));},
         {'aria-label':`${measure}: ${label}`,'aria-pressed':String(values[measure]===value),'data-value':String(value)});
       if(value) b.prepend(echoIcon(value)); choices.append(b);
     }
-    const clear=button('Leave unrated',()=>{changedMeasures.add(measure);values[measure]=null;for(const choice of choices.children)choice.setAttribute('aria-pressed','false');},{class:'echo-clear'});
+    const clear=button('Leave unrated',()=>{changedMeasures.add(measure);values[measure]=null;remember();for(const choice of choices.children)choice.setAttribute('aria-pressed','false');},{class:'echo-clear'});
     field.append(legend,choices,clear); rows.push(field);
   }
-  const note=node('textarea',null,{id:'echo-note',rows:'3',maxlength:'2000'});note.value=values.note || '';
-  const status=node('p','Choose either measure, both, or N/A. Leave a measure unrated if you prefer.',{role:'status','aria-live':'polite'});
+  const note=node('textarea',null,{id:'echo-note',rows:'3',maxlength:'2000'});note.value=values.note || '';note.addEventListener('input',()=>{values.note=note.value;remember();});
+  const status=node('p','Choose either measure, both, or N/A. Unsaved choices stay on this device until you save them.',{role:'status','aria-live':'polite'});
   const save=button('Save and next unrated',async()=>{
     save.disabled=true; values.note=note.value;
     try {
-      await persistRating(component,{style:values.style,copy:values.copy,note:values.note,changedMeasures:[...changedMeasures]});
+      await persistRating(component,{style:values.style,copy:values.copy,note:values.note,changedMeasures:[...changedMeasures]});store(draftKey,'');
       if(iteration===1 && ratingMode==='tour'){closeModal();await nextPageRating();return;}
       const next=nextUnrated(components(),ratings,component.cid);
       if(next) { next.el.scrollIntoView({block:'center',behavior:'auto'});openModal(next); }
