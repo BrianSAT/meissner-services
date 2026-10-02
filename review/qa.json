@@ -1,0 +1,95 @@
+{
+  "scope": "Local mobile preliminary QA; not production or form-submission proof. Lighthouse scores span revisions before and during shared-form integration; rerun final deployed build.",
+  "phone_revision": "25a8a4d4ee0a03bee75388d85c8ec9f7ea52e840",
+  "rows": [
+    {
+      "variant": 1,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:22:08.749Z",
+      "lighthouse_report_sha256": "dcb02a4824502f3009d2be267078141fe3ee5a8dd868babb802514700e26bda4",
+      "phone": "phone-1.png",
+      "phone_sha256": "419f4a6023be310285bae0e8322a2f8d8628418b07ac3738d406cc7dc4158152",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 2,
+      "performance": 100,
+      "accessibility": 94,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:33:06.356Z",
+      "lighthouse_report_sha256": "3c6e97283361f2a631bd2e5a30378fdc543e20ac897014bf5795403f5c123035",
+      "phone": "phone-2.png",
+      "phone_sha256": "526a4a7557ace574dd5d0c0b168ce268f97a92234b92fd99dffd27d337dc8f15",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 3,
+      "performance": 79,
+      "accessibility": 96,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:33:16.788Z",
+      "lighthouse_report_sha256": "f0a1bc8830ec38078532bf026212b0503bb2f8a793156aaca3ceade4de406162",
+      "phone": "phone-3.png",
+      "phone_sha256": "c085412987f92ea6a4528c42bbc45735f9ce5ba279874f42461d8945ae7363ea",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 4,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:24:23.977Z",
+      "lighthouse_report_sha256": "c8c256a440645979b8bc48af2a1cc4842de5d1698beb7c9deb3c602d77d5268d",
+      "phone": "phone-4.png",
+      "phone_sha256": "511e88e461bfbbd5cbf90716215d9099c0e619a142d1cf20ca4d515e2bc5a4a0",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 5,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:33:28.935Z",
+      "lighthouse_report_sha256": "16402dc1f74477cdd31b6f1d313e6f4b2647a4b14ca98a4b0e72b1dbddfee9ae",
+      "phone": "phone-5.png",
+      "phone_sha256": "27909eb9581ecbc4ce2fc0cb69dc6932d4947ec0b974a25ac3f5b174ec07b10c",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 6,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:23:01.451Z",
+      "lighthouse_report_sha256": "d0ffae43cf17a6a12e677b89596aebed3096d11a4dccfe3c26b393bc0fa61307",
+      "phone": "phone-6.png",
+      "phone_sha256": "c8dda3788a92a81457717b6e5aad6af6d9af273fc56133105bb90a85c1ee1b58",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 7,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "lighthouse_fetch_time": "2026-10-02T08:33:41.556Z",
+      "lighthouse_report_sha256": "25953dd7331cf005723ef6a126ac380f116a75b3a1c4ccf00c4bcf7dac8e3648",
+      "phone": "phone-7.png",
+      "phone_sha256": "8370600c090359df236ef955b2530616da62e8be98556fc56f555b3662d47204",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    }
+  ],
+  "open": [
+    "Variant 3 performance below 90 and own logo pending",
+    "Seven real form submissions plus inbox ingest/ack pending Cuz authentication",
+    "Final deployed verification and morning email pending"
+  ]
+}
