@@ -1,4 +1,4 @@
-import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates} from './echo-core.mjs';
+import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates, compactLayout} from './echo-core.mjs';
 
 const config = {...{api: 'https://api.meissner.services/review', catalog: '/review/components.json'}, ...(window.EchoReviewConfig || {})};
 const params = new URLSearchParams(location.search);
@@ -221,8 +221,8 @@ async function summaryPage() {
     try {
       const next=iteration+1, previous=session.layouts?.[String(next)];
       const draft=previous?.layout || previous || await createDraft();
-      draft.candidate_catalog ||= catalog;
-      if(!previous)await api(`/s/${encodeURIComponent(sid)}/layout/${next}`,'PUT',{layout:draft});
+      draft.candidate_catalog ||= catalog;const compact=compactLayout(draft);
+      if(!previous)await api(`/s/${encodeURIComponent(sid)}/layout/${next}`,'PUT',{layout:compact});
       // The draft survives even if requesting the crew is temporarily unavailable.
       try { await api(`/s/${encodeURIComponent(sid)}/iterate`,'POST',{iteration:next,notes:'Please refine the draft copy and transitions; preserve viewer layout choices.'}); }
       catch(error) {store(`echo:iterate-pending:${sid}:${next}`,'1');}
@@ -268,11 +268,14 @@ async function copiesForCurrent() {
     for(const slot of previous?.slots || []) copies[slot.id]=previous.refined?.slots?.find(c=>c.id===slot.id && c.copy_from===slot.copy_from)?.copy || previous.copies?.[slot.copy_from] || {title:slot.type,body:[]};
     return copies;
   }
-  const copies={};const pages=[...new Set(catalog.map(c=>String(c.page)))];
+  return publicCopies(catalog);
+}
+async function publicCopies(inventory){
+  const copies={};const pages=[...new Set(inventory.map(c=>String(c.page)))];
   await Promise.all(pages.map(async page=>{
     const response=await fetch(`/${page}/`,{referrerPolicy:'no-referrer'});if(!response.ok)throw new Error(`Design ${page} unavailable`);
     const doc=new DOMParser().parseFromString(await response.text(),'text/html');
-    for(const c of catalog.filter(c=>String(c.page)===page)){
+    for(const c of inventory.filter(c=>String(c.page)===page)){
       const el=[...doc.querySelectorAll('[data-component]')].find(e=>e.dataset.component===c.cid);if(!el)continue;
       const title=el.querySelector('[data-copy-role="title"],h1,h2,h3')?.textContent.trim() || (el.matches('h1,h2,h3')?el.textContent.trim():c.type);
       const bodies=[...el.querySelectorAll('[data-copy-role="body"],p,li,blockquote')].filter(e=>!e.closest('.tag,.review-section-tag')).map(e=>e.textContent.trim()).filter(Boolean);
@@ -289,7 +292,7 @@ async function createDraft() {
 }
 let saveChain=Promise.resolve();
 function saveLayout() {
-  const snapshot=JSON.parse(JSON.stringify(layout));store(`echo:layout-pending:${sid}:${iteration}`,'1');store(`echo:layout:${sid}:${iteration}`,JSON.stringify(snapshot));
+  const snapshot=compactLayout(JSON.parse(JSON.stringify(layout)));store(`echo:layout-pending:${sid}:${iteration}`,'1');store(`echo:layout:${sid}:${iteration}`,JSON.stringify(snapshot));
   saveChain=saveChain.catch(()=>{}).then(async()=>{
     const fresh=await api(`/s/${encodeURIComponent(sid)}`);const remote=layoutValue(fresh.layouts?.[String(iteration)]);
     const combined={...snapshot,...(remote?.refined?{refined:remote.refined}:{})};
@@ -325,7 +328,7 @@ function renderSlots(host) {
     });
     handle.addEventListener('pointercancel',()=>{if(pointerStart)clearTimeout(pointerStart.timer);pointerStart=null;moveFrom=null;article.classList.remove('echo-dragging');});
     function reorder(direction){const index=layout.order.indexOf(id), target=direction<0?layout.order[index-1]:layout.order[index+2] ?? null;if(direction<0 && index===0)return;layout=move(layout,id,target);renderSlots(host);saveLayout();}
-    function swap(measure){layout.slots=layout.slots.map(s=>s.id===id?cycleCandidate(s,measure,catalog):s);renderSlots(host);saveLayout();}
+    async function swap(measure){try{const changed=cycleCandidate(slot,measure,catalog);if(measure==='copy' && !layout.copies?.[changed.copy_from]){const sourceCopies=await publicCopies(catalog);layout.copies={...layout.copies,...sourceCopies};}layout.slots=layout.slots.map(s=>s.id===id?changed:s);renderSlots(host);await saveLayout();}catch(error){meter.textContent=error.message;}}
     tools.append(handle,button('Move up',()=>reorder(-1)),button('Move down',()=>reorder(1)),
       button('Hide',()=>{layout.hidden.push(id);renderSlots(host);saveLayout();}),button('Swap copy',()=>swap('copy')),button('Swap style',()=>swap('style')));
     const caption=node('p',`${slot.type} · copy ${slot.copy_from} · style /${slot.style_from}${slot.provisional_copy || slot.provisional_style?' · provisional preference':''}`,{class:'echo-source-caption','data-echo-ui':''});

@@ -88,3 +88,9 @@ test('inheritance keeps style and copy evidence separate',async()=>{
  const signals=inheritSignals([{cid:'1.HERO',page:'1'},{cid:'1.CONTACT',page:'1'}],new Map([['1.HERO',{style:5,copy:null}]]));
  assert.equal(signals.get('1.CONTACT').style,5);assert.equal(signals.get('1.CONTACT').copy,null);
 });
+
+test('private layout retains selected copy and source identity without duplicate text inventory',async()=>{
+ const {compactLayout}=await import('../assets/echo-core.mjs');
+ const full={slots:[{id:'hero',copy_from:'1.HERO'}],copies:{'1.HERO':{title:'chosen'},'2.HERO':{title:'runner up'}},candidate_catalog:[{cid:'1.HERO',type:'hero',kind:'section',parent:null,page:'1',text:'huge duplicate'},{cid:'1.HERO.headline',kind:'component',parent:'1.HERO'}],order:['hero'],hidden:['hero']};
+ const compact=compactLayout(full);assert.deepEqual(Object.keys(compact.copies),['1.HERO']);assert.equal(compact.candidate_catalog.length,1);assert.equal(compact.candidate_catalog[0].text,undefined);assert.deepEqual(compact.hidden,['hero']);assert.equal(full.copies['2.HERO'].title,'runner up');
+});

@@ -176,3 +176,10 @@ export function comparisonCandidates(catalog,type) {
     return chosen?[chosen]:[];
   });
 }
+/** Persist source identities and chosen copy, not hundreds of duplicate DOM texts. */
+export function compactLayout(layout) {
+  const selected=new Set((layout.slots || []).map(s=>s.copy_from));
+  return {...layout,copies:Object.fromEntries(Object.entries(layout.copies || {}).filter(([id])=>selected.has(id))),
+    candidate_catalog:(layout.candidate_catalog || []).filter(c=>c.kind==='section' || !c.parent)
+      .map(({cid,type,kind,parent,page,path})=>({cid,type,kind,parent,page,...(path?{path}:{})}))};
+}
