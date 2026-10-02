@@ -3549,5 +3549,259 @@
    "page": "7",
    "text": "Meissner Services · Variant 7 of 7, \"The Operator\" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies."
   }
+ ],
+ "how-we-work": [
+  {
+   "cid": "how-we-work.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "MEISSNER SERVICES Compare designs"
+  },
+  {
+   "cid": "HW.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.HERO How we work: prototype, rate, synthesize, repeat, deliver Most projects go wrong in the gap between what you asked for and what you meant. We close it by showing you working options early and letting you rate them, part by part."
+  },
+  {
+   "cid": "HW.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "HW.HERO",
+   "page": "how-we-work",
+   "text": "How we work: prototype, rate, synthesize, repeat, deliver"
+  },
+  {
+   "cid": "HW.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "HW.HERO",
+   "page": "how-we-work",
+   "text": "Most projects go wrong in the gap between what you asked for and what you meant. We close it by showing you working options early and letting you rate them, part by part."
+  },
+  {
+   "cid": "HW.HERO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "HW.HERO",
+   "page": "how-we-work",
+   "text": ""
+  },
+  {
+   "cid": "HW.LOOP",
+   "type": "method",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.LOOP The loop Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "HW.LOOP.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "The loop"
+  },
+  {
+   "cid": "HW.LOOP.method-step",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "Prototype. We build working options for your task, not slides about it."
+  },
+  {
+   "cid": "HW.LOOP.method-step-2",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. Skip anything you don't care about; partial ratings count."
+  },
+  {
+   "cid": "HW.LOOP.method-step-3",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready."
+  },
+  {
+   "cid": "HW.LOOP.method-step-4",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right."
+  },
+  {
+   "cid": "HW.LOOP.method-step-5",
+   "type": "method-step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.LOOP",
+   "page": "how-we-work",
+   "text": "Deliver. You get the finished work in your tools and formats, at the price agreed before we started."
+  },
+  {
+   "cid": "HW.EXAMPLES",
+   "type": "examples",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.EXAMPLES The same loop works on any task Database cleanup Sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation Slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website Like this site. You rate seven designs part by part, and the next version combines what you liked."
+  },
+  {
+   "cid": "HW.EXAMPLES.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "HW.EXAMPLES",
+   "page": "how-we-work",
+   "text": "The same loop works on any task"
+  },
+  {
+   "cid": "HW.EXAMPLES.example",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.EXAMPLES",
+   "page": "how-we-work",
+   "text": "Database cleanup Sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose."
+  },
+  {
+   "cid": "HW.EXAMPLES.example-2",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.EXAMPLES",
+   "page": "how-we-work",
+   "text": "Research presentation Slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest."
+  },
+  {
+   "cid": "HW.EXAMPLES.example-3",
+   "type": "example",
+   "kind": "component",
+   "tag": "li",
+   "parent": "HW.EXAMPLES",
+   "page": "how-we-work",
+   "text": "Interactive website Like this site. You rate seven designs part by part, and the next version combines what you liked."
+  },
+  {
+   "cid": "HW.TRY",
+   "type": "cta-section",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.TRY Try it here This site is built to be rated. Start a review, rate the seven designs, and generate the next version. Start a review"
+  },
+  {
+   "cid": "HW.TRY.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "HW.TRY",
+   "page": "how-we-work",
+   "text": "Try it here"
+  },
+  {
+   "cid": "HW.TRY.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "HW.TRY",
+   "page": "how-we-work",
+   "text": "Start a review"
+  },
+  {
+   "cid": "HW.LOOM",
+   "type": "section",
+   "kind": "section",
+   "tag": "div",
+   "parent": "HW.TRY",
+   "page": "how-we-work",
+   "text": ""
+  },
+  {
+   "cid": "HW.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.PROMISE In Brian's words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "HW.PROMISE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "HW.PROMISE",
+   "page": "how-we-work",
+   "text": "In Brian's words"
+  },
+  {
+   "cid": "HW.PROMISE.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "HW.PROMISE",
+   "page": "how-we-work",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "HW.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "HW.CONTACT Start with a conversation Tell us the task, the tools you use and your timing. We'll scope it with you before we begin. team@meissner.services"
+  },
+  {
+   "cid": "HW.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "HW.CONTACT",
+   "page": "how-we-work",
+   "text": "Start with a conversation"
+  },
+  {
+   "cid": "HW.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "HW.CONTACT",
+   "page": "how-we-work",
+   "text": "team@meissner.services"
+  },
+  {
+   "cid": "how-we-work.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "how-we-work",
+   "text": "Meissner Services · How we work · I work with my own team of AI agents, which I direct and review."
+  }
  ]
 }
