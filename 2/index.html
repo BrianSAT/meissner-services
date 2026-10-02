@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Meissner Services · A working prototype first. A fixed price throughout.</title>
 <meta name="description" content="Small fixed-price software and data jobs, run by Brian Meissner with his own team of AI agents. A working prototype first, then refined until it's right.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5a1f'/%3E%3Ccircle cx='20' cy='10' r='4' fill='%23fff' opacity='.55'/%3E%3Cpath d='M14 30v-9a6 6 0 0 1 12 0v9z' fill='%23fff' opacity='.55'/%3E%3Ccircle cx='13' cy='10' r='4.5' fill='%23fff'/%3E%3Cpath d='M6 30v-9a7 7 0 0 1 14 0v9z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="/2/favicon.svg" type="image/svg+xml">
 <style>
 :root{--bg:#fffaf3;--ink:#16161d;--muted:#55555f;--card:#ffffff;--line:#ece4d8;--hot:#ff5a1f;--cool:#2346ff;--hot-ink:#ffffff;--ok:#0b7a43}
 @media (prefers-color-scheme:dark){:root{--bg:#121218;--ink:#f5f2ec;--muted:#b4b2bd;--card:#1c1c25;--line:#2c2c38;--hot:#ff7a45;--cool:#7d8dff;--hot-ink:#121218;--ok:#4cd28a}}
@@ -63,10 +63,12 @@ blockquote cite{display:block;margin-top:10px;font-style:normal;color:var(--mute
 .contact h2{color:var(--bg)}
 .contact .btn.secondary{border-color:var(--bg);color:var(--bg)}
 .contact a.plain{color:var(--bg)}
+.contact meissner-contact a{color:var(--bg)}
 footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
-/* ?tags=1 element tags */
-.tags [data-tag]::before{content:attr(id);position:absolute;top:6px;right:6px;font:600 11px/1 ui-monospace,Menlo,monospace;background:var(--cool);color:#fff;padding:4px 6px;border-radius:6px;z-index:5}
+.mark-wrap{position:relative}.mark-wrap>.review-section-tag{position:absolute;top:0;left:0;margin:0}
 </style>
+<link rel="stylesheet" href="/assets/shared.css">
+<script defer src="/assets/shared.js"></script>
 </head>
 <body>
 <a class="skip" href="#2.CONTACT">Skip to contact</a>
@@ -87,7 +89,7 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
     <p class="fine">English or Spanish. Portuguese conversational.</p>
   </div>
   <div class="mark-wrap" id="2.LOGO" data-tag>
-    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with four echoes fanning out behind him">
+    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with three echoes fanning out behind him">
       <g fill="var(--cool)">
         <g class="echo e4" opacity=".14"><circle cx="262" cy="70" r="22"/><path d="M228 228v-74a34 34 0 0 1 68 0v74z"/></g>
         <g class="echo e3" opacity=".26"><circle cx="222" cy="70" r="24"/><path d="M185 228v-76a37 37 0 0 1 74 0v76z"/></g>
@@ -103,7 +105,7 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
   <div class="qa">
     <article class="q"><h3><span class="n">1</span>Is this real?</h3><p>Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project.</p></article>
     <article class="q"><h3><span class="n">2</span>Will you answer me?</h3><p>Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational.</p></article>
-    <article class="q"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>No. The price is fixed and agreed before work starts. If you want more than we agreed, we quote the extra first, and you decide.</p></article>
+    <article class="q"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide.</p></article>
     <article class="q"><h3><span class="n">4</span>Can you work in my tools?</h3><p>Yes. We map onto your tools, languages and accounts, and you own everything from day one.</p></article>
   </div>
 </section>
@@ -154,10 +156,12 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
   <div class="contact">
     <h2 id="h-contact">Tell us what you want</h2>
     <p>One tap to start. Email or WhatsApp, in English or Spanish.</p>
-    <div class="ctas">
+    <meissner-contact>
+      <div class="ctas">
       <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
       <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">team@meissner.services</a>
-    </div>
+      </div>
+    </meissner-contact>
   </div>
 </section>
 

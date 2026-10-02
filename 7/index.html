@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Meissner Services · Brian Meissner, the operator</title>
 <meta name="description" content="Brian Meissner runs every project himself, with his own team of AI agents. Message him on WhatsApp or email.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230f3d2e'/%3E%3Ccircle cx='20.5' cy='13' r='5' fill='none' stroke='%237ee2b8' stroke-width='1.6' opacity='.45'/%3E%3Ccircle cx='14' cy='13' r='5.5' fill='none' stroke='%23e9fff5' stroke-width='2.2'/%3E%3Cpath d='M6.5 27a7.5 7.5 0 0 1 15 0' fill='none' stroke='%23e9fff5' stroke-width='2.2'/%3E%3C/svg%3E">
+<link rel="icon" href="/7/favicon.svg" type="image/svg+xml">
 <style>
 :root{--bg:#eef3ef;--paper:#f8fbf9;--ink:#12201a;--muted:#4c5d55;--me:#d9f6e7;--them:#ffffff;--line:#d5e2db;--accent:#0f7a54;--accent-ink:#ffffff;--deep:#0f3d2e}
 @media (prefers-color-scheme:dark){:root{--bg:#0b1411;--paper:#101c18;--ink:#e6f2ec;--muted:#9fb5aa;--me:#123b2c;--them:#16241f;--line:#22362e;--accent:#3fd39a;--accent-ink:#06120d;--deep:#0a2a20}}
@@ -44,8 +44,10 @@ blockquote cite{display:block;margin-top:8px;font-style:normal;color:var(--muted
 .mark svg{width:180px;height:auto}
 .ring{stroke:var(--accent);fill:none}
 footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;color:var(--muted)}
-.tags [data-tag]::before{content:attr(id);position:absolute;top:2px;right:0;font:600 11px/1 ui-monospace,Menlo,monospace;background:var(--deep);color:#e9fff5;padding:4px 6px;border-radius:6px;z-index:5}
+.mark{position:relative}.mark>.review-section-tag{position:absolute;top:0;left:0;margin:0}
 </style>
+<link rel="stylesheet" href="/assets/shared.css">
+<script defer src="/assets/shared.js"></script>
 </head>
 <body>
 <div class="bar" role="banner">
@@ -102,11 +104,12 @@ footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;co
 
 <section id="7.CONTACT" data-tag aria-labelledby="h-contact">
   <h2 id="h-contact">Message me</h2>
-  <div class="cta">
+  <meissner-contact>
+    <div class="cta">
     <a class="btn wa" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp · +1 (262) 366-1718</a>
     <a class="btn mail" href="mailto:team@meissner.services?subject=Project%20enquiry">Email · team@meissner.services</a>
   </div>
-  <p class="fine">English or Spanish. Portuguese conversational.</p>
+  </meissner-contact>
 </section>
 </main>
 
