@@ -93,7 +93,17 @@
     "method": "Cuz-authorized bearer test:true path; separate from visitor challenge"
   },
   "open": [
-    "Durable native lead-intake installation pending Gavi; BA source5b2cc0a ready",
-    "Speed copy alignment on variants2/3/4/7 remains with page owners"
-  ]
+    "Durable native lead-intake installation pending Gavi; BA source5b2cc0a ready"
+  ],
+  "copy_followup": {
+    "commit": "2d002109e835fa260f45430046ad719b922a30c6",
+    "live_byte_match_variants": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "ba_phone_theme_passed": 4,
+    "note": "Copy-only update; earlier production Lighthouse timestamps retained, not relabelled as a fresh measurement."
+  }
 }
