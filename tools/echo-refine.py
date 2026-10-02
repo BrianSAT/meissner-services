@@ -101,22 +101,25 @@ def intake(app,workspace,secret,fetch=request):
     return {'requests':len(result.get('requests',[])),'tasks_created':created}
 
 
-def merge_refinement(layout,result,request_id):
+def merge_refinement(layout,result,request_id,source_layout=None):
     """Reject missing/fabricated slots and copy-source changes; preserve all edits."""
     if not isinstance(result,dict) or not isinstance(result.get('slots'),list):raise ValueError('structured refined slots required')
     expected={s['id']:s for s in layout.get('slots',[])}
+    sources={s['id']:s for s in (source_layout or layout).get('slots',[])}
     if not expected:raise ValueError('draft has no slots')
     seen=set()
     for slot in result['slots']:
         key=slot.get('id')
         if key not in expected or key in seen:raise ValueError('unknown or repeated refined slot')
         seen.add(key)
-        if slot.get('copy_from')!=expected[key].get('copy_from'):raise ValueError('copy source changed; reread current layout')
+        if slot.get('copy_from') not in {expected[key].get('copy_from'),sources.get(key,{}).get('copy_from')}:
+            raise ValueError('copy source differs from both request and current choices')
         copy=slot.get('copy')
         if not isinstance(copy,dict) or not isinstance(copy.get('title'),str) or not copy['title'].strip():raise ValueError('real refined title required')
         if not isinstance(copy.get('body'),list) or not all(isinstance(v,str) and len(v)<=10000 for v in copy['body']):raise ValueError('invalid refined body')
         if len(copy['title'])>2000:raise ValueError('title too long')
-        if expected[key].get('type')=='canonical' and copy!=layout.get('copies',{}).get(slot['copy_from']):
+        reference=layout if slot.get('copy_from')==expected[key].get('copy_from') else source_layout
+        if expected[key].get('type')=='canonical' and copy!=reference.get('copies',{}).get(slot['copy_from']):
             raise ValueError('Brian canonical copy is verbatim; do not rewrite it')
         cta=copy.get('cta')
         if cta is not None and (not isinstance(cta,dict) or not isinstance(cta.get('text'),str) or not isinstance(cta.get('href'),str)):raise ValueError('invalid CTA')
@@ -130,7 +133,8 @@ def complete(workspace,rid,result,secret,fetch=request):
     sid=identity(item['sid']);iteration=int(item['iteration'])
     fresh=fetch('GET','/s/'+quote(sid),None)
     layout=value(fresh.get('layouts',{}).get(str(iteration),{}))
-    refined=merge_refinement(layout,result,rid)
+    original=value(job['session'].get('layouts',{}).get(str(iteration),{})) if 'session' in job else layout
+    refined=merge_refinement(layout,result,rid,original)
     # Read/merge the latest layout. No order/hide/swap fields are supplied by crew.
     fetch('PUT',f'/s/{quote(sid)}/layout/{iteration}',None,{'layout':refined})
     url=f'https://meissner.services/review/iterate/?s={quote(sid)}&i={iteration}&refined={quote(rid)}'

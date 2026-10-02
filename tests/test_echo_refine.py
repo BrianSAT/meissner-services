@@ -50,6 +50,12 @@ class RefinementTest(unittest.TestCase):
         with self.assertRaises(ValueError):m.merge_refinement(self.layout,self.copy,'request_one')
         self.copy['slots'][0]['copy']=self.layout['copies']['1.HERO']
         self.assertEqual(m.merge_refinement(self.layout,self.copy,'request_one')['refined']['slots'][0]['copy']['body'],['Brian verbatim'])
+    def test_viewer_swap_during_crew_work_is_preserved_with_original_result(self):
+        original=json.loads(json.dumps(self.layout));self.layout['slots'][0]['copy_from']='2.HERO'
+        refined=m.merge_refinement(self.layout,self.copy,'request_one',original)
+        self.assertEqual(refined['slots'][0]['copy_from'],'2.HERO')
+        self.assertEqual(refined['refined']['slots'][0]['copy_from'],'1.HERO')
+        with self.assertRaises(ValueError):m.merge_refinement(self.layout,{'slots':[{**self.copy['slots'][0],'copy_from':'3.HERO'}]},'request_one',original)
     def test_private_packet_atomic_and_identity_safe(self):
         p=self.root/'job.json';m.private_write(p,{'note':'first'});m.private_write(p,{'note':'second'})
         self.assertEqual(json.loads(p.read_text()),{'note':'second'});self.assertEqual(p.stat().st_mode&0o777,0o600)

@@ -331,7 +331,7 @@ function renderSlots(host) {
     async function swap(measure){try{const changed=cycleCandidate(slot,measure,catalog);if(measure==='copy' && !layout.copies?.[changed.copy_from]){const sourceCopies=await publicCopies(catalog);layout.copies={...layout.copies,...sourceCopies};}layout=swapLayout(layout,id,measure,catalog);renderSlots(host);await saveLayout();}catch(error){meter.textContent=error.message;}}
     tools.append(handle,button('Move up',()=>reorder(-1)),button('Move down',()=>reorder(1)),
       button('Hide',()=>{layout.hidden.push(id);renderSlots(host);saveLayout();}),button('Swap copy',()=>swap('copy')),button('Swap style',()=>swap('style')));
-    const caption=node('p',`${slot.type} · copy ${slot.copy_from} · style /${slot.style_from}${slot.provisional_copy || slot.provisional_style?' · provisional preference':''}`,{class:'echo-source-caption','data-echo-ui':''});
+    const caption=node('p',`${slot.type} · copy ${slot.copy_from} · style /${slot.style_from}${slot.provisional_copy || slot.provisional_style?' · provisional preference':''}${refined && refined.copy_from!==slot.copy_from?' · your swap kept; crew copy belongs to the previous source':''}`,{class:'echo-source-caption','data-echo-ui':''});
     const title=node(slot.type==='hero'?'h1':'h2',copy.title || slot.type,{'data-component':`${id}.headline`,'data-type':'headline'});
     const body=node('div',null,{'data-component':`${id}.body`,'data-type':'body'});for(const text of copy.body || [])body.append(node('p',text));
     article.append(tools,caption,title,body);
