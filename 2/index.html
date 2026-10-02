@@ -67,10 +67,24 @@ blockquote cite{display:block;margin-top:10px;font-style:normal;color:var(--mute
 footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
 .mark-wrap{position:relative}.mark-wrap>.review-section-tag{position:absolute;top:0;left:0;margin:0}
 .proof{font-size:14px;color:var(--muted);border-left:4px solid var(--cool);padding:2px 0 2px 12px;margin:14px 0 0;max-width:46ch}
+.feat-grid{display:grid;gap:18px}@media (min-width:760px){.feat-grid{grid-template-columns:1fr 1.2fr}}
+.fl{display:block;font-size:14px;font-weight:700;margin:12px 0 6px}
+.fi{width:100%;font:16px/1.5 inherit;font-family:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+.fi:focus-visible,.fbtn:focus-visible,.outline-out [contenteditable]:focus-visible{outline:3px solid var(--cool);outline-offset:2px}
+.chart-out svg{width:100%;height:auto;border:1px solid var(--line);border-radius:14px;display:block}
+.chart-takeaway{font-weight:700;margin:12px 0 4px}
+.fbtn{min-height:44px;padding:10px 16px;border-radius:999px;border:2px solid var(--cool);background:var(--cool);color:#fff;font:inherit;font-weight:700;cursor:pointer;margin:8px 8px 0 0}
+.fbtn.ghost{background:transparent;color:var(--ink)}
+.outline-out{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.outline-out li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.outline-out .on{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.outline-out .oh{font-weight:800}.outline-out .op{color:var(--muted);font-size:15px}
+.outline-out .op::before{content:"• "}
 </style>
 <link rel="stylesheet" href="/assets/shared.css">
 <script defer src="/assets/shared.js"></script>
 <script type="module" src="/assets/echo-review.js"></script>
+<script type="module" src="/2/features.js"></script>
 </head>
 <body>
 <a class="skip" href="#2.CONTACT">Skip to contact</a>
@@ -153,6 +167,51 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
 <section id="2.CANON" data-tag aria-labelledby="h-canon" data-component="2.CANON" data-type="canonical">
   <h2 id="h-canon" data-component="2.CANON.headline" data-type="headline">In Brian's words</h2>
   <blockquote data-component="2.CANON.canonical-quote" data-type="canonical-quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
+</section>
+
+<section id="2.CHART" class="feat" data-tag aria-labelledby="h-chart" data-feature="chart" data-component="2.CHART" data-type="feature">
+  <h2 id="h-chart" data-component="2.CHART.headline" data-type="headline">Paste numbers, get a chart</h2>
+  <p class="fine">The research-presentation pitch, proven on the spot. It runs in your browser: your numbers never leave this page.</p>
+  <div class="feat-grid">
+    <div>
+      <label class="fl" for="chart-title">Chart title (optional)</label>
+      <input id="chart-title" class="fi" type="text" maxlength="80" placeholder="Monthly bookings">
+      <label class="fl" for="chart-data">Your numbers, one per line (a label first is optional)</label>
+      <textarea id="chart-data" class="fi" rows="7" spellcheck="false">Jan 120
+Feb 135
+Mar 128
+Apr 160
+May 172</textarea>
+      <p class="fine">Example numbers shown; replace them with yours.</p>
+    </div>
+    <div>
+      <div class="chart-out" aria-live="polite"></div>
+      <p class="chart-takeaway" aria-live="polite"></p>
+      <p class="fine">Takeaway computed from your numbers, not written by AI.</p>
+      <button type="button" class="fbtn chart-dl" hidden>Download chart (SVG)</button>
+    </div>
+  </div>
+</section>
+
+<section id="2.OUTLINE" class="feat" data-tag aria-labelledby="h-outline" data-feature="outline" data-component="2.OUTLINE" data-type="feature">
+  <h2 id="h-outline" data-component="2.OUTLINE.headline" data-type="headline">Your facts, as an editable slide outline</h2>
+  <p class="fine">Type your title and your facts; we lay them out as slides you can edit and export. We add no facts and no sources: every slide comes from what you typed.</p>
+  <div class="feat-grid">
+    <div>
+      <label class="fl" for="ol-title">Presentation title</label>
+      <input id="ol-title" class="fi" type="text" maxlength="120" placeholder="Why we should add evening appointments">
+      <label class="fl" for="ol-aud">Audience (optional)</label>
+      <input id="ol-aud" class="fi" type="text" maxlength="80" placeholder="The partners">
+      <label class="fl" for="ol-facts">Facts, one per line; add a source after a | if you have one</label>
+      <textarea id="ol-facts" class="fi" rows="6" placeholder="Most of our missed calls come after 5 pm | our phone log, September"></textarea>
+    </div>
+    <div>
+      <ol class="outline-out" aria-live="polite"></ol>
+      <p class="fine">Click any line to edit it before exporting.</p>
+      <button type="button" class="fbtn outline-dl">Download outline (.md)</button>
+      <button type="button" class="fbtn ghost outline-copy">Copy outline</button>
+    </div>
+  </div>
 </section>
 
 <section id="2.METHOD" class="echo-method" data-tag aria-labelledby="h-2-method" data-component="2.METHOD" data-type="method"><style>.echo-method ol,.echo-method ul{padding-left:1.3em;max-width:62ch}.echo-method li{margin:.5em 0;opacity:1;animation:none;white-space:normal;break-inside:auto}.echo-method .examples-lead{margin-top:1.4em}</style>

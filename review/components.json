@@ -759,6 +759,42 @@
    "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
   },
   {
+   "cid": "2.CHART",
+   "type": "feature",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Paste numbers, get a chart The research-presentation pitch, proven on the spot. It runs in your browser: your numbers never leave this page. Chart title (optional) Your numbers, one per line (a label first is optional) Jan 120 Feb 135 Mar 128 Apr 160 May 172 Example numbers shown; replace them with yours. Takeaway computed from your numbers, not written by AI. Download chart (SVG)"
+  },
+  {
+   "cid": "2.CHART.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.CHART",
+   "page": "2",
+   "text": "Paste numbers, get a chart"
+  },
+  {
+   "cid": "2.OUTLINE",
+   "type": "feature",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Your facts, as an editable slide outline Type your title and your facts; we lay them out as slides you can edit and export. We add no facts and no sources: every slide comes from what you typed. Presentation title Audience (optional) Facts, one per line; add a source after a | if you have one Click any line to edit it before exporting. Download outline (.md) Copy outline"
+  },
+  {
+   "cid": "2.OUTLINE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.OUTLINE",
+   "page": "2",
+   "text": "Your facts, as an editable slide outline"
+  },
+  {
    "cid": "2.METHOD",
    "type": "method",
    "kind": "section",
