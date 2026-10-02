@@ -63,6 +63,15 @@
       "source_html_sha256": "33d076b1f6b63094701ef3f391623f96fa98ef81d7418b0a9cb9eec612e62574",
       "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
       "snapshot_sha256": "478987fa1e86e85eb430f9be16c1607cb83684f96126ab2cbda9b349cc0cf85c"
+    },
+    {
+      "sha": "946ae0df7e7686f485e0b063682a9877b1fd53db",
+      "timestamp": "2026-10-02T12:37:08-05:00",
+      "title": "Add Workshop CSV and real history, private offline review and local share cards",
+      "snapshot": "/4/history/946ae0d.html",
+      "source_html_sha256": "06f5ca5ddbb28c40b43c73727df3df91b914293519923da4de510cb02b4ec515",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "01ac1906245fb83256df1f0d780a43a8300d7fa0eeffd2d8701349e6ff0ad31d"
     }
   ]
 }
