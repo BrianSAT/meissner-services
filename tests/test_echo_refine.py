@@ -45,6 +45,11 @@ class RefinementTest(unittest.TestCase):
         for slots in [[],[{'id':'other'}],self.copy['slots']*2,[{**self.copy['slots'][0],'copy_from':'2.HERO'}]]:
             with self.subTest(slots=slots):
                 with self.assertRaises(ValueError):m.merge_refinement(self.layout,{'slots':slots},'request_one')
+    def test_canonical_copy_cannot_be_rewritten(self):
+        self.layout['slots'][0]['type']='canonical';self.layout['copies']['1.HERO']={'title':'Original','body':['Brian verbatim']}
+        with self.assertRaises(ValueError):m.merge_refinement(self.layout,self.copy,'request_one')
+        self.copy['slots'][0]['copy']=self.layout['copies']['1.HERO']
+        self.assertEqual(m.merge_refinement(self.layout,self.copy,'request_one')['refined']['slots'][0]['copy']['body'],['Brian verbatim'])
     def test_private_packet_atomic_and_identity_safe(self):
         p=self.root/'job.json';m.private_write(p,{'note':'first'});m.private_write(p,{'note':'second'})
         self.assertEqual(json.loads(p.read_text()),{'note':'second'});self.assertEqual(p.stat().st_mode&0o777,0o600)

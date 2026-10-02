@@ -94,3 +94,21 @@ test('private layout retains selected copy and source identity without duplicate
  const full={slots:[{id:'hero',copy_from:'1.HERO'}],copies:{'1.HERO':{title:'chosen'},'2.HERO':{title:'runner up'}},candidate_catalog:[{cid:'1.HERO',type:'hero',kind:'section',parent:null,page:'1',text:'huge duplicate'},{cid:'1.HERO.headline',kind:'component',parent:'1.HERO'}],order:['hero'],hidden:['hero']};
  const compact=compactLayout(full);assert.deepEqual(Object.keys(compact.copies),['1.HERO']);assert.equal(compact.candidate_catalog.length,1);assert.equal(compact.candidate_catalog[0].text,undefined);assert.deepEqual(compact.hidden,['hero']);assert.equal(full.copies['2.HERO'].title,'runner up');
 });
+
+test('activity clock excludes idle and hidden time, resumes only on activity',async()=>{
+ const {activityClock,activeMilliseconds}=await import('../assets/echo-core.mjs');
+ const clock=activityClock(1000);clock.input(100);assert.deepEqual(clock.take(500),[[100,500]]);
+ clock.visible(false,700);assert.deepEqual(clock.take(3000),[[500,700]]);
+ clock.visible(true,3000);assert.deepEqual(clock.take(3500),[]);
+ clock.input(4000);assert.deepEqual(clock.take(7000),[[4000,5000]]);
+ clock.input(8000);clock.input(8500);assert.equal(activeMilliseconds(clock.take(10000)),1500);
+});
+
+test('copy fetch completion cannot replace a style swap made while waiting',async()=>{
+ const {swapLayout}=await import('../assets/echo-core.mjs');
+ const catalog=[{cid:'1.HERO',page:'1',type:'hero',kind:'section'},{cid:'2.HERO',page:'2',type:'hero',kind:'section'}];
+ let layout={slots:[{id:'hero',type:'hero',copy_from:'1.HERO',style_cid:'1.HERO',style_from:'1'}]};
+ layout=swapLayout(layout,'hero','style',catalog);
+ layout=swapLayout(layout,'hero','copy',catalog);
+ assert.equal(layout.slots[0].style_from,'2');assert.equal(layout.slots[0].copy_from,'2.HERO');
+});

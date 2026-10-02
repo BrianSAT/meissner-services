@@ -104,6 +104,9 @@ export function cycleCandidate(slot, measure, catalog) {
   if (measure === 'style') result.style_from = String(catalog.find(c => c.cid === cid)?.page || '1');
   return result;
 }
+export function swapLayout(layout,id,measure,catalog) {
+  return {...layout,slots:layout.slots.map(slot=>slot.id===id?cycleCandidate(slot,measure,catalog):slot)};
+}
 
 export function reviewPlan() { return {version:2, required_pages:['1','2','3','4','5','6','7'], rule:'one-positive-measure-anywhere-per-page', denominator:7}; }
 export function pageProgress(ratings) {
@@ -182,4 +185,14 @@ export function compactLayout(layout) {
   return {...layout,copies:Object.fromEntries(Object.entries(layout.copies || {}).filter(([id])=>selected.has(id))),
     candidate_catalog:(layout.candidate_catalog || []).filter(c=>c.kind==='section' || !c.parent)
       .map(({cid,type,kind,parent,page,path})=>({cid,type,kind,parent,page,...(path?{path}:{})}))};
+}
+/** Monotonic activity windows: stop at idle deadline and on hidden documents. */
+export function activityClock(idleMs=60000) {
+  let start=null,last=0,visible=true,spans=[];
+  function stop(at){if(start!==null){const end=Math.min(at,last+idleMs);if(end>start)spans.push([start,end]);start=null;}}
+  return {
+    input(at){if(start!==null && at>last+idleMs)stop(last+idleMs);last=at;if(visible && start===null)start=at;},
+    visible(value,at){visible=value;if(!value)stop(at);},
+    take(at){if(start!==null){const end=Math.min(at,last+idleMs);if(end>start)spans.push([start,end]);start=visible && at<last+idleMs?at:null;}const result=spans;spans=[];return result;}
+  };
 }

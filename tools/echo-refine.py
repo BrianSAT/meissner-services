@@ -116,6 +116,8 @@ def merge_refinement(layout,result,request_id):
         if not isinstance(copy,dict) or not isinstance(copy.get('title'),str) or not copy['title'].strip():raise ValueError('real refined title required')
         if not isinstance(copy.get('body'),list) or not all(isinstance(v,str) and len(v)<=10000 for v in copy['body']):raise ValueError('invalid refined body')
         if len(copy['title'])>2000:raise ValueError('title too long')
+        if expected[key].get('type')=='canonical' and copy!=layout.get('copies',{}).get(slot['copy_from']):
+            raise ValueError('Brian canonical copy is verbatim; do not rewrite it')
         cta=copy.get('cta')
         if cta is not None and (not isinstance(cta,dict) or not isinstance(cta.get('text'),str) or not isinstance(cta.get('href'),str)):raise ValueError('invalid CTA')
     if seen!=set(expected):raise ValueError('every slot needs actual refined copy')

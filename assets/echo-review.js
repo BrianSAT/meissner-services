@@ -1,4 +1,4 @@
-import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates, compactLayout} from './echo-core.mjs';
+import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates, compactLayout, swapLayout} from './echo-core.mjs';
 
 const config = {...{api: 'https://api.meissner.services/review', catalog: '/review/components.json'}, ...(window.EchoReviewConfig || {})};
 const params = new URLSearchParams(location.search);
@@ -328,7 +328,7 @@ function renderSlots(host) {
     });
     handle.addEventListener('pointercancel',()=>{if(pointerStart)clearTimeout(pointerStart.timer);pointerStart=null;moveFrom=null;article.classList.remove('echo-dragging');});
     function reorder(direction){const index=layout.order.indexOf(id), target=direction<0?layout.order[index-1]:layout.order[index+2] ?? null;if(direction<0 && index===0)return;layout=move(layout,id,target);renderSlots(host);saveLayout();}
-    async function swap(measure){try{const changed=cycleCandidate(slot,measure,catalog);if(measure==='copy' && !layout.copies?.[changed.copy_from]){const sourceCopies=await publicCopies(catalog);layout.copies={...layout.copies,...sourceCopies};}layout.slots=layout.slots.map(s=>s.id===id?changed:s);renderSlots(host);await saveLayout();}catch(error){meter.textContent=error.message;}}
+    async function swap(measure){try{const changed=cycleCandidate(slot,measure,catalog);if(measure==='copy' && !layout.copies?.[changed.copy_from]){const sourceCopies=await publicCopies(catalog);layout.copies={...layout.copies,...sourceCopies};}layout=swapLayout(layout,id,measure,catalog);renderSlots(host);await saveLayout();}catch(error){meter.textContent=error.message;}}
     tools.append(handle,button('Move up',()=>reorder(-1)),button('Move down',()=>reorder(1)),
       button('Hide',()=>{layout.hidden.push(id);renderSlots(host);saveLayout();}),button('Swap copy',()=>swap('copy')),button('Swap style',()=>swap('style')));
     const caption=node('p',`${slot.type} · copy ${slot.copy_from} · style /${slot.style_from}${slot.provisional_copy || slot.provisional_style?' · provisional preference':''}`,{class:'echo-source-caption','data-echo-ui':''});
