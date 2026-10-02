@@ -1,0 +1,2923 @@
+{
+ "1": [
+  {
+   "cid": "1.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "1",
+   "text": "MEISSNER SERVICES The process Start a project ↗ Compare designs ◐ Theme"
+  },
+  {
+   "cid": "1.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.HERO Brian Meissner directs the AI team. One human accountable. Tightly scoped prototypes, built in hours. A clear plan. A working prototype. Bring the problem. We’ll map the work, build something you can use, and refine it with you. Your tools. A fixed scope. A price agreed before we start. Let’s make a plan ↗ English & Spanish · Your channel, your hours Brian Meissner · Founder of SA Trails, a Wi-Fi SaaS"
+  },
+  {
+   "cid": "1.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": "Brian Meissner directs the AI team. One human accountable."
+  },
+  {
+   "cid": "1.HERO.eyebrow-2",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": "Tightly scoped prototypes, built in hours."
+  },
+  {
+   "cid": "1.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": "A clear plan. A working prototype."
+  },
+  {
+   "cid": "1.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": "Bring the problem. We’ll map the work, build something you can use, and refine it with you. Your tools. A fixed scope. A price agreed before we start."
+  },
+  {
+   "cid": "1.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": "Let’s make a plan ↗"
+  },
+  {
+   "cid": "1.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "figure",
+   "parent": "1.HERO",
+   "page": "1",
+   "text": ""
+  },
+  {
+   "cid": "1.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "img",
+   "parent": "1.LOGO",
+   "page": "1",
+   "text": ""
+  },
+  {
+   "cid": "1.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.SPEED Build in hours. Refine together. The work runs in agent time, directed and reviewed by Brian. We agree a prototype turnaround from comparable measured work, with your inputs and review rounds included. This site is our own working example: brief received 2 October 2026 at 01:49 CT; first page commit at 03:04 CT; first HTTPS deployment receipt at 03:16 CT. These are our actual build milestones, not a promise that every project takes the same time."
+  },
+  {
+   "cid": "1.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.SPEED",
+   "page": "1",
+   "text": "Build in hours. Refine together."
+  },
+  {
+   "cid": "1.SPEED.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.SPEED",
+   "page": "1",
+   "text": "The work runs in agent time, directed and reviewed by Brian. We agree a prototype turnaround from comparable measured work, with your inputs and review rounds included."
+  },
+  {
+   "cid": "1.PROCESS",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.PROCESS The plan / 01—04 Small steps. Visible progress. 01 Understand Your outcome, your existing tools, and the parts you want off your plate. 02 Prototype A working first version. Something concrete to try, not another abstract presentation. 03 Refine Your feedback becomes the next iteration. Scope changes are agreed before more work. 04 Hand over The working deliverable, a clear explanation, and the agreed exports or source files. HUMAN CHECKPOINT Brian directs and reviews the AI agents built around your project. You have one person accountable for the work."
+  },
+  {
+   "cid": "1.PROCESS.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "The plan / 01—04"
+  },
+  {
+   "cid": "1.PROCESS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "Small steps. Visible progress."
+  },
+  {
+   "cid": "1.PROCESS.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "01 Understand Your outcome, your existing tools, and the parts you want off your plate."
+  },
+  {
+   "cid": "1.PROCESS.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "02 Prototype A working first version. Something concrete to try, not another abstract presentation."
+  },
+  {
+   "cid": "1.PROCESS.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "03 Refine Your feedback becomes the next iteration. Scope changes are agreed before more work."
+  },
+  {
+   "cid": "1.PROCESS.step-4",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "04 Hand over The working deliverable, a clear explanation, and the agreed exports or source files."
+  },
+  {
+   "cid": "1.PROCESS.step-5",
+   "type": "step",
+   "kind": "component",
+   "tag": "div",
+   "parent": "1.PROCESS",
+   "page": "1",
+   "text": "HUMAN CHECKPOINT Brian directs and reviews the AI agents built around your project. You have one person accountable for the work."
+  },
+  {
+   "cid": "1.TERMS",
+   "type": "terms",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.TERMS Less coordination. More progress. The job is yours. The infrastructure is ours. A project of your own, a repetitive task, or extra capacity for work you deliver to others. Your stack We work around your tools and accounts. Access and delivery ownership are agreed with you from the start. Your conversation Email, WhatsApp, platform chat, Slack or Teams. We agree a communication rhythm around the hours that suit you. A clear price Fixed price for the agreed scope. No unapproved overages. Timing includes the inputs and review rounds we agree together."
+  },
+  {
+   "cid": "1.TERMS.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "Less coordination. More progress."
+  },
+  {
+   "cid": "1.TERMS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "The job is yours. The infrastructure is ours."
+  },
+  {
+   "cid": "1.TERMS.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "A project of your own, a repetitive task, or extra capacity for work you deliver to others."
+  },
+  {
+   "cid": "1.TERMS.term",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "Your stack We work around your tools and accounts. Access and delivery ownership are agreed with you from the start."
+  },
+  {
+   "cid": "1.TERMS.term-2",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "Your conversation Email, WhatsApp, platform chat, Slack or Teams. We agree a communication rhythm around the hours that suit you."
+  },
+  {
+   "cid": "1.TERMS.term-3",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "1.TERMS",
+   "page": "1",
+   "text": "A clear price Fixed price for the agreed scope. No unapproved overages. Timing includes the inputs and review rounds we agree together."
+  },
+  {
+   "cid": "1.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.CONTACT The next step is a conversation What would make your work easier? Tell us the outcome, the tools you use, and your timing. We’ll work out a clear scope with you before we begin."
+  },
+  {
+   "cid": "1.CONTACT.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.CONTACT",
+   "page": "1",
+   "text": "The next step is a conversation"
+  },
+  {
+   "cid": "1.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.CONTACT",
+   "page": "1",
+   "text": "What would make your work easier?"
+  },
+  {
+   "cid": "1.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "1.CONTACT",
+   "page": "1",
+   "text": ""
+  },
+  {
+   "cid": "1.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "1.PROMISE Brian’s approach · In his words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. We agree the scope, inputs and review rounds before work begins. Changes are quoted before additional work."
+  },
+  {
+   "cid": "1.PROMISE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.PROMISE",
+   "page": "1",
+   "text": "Brian’s approach · In his words"
+  },
+  {
+   "cid": "1.PROMISE.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "1.PROMISE",
+   "page": "1",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier."
+  },
+  {
+   "cid": "1.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "1",
+   "text": "Meissner Services · Human-directed AI delivery · Tentative design 01 I work with my own team of AI agents, which I direct and review."
+  }
+ ],
+ "2": [
+  {
+   "cid": "2.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "2",
+   "text": "Meissner Services Brian Meissner + his AI team"
+  },
+  {
+   "cid": "2.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "A working prototype in hours. A fixed price throughout. Tell us what you want. On a tightly scoped job the build runs in agent time, so a working first version comes back in hours. Brian checks it, then we refine it with you until it's exactly how you like it. From there, the review rounds go at your pace. The price is agreed before we start. WhatsApp +1 (262) 366-1718 Email team@meissner.services English or Spanish. Portuguese conversational. Proof you're looking at: the brief for this site was sent at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and first deployed over HTTPS at 03:16 CT. Those are our real timestamps, not a per-job promise."
+  },
+  {
+   "cid": "2.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": "A working prototype in hours. A fixed price throughout."
+  },
+  {
+   "cid": "2.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": "Tell us what you want. On a tightly scoped job the build runs in agent time, so a working first version comes back in hours. Brian checks it, then we refine it with you until it's exactly how you like it. From there, the review rounds go at your pace. The price is agreed before we start."
+  },
+  {
+   "cid": "2.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": "WhatsApp +1 (262) 366-1718"
+  },
+  {
+   "cid": "2.HERO.cta-2",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": "Email team@meissner.services"
+  },
+  {
+   "cid": "2.HERO.proof",
+   "type": "proof",
+   "kind": "component",
+   "tag": "p",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": "Proof you're looking at: the brief for this site was sent at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and first deployed over HTTPS at 03:16 CT. Those are our real timestamps, not a per-job promise."
+  },
+  {
+   "cid": "2.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "div",
+   "parent": "2.HERO",
+   "page": "2",
+   "text": ""
+  },
+  {
+   "cid": "2.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "2.LOGO",
+   "page": "2",
+   "text": ""
+  },
+  {
+   "cid": "2.ANSWERS",
+   "type": "answers",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Your four questions, answered first 1 Is this real? Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project. 2 Will you answer me? Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational. 3 Will it cost more than quoted? Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide. 4 Can you work in my tools? Yes. We map onto your tools, languages and accounts, and you own everything from day one."
+  },
+  {
+   "cid": "2.ANSWERS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.ANSWERS",
+   "page": "2",
+   "text": "Your four questions, answered first"
+  },
+  {
+   "cid": "2.ANSWERS.answer",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "2.ANSWERS",
+   "page": "2",
+   "text": "1 Is this real? Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project."
+  },
+  {
+   "cid": "2.ANSWERS.answer-2",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "2.ANSWERS",
+   "page": "2",
+   "text": "2 Will you answer me? Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational."
+  },
+  {
+   "cid": "2.ANSWERS.answer-3",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "2.ANSWERS",
+   "page": "2",
+   "text": "3 Will it cost more than quoted? Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide."
+  },
+  {
+   "cid": "2.ANSWERS.answer-4",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "2.ANSWERS",
+   "page": "2",
+   "text": "4 Can you work in my tools? Yes. We map onto your tools, languages and accounts, and you own everything from day one."
+  },
+  {
+   "cid": "2.HOW",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "How it goes Tell us what you want In your words, in your channel. Working prototype Something you can open and try, not a slide. Refine Tell us what to change; we work toward exactly how you like it. Yours The infrastructure is ours, the job is yours."
+  },
+  {
+   "cid": "2.HOW.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.HOW",
+   "page": "2",
+   "text": "How it goes"
+  },
+  {
+   "cid": "2.HOW.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.HOW",
+   "page": "2",
+   "text": "Tell us what you want In your words, in your channel."
+  },
+  {
+   "cid": "2.HOW.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.HOW",
+   "page": "2",
+   "text": "Working prototype Something you can open and try, not a slide."
+  },
+  {
+   "cid": "2.HOW.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.HOW",
+   "page": "2",
+   "text": "Refine Tell us what to change; we work toward exactly how you like it."
+  },
+  {
+   "cid": "2.HOW.step-4",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.HOW",
+   "page": "2",
+   "text": "Yours The infrastructure is ours, the job is yours."
+  },
+  {
+   "cid": "2.PRICE",
+   "type": "pricing",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "What it costs USD 100–500 Typical small jobs: fixed price, agreed before work starts. Included: a private workbench, a web view of your data and results, with a one-button export in the format you need. It stays live for the job plus 30 days, and you keep every export forever."
+  },
+  {
+   "cid": "2.PRICE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.PRICE",
+   "page": "2",
+   "text": "What it costs"
+  },
+  {
+   "cid": "2.PRICE.pricing-card",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "div",
+   "parent": "2.PRICE",
+   "page": "2",
+   "text": "USD 100–500 Typical small jobs: fixed price, agreed before work starts."
+  },
+  {
+   "cid": "2.PRICE.pricing-card-2",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "div",
+   "parent": "2.PRICE",
+   "page": "2",
+   "text": "Included: a private workbench, a web view of your data and results, with a one-button export in the format you need. It stays live for the job plus 30 days, and you keep every export forever."
+  },
+  {
+   "cid": "2.WHO",
+   "type": "audience",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Who it's for You have an idea or a project of your own Get it to a working first version fast, then shape it. You need time back, or cover for gaps Agencies and freelancers who subcontract part of the work they do for others."
+  },
+  {
+   "cid": "2.WHO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.WHO",
+   "page": "2",
+   "text": "Who it's for"
+  },
+  {
+   "cid": "2.WHO.audience-item",
+   "type": "audience-item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "2.WHO",
+   "page": "2",
+   "text": "You have an idea or a project of your own Get it to a working first version fast, then shape it."
+  },
+  {
+   "cid": "2.WHO.audience-item-2",
+   "type": "audience-item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "2.WHO",
+   "page": "2",
+   "text": "You need time back, or cover for gaps Agencies and freelancers who subcontract part of the work they do for others."
+  },
+  {
+   "cid": "2.TEAM",
+   "type": "team",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Who you're dealing with \"I work with my own team of AI agents, which I direct and review.\" Brian Meissner Founder, SA Trails: Wi-Fi software, custom firmware through automated guest surveys (2010–2018) Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company) AWS every year since 2009; ML and early AI work since at least 2021 BA, Economics, University of Wisconsin–Madison"
+  },
+  {
+   "cid": "2.TEAM.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "Who you're dealing with"
+  },
+  {
+   "cid": "2.TEAM.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "\"I work with my own team of AI agents, which I direct and review.\" Brian Meissner"
+  },
+  {
+   "cid": "2.TEAM.item",
+   "type": "item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "Founder, SA Trails: Wi-Fi software, custom firmware through automated guest surveys (2010–2018)"
+  },
+  {
+   "cid": "2.TEAM.item-2",
+   "type": "item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)"
+  },
+  {
+   "cid": "2.TEAM.item-3",
+   "type": "item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "AWS every year since 2009; ML and early AI work since at least 2021"
+  },
+  {
+   "cid": "2.TEAM.item-4",
+   "type": "item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "2.TEAM",
+   "page": "2",
+   "text": "BA, Economics, University of Wisconsin–Madison"
+  },
+  {
+   "cid": "2.CANON",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "In Brian's words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "2.CANON.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.CANON",
+   "page": "2",
+   "text": "In Brian's words"
+  },
+  {
+   "cid": "2.CANON.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "2.CANON",
+   "page": "2",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "2.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "2",
+   "text": "Tell us what you want One tap to start. Email or WhatsApp, in English or Spanish. WhatsApp +1 (262) 366-1718 team@meissner.services"
+  },
+  {
+   "cid": "2.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "2.CONTACT",
+   "page": "2",
+   "text": "Tell us what you want"
+  },
+  {
+   "cid": "2.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "2.CONTACT",
+   "page": "2",
+   "text": "WhatsApp +1 (262) 366-1718 team@meissner.services"
+  },
+  {
+   "cid": "2.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "2",
+   "text": "Meissner Services · Variant 2 of 7, \"The Pitch\" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies."
+  }
+ ],
+ "3": [
+  {
+   "cid": "3.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "3",
+   "text": "MEISSNER SERVICES How it runs Price Start ↗ Compare designs ◐"
+  },
+  {
+   "cid": "3.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.HERO Tightly scoped prototypes, built in hours · one operator, a team of AI agents One human. Many hands. Tell us what you want. On a tightly scoped job, a working first version comes back in hours. The build runs in agent time, directed and reviewed by Brian. Your review rounds are the only slow part, and you set their pace. Your tools, your channel, a fixed price agreed before we start. Tell us what you want ↗ English · Español · Português (conversational) Email · WhatsApp · platform chat · Slack · Teams tentative mark · copies = parallel agents"
+  },
+  {
+   "cid": "3.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.HERO",
+   "page": "3",
+   "text": "Tightly scoped prototypes, built in hours · one operator, a team of AI agents"
+  },
+  {
+   "cid": "3.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "3.HERO",
+   "page": "3",
+   "text": "One human. Many hands."
+  },
+  {
+   "cid": "3.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.HERO",
+   "page": "3",
+   "text": "Tell us what you want. On a tightly scoped job, a working first version comes back in hours. The build runs in agent time, directed and reviewed by Brian. Your review rounds are the only slow part, and you set their pace. Your tools, your channel, a fixed price agreed before we start."
+  },
+  {
+   "cid": "3.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "3.HERO",
+   "page": "3",
+   "text": "Tell us what you want ↗"
+  },
+  {
+   "cid": "3.HERO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "3.HERO",
+   "page": "3",
+   "text": "tentative mark · copies = parallel agents"
+  },
+  {
+   "cid": "3.HERO.logo-2",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "3.HERO.logo",
+   "page": "3",
+   "text": ""
+  },
+  {
+   "cid": "3.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.SPEED Built overnight / the site is the proof A working first version. In hours. Seven designs, researched and built overnight by our agent team. This site’s actual milestones on 2 October 2026: brief received at 01:49 CT; first page committed at 03:04 CT; first HTTPS deployment receipt at 03:16 CT. We agree each project’s turnaround from comparable measured work and the inputs it needs."
+  },
+  {
+   "cid": "3.SPEED.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.SPEED",
+   "page": "3",
+   "text": "Built overnight / the site is the proof"
+  },
+  {
+   "cid": "3.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.SPEED",
+   "page": "3",
+   "text": "A working first version. In hours."
+  },
+  {
+   "cid": "3.SPEED.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.SPEED",
+   "page": "3",
+   "text": "Seven designs, researched and built overnight by our agent team."
+  },
+  {
+   "cid": "3.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.LOGO The Wild Card / logo study One operator. Parallel resources."
+  },
+  {
+   "cid": "3.LOGO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.LOGO",
+   "page": "3",
+   "text": "The Wild Card / logo study"
+  },
+  {
+   "cid": "3.LOGO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.LOGO",
+   "page": "3",
+   "text": "One operator. Parallel resources."
+  },
+  {
+   "cid": "3.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "3.LOGO",
+   "page": "3",
+   "text": ""
+  },
+  {
+   "cid": "3.LOGO.logo-2",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "3.LOGO",
+   "page": "3",
+   "text": ""
+  },
+  {
+   "cid": "3.CONSOLE",
+   "type": "demo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.CONSOLE How a project runs The agents do the heavy lifting. A human signs off. Every project gets its own agentic workflow. Brian directs it, reviews what it produces, and is the one person accountable to you. This console is an illustration of a typical small job, not a live feed and not a real client. workflow · example project ILLUSTRATIVE ❚❚ pause ↺ replay"
+  },
+  {
+   "cid": "3.CONSOLE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.CONSOLE",
+   "page": "3",
+   "text": "How a project runs"
+  },
+  {
+   "cid": "3.CONSOLE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.CONSOLE",
+   "page": "3",
+   "text": "The agents do the heavy lifting. A human signs off."
+  },
+  {
+   "cid": "3.CONSOLE.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.CONSOLE",
+   "page": "3",
+   "text": "Every project gets its own agentic workflow. Brian directs it, reviews what it produces, and is the one person accountable to you."
+  },
+  {
+   "cid": "3.ANSWERS",
+   "type": "answers",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.ANSWERS Four questions, straight answers Before you hire anyone. Is this real? Meissner Services is Brian Meissner. Founder of SA Trails, a Wi-Fi SaaS with offices in six countries (2010–2018), and 14 years running El Diablo Tranquilo in Uruguay. He directs and reviews a team of AI agents built around each project. Will you answer me? Your channel, your hours. Email, WhatsApp, the platform's own chat, Slack or Teams. English and Spanish; Portuguese conversational. Will it cost more? Fixed price, agreed first. The price is agreed before work starts. If the scope grows, we quote the extra before doing it. My tools? We map onto your stack. Your tools, languages and accounts. You own everything from day one."
+  },
+  {
+   "cid": "3.ANSWERS.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "Four questions, straight answers"
+  },
+  {
+   "cid": "3.ANSWERS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "Before you hire anyone."
+  },
+  {
+   "cid": "3.ANSWERS.answer",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "Is this real? Meissner Services is Brian Meissner. Founder of SA Trails, a Wi-Fi SaaS with offices in six countries (2010–2018), and 14 years running El Diablo Tranquilo in Uruguay. He directs and reviews a team of AI agents built around each project."
+  },
+  {
+   "cid": "3.ANSWERS.answer-2",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "Will you answer me? Your channel, your hours. Email, WhatsApp, the platform's own chat, Slack or Teams. English and Spanish; Portuguese conversational."
+  },
+  {
+   "cid": "3.ANSWERS.answer-3",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "Will it cost more? Fixed price, agreed first. The price is agreed before work starts. If the scope grows, we quote the extra before doing it."
+  },
+  {
+   "cid": "3.ANSWERS.answer-4",
+   "type": "answer",
+   "kind": "component",
+   "tag": "article",
+   "parent": "3.ANSWERS",
+   "page": "3",
+   "text": "My tools? We map onto your stack. Your tools, languages and accounts. You own everything from day one."
+  },
+  {
+   "cid": "3.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.PROMISE In Brian's words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner · Meissner Services"
+  },
+  {
+   "cid": "3.PROMISE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.PROMISE",
+   "page": "3",
+   "text": "In Brian's words"
+  },
+  {
+   "cid": "3.PROMISE.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "3.PROMISE",
+   "page": "3",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier."
+  },
+  {
+   "cid": "3.WHO",
+   "type": "audience",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.WHO Who it's for Your idea. Or your overflow. Your own idea or project A tool, a cleanup, an automation, a report in the exact format someone needs. Start with a working prototype instead of a long proposal. Time back, gaps covered Agencies and freelancers who subcontract: hand over the parts you don't want to do, and keep your client relationship."
+  },
+  {
+   "cid": "3.WHO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.WHO",
+   "page": "3",
+   "text": "Who it's for"
+  },
+  {
+   "cid": "3.WHO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.WHO",
+   "page": "3",
+   "text": "Your idea. Or your overflow."
+  },
+  {
+   "cid": "3.PRICE",
+   "type": "pricing",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.PRICE Price USD 100–500 Typical small jobs · fixed price · agreed before work starts Included on jobs: a private workbench (a web view of your data and results) with a one-button export in the format you need, live for the engagement plus 30 days. You keep every export. SA Trails LLC , founder, 2010–2018 El Diablo Tranquilo , founded and ran, 2006–2020 Point-of-sale systems , built AWS , every year since 2009 Data exchange in each recipient's exact format BA Economics , University of Wisconsin–Madison"
+  },
+  {
+   "cid": "3.PRICE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "Price"
+  },
+  {
+   "cid": "3.PRICE.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "USD 100–500 Typical small jobs · fixed price · agreed before work starts"
+  },
+  {
+   "cid": "3.PRICE.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "Included on jobs: a private workbench (a web view of your data and results) with a one-button export in the format you need, live for the engagement plus 30 days. You keep every export."
+  },
+  {
+   "cid": "3.PRICE.pricing-card",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "SA Trails LLC , founder, 2010–2018"
+  },
+  {
+   "cid": "3.PRICE.pricing-card-2",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "El Diablo Tranquilo , founded and ran, 2006–2020"
+  },
+  {
+   "cid": "3.PRICE.pricing-card-3",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "Point-of-sale systems , built"
+  },
+  {
+   "cid": "3.PRICE.pricing-card-4",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "AWS , every year since 2009"
+  },
+  {
+   "cid": "3.PRICE.pricing-card-5",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "Data exchange in each recipient's exact format"
+  },
+  {
+   "cid": "3.PRICE.pricing-card-6",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "3.PRICE",
+   "page": "3",
+   "text": "BA Economics , University of Wisconsin–Madison"
+  },
+  {
+   "cid": "3.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "3",
+   "text": "3.CONTACT Start Tell us what you want. The outcome, the tools you use, your timing. Email or WhatsApp. English or Spanish. Email team@meissner.services WhatsApp +1 (262) 366-1718"
+  },
+  {
+   "cid": "3.CONTACT.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.CONTACT",
+   "page": "3",
+   "text": "Start"
+  },
+  {
+   "cid": "3.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "3.CONTACT",
+   "page": "3",
+   "text": "Tell us what you want."
+  },
+  {
+   "cid": "3.CONTACT.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "3.CONTACT",
+   "page": "3",
+   "text": "The outcome, the tools you use, your timing. Email or WhatsApp. English or Spanish."
+  },
+  {
+   "cid": "3.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "3.CONTACT",
+   "page": "3",
+   "text": "Email team@meissner.services WhatsApp +1 (262) 366-1718"
+  },
+  {
+   "cid": "3.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "3",
+   "text": "I work with my own team of AI agents, which I direct and review. Meissner Services · Design 03 \"The Wild Card\" · tentative mark · noindex draft for review. Patterns borrowed (ideas only): live product panel in the hero (linear.app, railway.com), line-art hero (basement.studio), terminal annotations (evilmartians.com), accessible motion pause (10up.com), loud display type (darkroom.engineering)."
+  }
+ ],
+ "4": [
+  {
+   "cid": "4.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "4",
+   "text": "MEISSNER SERVICES DESIGN 04 / THE WORKSHOP HUMAN-DIRECTED. BUILT FOR YOUR JOB. How we build Talk to Brian ↗ ◐ Theme"
+  },
+  {
+   "cid": "4.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "YOUR TOOLS. YOUR PROJECT. OUR WORKSHOP. BRING THE JOB. A seasoned human. A team of AI agents. A working first version in hours on a tightly scoped job. The build runs in agent time, directed and reviewed by Brian. We agree the turnaround from comparable measured work, along with scope and price. Your review rounds are the only slow part, and you set their pace. Let’s work out the scope ↗ Fixed price, agreed up front. Your channel, your hours. WORKSHOP RACKPLATE / ONE OPERATOR, PARALLEL RESOURCES"
+  },
+  {
+   "cid": "4.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.HERO",
+   "page": "4",
+   "text": "YOUR TOOLS. YOUR PROJECT. OUR WORKSHOP."
+  },
+  {
+   "cid": "4.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "4.HERO",
+   "page": "4",
+   "text": "BRING THE JOB."
+  },
+  {
+   "cid": "4.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.HERO",
+   "page": "4",
+   "text": "A seasoned human. A team of AI agents. A working first version in hours on a tightly scoped job."
+  },
+  {
+   "cid": "4.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "4.HERO",
+   "page": "4",
+   "text": "Let’s work out the scope ↗"
+  },
+  {
+   "cid": "4.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "figure",
+   "parent": "4.HERO",
+   "page": "4",
+   "text": "WORKSHOP RACKPLATE / ONE OPERATOR, PARALLEL RESOURCES"
+  },
+  {
+   "cid": "4.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "img",
+   "parent": "4.LOGO",
+   "page": "4",
+   "text": ""
+  },
+  {
+   "cid": "4.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "BUILT OVERNIGHT / THE SITE IS THE PROOF Hours to a working first version. Seven designs, researched and built overnight by our agent team. This site’s actual milestones on 2 October 2026: brief received at 01:49 CT; first page committed at 03:04 CT; first HTTPS deployment receipt at 03:16 CT. We agree each project’s turnaround from comparable measured work and the inputs it needs."
+  },
+  {
+   "cid": "4.SPEED.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.SPEED",
+   "page": "4",
+   "text": "BUILT OVERNIGHT / THE SITE IS THE PROOF"
+  },
+  {
+   "cid": "4.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.SPEED",
+   "page": "4",
+   "text": "Hours to a working first version."
+  },
+  {
+   "cid": "4.SPEED.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.SPEED",
+   "page": "4",
+   "text": "Seven designs, researched and built overnight by our agent team."
+  },
+  {
+   "cid": "4.TOOLS",
+   "type": "tools",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "01 / THE PARTS BIN Your tools. No detour. We map onto your languages, accounts and existing workflow. The job decides the tools. PYTHON scripts & automation SQL data & reporting SPREADSHEETS Excel & Google Sheets WEB interfaces & exports APIs systems talking to systems YOUR STACK start with what you use Tools and formats we work in. Your required stack is confirmed when we agree the scope."
+  },
+  {
+   "cid": "4.TOOLS.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.TOOLS",
+   "page": "4",
+   "text": "01 / THE PARTS BIN"
+  },
+  {
+   "cid": "4.TOOLS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.TOOLS",
+   "page": "4",
+   "text": "Your tools. No detour."
+  },
+  {
+   "cid": "4.BUILD",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "02 / HOW WE BUILD Show the work. Make it useful. A Put the outcome on the bench. What needs to happen? What do you already use? We agree the deliverable, inputs, price and review rounds before work begins. B Build a working prototype. A concrete first version to try with your own workflow. Brian directs the agents and reviews what they produce. C Refine. Check. Hand over. We work through your feedback and the agreed acceptance checks. You own the work from day one. Extra scope gets an extra quote before it gets built."
+  },
+  {
+   "cid": "4.BUILD.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.BUILD",
+   "page": "4",
+   "text": "02 / HOW WE BUILD"
+  },
+  {
+   "cid": "4.BUILD.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.BUILD",
+   "page": "4",
+   "text": "Show the work. Make it useful."
+  },
+  {
+   "cid": "4.BUILD.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.BUILD",
+   "page": "4",
+   "text": "A Put the outcome on the bench. What needs to happen? What do you already use? We agree the deliverable, inputs, price and review rounds before work begins."
+  },
+  {
+   "cid": "4.BUILD.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.BUILD",
+   "page": "4",
+   "text": "B Build a working prototype. A concrete first version to try with your own workflow. Brian directs the agents and reviews what they produce."
+  },
+  {
+   "cid": "4.BUILD.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "li",
+   "parent": "4.BUILD",
+   "page": "4",
+   "text": "C Refine. Check. Hand over. We work through your feedback and the agreed acceptance checks. You own the work from day one. Extra scope gets an extra quote before it gets built."
+  },
+  {
+   "cid": "4.OPERATOR",
+   "type": "story",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "03 / THE PERSON AT THE BENCH Built around your project. Run by Brian. Brian founded SA Trails, a Wi-Fi SaaS with offices in six countries. His work ran from custom firmware to automated guest surveys. Entrepreneurial, managerial and software architecture experience, applied to the work in front of us. One human accountable for a team built around your project. I work with my own team of AI agents, which I direct and review."
+  },
+  {
+   "cid": "4.OPERATOR.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.OPERATOR",
+   "page": "4",
+   "text": "03 / THE PERSON AT THE BENCH"
+  },
+  {
+   "cid": "4.OPERATOR.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.OPERATOR",
+   "page": "4",
+   "text": "Built around your project. Run by Brian."
+  },
+  {
+   "cid": "4.OPERATOR.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.OPERATOR",
+   "page": "4",
+   "text": "Brian founded SA Trails, a Wi-Fi SaaS with offices in six countries. His work ran from custom firmware to automated guest surveys."
+  },
+  {
+   "cid": "4.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "04 / START HERE What’s on your bench? Your own idea. A repetitive task. A gap in work you do for someone else. Tell Brian the result you need, the tools you use and the hours that suit you. Email, WhatsApp, your platform chat, Slack or Teams — we agree a rhythm that fits."
+  },
+  {
+   "cid": "4.CONTACT.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.CONTACT",
+   "page": "4",
+   "text": "04 / START HERE"
+  },
+  {
+   "cid": "4.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "4.CONTACT",
+   "page": "4",
+   "text": "What’s on your bench?"
+  },
+  {
+   "cid": "4.CONTACT.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.CONTACT",
+   "page": "4",
+   "text": "Your own idea. A repetitive task. A gap in work you do for someone else."
+  },
+  {
+   "cid": "4.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "4.CONTACT",
+   "page": "4",
+   "text": ""
+  },
+  {
+   "cid": "4.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "BRIAN’S APPROACH / IN HIS WORDS We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Scope, inputs and review rounds are agreed before work begins. Changes are quoted before additional work."
+  },
+  {
+   "cid": "4.PROMISE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "4.PROMISE",
+   "page": "4",
+   "text": "BRIAN’S APPROACH / IN HIS WORDS"
+  },
+  {
+   "cid": "4.PROMISE.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "4.PROMISE",
+   "page": "4",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier."
+  },
+  {
+   "cid": "4.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "4",
+   "text": "MEISSNER SERVICES / THE WORKSHOP Compare all seven designs ↗ Show section IDs"
+  }
+ ],
+ "5": [
+  {
+   "cid": "5.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "5",
+   "text": "Meissner Services Prices Terms If it goes wrong FAQ Contact Light / dark"
+  },
+  {
+   "cid": "5.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.HERO Read this before you hire us Everything we would rather you knew up front. What a hundred dollars buys. What five hundred buys. The terms, in full. What happens when something goes wrong. The questions people ask before they trust a stranger on a freelance platform. See the prices Start a project ↗ Meissner Services is Brian Meissner. He founded a Wi-Fi SaaS with offices in six countries and ran a hostel in Uruguay for fourteen years. He directs and reviews a team of AI agents built around each project. No testimonials on this page, no logos, no star ratings. Only things we can show you or write down. Is this real? A named person with a public record, reachable by email and WhatsApp. Will you answer me? Your channel, your hours. English or Spanish; Portuguese conversational. Will it cost more? Fixed price, agreed before work starts. Extras are quoted before they are done. Can you use my tools? We map onto your stack and accounts. You own everything from day one."
+  },
+  {
+   "cid": "5.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "Read this before you hire us"
+  },
+  {
+   "cid": "5.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "Everything we would rather you knew up front."
+  },
+  {
+   "cid": "5.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "What a hundred dollars buys. What five hundred buys. The terms, in full. What happens when something goes wrong. The questions people ask before they trust a stranger on a freelance platform."
+  },
+  {
+   "cid": "5.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "See the prices"
+  },
+  {
+   "cid": "5.HERO.cta-2",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "Start a project ↗"
+  },
+  {
+   "cid": "5.HERO.item",
+   "type": "item",
+   "kind": "component",
+   "tag": "aside",
+   "parent": "5.HERO",
+   "page": "5",
+   "text": "Meissner Services is Brian Meissner. He founded a Wi-Fi SaaS with offices in six countries and ran a hostel in Uruguay for fourteen years. He directs and reviews a team of AI agents built around each project. No testimonials on this page, no logos, no star ratings. Only things we can show you or write down."
+  },
+  {
+   "cid": "5.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.PROMISE In Brian's words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "5.PROMISE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.PROMISE",
+   "page": "5",
+   "text": "In Brian's words"
+  },
+  {
+   "cid": "5.PROMISE.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "5.PROMISE",
+   "page": "5",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "5.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.SPEED How fast, honestly The build runs in agent time. Your review rounds set the pace. A working first version comes back in hours, not days, because the agents do the building and Brian does the checking. What most often sets the pace is your review: looking at the prototype and telling us what to change. Other things can delay a job too, and when they do, you hear it from us first, with the reason and the new time. We do not print a delivery time per job on this page, because we have not measured one yet. When we have, the number will come from our own run history, with the basis next to it. Proof you are looking at. This page and its six siblings were researched, designed and built overnight by Brian's agent team, from a brief received at 01:49 CT on 2 October 2026. Design five was written between 03:10 and 03:40 CT the same morning."
+  },
+  {
+   "cid": "5.SPEED.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.SPEED",
+   "page": "5",
+   "text": "How fast, honestly"
+  },
+  {
+   "cid": "5.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.SPEED",
+   "page": "5",
+   "text": "The build runs in agent time. Your review rounds set the pace."
+  },
+  {
+   "cid": "5.PRICING",
+   "type": "pricing",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.PRICING What the money buys Typical small jobs: USD 100 to 500, fixed price, agreed before work starts. The examples below are scopes taken from quotes we wrote in October 2026. They are not finished jobs and they are not a menu; they show the size of work each amount usually covers. Every price is agreed in writing before anything starts. Price What it typically buys What is included USD 100 A small command-line tool: read an Excel or CSV file, validate and clean it, remove duplicates, apply the rules you give us, write a formatted output file and a summary of what was processed, kept and rejected. Source code and dependencies Sample input and output Tests on the sample A short README USD 250 A bounded first phase of a bigger system: one data-feed adapter on replayed data, one calculation, one trigger condition, one logged report in the format you choose. The rest of the system is quoted after you have seen the first phase working. Running code with tests Audit data you can export Private workbench view One correction round USD 300 Cleaning and de-duplicating a contact list of about five thousand rows: consistent names, phones and emails, exact and conservative near-duplicate merges, suspicious rows flagged rather than deleted, borderline pairs listed for your decision. The cleaned file in your format A log of every change A reconciled summary: rows in equals kept plus merged plus flagged One correction round USD 500 A small operational database set up inside your own account (one base, a few tables, an intake form, two views, a dashboard, duplicate warnings, a recorded walkthrough), or a read-only technical audit of a system you already run, with the bottlenecks quantified and a prioritised fix plan. Built in your account; you keep the keys Documentation and a walkthrough Milestones, paid as each is accepted One correction round per milestone What moves the price up More rows, more files or more input formats than quoted. A required output format we have not worked in before, which adds a discovery step. Legal signatures or filings that need your certificate provider. Live third-party credentials, which we only use inside your accounts. What we will tell you when the budget does not fit If the scope you describe needs more than the budget you have, we say so and propose a first phase that fits. We would rather quote a smaller job than quietly deliver a thinner one."
+  },
+  {
+   "cid": "5.PRICING.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.PRICING",
+   "page": "5",
+   "text": "What the money buys"
+  },
+  {
+   "cid": "5.PRICING.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.PRICING",
+   "page": "5",
+   "text": "Typical small jobs: USD 100 to 500, fixed price, agreed before work starts."
+  },
+  {
+   "cid": "5.PRICING.table",
+   "type": "table",
+   "kind": "component",
+   "tag": "table",
+   "parent": "5.PRICING",
+   "page": "5",
+   "text": "Price What it typically buys What is included USD 100 A small command-line tool: read an Excel or CSV file, validate and clean it, remove duplicates, apply the rules you give us, write a formatted output file and a summary of what was processed, kept and rejected. Source code and dependencies Sample input and output Tests on the sample A short README USD 250 A bounded first phase of a bigger system: one data-feed adapter on replayed data, one calculation, one trigger condition, one logged report in the format you choose. The rest of the system is quoted after you have seen the first phase working. Running code with tests Audit data you can export Private workbench view One correction round USD 300 Cleaning and de-duplicating a contact list of about five thousand rows: consistent names, phones and emails, exact and conservative near-duplicate merges, suspicious rows flagged rather than deleted, borderline pairs listed for your decision. The cleaned file in your format A log of every change A reconciled summary: rows in equals kept plus merged plus flagged One correction round USD 500 A small operational database set up inside your own account (one base, a few tables, an intake form, two views, a dashboard, duplicate warnings, a recorded walkthrough), or a read-only technical audit of a system you already run, with the bottlenecks quantified and a prioritised fix plan. Built in your account; you keep the keys Documentation and a walkthrough Milestones, paid as each is accepted One correction round per milestone"
+  },
+  {
+   "cid": "5.PRICING.pricing-row",
+   "type": "pricing-row",
+   "kind": "component",
+   "tag": "tr",
+   "parent": "5.PRICING.table",
+   "page": "5",
+   "text": "Price What it typically buys What is included"
+  },
+  {
+   "cid": "5.PRICING.pricing-row-2",
+   "type": "pricing-row",
+   "kind": "component",
+   "tag": "tr",
+   "parent": "5.PRICING.table",
+   "page": "5",
+   "text": "USD 100 A small command-line tool: read an Excel or CSV file, validate and clean it, remove duplicates, apply the rules you give us, write a formatted output file and a summary of what was processed, kept and rejected. Source code and dependencies Sample input and output Tests on the sample A short README"
+  },
+  {
+   "cid": "5.PRICING.pricing-card",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-2",
+   "page": "5",
+   "text": "Source code and dependencies"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-2",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-2",
+   "page": "5",
+   "text": "Sample input and output"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-3",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-2",
+   "page": "5",
+   "text": "Tests on the sample"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-4",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-2",
+   "page": "5",
+   "text": "A short README"
+  },
+  {
+   "cid": "5.PRICING.pricing-row-3",
+   "type": "pricing-row",
+   "kind": "component",
+   "tag": "tr",
+   "parent": "5.PRICING.table",
+   "page": "5",
+   "text": "USD 250 A bounded first phase of a bigger system: one data-feed adapter on replayed data, one calculation, one trigger condition, one logged report in the format you choose. The rest of the system is quoted after you have seen the first phase working. Running code with tests Audit data you can export Private workbench view One correction round"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-5",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-3",
+   "page": "5",
+   "text": "Running code with tests"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-6",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-3",
+   "page": "5",
+   "text": "Audit data you can export"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-7",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-3",
+   "page": "5",
+   "text": "Private workbench view"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-8",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-3",
+   "page": "5",
+   "text": "One correction round"
+  },
+  {
+   "cid": "5.PRICING.pricing-row-4",
+   "type": "pricing-row",
+   "kind": "component",
+   "tag": "tr",
+   "parent": "5.PRICING.table",
+   "page": "5",
+   "text": "USD 300 Cleaning and de-duplicating a contact list of about five thousand rows: consistent names, phones and emails, exact and conservative near-duplicate merges, suspicious rows flagged rather than deleted, borderline pairs listed for your decision. The cleaned file in your format A log of every change A reconciled summary: rows in equals kept plus merged plus flagged One correction round"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-9",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-4",
+   "page": "5",
+   "text": "The cleaned file in your format"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-10",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-4",
+   "page": "5",
+   "text": "A log of every change"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-11",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-4",
+   "page": "5",
+   "text": "A reconciled summary: rows in equals kept plus merged plus flagged"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-12",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-4",
+   "page": "5",
+   "text": "One correction round"
+  },
+  {
+   "cid": "5.PRICING.pricing-row-5",
+   "type": "pricing-row",
+   "kind": "component",
+   "tag": "tr",
+   "parent": "5.PRICING.table",
+   "page": "5",
+   "text": "USD 500 A small operational database set up inside your own account (one base, a few tables, an intake form, two views, a dashboard, duplicate warnings, a recorded walkthrough), or a read-only technical audit of a system you already run, with the bottlenecks quantified and a prioritised fix plan. Built in your account; you keep the keys Documentation and a walkthrough Milestones, paid as each is accepted One correction round per milestone"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-13",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-5",
+   "page": "5",
+   "text": "Built in your account; you keep the keys"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-14",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-5",
+   "page": "5",
+   "text": "Documentation and a walkthrough"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-15",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-5",
+   "page": "5",
+   "text": "Milestones, paid as each is accepted"
+  },
+  {
+   "cid": "5.PRICING.pricing-card-16",
+   "type": "pricing-card",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.PRICING.pricing-row-5",
+   "page": "5",
+   "text": "One correction round per milestone"
+  },
+  {
+   "cid": "5.TERMS",
+   "type": "terms",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.TERMS The terms, in full Fixed price. Fixed inputs. Everything is yours. The price is agreed before work starts In writing, on the platform or by email. It does not change unless the scope changes, and a changed scope is quoted before we do the extra work. The inputs are fixed at the quote The file, the format, the rules and the acceptance test are named when we quote. That is what keeps the price fixed. One round of questions, one correction round Both are included. Questions that come up during the work get answered in one round; if the result does not match what we agreed, one correction round fixes it. Larger jobs run in milestones Each milestone has its own acceptance test. You release payment for a milestone when it matches what we agreed, and not before. You own everything from day one Code, data, documents, accounts. Work is built inside your own accounts wherever the tool allows it. There is nothing to migrate away from us later. A private workbench is included A web view of your data and results with a one-button export in the format you need. It stays live for the engagement plus thirty days, and you keep every export forever. Longer hosting is an optional small monthly fee, quoted when you ask. Your credentials stay yours Any access you grant is used inside your accounts for this job. We keep no credentials after hand-back, and we never ask for access we do not need. Your data is used for this job only It is never reused in samples or shown to anyone else. Sensitive files are handled in a private workspace for the engagement. What we do not do We do not give tax or legal advice, we do not file with your credentials on your behalf, and we make no claims about trading or investment performance. We build and document the tools; the decisions stay with you. Payment and disputes Pay through the platform you found us on, under its escrow and dispute rules, or by the method agreed at the quote. We do not ask you to go around the platform."
+  },
+  {
+   "cid": "5.TERMS.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "The terms, in full"
+  },
+  {
+   "cid": "5.TERMS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "Fixed price. Fixed inputs. Everything is yours."
+  },
+  {
+   "cid": "5.TERMS.term",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "The price is agreed before work starts In writing, on the platform or by email. It does not change unless the scope changes, and a changed scope is quoted before we do the extra work."
+  },
+  {
+   "cid": "5.TERMS.term-2",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "The inputs are fixed at the quote The file, the format, the rules and the acceptance test are named when we quote. That is what keeps the price fixed."
+  },
+  {
+   "cid": "5.TERMS.term-3",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "One round of questions, one correction round Both are included. Questions that come up during the work get answered in one round; if the result does not match what we agreed, one correction round fixes it."
+  },
+  {
+   "cid": "5.TERMS.term-4",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "Larger jobs run in milestones Each milestone has its own acceptance test. You release payment for a milestone when it matches what we agreed, and not before."
+  },
+  {
+   "cid": "5.TERMS.term-5",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "You own everything from day one Code, data, documents, accounts. Work is built inside your own accounts wherever the tool allows it. There is nothing to migrate away from us later."
+  },
+  {
+   "cid": "5.TERMS.term-6",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "A private workbench is included A web view of your data and results with a one-button export in the format you need. It stays live for the engagement plus thirty days, and you keep every export forever. Longer hosting is an optional small monthly fee, quoted when you ask."
+  },
+  {
+   "cid": "5.TERMS.term-7",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "Your credentials stay yours Any access you grant is used inside your accounts for this job. We keep no credentials after hand-back, and we never ask for access we do not need."
+  },
+  {
+   "cid": "5.TERMS.term-8",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "Your data is used for this job only It is never reused in samples or shown to anyone else. Sensitive files are handled in a private workspace for the engagement."
+  },
+  {
+   "cid": "5.TERMS.term-9",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "What we do not do We do not give tax or legal advice, we do not file with your credentials on your behalf, and we make no claims about trading or investment performance. We build and document the tools; the decisions stay with you."
+  },
+  {
+   "cid": "5.TERMS.term-10",
+   "type": "term",
+   "kind": "component",
+   "tag": "article",
+   "parent": "5.TERMS",
+   "page": "5",
+   "text": "Payment and disputes Pay through the platform you found us on, under its escrow and dispute rules, or by the method agreed at the quote. We do not ask you to go around the platform."
+  },
+  {
+   "cid": "5.WRONG",
+   "type": "terms",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.WRONG When something goes wrong What actually happens, in order. If the result does not match the agreement You tell us what differs from the quoted scope, in your own words, in your channel. We fix it in the included correction round. Every change we make is logged, so you can see exactly what moved. If the fix needs something that was not in the quote, we say so and quote it before doing it. You decide. If we still cannot deliver what we quoted, you do not release the milestone. The platform's dispute process is there for exactly that, and we will not ask you to skip it. If the problem is ours to prevent Numbers are checked before they reach you: counts reconcile, totals balance, every row is accounted for. A file that does not reconcile does not get sent. Anything we cannot decide with confidence is flagged for you, not guessed. A human reviews every delivery before it goes out. The agents build; Brian checks. If we are late against something we promised, you hear it from us first, with the reason and the new time."
+  },
+  {
+   "cid": "5.WRONG.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "When something goes wrong"
+  },
+  {
+   "cid": "5.WRONG.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "What actually happens, in order."
+  },
+  {
+   "cid": "5.WRONG.term",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "You tell us what differs from the quoted scope, in your own words, in your channel."
+  },
+  {
+   "cid": "5.WRONG.term-2",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "We fix it in the included correction round. Every change we make is logged, so you can see exactly what moved."
+  },
+  {
+   "cid": "5.WRONG.term-3",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "If the fix needs something that was not in the quote, we say so and quote it before doing it. You decide."
+  },
+  {
+   "cid": "5.WRONG.term-4",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "If we still cannot deliver what we quoted, you do not release the milestone. The platform's dispute process is there for exactly that, and we will not ask you to skip it."
+  },
+  {
+   "cid": "5.WRONG.term-5",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "Numbers are checked before they reach you: counts reconcile, totals balance, every row is accounted for. A file that does not reconcile does not get sent."
+  },
+  {
+   "cid": "5.WRONG.term-6",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "Anything we cannot decide with confidence is flagged for you, not guessed."
+  },
+  {
+   "cid": "5.WRONG.term-7",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "A human reviews every delivery before it goes out. The agents build; Brian checks."
+  },
+  {
+   "cid": "5.WRONG.term-8",
+   "type": "term",
+   "kind": "component",
+   "tag": "li",
+   "parent": "5.WRONG",
+   "page": "5",
+   "text": "If we are late against something we promised, you hear it from us first, with the reason and the new time."
+  },
+  {
+   "cid": "5.FAQ",
+   "type": "faq",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.FAQ Questions people ask first Frequently asked, plainly answered. Who actually does the work? A team of AI agents built around your project does the building, research and checking. Brian Meissner sets the scope and the rules, reviews every delivery and is the person you talk to. That is the whole team; there is no one else to introduce. Is the price really fixed? Yes, for the scope we quote. The inputs are fixed at the quote so the price can be. If you change the scope, we quote the difference before doing it, and you can say no. How fast will I get something? A working first version comes back in hours for most small jobs, because the build runs in agent time. We do not print a number per job until we have measured it on our own runs. Your review rounds usually set the pace, and they are yours to pace. Anything else that delays a job, you hear about from us first. Which tools and languages do you work in? Yours. Spreadsheets, databases, Python, APIs, the automation and no-code tools you already pay for, your cloud account. We work in English and Spanish; Portuguese conversationally. Tool names on our pages are tools we work in, never clients. Do you keep my data or my credentials? No. Your data is used for this job only and is never reused in samples. Access you grant is used inside your accounts and we keep no credentials after hand-back. The private workbench stays live for the engagement plus thirty days; you keep every export forever. Can you show me past work? We do not publish client work, names or testimonials, and we will not invent any. What we can show is a sample built on synthetic data in the shape of your job, labelled as such, and this site, which the same team built overnight. I subcontract for agencies. Can you be invisible? Yes. Deliverables go to you, in your formats, with your name on them if you like. We work in the hours and channels you set. What will you not do? Tax or legal advice. Filing with your credentials on your behalf. Trading or investment performance claims. Work that needs your credentials outside your own accounts. Guessing when the honest answer is a question."
+  },
+  {
+   "cid": "5.FAQ.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Questions people ask first"
+  },
+  {
+   "cid": "5.FAQ.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Frequently asked, plainly answered."
+  },
+  {
+   "cid": "5.FAQ.faq-item",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Who actually does the work? A team of AI agents built around your project does the building, research and checking. Brian Meissner sets the scope and the rules, reviews every delivery and is the person you talk to. That is the whole team; there is no one else to introduce."
+  },
+  {
+   "cid": "5.FAQ.faq-item-2",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Is the price really fixed? Yes, for the scope we quote. The inputs are fixed at the quote so the price can be. If you change the scope, we quote the difference before doing it, and you can say no."
+  },
+  {
+   "cid": "5.FAQ.faq-item-3",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "How fast will I get something? A working first version comes back in hours for most small jobs, because the build runs in agent time. We do not print a number per job until we have measured it on our own runs. Your review rounds usually set the pace, and they are yours to pace. Anything else that delays a job, you hear about from us first."
+  },
+  {
+   "cid": "5.FAQ.faq-item-4",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Which tools and languages do you work in? Yours. Spreadsheets, databases, Python, APIs, the automation and no-code tools you already pay for, your cloud account. We work in English and Spanish; Portuguese conversationally. Tool names on our pages are tools we work in, never clients."
+  },
+  {
+   "cid": "5.FAQ.faq-item-5",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Do you keep my data or my credentials? No. Your data is used for this job only and is never reused in samples. Access you grant is used inside your accounts and we keep no credentials after hand-back. The private workbench stays live for the engagement plus thirty days; you keep every export forever."
+  },
+  {
+   "cid": "5.FAQ.faq-item-6",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "Can you show me past work? We do not publish client work, names or testimonials, and we will not invent any. What we can show is a sample built on synthetic data in the shape of your job, labelled as such, and this site, which the same team built overnight."
+  },
+  {
+   "cid": "5.FAQ.faq-item-7",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "I subcontract for agencies. Can you be invisible? Yes. Deliverables go to you, in your formats, with your name on them if you like. We work in the hours and channels you set."
+  },
+  {
+   "cid": "5.FAQ.faq-item-8",
+   "type": "faq-item",
+   "kind": "component",
+   "tag": "details",
+   "parent": "5.FAQ",
+   "page": "5",
+   "text": "What will you not do? Tax or legal advice. Filing with your credentials on your behalf. Trading or investment performance claims. Work that needs your credentials outside your own accounts. Guessing when the honest answer is a question."
+  },
+  {
+   "cid": "5.STORY",
+   "type": "story",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.STORY The person behind the terms Brian Meissner, on the record. Built and ran SA Trails LLC, Austin, Texas, 2010–2018: a Wi-Fi SaaS with offices in six countries and 24-hour support in El Salvador and Indonesia. El Diablo Tranquilo, a hostel in Punta del Diablo, Uruguay, 2006–2020. Worked on Custom firmware through automated guest surveys; connection data for all Wi-Fi access across hundreds of devices for each of hundreds of clients. Systems for large data sets, including municipal infrastructure and regional retail transaction management. AWS every year since 2009. ML and early AI work since at least 2021. Also For years in charge of data exchange between private businesses and public offices, in the exact format each recipient required. BA, Economics, University of Wisconsin–Madison. English native; Spanish full professional; Portuguese conversational."
+  },
+  {
+   "cid": "5.STORY.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.STORY",
+   "page": "5",
+   "text": "The person behind the terms"
+  },
+  {
+   "cid": "5.STORY.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.STORY",
+   "page": "5",
+   "text": "Brian Meissner, on the record."
+  },
+  {
+   "cid": "5.DISCLOSURE",
+   "type": "disclosure",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.DISCLOSURE Disclosure I work with my own team of AI agents, which I direct and review. Every page on this site, every proposal and every delivery is produced that way. Where a demo or a sample is illustrative rather than a real job, it says so."
+  },
+  {
+   "cid": "5.DISCLOSURE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.DISCLOSURE",
+   "page": "5",
+   "text": "Disclosure"
+  },
+  {
+   "cid": "5.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.LOGO The mark, design five The fine-print takeoff on the idea: one operator in two solid strokes, four echoes stepping back behind it, drawn as ruled lines rather than figures. It reads at favicon size, shown at 32 pixels beside it."
+  },
+  {
+   "cid": "5.LOGO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.LOGO",
+   "page": "5",
+   "text": "The mark, design five"
+  },
+  {
+   "cid": "5.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "5.LOGO",
+   "page": "5",
+   "text": "The fine-print takeoff on the idea: one operator in two solid strokes, four echoes stepping back behind it, drawn as ruled lines rather than figures. It reads at favicon size, shown at 32 pixels beside it."
+  },
+  {
+   "cid": "5.LOGO.logo-2",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "5.LOGO.logo",
+   "page": "5",
+   "text": ""
+  },
+  {
+   "cid": "5.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "5",
+   "text": "5.CONTACT Start a project Tell us what you want. We will quote it in writing. Send the file, the format you need back, and the rules in your own words. You get a fixed price and a named first milestone, in your channel, in your hours. team@meissner.services"
+  },
+  {
+   "cid": "5.CONTACT.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "5.CONTACT",
+   "page": "5",
+   "text": "Start a project"
+  },
+  {
+   "cid": "5.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "5.CONTACT",
+   "page": "5",
+   "text": "Tell us what you want. We will quote it in writing."
+  },
+  {
+   "cid": "5.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "5.CONTACT",
+   "page": "5",
+   "text": "team@meissner.services"
+  },
+  {
+   "cid": "5.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "5",
+   "text": "Meissner Services · The Fine Print · tentative design 5 of 7 I work with my own team of AI agents, which I direct and review."
+  }
+ ],
+ "6": [
+  {
+   "cid": "6.header",
+   "type": "header",
+   "kind": "component",
+   "tag": "header",
+   "parent": null,
+   "page": "6",
+   "text": "MEISSNER SERVICES EN ES Compare designs ◐ Theme"
+  },
+  {
+   "cid": "6.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.HERO Your language. Your tools. Prototypes in hours. Good work starts with understanding. Tell us what you want to make easier. In English or Spanish, we’ll turn the conversation into a working prototype—then refine it with you. A fixed scope and price, in your tools. Led by Brian Meissner, founder of SA Trails. Tell us about your project ↗ One person to talk to. A team of agents behind the work."
+  },
+  {
+   "cid": "6.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.HERO",
+   "page": "6",
+   "text": "Your language. Your tools. Prototypes in hours."
+  },
+  {
+   "cid": "6.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "6.HERO",
+   "page": "6",
+   "text": "Good work starts with understanding."
+  },
+  {
+   "cid": "6.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.HERO",
+   "page": "6",
+   "text": "Tell us what you want to make easier. In English or Spanish, we’ll turn the conversation into a working prototype—then refine it with you. A fixed scope and price, in your tools. Led by Brian Meissner, founder of SA Trails."
+  },
+  {
+   "cid": "6.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "6.HERO",
+   "page": "6",
+   "text": "Tell us about your project ↗"
+  },
+  {
+   "cid": "6.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "aside",
+   "parent": "6.HERO",
+   "page": "6",
+   "text": "One person to talk to. A team of agents behind the work."
+  },
+  {
+   "cid": "6.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "img",
+   "parent": "6.LOGO",
+   "page": "6",
+   "text": ""
+  },
+  {
+   "cid": "6.WORK",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.WORK A way of working that fits your world. 01 Your channel Email, WhatsApp, your platform’s chat, Slack or Teams. We work out the right channel and response rhythm together. 02 Your stack Keep the tools you already use. We map the workflow around your accounts and agree what access is needed. 03 Your outcome A defined scope, a fixed price, and a prototype you can try. We agree refinements before doing extra work."
+  },
+  {
+   "cid": "6.WORK.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.WORK",
+   "page": "6",
+   "text": "A way of working that fits your world."
+  },
+  {
+   "cid": "6.WORK.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.WORK",
+   "page": "6",
+   "text": "01 Your channel Email, WhatsApp, your platform’s chat, Slack or Teams. We work out the right channel and response rhythm together."
+  },
+  {
+   "cid": "6.WORK.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.WORK",
+   "page": "6",
+   "text": "02 Your stack Keep the tools you already use. We map the workflow around your accounts and agree what access is needed."
+  },
+  {
+   "cid": "6.WORK.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.WORK",
+   "page": "6",
+   "text": "03 Your outcome A defined scope, a fixed price, and a prototype you can try. We agree refinements before doing extra work."
+  },
+  {
+   "cid": "6.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.SPEED Move quickly. Keep the conversation human. Our AI agents build in hours for tightly scoped work. Brian directs the project; we agree timing from measured work and your review rounds. This site: brief 2 Oct 2026, 01:49 CT · first page commit 03:04 · first HTTPS deployment receipt 03:16. Actual milestones from this build, not a universal delivery promise."
+  },
+  {
+   "cid": "6.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.SPEED",
+   "page": "6",
+   "text": "Move quickly. Keep the conversation human."
+  },
+  {
+   "cid": "6.HUMAN",
+   "type": "story",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.HUMAN You bring the idea. Or the task you wish you could hand off. We bring a human-led team built around getting it done. Brian brings entrepreneurial, managerial and software architecture experience. He directs and reviews his own team of AI agents. Illustrations are brand artwork, not a photograph of a larger staff."
+  },
+  {
+   "cid": "6.HUMAN.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.HUMAN",
+   "page": "6",
+   "text": "You bring the idea. Or the task you wish you could hand off. We bring a human-led team built around getting it done."
+  },
+  {
+   "cid": "6.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.CONTACT Let’s make your working day easier. A few lines about the task, the tools, and your timing are enough to start. Fixed price applies to the agreed scope; changes and review rounds are agreed with you."
+  },
+  {
+   "cid": "6.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.CONTACT",
+   "page": "6",
+   "text": "Let’s make your working day easier."
+  },
+  {
+   "cid": "6.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "6.CONTACT",
+   "page": "6",
+   "text": ""
+  },
+  {
+   "cid": "6.ES.HERO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.ES.HERO Tu idioma. Tus herramientas. Prototipos en horas. Un buen proyecto empieza por entendernos. Cuéntanos qué quieres hacer más fácil. En español o en inglés, convertimos la conversación en un prototipo que funciona y lo afinamos contigo. Alcance y precio definidos, con tus herramientas. Con la dirección de Brian Meissner, fundador de SA Trails. Cuéntanos tu proyecto ↗ Una persona con quien hablar. Un equipo de agentes detrás del trabajo."
+  },
+  {
+   "cid": "6.ES.HERO.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.ES.HERO",
+   "page": "6",
+   "text": "Tu idioma. Tus herramientas. Prototipos en horas."
+  },
+  {
+   "cid": "6.ES.HERO.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h1",
+   "parent": "6.ES.HERO",
+   "page": "6",
+   "text": "Un buen proyecto empieza por entendernos."
+  },
+  {
+   "cid": "6.ES.HERO.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.ES.HERO",
+   "page": "6",
+   "text": "Cuéntanos qué quieres hacer más fácil. En español o en inglés, convertimos la conversación en un prototipo que funciona y lo afinamos contigo. Alcance y precio definidos, con tus herramientas. Con la dirección de Brian Meissner, fundador de SA Trails."
+  },
+  {
+   "cid": "6.ES.HERO.cta",
+   "type": "cta",
+   "kind": "component",
+   "tag": "a",
+   "parent": "6.ES.HERO",
+   "page": "6",
+   "text": "Cuéntanos tu proyecto ↗"
+  },
+  {
+   "cid": "6.ES.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "aside",
+   "parent": "6.ES.HERO",
+   "page": "6",
+   "text": "Una persona con quien hablar. Un equipo de agentes detrás del trabajo."
+  },
+  {
+   "cid": "6.ES.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "img",
+   "parent": "6.ES.LOGO",
+   "page": "6",
+   "text": ""
+  },
+  {
+   "cid": "6.ES.WORK",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.ES.WORK Una forma de trabajar que se adapta a tu día. 01 Tu canal Correo, WhatsApp, el chat de tu plataforma, Slack o Teams. Acordamos el canal y un ritmo de comunicación que te sirva. 02 Tus herramientas Conserva las herramientas que ya usas. Adaptamos el flujo a tus cuentas y acordamos los accesos necesarios. 03 Tu resultado Un alcance definido, un precio fijo y un prototipo que puedes probar. Acordamos los cambios antes de hacer trabajo adicional."
+  },
+  {
+   "cid": "6.ES.WORK.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.ES.WORK",
+   "page": "6",
+   "text": "Una forma de trabajar que se adapta a tu día."
+  },
+  {
+   "cid": "6.ES.WORK.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.ES.WORK",
+   "page": "6",
+   "text": "01 Tu canal Correo, WhatsApp, el chat de tu plataforma, Slack o Teams. Acordamos el canal y un ritmo de comunicación que te sirva."
+  },
+  {
+   "cid": "6.ES.WORK.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.ES.WORK",
+   "page": "6",
+   "text": "02 Tus herramientas Conserva las herramientas que ya usas. Adaptamos el flujo a tus cuentas y acordamos los accesos necesarios."
+  },
+  {
+   "cid": "6.ES.WORK.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "article",
+   "parent": "6.ES.WORK",
+   "page": "6",
+   "text": "03 Tu resultado Un alcance definido, un precio fijo y un prototipo que puedes probar. Acordamos los cambios antes de hacer trabajo adicional."
+  },
+  {
+   "cid": "6.ES.SPEED",
+   "type": "speed",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.ES.SPEED Avanzamos rápido. Conversamos contigo. Nuestros agentes de IA construyen en horas cuando el alcance está bien definido. Brian dirige el proyecto; acordamos los plazos según trabajo medido y tus rondas de revisión. Este sitio: encargo del 2 de octubre de 2026, 01:49 CT · primer commit de páginas 03:04 · primer comprobante de publicación HTTPS 03:16. Son hitos reales de este trabajo, no una promesa para cualquier proyecto."
+  },
+  {
+   "cid": "6.ES.SPEED.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.ES.SPEED",
+   "page": "6",
+   "text": "Avanzamos rápido. Conversamos contigo."
+  },
+  {
+   "cid": "6.ES.HUMAN",
+   "type": "story",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.ES.HUMAN Tú pones la idea. O esa tarea que quisieras delegar. Nosotros ponemos un equipo dirigido por una persona para sacarla adelante. Brian aporta experiencia empresarial, de gestión y de arquitectura de software. Dirige y revisa su propio equipo de agentes de IA. Las ilustraciones son parte de la marca; no representan un equipo de empleados."
+  },
+  {
+   "cid": "6.ES.HUMAN.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.ES.HUMAN",
+   "page": "6",
+   "text": "Tú pones la idea. O esa tarea que quisieras delegar. Nosotros ponemos un equipo dirigido por una persona para sacarla adelante."
+  },
+  {
+   "cid": "6.ES.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.ES.CONTACT Hagamos más fácil tu día de trabajo. Para empezar, basta con unas líneas sobre la tarea, las herramientas y tus plazos. El precio fijo corresponde al alcance acordado. Los cambios y las rondas de revisión se acuerdan contigo."
+  },
+  {
+   "cid": "6.ES.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.ES.CONTACT",
+   "page": "6",
+   "text": "Hagamos más fácil tu día de trabajo."
+  },
+  {
+   "cid": "6.ES.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "6.ES.CONTACT",
+   "page": "6",
+   "text": ""
+  },
+  {
+   "cid": "6.PROMISE",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "6.PROMISE Brian’s approach · In his words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. We agree the scope, inputs and review rounds before work begins. Changes are quoted before additional work."
+  },
+  {
+   "cid": "6.PROMISE.eyebrow",
+   "type": "eyebrow",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.PROMISE",
+   "page": "6",
+   "text": "Brian’s approach · In his words"
+  },
+  {
+   "cid": "6.PROMISE.subhead",
+   "type": "subhead",
+   "kind": "component",
+   "tag": "p",
+   "parent": "6.PROMISE",
+   "page": "6",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier."
+  },
+  {
+   "cid": "6.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "6",
+   "text": "Meissner Services · Your Language / Tu idioma · Tentative design 06 I work with my own team of AI agents, which I direct and review. Trabajo con mi propio equipo de agentes de IA, que dirijo y reviso."
+  }
+ ],
+ "7": [
+  {
+   "cid": "7.HELLO",
+   "type": "hero",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "An introduction, written as a chat Hi, I'm Brian. Tell me what you want built, fixed, cleaned up or organised. My agents do the building, so on a tightly scoped job you get a working prototype in hours. Then you tell me what to change, and we refine it at your pace until it's exactly how you like it. Proof: I sent my team the brief for this site at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and deployed over HTTPS at 03:16 CT. Those are real timestamps, not a promise for every job. The price is fixed and agreed before we start. Email, WhatsApp, your platform's chat, Slack or Teams: whatever you use, whenever suits you. I work with my own team of AI agents, which I direct and review."
+  },
+  {
+   "cid": "7.HELLO.item",
+   "type": "item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HELLO",
+   "page": "7",
+   "text": "Hi, I'm Brian. Tell me what you want built, fixed, cleaned up or organised."
+  },
+  {
+   "cid": "7.HELLO.item-2",
+   "type": "item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HELLO",
+   "page": "7",
+   "text": "My agents do the building, so on a tightly scoped job you get a working prototype in hours. Then you tell me what to change, and we refine it at your pace until it's exactly how you like it."
+  },
+  {
+   "cid": "7.HELLO.item-3",
+   "type": "item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HELLO",
+   "page": "7",
+   "text": "Proof: I sent my team the brief for this site at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and deployed over HTTPS at 03:16 CT. Those are real timestamps, not a promise for every job."
+  },
+  {
+   "cid": "7.HELLO.item-4",
+   "type": "item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HELLO",
+   "page": "7",
+   "text": "The price is fixed and agreed before we start. Email, WhatsApp, your platform's chat, Slack or Teams: whatever you use, whenever suits you."
+  },
+  {
+   "cid": "7.HELLO.item-5",
+   "type": "item",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HELLO",
+   "page": "7",
+   "text": "I work with my own team of AI agents, which I direct and review."
+  },
+  {
+   "cid": "7.LOGO",
+   "type": "logo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": ""
+  },
+  {
+   "cid": "7.LOGO.logo",
+   "type": "logo",
+   "kind": "component",
+   "tag": "svg",
+   "parent": "7.LOGO",
+   "page": "7",
+   "text": ""
+  },
+  {
+   "cid": "7.STORY",
+   "type": "story",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "Why trust a one-person operator 2003–2004 · Brazil Founded Oportunidade Enterprises in Maceió, working with cooperatives. 2006–2020 · Uruguay Founded and ran El Diablo Tranquilo, a hostel in Punta del Diablo, for 14 years. 2010–2018 · Austin, Texas Founded SA Trails, a Wi-Fi software company with offices in six countries and 24-hour support in El Salvador and Indonesia. The work ran from custom firmware to automated guest surveys, across connection data for hundreds of clients. 2016–2017 · Milwaukee General manager of Smoke Shack. 2021–2025 · On the road Ran his own long-haul flatbed freight business. Throughout Built point-of-sale systems. Used AWS every year since 2009, including real-time market-data monitoring. ML and early AI work since at least 2021. For years in charge of getting data into the exact format a public office or business required. BA, Economics, University of Wisconsin–Madison. English native; Spanish full professional (Rioplatense); Portuguese conversational."
+  },
+  {
+   "cid": "7.STORY.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "Why trust a one-person operator"
+  },
+  {
+   "cid": "7.STORY.story-item",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "2003–2004 · Brazil Founded Oportunidade Enterprises in Maceió, working with cooperatives."
+  },
+  {
+   "cid": "7.STORY.story-item-2",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "2006–2020 · Uruguay Founded and ran El Diablo Tranquilo, a hostel in Punta del Diablo, for 14 years."
+  },
+  {
+   "cid": "7.STORY.story-item-3",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "2010–2018 · Austin, Texas Founded SA Trails, a Wi-Fi software company with offices in six countries and 24-hour support in El Salvador and Indonesia. The work ran from custom firmware to automated guest surveys, across connection data for hundreds of clients."
+  },
+  {
+   "cid": "7.STORY.story-item-4",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "2016–2017 · Milwaukee General manager of Smoke Shack."
+  },
+  {
+   "cid": "7.STORY.story-item-5",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "2021–2025 · On the road Ran his own long-haul flatbed freight business."
+  },
+  {
+   "cid": "7.STORY.story-item-6",
+   "type": "story-item",
+   "kind": "component",
+   "tag": "li",
+   "parent": "7.STORY",
+   "page": "7",
+   "text": "Throughout Built point-of-sale systems. Used AWS every year since 2009, including real-time market-data monitoring. ML and early AI work since at least 2021. For years in charge of getting data into the exact format a public office or business required."
+  },
+  {
+   "cid": "7.HOW",
+   "type": "process",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "How we'd work Your channel, your hours. Message me where you already are, in English or Spanish. Your stack. I map onto your tools, languages and accounts. You own everything from day one. Prototype, then refine. A working first version, then changes until it's right. Typical small jobs run USD 100–500, fixed price, agreed before we start. Yours to keep. A private workbench with a one-button export in the format you need, live for the job plus 30 days. You keep every export forever."
+  },
+  {
+   "cid": "7.HOW.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.HOW",
+   "page": "7",
+   "text": "How we'd work"
+  },
+  {
+   "cid": "7.HOW.step",
+   "type": "step",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HOW",
+   "page": "7",
+   "text": "Your channel, your hours. Message me where you already are, in English or Spanish."
+  },
+  {
+   "cid": "7.HOW.step-2",
+   "type": "step",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HOW",
+   "page": "7",
+   "text": "Your stack. I map onto your tools, languages and accounts. You own everything from day one."
+  },
+  {
+   "cid": "7.HOW.step-3",
+   "type": "step",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HOW",
+   "page": "7",
+   "text": "Prototype, then refine. A working first version, then changes until it's right. Typical small jobs run USD 100–500, fixed price, agreed before we start."
+  },
+  {
+   "cid": "7.HOW.step-4",
+   "type": "step",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.HOW",
+   "page": "7",
+   "text": "Yours to keep. A private workbench with a one-button export in the format you need, live for the job plus 30 days. You keep every export forever."
+  },
+  {
+   "cid": "7.CANON",
+   "type": "canonical",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "In my words We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "7.CANON.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.CANON",
+   "page": "7",
+   "text": "In my words"
+  },
+  {
+   "cid": "7.CANON.card",
+   "type": "card",
+   "kind": "component",
+   "tag": "div",
+   "parent": "7.CANON",
+   "page": "7",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "7.CANON.canonical-quote",
+   "type": "canonical-quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "7.CANON.card",
+   "page": "7",
+   "text": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier. Brian Meissner"
+  },
+  {
+   "cid": "7.CONTACT",
+   "type": "contact",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "7",
+   "text": "Message me WhatsApp · +1 (262) 366-1718 Email · team@meissner.services"
+  },
+  {
+   "cid": "7.CONTACT.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "7.CONTACT",
+   "page": "7",
+   "text": "Message me"
+  },
+  {
+   "cid": "7.CONTACT.contact",
+   "type": "contact",
+   "kind": "component",
+   "tag": "meissner-contact",
+   "parent": "7.CONTACT",
+   "page": "7",
+   "text": "WhatsApp · +1 (262) 366-1718 Email · team@meissner.services"
+  },
+  {
+   "cid": "7.footer",
+   "type": "footer",
+   "kind": "component",
+   "tag": "footer",
+   "parent": null,
+   "page": "7",
+   "text": "Meissner Services · Variant 7 of 7, \"The Operator\" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies."
+  }
+ ]
+}

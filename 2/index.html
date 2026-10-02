@@ -74,24 +74,24 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
 <body>
 <a class="skip" href="#2.CONTACT">Skip to contact</a>
 <div class="wrap">
-<header class="top">
+<header class="top" data-component="2.header" data-type="header">
   <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--hot)"/><circle cx="20" cy="10" r="4" fill="#fff" opacity=".55"/><path d="M14 30v-9a6 6 0 0 1 12 0v9z" fill="#fff" opacity=".55"/><circle cx="13" cy="10" r="4.5" fill="#fff"/><path d="M6 30v-9a7 7 0 0 1 14 0v9z" fill="#fff"/></svg>
   <div class="brand">Meissner Services<small>Brian Meissner + his AI team</small></div>
 </header>
 
-<section id="2.HERO" data-tag class="hero" aria-labelledby="h-hero">
+<section id="2.HERO" data-tag class="hero" aria-labelledby="h-hero" data-component="2.HERO" data-type="hero">
   <div>
-    <h1 id="h-hero">A working prototype in hours.<br><span class="hot">A fixed price throughout.</span></h1>
-    <p class="lede">Tell us what you want. On a tightly scoped job the build runs in agent time, so a working first version comes back in hours. Brian checks it, then we refine it with you until it's exactly how you like it. From there, the review rounds go at your pace. The price is agreed before we start.</p>
+    <h1 id="h-hero" data-component="2.HERO.headline" data-type="headline">A working prototype in hours.<br><span class="hot">A fixed price throughout.</span></h1>
+    <p class="lede" data-component="2.HERO.subhead" data-type="subhead">Tell us what you want. On a tightly scoped job the build runs in agent time, so a working first version comes back in hours. Brian checks it, then we refine it with you until it's exactly how you like it. From there, the review rounds go at your pace. The price is agreed before we start.</p>
     <div class="ctas">
-      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
-      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">Email team@meissner.services</a>
+      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project" data-component="2.HERO.cta" data-type="cta">WhatsApp +1 (262) 366-1718</a>
+      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry" data-component="2.HERO.cta-2" data-type="cta">Email team@meissner.services</a>
     </div>
     <p class="fine">English or Spanish. Portuguese conversational.</p>
-    <p class="proof"><b>Proof you're looking at:</b> the brief for this site was sent at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and first deployed over HTTPS at 03:16 CT. Those are our real timestamps, not a per-job promise.</p>
+    <p class="proof" data-component="2.HERO.proof" data-type="proof"><b>Proof you're looking at:</b> the brief for this site was sent at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and first deployed over HTTPS at 03:16 CT. Those are our real timestamps, not a per-job promise.</p>
   </div>
-  <div class="mark-wrap" id="2.LOGO" data-tag>
-    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with three echoes fanning out behind him">
+  <div class="mark-wrap" id="2.LOGO" data-tag data-component="2.LOGO" data-type="logo">
+    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with three echoes fanning out behind him" data-component="2.LOGO.logo" data-type="logo">
       <g fill="var(--cool)">
         <g class="echo e4" opacity=".14"><circle cx="262" cy="70" r="22"/><path d="M228 228v-74a34 34 0 0 1 68 0v74z"/></g>
         <g class="echo e3" opacity=".26"><circle cx="222" cy="70" r="24"/><path d="M185 228v-76a37 37 0 0 1 74 0v76z"/></g>
@@ -102,63 +102,63 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
   </div>
 </section>
 
-<section id="2.ANSWERS" data-tag aria-labelledby="h-answers">
-  <h2 id="h-answers">Your four questions, answered first</h2>
+<section id="2.ANSWERS" data-tag aria-labelledby="h-answers" data-component="2.ANSWERS" data-type="answers">
+  <h2 id="h-answers" data-component="2.ANSWERS.headline" data-type="headline">Your four questions, answered first</h2>
   <div class="qa">
-    <article class="q"><h3><span class="n">1</span>Is this real?</h3><p>Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project.</p></article>
-    <article class="q"><h3><span class="n">2</span>Will you answer me?</h3><p>Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational.</p></article>
-    <article class="q"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide.</p></article>
-    <article class="q"><h3><span class="n">4</span>Can you work in my tools?</h3><p>Yes. We map onto your tools, languages and accounts, and you own everything from day one.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer" data-type="answer"><h3><span class="n">1</span>Is this real?</h3><p>Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-2" data-type="answer"><h3><span class="n">2</span>Will you answer me?</h3><p>Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-3" data-type="answer"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-4" data-type="answer"><h3><span class="n">4</span>Can you work in my tools?</h3><p>Yes. We map onto your tools, languages and accounts, and you own everything from day one.</p></article>
   </div>
 </section>
 
-<section id="2.HOW" data-tag aria-labelledby="h-how">
-  <h2 id="h-how">How it goes</h2>
+<section id="2.HOW" data-tag aria-labelledby="h-how" data-component="2.HOW" data-type="process">
+  <h2 id="h-how" data-component="2.HOW.headline" data-type="headline">How it goes</h2>
   <ol class="steps">
-    <li><b>Tell us what you want</b>In your words, in your channel.</li>
-    <li><b>Working prototype</b>Something you can open and try, not a slide.</li>
-    <li><b>Refine</b>Tell us what to change; we work toward exactly how you like it.</li>
-    <li><b>Yours</b>The infrastructure is ours, the job is yours.</li>
+    <li data-component="2.HOW.step" data-type="step"><b>Tell us what you want</b>In your words, in your channel.</li>
+    <li data-component="2.HOW.step-2" data-type="step"><b>Working prototype</b>Something you can open and try, not a slide.</li>
+    <li data-component="2.HOW.step-3" data-type="step"><b>Refine</b>Tell us what to change; we work toward exactly how you like it.</li>
+    <li data-component="2.HOW.step-4" data-type="step"><b>Yours</b>The infrastructure is ours, the job is yours.</li>
   </ol>
 </section>
 
-<section id="2.PRICE" data-tag aria-labelledby="h-price">
-  <h2 id="h-price">What it costs</h2>
+<section id="2.PRICE" data-tag aria-labelledby="h-price" data-component="2.PRICE" data-type="pricing">
+  <h2 id="h-price" data-component="2.PRICE.headline" data-type="headline">What it costs</h2>
   <div class="price">
-    <div class="panel"><div class="big">USD 100–500</div><p>Typical small jobs: fixed price, agreed before work starts.</p></div>
-    <div class="panel"><p><b>Included:</b> a private workbench, a web view of your data and results, with a one-button export in the format you need. It stays live for the job plus 30 days, and you keep every export forever.</p></div>
+    <div class="panel" data-component="2.PRICE.pricing-card" data-type="pricing-card"><div class="big">USD 100–500</div><p>Typical small jobs: fixed price, agreed before work starts.</p></div>
+    <div class="panel" data-component="2.PRICE.pricing-card-2" data-type="pricing-card"><p><b>Included:</b> a private workbench, a web view of your data and results, with a one-button export in the format you need. It stays live for the job plus 30 days, and you keep every export forever.</p></div>
   </div>
 </section>
 
-<section id="2.WHO" data-tag aria-labelledby="h-who">
-  <h2 id="h-who">Who it's for</h2>
+<section id="2.WHO" data-tag aria-labelledby="h-who" data-component="2.WHO" data-type="audience">
+  <h2 id="h-who" data-component="2.WHO.headline" data-type="headline">Who it's for</h2>
   <div class="who">
-    <div class="panel"><b>You have an idea or a project of your own</b><p class="fine">Get it to a working first version fast, then shape it.</p></div>
-    <div class="panel"><b>You need time back, or cover for gaps</b><p class="fine">Agencies and freelancers who subcontract part of the work they do for others.</p></div>
+    <div class="panel" data-component="2.WHO.audience-item" data-type="audience-item"><b>You have an idea or a project of your own</b><p class="fine">Get it to a working first version fast, then shape it.</p></div>
+    <div class="panel" data-component="2.WHO.audience-item-2" data-type="audience-item"><b>You need time back, or cover for gaps</b><p class="fine">Agencies and freelancers who subcontract part of the work they do for others.</p></div>
   </div>
 </section>
 
-<section id="2.TEAM" data-tag aria-labelledby="h-team">
-  <h2 id="h-team">Who you're dealing with</h2>
-  <blockquote>"I work with my own team of AI agents, which I direct and review."<cite>Brian Meissner</cite></blockquote>
+<section id="2.TEAM" data-tag aria-labelledby="h-team" data-component="2.TEAM" data-type="team">
+  <h2 id="h-team" data-component="2.TEAM.headline" data-type="headline">Who you're dealing with</h2>
+  <blockquote data-component="2.TEAM.quote" data-type="quote">"I work with my own team of AI agents, which I direct and review."<cite>Brian Meissner</cite></blockquote>
   <ul class="facts">
-    <li>Founder, SA Trails: Wi-Fi software, custom firmware through automated guest surveys (2010–2018)</li>
-    <li>Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)</li>
-    <li>AWS every year since 2009; ML and early AI work since at least 2021</li>
-    <li>BA, Economics, University of Wisconsin–Madison</li>
+    <li data-component="2.TEAM.item" data-type="item">Founder, SA Trails: Wi-Fi software, custom firmware through automated guest surveys (2010–2018)</li>
+    <li data-component="2.TEAM.item-2" data-type="item">Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)</li>
+    <li data-component="2.TEAM.item-3" data-type="item">AWS every year since 2009; ML and early AI work since at least 2021</li>
+    <li data-component="2.TEAM.item-4" data-type="item">BA, Economics, University of Wisconsin–Madison</li>
   </ul>
 </section>
 
-<section id="2.CANON" data-tag aria-labelledby="h-canon">
-  <h2 id="h-canon">In Brian's words</h2>
-  <blockquote>We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
+<section id="2.CANON" data-tag aria-labelledby="h-canon" data-component="2.CANON" data-type="canonical">
+  <h2 id="h-canon" data-component="2.CANON.headline" data-type="headline">In Brian's words</h2>
+  <blockquote data-component="2.CANON.canonical-quote" data-type="canonical-quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
 </section>
 
-<section id="2.CONTACT" data-tag aria-labelledby="h-contact">
+<section id="2.CONTACT" data-tag aria-labelledby="h-contact" data-component="2.CONTACT" data-type="contact">
   <div class="contact">
-    <h2 id="h-contact">Tell us what you want</h2>
+    <h2 id="h-contact" data-component="2.CONTACT.headline" data-type="headline">Tell us what you want</h2>
     <p>One tap to start. Email or WhatsApp, in English or Spanish.</p>
-    <meissner-contact>
+    <meissner-contact data-component="2.CONTACT.contact" data-type="contact">
       <div class="ctas">
       <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
       <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">team@meissner.services</a>
@@ -167,7 +167,7 @@ footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
   </div>
 </section>
 
-<footer>
+<footer data-component="2.footer" data-type="footer">
   <p>Meissner Services · Variant 2 of 7, "The Pitch" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies.</p>
 </footer>
 </div>
