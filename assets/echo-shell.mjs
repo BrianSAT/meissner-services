@@ -14,7 +14,7 @@ export function mountOfflineFeature(parent,page) {
   if(!document.querySelector('link[rel=manifest]')){const link=document.createElement('link');link.rel='manifest';link.href='/review.webmanifest';document.head.append(link);}
   const host=document.createElement('section');host.className='echo-feature';host.dataset.component=`${page}.PWA`;host.dataset.type='pwa';host.id=`${page}.PWA`;
   const heading=document.createElement('h2');heading.textContent='Take the review with you.';
-  const description=document.createElement('p');description.textContent='Prepare seven prototypes for offline browsing. Your private review stays on this browser; new ratings remain pending until you reconnect. Install it on your home screen when your browser supports it.';
+  const description=document.createElement('p');description.textContent='Prepare seven prototypes for offline browsing. Your offline review copy stays on this browser; new ratings remain pending until you reconnect. Install it on your home screen when your browser supports it.';
   const controls=document.createElement('div');controls.dataset.echoInteractive='';
   const prepare=document.createElement('button');prepare.type='button';prepare.textContent='Prepare offline review';
   const install=document.createElement('button');install.type='button';install.textContent='Install review app';install.hidden=true;

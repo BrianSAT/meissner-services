@@ -229,6 +229,7 @@ async function loadCatalog() {
   const response=await fetch(config.catalog,{referrerPolicy:'no-referrer'});if(!response.ok)throw new Error('Component inventory unavailable');
   const data=await response.json();catalog=Array.isArray(data)?data:Object.values(data).flat();
   for(let page=1;page<=7;page++){const cid=`${page}.PWA`;if(!catalog.some(c=>c.cid===cid))catalog.push({cid,page:String(page),type:'pwa',kind:'section',parent:null,path:`/${page}/`,text:'Take the review with you. Prepare the public offline shell; private ratings sync when reconnected.'});}
+  catalog.push({cid:'REVIEW.POSITIONING',page:'review',type:'positioning',kind:'section',parent:null,path:'/review/summary/',text:'Full AI consulting, led by Brian, without long-term subscriptions or huge contracts.'});
   catalog.push({cid:'REVIEW.SHARE',page:'review',type:'share-card',kind:'section',parent:null,path:'/review/summary/',text:'Generate a summary image locally. Private link excluded; notes require explicit choice.'});return catalog;
 }
 async function hub() {
