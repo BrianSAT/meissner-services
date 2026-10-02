@@ -3619,7 +3619,7 @@
    "tag": "section",
    "parent": null,
    "page": "7",
-   "text": "Or just say it: a 60-second voice brief Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email. ● Record ■ Stop Nothing recorded. Save to your device Delete Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp."
+   "text": "Or just say it: a 90-second voice brief Nothing is recorded until you tick the box and press Record. Nothing is sent until you press Send. Your voice note goes only to Meissner Services, is used to understand your project, and is deleted within 90 days, or sooner if you ask. ● Record ■ Stop Nothing recorded. Email or WhatsApp number Name (optional) Anything to add? (optional) Send to Meissner Services Save to your device Delete"
   },
   {
    "cid": "7.VOICE.headline",
@@ -3628,7 +3628,7 @@
    "tag": "h2",
    "parent": "7.VOICE",
    "page": "7",
-   "text": "Or just say it: a 60-second voice brief"
+   "text": "Or just say it: a 90-second voice brief"
   },
   {
    "cid": "7.VOICE.card",
@@ -3637,7 +3637,7 @@
    "tag": "div",
    "parent": "7.VOICE",
    "page": "7",
-   "text": "Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email. ● Record ■ Stop Nothing recorded. Save to your device Delete Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp."
+   "text": "Nothing is recorded until you tick the box and press Record. Nothing is sent until you press Send. Your voice note goes only to Meissner Services, is used to understand your project, and is deleted within 90 days, or sooner if you ask. ● Record ■ Stop Nothing recorded. Email or WhatsApp number Name (optional) Anything to add? (optional) Send to Meissner Services Save to your device Delete"
   },
   {
    "cid": "7.METHOD",

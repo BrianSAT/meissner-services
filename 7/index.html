@@ -57,6 +57,7 @@ footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;co
 .fi:focus-visible,.fbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .v-status{font-weight:700;margin:12px 0 0}
 .v-after audio{width:100%;margin-top:10px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px}.consent input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--accent)}.v-turnstile{margin-top:12px;min-height:65px}
 </style>
 <link rel="stylesheet" href="/assets/shared.css">
 <script defer src="/assets/shared.js"></script>
@@ -143,21 +144,34 @@ footer{padding:18px 0 calc(48px + env(safe-area-inset-bottom));font-size:12px;co
 </section>
 
 <section id="7.VOICE" class="feat" data-tag aria-labelledby="h-voice" data-feature="voice" data-component="7.VOICE" data-type="feature">
-  <h2 id="h-voice" data-component="7.VOICE.headline" data-type="headline">Or just say it: a 60-second voice brief</h2>
+  <h2 id="h-voice" data-component="7.VOICE.headline" data-type="headline">Or just say it: a 90-second voice brief</h2>
   <div class="card" data-component="7.VOICE.card" data-type="card">
-    <p class="fine">Nothing is recorded until you press Record, and the recording stays on your device. Listen back, delete it, or save it and attach it in WhatsApp or email.</p>
+    <p class="fine">Nothing is recorded until you tick the box and press Record. Nothing is sent until you press Send.</p>
+    <label class="consent"><input type="checkbox" id="v-consent"> Your voice note goes only to Meissner Services, is used to understand your project, and is deleted within 90 days, or sooner if you ask.</label>
     <div class="row">
-      <button type="button" class="fbtn v-rec">● Record</button>
+      <button type="button" class="fbtn v-rec" disabled>● Record</button>
       <button type="button" class="fbtn ghost v-stop" disabled>■ Stop</button>
     </div>
     <p class="v-status" aria-live="polite">Nothing recorded.</p>
     <div class="v-after" hidden>
       <audio controls preload="none"></audio>
+      <div class="v-form" hidden>
+        <label class="fl" for="v-email">Email</label>
+        <input id="v-email" class="fi" type="email" autocomplete="email" maxlength="160">
+        <label class="fl" for="v-wa">or WhatsApp number</label>
+        <input id="v-wa" class="fi" type="tel" autocomplete="tel" maxlength="40" placeholder="+1 555 123 4567">
+        <label class="fl" for="v-name">Name (optional)</label>
+        <input id="v-name" class="fi" type="text" autocomplete="name" maxlength="80">
+        <label class="fl" for="v-msg">Anything to add? (optional)</label>
+        <input id="v-msg" class="fi" type="text" maxlength="300">
+        <div class="v-turnstile"></div>
+      </div>
       <div class="row">
-        <button type="button" class="fbtn v-save">Save to your device</button>
+        <button type="button" class="fbtn v-send" disabled>Send to Meissner Services</button>
+        <button type="button" class="fbtn ghost v-save">Save to your device</button>
         <button type="button" class="fbtn ghost v-del">Delete</button>
       </div>
-      <p class="fine">Sending it straight to us from here is coming soon. Until then, save it and send it on WhatsApp.</p>
+      <p class="v-send-status fine" role="status" aria-live="polite"></p>
     </div>
   </div>
 </section>
