@@ -250,7 +250,7 @@
    "tag": "section",
    "parent": null,
    "page": "1",
-   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+   "text": "How we work, on any task We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents. Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
   },
   {
    "cid": "1.METHOD.headline",
@@ -260,6 +260,24 @@
    "parent": "1.METHOD",
    "page": "1",
    "text": "How we work, on any task"
+  },
+  {
+   "cid": "1.METHOD.positioning",
+   "type": "positioning",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "1.METHOD",
+   "page": "1",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
+  },
+  {
+   "cid": "1.METHOD.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "1.METHOD.positioning",
+   "page": "1",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."
   },
   {
    "cid": "1.METHOD.method-step",
@@ -801,7 +819,7 @@
    "tag": "section",
    "parent": null,
    "page": "2",
-   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+   "text": "How we work, on any task We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents. Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
   },
   {
    "cid": "2.METHOD.headline",
@@ -811,6 +829,24 @@
    "parent": "2.METHOD",
    "page": "2",
    "text": "How we work, on any task"
+  },
+  {
+   "cid": "2.METHOD.positioning",
+   "type": "positioning",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "2.METHOD",
+   "page": "2",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
+  },
+  {
+   "cid": "2.METHOD.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "2.METHOD.positioning",
+   "page": "2",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."
   },
   {
    "cid": "2.METHOD.method-step",
@@ -2969,7 +3005,7 @@
    "tag": "section",
    "parent": null,
    "page": "6",
-   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+   "text": "How we work, on any task We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents. Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
   },
   {
    "cid": "6.METHOD.headline",
@@ -2979,6 +3015,24 @@
    "parent": "6.METHOD",
    "page": "6",
    "text": "How we work, on any task"
+  },
+  {
+   "cid": "6.METHOD.positioning",
+   "type": "positioning",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "6.METHOD",
+   "page": "6",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
+  },
+  {
+   "cid": "6.METHOD.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "6.METHOD.positioning",
+   "page": "6",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."
   },
   {
    "cid": "6.METHOD.method-step",
@@ -3592,7 +3646,7 @@
    "tag": "section",
    "parent": null,
    "page": "7",
-   "text": "How we work, on any task Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
+   "text": "How we work, on any task We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents. Prototype. We build working options for your task, not slides about it. Rate. You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like. Synthesize. One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready. Repeat. Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right. Deliver. You get the finished work in your tools and formats, at the price agreed before we started. The same loop works on any task: Database cleanup: sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose. Research presentation: slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest. Interactive website: like this site. You rate seven designs part by part, and the next version combines what you liked. See how Echo Review works ↗"
   },
   {
    "cid": "7.METHOD.headline",
@@ -3602,6 +3656,24 @@
    "parent": "7.METHOD",
    "page": "7",
    "text": "How we work, on any task"
+  },
+  {
+   "cid": "7.METHOD.positioning",
+   "type": "positioning",
+   "kind": "component",
+   "tag": "figure",
+   "parent": "7.METHOD",
+   "page": "7",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
+  },
+  {
+   "cid": "7.METHOD.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "7.METHOD.positioning",
+   "page": "7",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."
   },
   {
    "cid": "7.METHOD.method-step",
@@ -3729,7 +3801,7 @@
    "tag": "section",
    "parent": null,
    "page": "how-we-work",
-   "text": "HW.HERO How we work: prototype, rate, synthesize, repeat, deliver Most projects go wrong in the gap between what you asked for and what you meant. We close it by showing you working options early and letting you rate them, part by part."
+   "text": "HW.HERO How we work: prototype, rate, synthesize, repeat, deliver Most projects go wrong in the gap between what you asked for and what you meant. We close it by showing you working options early and letting you rate them, part by part. We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
   },
   {
    "cid": "HW.HERO.headline",
@@ -3748,6 +3820,24 @@
    "parent": "HW.HERO",
    "page": "how-we-work",
    "text": "Most projects go wrong in the gap between what you asked for and what you meant. We close it by showing you working options early and letting you rate them, part by part."
+  },
+  {
+   "cid": "HW.SPINE",
+   "type": "section",
+   "kind": "section",
+   "tag": "figure",
+   "parent": "HW.HERO",
+   "page": "how-we-work",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period. Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents."
+  },
+  {
+   "cid": "HW.SPINE.quote",
+   "type": "quote",
+   "kind": "component",
+   "tag": "blockquote",
+   "parent": "HW.SPINE",
+   "page": "how-we-work",
+   "text": "We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."
   },
   {
    "cid": "HW.HERO.logo",
