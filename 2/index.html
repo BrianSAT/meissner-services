@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Meissner Services · A working prototype first. A fixed price throughout.</title>
+<meta name="description" content="Small fixed-price software and data jobs, run by Brian Meissner with his own team of AI agents. A working prototype first, then refined until it's right.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5a1f'/%3E%3Ccircle cx='20' cy='10' r='4' fill='%23fff' opacity='.55'/%3E%3Cpath d='M14 30v-9a6 6 0 0 1 12 0v9z' fill='%23fff' opacity='.55'/%3E%3Ccircle cx='13' cy='10' r='4.5' fill='%23fff'/%3E%3Cpath d='M6 30v-9a7 7 0 0 1 14 0v9z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fffaf3;--ink:#16161d;--muted:#55555f;--card:#ffffff;--line:#ece4d8;--hot:#ff5a1f;--cool:#2346ff;--hot-ink:#ffffff;--ok:#0b7a43}
+@media (prefers-color-scheme:dark){:root{--bg:#121218;--ink:#f5f2ec;--muted:#b4b2bd;--card:#1c1c25;--line:#2c2c38;--hot:#ff7a45;--cool:#7d8dff;--hot-ink:#121218;--ok:#4cd28a}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--cool)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--card);padding:8px 12px;border-radius:8px;z-index:9}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;gap:12px;padding:16px 0}
+.brand{font-weight:800;letter-spacing:-.01em;font-size:18px}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+section{padding:44px 0;border-top:1px solid var(--line);position:relative}
+section:first-of-type{border-top:0}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.02;letter-spacing:-.03em;margin:8px 0 18px}
+h1 .hot{color:var(--hot)}
+h2{font-size:clamp(24px,5vw,34px);letter-spacing:-.02em;margin:0 0 18px;line-height:1.15}
+.lede{font-size:clamp(18px,3.6vw,21px);color:var(--muted);max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 10px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:17px}
+.btn.primary{background:var(--hot);color:var(--hot-ink)}
+.btn.secondary{border:2px solid var(--ink);color:var(--ink)}
+.btn:focus-visible{outline:3px solid var(--cool);outline-offset:3px}
+.fine{font-size:14px;color:var(--muted)}
+.hero{display:grid;gap:18px;grid-template-columns:1fr;align-items:center;padding-top:20px}
+@media (min-width:820px){.hero{grid-template-columns:1.35fr .9fr}}
+.mark-wrap{display:flex;justify-content:center}
+.mark-wrap svg{width:min(320px,80vw);height:auto}
+.echo{animation:fan 2.4s cubic-bezier(.2,.7,.2,1) both}
+.echo.e2{animation-delay:.12s}.echo.e3{animation-delay:.24s}.echo.e4{animation-delay:.36s}
+@keyframes fan{from{transform:translateX(-40px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.echo{animation:none}}
+.qa{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:720px){.qa{grid-template-columns:1fr 1fr}}
+.q{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.q h3{margin:0 0 8px;font-size:19px}
+.q .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--hot);color:var(--hot-ink);font-weight:800;font-size:14px;margin-right:8px}
+.q p{margin:0;color:var(--muted)}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;grid-template-columns:1fr;counter-reset:s}
+@media (min-width:720px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;counter-increment:s}
+.steps li::before{content:counter(s);display:block;font-weight:800;font-size:28px;color:var(--cool)}
+.steps b{display:block;margin-bottom:4px}
+.price{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:720px){.price{grid-template-columns:1.1fr 1fr}}
+.big{font-size:clamp(28px,6vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.who{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:720px){.who{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;padding:22px;border-left:6px solid var(--hot);background:var(--card);border-radius:0 16px 16px 0;font-size:18px}
+blockquote cite{display:block;margin-top:10px;font-style:normal;color:var(--muted);font-size:14px}
+.facts{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+.facts li{margin:4px 0}
+.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:28px}
+.contact h2{color:var(--bg)}
+.contact .btn.secondary{border-color:var(--bg);color:var(--bg)}
+.contact a.plain{color:var(--bg)}
+footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
+/* ?tags=1 element tags */
+.tags [data-tag]::before{content:attr(id);position:absolute;top:6px;right:6px;font:600 11px/1 ui-monospace,Menlo,monospace;background:var(--cool);color:#fff;padding:4px 6px;border-radius:6px;z-index:5}
+</style>
+</head>
+<body>
+<a class="skip" href="#2.CONTACT">Skip to contact</a>
+<div class="wrap">
+<header class="top">
+  <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--hot)"/><circle cx="20" cy="10" r="4" fill="#fff" opacity=".55"/><path d="M14 30v-9a6 6 0 0 1 12 0v9z" fill="#fff" opacity=".55"/><circle cx="13" cy="10" r="4.5" fill="#fff"/><path d="M6 30v-9a7 7 0 0 1 14 0v9z" fill="#fff"/></svg>
+  <div class="brand">Meissner Services<small>Brian Meissner + his AI team</small></div>
+</header>
+
+<section id="2.HERO" data-tag class="hero" aria-labelledby="h-hero">
+  <div>
+    <h1 id="h-hero">A working prototype first.<br><span class="hot">A fixed price throughout.</span></h1>
+    <p class="lede">Tell us what you want. You get a working prototype, then we refine it until it's exactly how you like it. One person in charge, a team of AI agents doing the heavy lifting, and the price agreed before we start.</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
+      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">Email team@meissner.services</a>
+    </div>
+    <p class="fine">English or Spanish. Portuguese conversational.</p>
+  </div>
+  <div class="mark-wrap" id="2.LOGO" data-tag>
+    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with four echoes fanning out behind him">
+      <g fill="var(--cool)">
+        <g class="echo e4" opacity=".14"><circle cx="262" cy="70" r="22"/><path d="M228 228v-74a34 34 0 0 1 68 0v74z"/></g>
+        <g class="echo e3" opacity=".26"><circle cx="222" cy="70" r="24"/><path d="M185 228v-76a37 37 0 0 1 74 0v76z"/></g>
+        <g class="echo e2" opacity=".42"><circle cx="180" cy="70" r="26"/><path d="M140 228v-78a40 40 0 0 1 80 0v78z"/></g>
+      </g>
+      <g fill="var(--hot)"><circle cx="118" cy="68" r="30"/><path d="M70 228v-82a48 48 0 0 1 96 0v82z"/><rect x="14" y="150" width="62" height="78" rx="6" opacity=".9"/><rect x="22" y="162" width="46" height="6" rx="3" fill="var(--bg)"/><rect x="22" y="178" width="46" height="6" rx="3" fill="var(--bg)"/><rect x="22" y="194" width="46" height="6" rx="3" fill="var(--bg)"/></g>
+    </svg>
+  </div>
+</section>
+
+<section id="2.ANSWERS" data-tag aria-labelledby="h-answers">
+  <h2 id="h-answers">Your four questions, answered first</h2>
+  <div class="qa">
+    <article class="q"><h3><span class="n">1</span>Is this real?</h3><p>Yes. Meissner Services is Brian Meissner. He founded SA Trails, a Wi-Fi software company with offices in six countries (2010–2018), and ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project.</p></article>
+    <article class="q"><h3><span class="n">2</span>Will you answer me?</h3><p>Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational.</p></article>
+    <article class="q"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>No. The price is fixed and agreed before work starts. If you want more than we agreed, we quote the extra first, and you decide.</p></article>
+    <article class="q"><h3><span class="n">4</span>Can you work in my tools?</h3><p>Yes. We map onto your tools, languages and accounts, and you own everything from day one.</p></article>
+  </div>
+</section>
+
+<section id="2.HOW" data-tag aria-labelledby="h-how">
+  <h2 id="h-how">How it goes</h2>
+  <ol class="steps">
+    <li><b>Tell us what you want</b>In your words, in your channel.</li>
+    <li><b>Working prototype</b>Something you can open and try, not a slide.</li>
+    <li><b>Refine</b>Tell us what to change; we work toward exactly how you like it.</li>
+    <li><b>Yours</b>The infrastructure is ours, the job is yours.</li>
+  </ol>
+</section>
+
+<section id="2.PRICE" data-tag aria-labelledby="h-price">
+  <h2 id="h-price">What it costs</h2>
+  <div class="price">
+    <div class="panel"><div class="big">USD 100–500</div><p>Typical small jobs: fixed price, agreed before work starts.</p></div>
+    <div class="panel"><p><b>Included:</b> a private workbench, a web view of your data and results, with a one-button export in the format you need. It stays live for the job plus 30 days, and you keep every export forever.</p></div>
+  </div>
+</section>
+
+<section id="2.WHO" data-tag aria-labelledby="h-who">
+  <h2 id="h-who">Who it's for</h2>
+  <div class="who">
+    <div class="panel"><b>You have an idea or a project of your own</b><p class="fine">Get it to a working first version fast, then shape it.</p></div>
+    <div class="panel"><b>You need time back, or cover for gaps</b><p class="fine">Agencies and freelancers who subcontract part of the work they do for others.</p></div>
+  </div>
+</section>
+
+<section id="2.TEAM" data-tag aria-labelledby="h-team">
+  <h2 id="h-team">Who you're dealing with</h2>
+  <blockquote>"I work with my own team of AI agents, which I direct and review."<cite>Brian Meissner</cite></blockquote>
+  <ul class="facts">
+    <li>Founder, SA Trails: Wi-Fi software, custom firmware through automated guest surveys (2010–2018)</li>
+    <li>Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)</li>
+    <li>AWS every year since 2009; ML and early AI work since at least 2021</li>
+    <li>BA, Economics, University of Wisconsin–Madison</li>
+  </ul>
+</section>
+
+<section id="2.CANON" data-tag aria-labelledby="h-canon">
+  <h2 id="h-canon">In Brian's words</h2>
+  <blockquote>We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
+</section>
+
+<section id="2.CONTACT" data-tag aria-labelledby="h-contact">
+  <div class="contact">
+    <h2 id="h-contact">Tell us what you want</h2>
+    <p>One tap to start. Email or WhatsApp, in English or Spanish.</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
+      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">team@meissner.services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Meissner Services · Variant 2 of 7, "The Pitch" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies.</p>
+</footer>
+</div>
+<script>
+if(new URLSearchParams(location.search).get('tags')==='1'){document.body.classList.add('tags')}
+</script>
+</body>
+</html>
