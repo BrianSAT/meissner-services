@@ -18,12 +18,12 @@
     });
     return turnstile;
   }
-  function projectForm(spanish) {
+  function projectForm(spanish, config) {
     const details = document.createElement('details'); details.className = 'shared-project-form';
     const summary = document.createElement('summary');
     summary.textContent = spanish ? 'Enviar una nota sobre tu proyecto' : 'Send a project note';
     const form = document.createElement('form');
-    form.action = 'https://api.meissner.services/contact'; form.method = 'POST';
+    form.action = config.endpoint; form.method = 'POST';
     for (const [name, label, type, autocomplete] of [
       ['name', spanish ? 'Nombre (opcional)' : 'Name (optional)', 'text', 'name'],
       ['email', 'Email', 'email', 'email'], ['whatsapp', 'WhatsApp', 'tel', 'tel'],
@@ -66,7 +66,7 @@
       status.textContent = spanish ? 'Cargando protección contra spam…' : 'Loading spam protection…';
       challengeApi().then(api => {
         const local = ['localhost', '127.0.0.1'].includes(location.hostname);
-        api.render(widget, {sitekey: local ? '1x00000000000000000000AA' : '0x4AAAAAAFLx3ja-z07QWqEj',
+        api.render(widget, {sitekey: local ? '1x00000000000000000000AA' : config.turnstile_sitekey,
           theme: 'auto', size: widget.clientWidth < 300 ? 'compact' : 'normal', language: spanish ? 'es' : 'en',
           callback: () => { submit.disabled = false; status.textContent = ''; },
           'expired-callback': () => { submit.disabled = true; },
@@ -114,7 +114,7 @@
       }
       const note = document.createElement('p'); note.className = 'shared-contact-note';
       note.textContent = `${contact.email} · ${contact.whatsapp_display} · ${spanish ? 'Inglés o español. Portugués conversacional.' : 'English or Spanish. Portuguese conversational.'}`;
-      this.append(links, note, projectForm(spanish));
+      this.append(links, note, projectForm(spanish, contact.form));
     }
   }
   if (!customElements.get('meissner-contact')) customElements.define('meissner-contact', MeissnerContact);

@@ -6,7 +6,12 @@
   "mailto": "mailto:team@meissner.services?subject=Project%20enquiry",
   "whatsapp_display": "+1 (262) 366-1718",
   "whatsapp_link": "https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project",
-  "form": null,
+  "form": {
+   "endpoint": "https://api.meissner.services/contact",
+   "turnstile_sitekey": "0x4AAAAAAFLx3ja-z07QWqEj",
+   "source": "t-mail-c7daa8ef26",
+   "receipt_status": "client implemented; real submit/ingest/ack verification pending"
+  },
   "languages_label": "English or Spanish (Portuguese conversational)"
  },
  "canonical_copy": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.",
