@@ -1,5 +1,7 @@
 import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, normalizeLayout, move, cycleCandidate, reviewPlan, pageProgress, inheritSignals, aggregateRatings, activeMilliseconds, rankScores, comparisonCandidates, compactLayout, swapLayout} from './echo-core.mjs';
 import {activityRecorder} from './echo-activity.mjs';
+import {mountOfflineFeature,privateSnapshot,restoreSnapshot} from './echo-shell.mjs';
+import {mountShareCard} from './echo-share-card.mjs';
 
 const config = {...{api: 'https://api.meissner.services/review', catalog: '/review/components.json'}, ...(window.EchoReviewConfig || {})};
 const params = new URLSearchParams(location.search);
@@ -12,6 +14,7 @@ const privacy=document.createElement('meta');privacy.name='referrer';privacy.con
 let enabled = params.get('review') !== 'off' && !!sid;
 let session = {ratings: [], layouts: {}, requests: []}, ratings = new Map(), catalog = [], selected = null, layout = null;
 let syncError = '', moveFrom = null, pointerStart = null, loadPromise = null;
+let offlineSession=false;
 let activity=null, activitySid='';
 const activityEpoch=Date.now(), activityMonotonic=performance.now();
 function browserId(storage,key) {
@@ -105,26 +108,30 @@ function reflect() {
   for(const a of modeNav.querySelectorAll('a'))a.href=link(iteration>1 && a.textContent==='Pages'?'/review/iterate/':a.dataset.path);
   const first=ratingsFor(session.ratings,1,rater);if(iteration===1)for(const [id,row] of ratings)first.set(id,row);
   const state=pageProgress(first);meter.textContent=`${state.answered} of 7 pages rated · one 1–5 score anywhere per page${Object.keys(cachePending()).length?' · saved on this device; sync pending':''}`;
+  if(offlineSession)meter.textContent+=' · offline, using saved choices';
   progressBar.value=state.answered;nextButton.textContent=state.next?'Next rating':'Review complete · summary';
   summaryLink.href = link('/review/summary/'); propagate();
 }
 function cachePending() { try { return JSON.parse(stored(`echo:pending:${sid}:${rater}`) || '{}'); } catch { return {}; } }
 async function persistRating(component, values) {
   const cid = ratingId(iteration,component.cid);
-  if(values.changedMeasures){const fresh=await api(`/s/${encodeURIComponent(sid)}`),previous=ratingsFor(fresh.ratings,iteration,rater).get(component.cid);for(const m of ['style','copy'])if(!values.changedMeasures.includes(m))values[m]=previous?.[m] ?? values[m] ?? null;}
   const payload = {iteration, variant:String(component.page || 'iteration'), ...values, rater, mode:values.mode || ratingMode, elapsed_ms:values.elapsed_ms ?? Math.max(0,Math.round(performance.now()-modalOpened))};
-  delete payload.changedMeasures;
   const pending = cachePending(); pending[cid] = payload; store(`echo:pending:${sid}:${rater}`,JSON.stringify(pending));
-  ratings.set(component.cid,{cid,...payload}); reflect();
+  ratings.set(component.cid,{cid,...payload});rememberSession();reflect();
   try {
-    await api(`/s/${encodeURIComponent(sid)}/ratings/${encodeURIComponent(cid)}`,'PUT',payload);
+    const outgoing={...payload};
+    if(payload.changedMeasures){const fresh=await api(`/s/${encodeURIComponent(sid)}`),previous=ratingsFor(fresh.ratings,iteration,rater).get(component.cid);for(const m of ['style','copy'])if(!payload.changedMeasures.includes(m))outgoing[m]=previous?.[m] ?? payload[m] ?? null;}
+    delete outgoing.changedMeasures;
+    await api(`/s/${encodeURIComponent(sid)}/ratings/${encodeURIComponent(cid)}`,'PUT',outgoing);
     const current = cachePending(); if (JSON.stringify(current[cid]) === JSON.stringify(payload)) delete current[cid];
-    store(`echo:pending:${sid}:${rater}`,JSON.stringify(current)); syncError='';
+    store(`echo:pending:${sid}:${rater}`,JSON.stringify(current));ratings.set(component.cid,{cid,...outgoing});rememberSession();syncError='';
   } catch (error) { syncError=error.message; throw error; }
 }
 async function loadSession() {
   if (!sid) return;
-  session = await api(`/s/${encodeURIComponent(sid)}`);
+  try {session=await api(`/s/${encodeURIComponent(sid)}`);offlineSession=false;}
+  catch(error){let cached;try{cached=restoreSnapshot(JSON.parse(stored(`echo:snapshot:${sid}:${rater}`) || 'null'),sid,rater);}catch{}
+    if(!cached)throw error;session=cached;offlineSession=true;}
   await ensurePlan();
   ratings = ratingsFor(session.ratings,iteration,rater);
   for (const [cid, values] of Object.entries(cachePending())) {
@@ -132,8 +139,9 @@ async function loadSession() {
     const logical = cid.slice(cid.indexOf(':')+1); ratings.set(logical,{cid,...values});
     try { await persistRating({cid:logical,page:values.variant},values); } catch { /* visible queued state */ }
   }
-  reflect();
+  rememberSession();reflect();
 }
+function rememberSession(){if(!sid)return;const rows=[...(session.ratings || []).filter(row=>Number(row.iteration)!==iteration || (row.rater || 'owner')!==rater),...ratings.values()];store(`echo:snapshot:${sid}:${rater}`,JSON.stringify(privateSnapshot({...session,ratings:rows},sid,rater)));}
 async function ensureSession() {
   if (sid) return;
   const created = await api('/sessions','POST',{label:'Echo Review'}); sid=created.sid;
@@ -203,6 +211,7 @@ dialog.addEventListener('keydown',event=>{
 });
 document.addEventListener('click',async event=>{
   if(!enabled || event.target.closest('[data-echo-ui]') || event.target.closest('meissner-contact') && event.target.closest('input,textarea,select,button,a'))return;
+  if(event.target.closest('[data-echo-interactive]') && event.target.closest('input,textarea,select,button,a,label,summary'))return;
   const el=event.target.closest('[data-component]');if(!el)return;
   event.preventDefault();event.stopImmediatePropagation();
   try { await (loadPromise || Promise.resolve());openModal(components().find(c=>c.el===el)); }
@@ -218,7 +227,9 @@ window.addEventListener('hashchange',deepLink);
 window.addEventListener('online',()=>loadSession().catch(error=>{meter.textContent=error.message;}));
 async function loadCatalog() {
   const response=await fetch(config.catalog,{referrerPolicy:'no-referrer'});if(!response.ok)throw new Error('Component inventory unavailable');
-  const data=await response.json();catalog=Array.isArray(data)?data:Object.values(data).flat();return catalog;
+  const data=await response.json();catalog=Array.isArray(data)?data:Object.values(data).flat();
+  for(let page=1;page<=7;page++){const cid=`${page}.PWA`;if(!catalog.some(c=>c.cid===cid))catalog.push({cid,page:String(page),type:'pwa',kind:'section',parent:null,path:`/${page}/`,text:'Take the review with you. Prepare the public offline shell; private ratings sync when reconnected.'});}
+  catalog.push({cid:'REVIEW.SHARE',page:'review',type:'share-card',kind:'section',parent:null,path:'/review/summary/',text:'Generate a summary image locally. Private link excluded; notes require explicit choice.'});return catalog;
 }
 async function hub() {
   const host=document.querySelector('[data-echo-hub]');if(!host)return;
@@ -233,6 +244,8 @@ async function summaryPage() {
   if(!sid){host.replaceChildren(node('p','Start a review to see your preferences.'),node('a','Start a review',{href:'/review/'}));return;}
   await loadCatalog(); const signals=inheritSignals(catalog,ratings);const summaries=summarize(catalog,signals);
   host.replaceChildren(node('h1','Your echoes, side by side.'),node('p','Style and copy are separate. N/A is respected; unrated parts never become zero. Partial ratings are enough to explore.'));
+  const positioning=node('figure',null,{class:'echo-spine','data-component':'REVIEW.POSITIONING','data-type':'positioning'});
+  positioning.append(node('blockquote',"We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."),node('figcaption','Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents.'));host.append(positioning);
   await flushActivity();
   try {const fresh=await api(`/s/${encodeURIComponent(sid)}`),ms=fresh.activity?.per_rater_ms?.[rater];
     if(Number.isFinite(ms))host.append(node('p',`${rater==='owner'?"Brian’s":"Your"} active review time: ${(ms/60000).toFixed(1)} minutes saved. Idle and background time excluded; overlapping devices counted once.`));
@@ -273,6 +286,7 @@ async function summaryPage() {
     }catch(error){meter.textContent=error.message;create.disabled=false;}
   });
   host.prepend(create,node('p','Your first draft appears immediately, built deterministically from your ratings. The crew then refines the copy and transitions; this page will show when that version is ready.'));
+  mountShareCard(host,()=>[...ratings.values()],iteration,rater);
   await pollReady(host);
 }
 async function pollReady(host) {
@@ -407,10 +421,12 @@ async function iterationPage() {
   await pollReady(host);
 }
 async function initialize(){
+  const featureSheet=node('link',null,{rel:'stylesheet',href:'/assets/echo-features.css'});if(!document.querySelector('link[href="/assets/echo-features.css"]'))document.head.append(featureSheet);
   for(const c of components())if(!c.el.id)c.el.id=c.cid;
   if(sid){store('echo:last-session',sid);loadPromise=loadSession();try{await loadPromise;}catch(error){meter.textContent=error.message;}}
   reflect();await hub();
-  try{await summaryPage();await iterationPage();await comparePage();await rankPage();if(sid)await onboarding();deepLink();}catch(error){meter.textContent=error.message;}
+  try{await summaryPage();await iterationPage();await comparePage();await rankPage();if(sid)await onboarding();}catch(error){meter.textContent=error.message;}
+  mountOfflineFeature(document.querySelector('main') || document.body,location.pathname.split('/')[1]?.match(/^[1-7]$/)?.[0] || 'REVIEW');deepLink();
   new MutationObserver(()=>propagate()).observe(document.body,{childList:true,subtree:true});
 }
 initialize();

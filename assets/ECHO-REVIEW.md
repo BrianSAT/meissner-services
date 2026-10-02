@@ -106,3 +106,25 @@ Active-time recorder lives in echo-activity.mjs; injected storage/clock/transpor
 tests exercise offline reload,200-span batches, rejects, concurrent acknowledgement,
 idle/background and review-off. Browser wiring lives in echo-review.js.
 Rating elapsed_ms and multi-rater isolation remain separate from total active time.
+
+Shared offline shell: echo-shell.mjs mounts the opt-in PWA control; review-sw.js
+network-first caches only public static pages/assets with query-free keys. The
+API, writes and private routes never enter CacheStorage. Private snapshots and
+outboxes live in localStorage partitioned by exact session/rater; restoration
+rejects other identities. Rating changes retain a measure mask, so retry reads
+fresh values for untouched measures instead of replacing a teammate/device edit.
+Offline pending state remains visible. Clearing browser data removes local copies.
+
+The summary share card is generated locally by echo-share-card.mjs. Default PNG
+contains current-rater/current-iteration selected scores, a generic public URL,
+no private link and no notes. Explicit note inclusion is separate; capability
+URLs are redacted, preview invalidates when that choice changes. No automatic
+sharing or external image service. PWA and share card expose component IDs.
+
+Workshop features: 4/data-tools.mjs parses quoted CSV and applies explicit
+trim/exact-dedup/formula-literal options; 4/features.mjs renders safe text previews
+and a local CSV download. No network operation contains CSV data. The same file
+loads retained git snapshots lazily from 4/history.json; real timestamps are
+elapsed wall-clock evidence, not labor or delivery guarantees. Historical HTML
+pins its retained Workshop CSS and disables active controls/scripts in a sandbox.
+Shared assets use today's versions, explicitly disclosed beside the slider.
