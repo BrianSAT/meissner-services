@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="The fine print: what USD 100, 300 and 500 typically buy, the fixed-price terms, what happens if something goes wrong, and the questions clients ask first.">
+<meta name="color-scheme" content="light dark">
+<title>The Fine Print | Meissner Services</title>
+<link rel="icon" href="/5/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/shared.css">
+<script defer src="/assets/shared.js"></script>
+<style>
+:root{
+  --paper:#f7f3ea;--ink:#1c1a17;--rule:#8b8477;--mute:#5d574d;--accent:#9a3b1f;--tint:#efe8da;--mark:#1c1a17;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#15140f;--ink:#ece6d8;--rule:#6f685b;--mute:#aaa290;--accent:#e4916f;--tint:#1e1c16;--mark:#ece6d8}
+}
+:root[data-theme="dark"]{--paper:#15140f;--ink:#ece6d8;--rule:#6f685b;--mute:#aaa290;--accent:#e4916f;--tint:#1e1c16;--mark:#ece6d8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.skip{position:absolute;left:12px;top:-100px;z-index:9;background:var(--paper);padding:10px 14px;border:1px solid var(--ink)}
+.skip:focus{top:8px}
+.page{max-width:1120px;margin:0 auto;padding:0 16px}
+header.mast{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0 14px;border-bottom:3px double var(--ink)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.brand svg{width:34px;height:34px;flex:none}
+nav.toc{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+nav.toc a{text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover{border-color:var(--ink)}
+.theme{font:13px var(--mono);background:transparent;color:inherit;border:1px solid var(--rule);padding:7px 10px;cursor:pointer;border-radius:2px}
+.dateline{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:10px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+main section{padding:56px 0;border-bottom:1px solid var(--rule);position:relative}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-weight:500;font-size:clamp(40px,7vw,86px);line-height:1.02;letter-spacing:-.02em;margin:0 0 24px;max-width:18ch}
+h2{font-weight:500;font-size:clamp(28px,4vw,44px);line-height:1.12;letter-spacing:-.015em;margin:0 0 22px;max-width:22ch}
+h3{font-weight:600;font-size:21px;margin:0 0 8px}
+p{margin:0 0 1em;max-width:62ch}
+.lede{font-size:clamp(21px,2.4vw,26px);line-height:1.4;max-width:34ch}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px}
+.aside{font-size:16px;color:var(--mute);border-left:2px solid var(--rule);padding-left:16px}
+.aside p{max-width:40ch}
+.quote{font-size:clamp(20px,2.2vw,24px);line-height:1.45;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 0;margin:28px 0;max-width:56ch}
+.quote cite{display:block;font-family:var(--mono);font-size:12px;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:12px}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.four div{padding:18px 16px 18px 0;border-right:1px solid var(--rule)}
+.four div:last-child{border-right:0}
+.four b{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.four p{font-size:17px;margin:0}
+.ledger{width:100%;border-collapse:collapse;font-size:17px;margin:8px 0 18px}
+.ledger th,.ledger td{text-align:left;vertical-align:top;padding:16px 14px 16px 0;border-bottom:1px solid var(--rule)}
+.ledger th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500;border-bottom:1px solid var(--ink)}
+.ledger .price{font-family:var(--mono);font-size:26px;white-space:nowrap;width:9ch}
+.ledger ul{margin:0;padding-left:18px}
+.ledger li{margin:0 0 4px}
+.note{font-size:15px;color:var(--mute);max-width:70ch}
+.terms{counter-reset:term;display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.terms article{counter-increment:term;padding:18px 0;border-bottom:1px solid var(--rule)}
+.terms article::before{content:counter(term,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:6px}
+.terms p{font-size:17px;margin:0;max-width:48ch}
+.wrong{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.wrong ol{padding-left:22px;margin:0}
+.wrong li{margin-bottom:12px;max-width:48ch}
+.faq details{border-top:1px solid var(--rule);padding:14px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;font-size:20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:12px 0 0;max-width:64ch;font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.facts div{border-top:1px solid var(--ink);padding-top:12px;font-size:17px}
+.facts b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px;font-weight:500}
+.markrow{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.markrow svg{flex:none}
+.markrow figcaption{font-size:15px;color:var(--mute);max-width:46ch}
+.disclosure{background:var(--tint);padding:24px;border-left:3px solid var(--accent);max-width:62ch}
+.disclosure p{margin:0}
+.proof{font-family:var(--mono);font-size:14px;color:var(--mute);border:1px solid var(--rule);padding:14px 16px;max-width:62ch;margin-top:16px}
+.proof b{color:var(--ink);font-weight:600}
+footer{padding:28px 0 48px;font-size:14px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer p{margin:0}
+.tag{display:none;font:11px/1.4 var(--mono);border:1px solid currentColor;padding:3px 7px;margin:0 0 10px;width:fit-content}
+.tags .tag{display:block}
+.btn{display:inline-block;font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);padding:14px 20px;margin:6px 10px 6px 0;min-height:48px}
+.btn.fill{background:var(--ink);color:var(--paper)}
+@media (max-width:860px){
+  .cols,.wrong,.terms{grid-template-columns:1fr}
+  .four{grid-template-columns:1fr 1fr}
+  .four div{border-right:0;border-bottom:1px solid var(--rule);padding-right:0}
+  .facts{grid-template-columns:1fr}
+  main section{padding:40px 0}
+  .ledger .price{font-size:22px;width:7ch}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  .four{grid-template-columns:1fr}
+  .ledger,.ledger thead,.ledger tbody,.ledger tr,.ledger th,.ledger td{display:block}
+  .ledger thead{display:none}
+  .ledger td{padding:8px 0;border:0}
+  .ledger tr{border-bottom:1px solid var(--rule);padding:12px 0}
+  .ledger .price{width:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+<header class="mast">
+  <a class="brand" href="/5/" aria-label="Meissner Services, design five">
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--mark)" stroke-linecap="round" stroke-width="4"><path d="M8 52h30" opacity=".16"/><path d="M12 44h30" opacity=".32"/><path d="M16 36h30" opacity=".5"/><path d="M20 28h30" opacity=".72"/><path d="M24 20h32" stroke-width="7"/><path d="M24 11h32" stroke-width="7"/></g></svg>
+    Meissner Services
+  </a>
+  <nav class="toc" aria-label="Sections">
+    <a href="#5.PRICING">Prices</a>
+    <a href="#5.TERMS">Terms</a>
+    <a href="#5.WRONG">If it goes wrong</a>
+    <a href="#5.FAQ">FAQ</a>
+    <a href="#5.CONTACT">Contact</a>
+  </nav>
+  <button class="theme" data-shared-theme aria-pressed="false" aria-label="Switch between light and dark">Light / dark</button>
+</header>
+<p class="dateline"><span>Design 5 of 7 · The Fine Print</span><span>Tentative. Noindex. Compare at <a href="/review/">/review</a></span></p>
+
+<main id="main">
+
+<section id="5.HERO">
+  <span class="tag" aria-hidden="true">5.HERO</span>
+  <p class="kicker">Read this before you hire us</p>
+  <h1>Everything we would rather you knew up front.</h1>
+  <div class="cols">
+    <div>
+      <p class="lede">What a hundred dollars buys. What five hundred buys. The terms, in full. What happens when something goes wrong. The questions people ask before they trust a stranger on a freelance platform.</p>
+      <p><a class="btn fill" href="#5.PRICING">See the prices</a><a class="btn" href="#5.CONTACT">Start a project ↗</a></p>
+    </div>
+    <aside class="aside">
+      <p>Meissner Services is Brian Meissner. He founded a Wi-Fi SaaS with offices in six countries and ran a hostel in Uruguay for fourteen years. He directs and reviews a team of AI agents built around each project.</p>
+      <p>No testimonials on this page, no logos, no star ratings. Only things we can show you or write down.</p>
+    </aside>
+  </div>
+  <div class="four" aria-label="The four questions clients ask">
+    <div><b>Is this real?</b><p>A named person with a public record, reachable by email and WhatsApp.</p></div>
+    <div><b>Will you answer me?</b><p>Your channel, your hours. English or Spanish; Portuguese conversational.</p></div>
+    <div><b>Will it cost more?</b><p>Fixed price, agreed before work starts. Extras are quoted before they are done.</p></div>
+    <div><b>Can you use my tools?</b><p>We map onto your stack and accounts. You own everything from day one.</p></div>
+  </div>
+</section>
+
+<section id="5.PROMISE">
+  <span class="tag" aria-hidden="true">5.PROMISE</span>
+  <p class="kicker">In Brian's words</p>
+  <blockquote class="quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
+</section>
+
+<section id="5.SPEED">
+  <span class="tag" aria-hidden="true">5.SPEED</span>
+  <p class="kicker">How fast, honestly</p>
+  <h2>The build runs in agent time. Your review is the only slow part.</h2>
+  <div class="cols">
+    <div>
+      <p>A working first version comes back in hours, not days, because the agents do the building and Brian does the checking. The clock that actually runs is yours: the time it takes you to look at the prototype and tell us what to change.</p>
+      <p>We do not print a delivery time per job on this page, because we have not measured one yet. When we have, the number will come from our own run history, with the basis next to it.</p>
+    </div>
+    <div>
+      <div class="proof"><b>Proof you are looking at.</b> This page and its six siblings were researched, designed and built overnight by Brian's agent team, from a brief received at 01:49 CT on 2 October 2026. Design five was written between 03:10 and 03:40 CT the same morning.</div>
+    </div>
+  </div>
+</section>
+
+<section id="5.PRICING">
+  <span class="tag" aria-hidden="true">5.PRICING</span>
+  <p class="kicker">What the money buys</p>
+  <h2>Typical small jobs: USD 100 to 500, fixed price, agreed before work starts.</h2>
+  <p class="note">The examples below are scopes taken from quotes we wrote in October 2026. They are not finished jobs and they are not a menu; they show the size of work each amount usually covers. Every price is agreed in writing before anything starts.</p>
+  <table class="ledger">
+    <thead><tr><th>Price</th><th>What it typically buys</th><th>What is included</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="price">USD 100</td>
+        <td>A small command-line tool: read an Excel or CSV file, validate and clean it, remove duplicates, apply the rules you give us, write a formatted output file and a summary of what was processed, kept and rejected.</td>
+        <td><ul><li>Source code and dependencies</li><li>Sample input and output</li><li>Tests on the sample</li><li>A short README</li></ul></td>
+      </tr>
+      <tr>
+        <td class="price">USD 250</td>
+        <td>A bounded first phase of a bigger system: one data-feed adapter on replayed data, one calculation, one trigger condition, one logged report in the format you choose. The rest of the system is quoted after you have seen the first phase working.</td>
+        <td><ul><li>Running code with tests</li><li>Audit data you can export</li><li>Private workbench view</li><li>One correction round</li></ul></td>
+      </tr>
+      <tr>
+        <td class="price">USD 300</td>
+        <td>Cleaning and de-duplicating a contact list of about five thousand rows: consistent names, phones and emails, exact and conservative near-duplicate merges, suspicious rows flagged rather than deleted, borderline pairs listed for your decision.</td>
+        <td><ul><li>The cleaned file in your format</li><li>A log of every change</li><li>A reconciled summary: rows in equals kept plus merged plus flagged</li><li>One correction round</li></ul></td>
+      </tr>
+      <tr>
+        <td class="price">USD 500</td>
+        <td>A small operational database set up inside your own account (one base, a few tables, an intake form, two views, a dashboard, duplicate warnings, a recorded walkthrough), or a read-only technical audit of a system you already run, with the bottlenecks quantified and a prioritised fix plan.</td>
+        <td><ul><li>Built in your account; you keep the keys</li><li>Documentation and a walkthrough</li><li>Milestones, paid as each is accepted</li><li>One correction round per milestone</li></ul></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="cols">
+    <div>
+      <h3>What moves the price up</h3>
+      <p>More rows, more files or more input formats than quoted. A required output format we have not worked in before, which adds a discovery step. Legal signatures or filings that need your certificate provider. Live third-party credentials, which we only use inside your accounts.</p>
+    </div>
+    <div>
+      <h3>What we will tell you when the budget does not fit</h3>
+      <p>If the scope you describe needs more than the budget you have, we say so and propose a first phase that fits. We would rather quote a smaller job than quietly deliver a thinner one.</p>
+    </div>
+  </div>
+</section>
+
+<section id="5.TERMS">
+  <span class="tag" aria-hidden="true">5.TERMS</span>
+  <p class="kicker">The terms, in full</p>
+  <h2>Fixed price. Fixed inputs. Everything is yours.</h2>
+  <div class="terms">
+    <article><h3>The price is agreed before work starts</h3><p>In writing, on the platform or by email. It does not change unless the scope changes, and a changed scope is quoted before we do the extra work.</p></article>
+    <article><h3>The inputs are fixed at the quote</h3><p>The file, the format, the rules and the acceptance test are named when we quote. That is what keeps the price fixed.</p></article>
+    <article><h3>One round of questions, one correction round</h3><p>Both are included. Questions that come up during the work get answered in one round; if the result does not match what we agreed, one correction round fixes it.</p></article>
+    <article><h3>Larger jobs run in milestones</h3><p>Each milestone has its own acceptance test. You release payment for a milestone when it matches what we agreed, and not before.</p></article>
+    <article><h3>You own everything from day one</h3><p>Code, data, documents, accounts. Work is built inside your own accounts wherever the tool allows it. There is nothing to migrate away from us later.</p></article>
+    <article><h3>A private workbench is included</h3><p>A web view of your data and results with a one-button export in the format you need. It stays live for the engagement plus thirty days, and you keep every export forever. Longer hosting is an optional small monthly fee, quoted when you ask.</p></article>
+    <article><h3>Your credentials stay yours</h3><p>Any access you grant is used inside your accounts for this job. We keep no credentials after hand-back, and we never ask for access we do not need.</p></article>
+    <article><h3>Your data is used for this job only</h3><p>It is never reused in samples or shown to anyone else. Sensitive files are handled in a private workspace for the engagement.</p></article>
+    <article><h3>What we do not do</h3><p>We do not give tax or legal advice, we do not file with your credentials on your behalf, and we make no claims about trading or investment performance. We build and document the tools; the decisions stay with you.</p></article>
+    <article><h3>Payment and disputes</h3><p>Pay through the platform you found us on, under its escrow and dispute rules, or by the method agreed at the quote. We do not ask you to go around the platform.</p></article>
+  </div>
+</section>
+
+<section id="5.WRONG">
+  <span class="tag" aria-hidden="true">5.WRONG</span>
+  <p class="kicker">When something goes wrong</p>
+  <h2>What actually happens, in order.</h2>
+  <div class="wrong">
+    <div>
+      <h3>If the result does not match the agreement</h3>
+      <ol>
+        <li>You tell us what differs from the quoted scope, in your own words, in your channel.</li>
+        <li>We fix it in the included correction round. Every change we make is logged, so you can see exactly what moved.</li>
+        <li>If the fix needs something that was not in the quote, we say so and quote it before doing it. You decide.</li>
+        <li>If we still cannot deliver what we quoted, you do not release the milestone. The platform's dispute process is there for exactly that, and we will not ask you to skip it.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>If the problem is ours to prevent</h3>
+      <ol>
+        <li>Numbers are checked before they reach you: counts reconcile, totals balance, every row is accounted for. A file that does not reconcile does not get sent.</li>
+        <li>Anything we cannot decide with confidence is flagged for you, not guessed.</li>
+        <li>A human reviews every delivery before it goes out. The agents build; Brian checks.</li>
+        <li>If we are late against something we promised, you hear it from us first, with the reason and the new time.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="5.FAQ" class="faq">
+  <span class="tag" aria-hidden="true">5.FAQ</span>
+  <p class="kicker">Questions people ask first</p>
+  <h2>Frequently asked, plainly answered.</h2>
+  <details open><summary>Who actually does the work?</summary><p>A team of AI agents built around your project does the building, research and checking. Brian Meissner sets the scope and the rules, reviews every delivery and is the person you talk to. That is the whole team; there is no one else to introduce.</p></details>
+  <details><summary>Is the price really fixed?</summary><p>Yes, for the scope we quote. The inputs are fixed at the quote so the price can be. If you change the scope, we quote the difference before doing it, and you can say no.</p></details>
+  <details><summary>How fast will I get something?</summary><p>A working first version comes back in hours for most small jobs, because the build runs in agent time. We do not print a number per job until we have measured it on our own runs. Your review rounds are the slow part, and they are yours to pace.</p></details>
+  <details><summary>Which tools and languages do you work in?</summary><p>Yours. Spreadsheets, databases, Python, APIs, the automation and no-code tools you already pay for, your cloud account. We work in English and Spanish; Portuguese conversationally. Tool names on our pages are tools we work in, never clients.</p></details>
+  <details><summary>Do you keep my data or my credentials?</summary><p>No. Your data is used for this job only and is never reused in samples. Access you grant is used inside your accounts and we keep no credentials after hand-back. The private workbench stays live for the engagement plus thirty days; you keep every export forever.</p></details>
+  <details><summary>Can you show me past work?</summary><p>We do not publish client work, names or testimonials, and we will not invent any. What we can show is a sample built on synthetic data in the shape of your job, labelled as such, and this site, which the same team built overnight.</p></details>
+  <details><summary>I subcontract for agencies. Can you be invisible?</summary><p>Yes. Deliverables go to you, in your formats, with your name on them if you like. We work in the hours and channels you set.</p></details>
+  <details><summary>What will you not do?</summary><p>Tax or legal advice. Filing with your credentials on your behalf. Trading or investment performance claims. Work that needs your credentials outside your own accounts. Guessing when the honest answer is a question.</p></details>
+</section>
+
+<section id="5.STORY">
+  <span class="tag" aria-hidden="true">5.STORY</span>
+  <p class="kicker">The person behind the terms</p>
+  <h2>Brian Meissner, on the record.</h2>
+  <div class="facts">
+    <div><b>Built and ran</b>SA Trails LLC, Austin, Texas, 2010–2018: a Wi-Fi SaaS with offices in six countries and 24-hour support in El Salvador and Indonesia. El Diablo Tranquilo, a hostel in Punta del Diablo, Uruguay, 2006–2020.</div>
+    <div><b>Worked on</b>Custom firmware through automated guest surveys; connection data for all Wi-Fi access across hundreds of devices for each of hundreds of clients. Systems for large data sets, including municipal infrastructure and regional retail transaction management. AWS every year since 2009. ML and early AI work since at least 2021.</div>
+    <div><b>Also</b>For years in charge of data exchange between private businesses and public offices, in the exact format each recipient required. BA, Economics, University of Wisconsin–Madison. English native; Spanish full professional; Portuguese conversational.</div>
+  </div>
+</section>
+
+<section id="5.DISCLOSURE">
+  <span class="tag" aria-hidden="true">5.DISCLOSURE</span>
+  <p class="kicker">Disclosure</p>
+  <div class="disclosure"><p><strong>I work with my own team of AI agents, which I direct and review.</strong> Every page on this site, every proposal and every delivery is produced that way. Where a demo or a sample is illustrative rather than a real job, it says so.</p></div>
+</section>
+
+<section id="5.LOGO">
+  <span class="tag" aria-hidden="true">5.LOGO</span>
+  <p class="kicker">The mark, design five</p>
+  <figure class="markrow">
+    <svg width="96" height="96" viewBox="0 0 64 64" role="img" aria-label="Design five mark: two solid lines with four fading echoes stepping back, like entries in a ledger"><g fill="none" stroke="var(--mark)" stroke-linecap="round" stroke-width="4"><path d="M8 52h30" opacity=".16"/><path d="M12 44h30" opacity=".32"/><path d="M16 36h30" opacity=".5"/><path d="M20 28h30" opacity=".72"/><path d="M24 20h32" stroke-width="7"/><path d="M24 11h32" stroke-width="7"/></g></svg>
+    <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--mark)" stroke-linecap="round" stroke-width="4"><path d="M8 52h30" opacity=".16"/><path d="M12 44h30" opacity=".32"/><path d="M16 36h30" opacity=".5"/><path d="M20 28h30" opacity=".72"/><path d="M24 20h32" stroke-width="7"/><path d="M24 11h32" stroke-width="7"/></g></svg>
+    <figcaption>The fine-print takeoff on the idea: one operator in two solid strokes, four echoes stepping back behind it, drawn as ruled lines rather than figures. It reads at favicon size, shown at 32 pixels beside it.</figcaption>
+  </figure>
+</section>
+
+<section id="5.CONTACT">
+  <span class="tag" aria-hidden="true">5.CONTACT</span>
+  <p class="kicker">Start a project</p>
+  <h2>Tell us what you want. We will quote it in writing.</h2>
+  <p>Send the file, the format you need back, and the rules in your own words. You get a fixed price and a named first milestone, in your channel, in your hours.</p>
+  <meissner-contact>
+    <a href="mailto:team@meissner.services?subject=Project%20enquiry">team@meissner.services</a>
+  </meissner-contact>
+</section>
+
+</main>
+<footer>
+  <p>Meissner Services · The Fine Print · tentative design 5 of 7</p>
+  <p>I work with my own team of AI agents, which I direct and review.</p>
+</footer>
+</div>
+</body>
+</html>
