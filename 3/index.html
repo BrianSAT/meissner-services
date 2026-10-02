@@ -8,7 +8,7 @@
 <meta name="color-scheme" content="dark light">
 <title>The Wild Card | Meissner Services</title>
 <link rel="stylesheet" href="/assets/shared.css">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230c0c14%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23c5ff58%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20opacity%3D%22.4%22%20d%3D%22M10%2023c-5-13%2011-18%2016-7v12l-7%208-7-7ZM7%2039h23v9H7Z%22%2F%3E%3Cpath%20d%3D%22M29%2021c-8-15%2017-23%2022-10%206%203%205%208%201%2011v12L40%2045%2029%2036ZM22%2048h34v10H22Zm5%205h7m8%200h9%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" type="image/svg+xml">
 <script defer src="/assets/shared.js"></script>
 <style>
 :root{--bg:#07070a;--fg:#f4f1ea;--dim:#a9a6b3;--neon:#7cff6b;--hot:#ff3d6e;--line:#2a2a33;--panel:#0e0e14}
@@ -47,13 +47,17 @@ p{margin:0 0 16px}
 .hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--fg)}
 @keyframes rise{to{transform:none}}
 .echo{position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:end}
-.echo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:screen;filter:grayscale(1) contrast(1.15)}
-body.light .echo img{mix-blend-mode:multiply;filter:invert(1) grayscale(1)}
-.echo img.copy{opacity:0;animation:fan 3.4s ease-out forwards}
-.echo img:nth-child(2){--dx:-9%;--o:.42;animation-delay:.5s}
-.echo img:nth-child(3){--dx:-18%;--o:.28;animation-delay:.75s}
-.echo img:nth-child(4){--dx:-27%;--o:.17;animation-delay:1s}
-.echo img:nth-child(5){--dx:-36%;--o:.09;animation-delay:1.25s}
+ .echo>svg{display:block;width:100%;height:100%;color:var(--neon)}
+.echo use{transform-box:view-box;transform-origin:center}
+.logo-study{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.logo-study .full{width:min(100%,380px);color:var(--neon)}
+.logo-study .small{width:32px;height:32px;color:var(--neon)}
+body.light .echo>svg,body.light .logo-study{color:var(--fg)}
+.echo use.copy{opacity:0;animation:fan 3.4s ease-out forwards}
+.echo use:nth-of-type(2){--dx:-9%;--o:.42;animation-delay:.5s}
+.echo use:nth-of-type(3){--dx:-18%;--o:.28;animation-delay:.75s}
+.echo use:nth-of-type(4){--dx:-27%;--o:.17;animation-delay:1s}
+.echo use:nth-of-type(5){--dx:-36%;--o:.09;animation-delay:1.25s}
 @keyframes fan{from{opacity:0;transform:translateX(0)}to{opacity:var(--o);transform:translateX(var(--dx))}}
 .echo figcaption{position:absolute;right:0;bottom:-6px;font:11px ui-monospace,Menlo,monospace;color:var(--dim)}
 .hero .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
@@ -109,7 +113,7 @@ footer p{margin:0 0 6px}
  html{scroll-behavior:auto}
  *,*::before,*::after{animation:none!important;transition:none!important}
  .hero h1 .ln>span{transform:none}
- .echo img.copy{opacity:var(--o);transform:translateX(var(--dx))}
+ .echo use.copy{opacity:var(--o);transform:translateX(var(--dx))}
  .log li{opacity:1}
 }
 </style>
@@ -138,14 +142,12 @@ footer p{margin:0 0 6px}
    <div class="meta"><span>English · Español · Português (conversational)</span><span>Email · WhatsApp · platform chat · Slack · Teams</span></div>
   </div>
   <figure class="echo" aria-hidden="false">
-   <img src="/assets/logo-tentative-v0.png" alt="Meissner Services mark: one operator leaning on a server stack, with fading copies of himself trailing behind" width="1254" height="1254" fetchpriority="high">
-   <img class="copy" src="/assets/logo-tentative-v0.png" alt="" aria-hidden="true">
-   <img class="copy" src="/assets/logo-tentative-v0.png" alt="" aria-hidden="true">
-   <img class="copy" src="/assets/logo-tentative-v0.png" alt="" aria-hidden="true">
-   <img class="copy" src="/assets/logo-tentative-v0.png" alt="" aria-hidden="true">
+   <svg viewBox="0 0 600 480" role="img" aria-labelledby="wild-mark-title"><title id="wild-mark-title">Meissner Services mark: one operator leaning on a server stack, with fading copies of himself trailing behind</title><defs><symbol id="wild-operator" viewBox="0 0 300 360"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M108 76c-25-48 31-70 60-44 31-8 52 28 29 46v37l-38 37-43-31V76Z"/><path d="M120 130l-19 34c-43 12-72 44-81 96m150-111 28 24c38 15 64 46 67 91M65 233c25-17 43-8 76 1l96 15-19 35-154-7c-48-2-48-29-18-37m123 7-16-66"/><path d="M13 291h270v52H13Zm17 16v20m13-20v20m13-20v20m20-20h81v20H76Z"/><circle cx="213" cy="317" r="6"/><circle cx="248" cy="317" r="6"/><path d="M14 353h270"/></g></symbol><symbol id="wild-small" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path opacity=".4" d="M10 23c-5-13 11-18 16-7v12l-7 8-7-7ZM7 39h23v9H7Z"/><path d="M29 21c-8-15 17-23 22-10 6 3 5 8 1 11v12L40 45 29 36ZM22 48h34v10H22Zm5 5h7m8 0h9"/></g></symbol></defs><use href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/></svg>
    <figcaption>tentative mark · copies = parallel agents</figcaption>
   </figure>
  </section>
+
+ <section id="3.LOGO" aria-labelledby="h-logo"><span class="tag">3.LOGO</span><p class="eyebrow">The Wild Card / logo study</p><h2 id="h-logo">One operator. Parallel resources.</h2><div class="logo-study"><svg class="full" viewBox="0 0 600 480" role="img" aria-label="The Wild Card operator and parallel server echoes"><use href="#wild-operator" x="280" y="60" width="280" height="340"/><use href="#wild-operator" x="226" y="60" width="280" height="340" opacity="0.42"/><use href="#wild-operator" x="172" y="60" width="280" height="340" opacity="0.28"/><use href="#wild-operator" x="118" y="60" width="280" height="340" opacity="0.17"/><use href="#wild-operator" x="64" y="60" width="280" height="340" opacity="0.09"/></svg><svg class="small" viewBox="0 0 64 64" role="img" aria-label="Small Wild Card operator and one echo, 32 pixels"><use href="#wild-small"/></svg></div></section>
 
  <section id="3.CONSOLE" aria-labelledby="h-console">
   <div class="split">
