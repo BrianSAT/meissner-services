@@ -1636,6 +1636,24 @@
    "text": "Your tools. No detour."
   },
   {
+   "cid": "4.CSV",
+   "type": "data-demo",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "TRY THE PARTS BIN / YOUR DATA STAYS HERE Clean a CSV. See exactly what changes. Your file never leaves your browser. This deterministic preview trims whitespace, removes exact duplicate and blank rows, and optionally makes spreadsheet formulas literal. No AI, no fuzzy matching. Choose or drop a CSV file (up to 2 MB / 20,000 data rows) Try a messy example Or paste CSV; the first record is the header Trim outer field whitespace Remove exact duplicate data rows after trimming Make spreadsheet formulas literal in the download Preview cleanup Download cleaned CSV Try an example or bring your own file. Nothing is uploaded or saved by this demo. Before After"
+  },
+  {
+   "cid": "4.HISTORY",
+   "type": "build-history",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "4",
+   "text": "SHOW THE WORK / RETAINED REVISIONS Move through the build. Actual Workshop HTML and CSS from retained git commits. Dates are real commit timestamps, not a reconstruction of how many hours someone worked. Shared logo and contact styling use today's assets; archived forms are disabled. Open the time machine Choose a retained revision (arrow keys work) History loads when opened. Retained source history"
+  },
+  {
    "cid": "4.BUILD",
    "type": "process",
    "kind": "section",
