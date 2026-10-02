@@ -1,0 +1,129 @@
+{
+ "source": "stack_owner_history_20260930_r7",
+ "owner": "face",
+ "contact": {
+  "email": "team@meissner.services",
+  "mailto": "mailto:team@meissner.services?subject=Project%20enquiry",
+  "whatsapp_display": "+1 (262) 366-1718",
+  "whatsapp_link": "https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project",
+  "form": null,
+  "languages_label": "English or Spanish (Portuguese conversational)"
+ },
+ "canonical_copy": "We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.",
+ "ai_disclosure": "I work with my own team of AI agents, which I direct and review.",
+ "pricing": "Typical small jobs: USD 100–500, fixed price, agreed before work starts.",
+ "facts": [
+  {
+   "id": "sa_trails",
+   "text": "Founder, SA Trails LLC, Austin, Texas, 2010–2018: a Wi-Fi SaaS with direct-to-guest Wi-Fi, offices in six countries and 24-hour support in El Salvador and Indonesia",
+   "src": [
+    "OH28",
+    "OH13",
+    "OH04"
+   ]
+  },
+  {
+   "id": "sa_trails_work",
+   "text": "Custom firmware through automated guest surveys; connection data for all Wi-Fi access across hundreds of devices for each of hundreds of clients",
+   "src": [
+    "OH03",
+    "OH23"
+   ]
+  },
+  {
+   "id": "hostel",
+   "text": "Founded and ran El Diablo Tranquilo, a hostel in Punta del Diablo, Uruguay, 2006–2020",
+   "src": [
+    "OH30",
+    "OH12"
+   ]
+  },
+  {
+   "id": "smoke_shack",
+   "text": "General manager, Smoke Shack (Hospitality Democracy), Milwaukee, 2016–2017",
+   "src": [
+    "OH31"
+   ]
+  },
+  {
+   "id": "freight",
+   "text": "Ran his own long-haul flatbed freight business, 2021–2025",
+   "src": [
+    "OH29"
+   ]
+  },
+  {
+   "id": "oportunidade",
+   "text": "Founder, Oportunidade Enterprises, Maceió, Brazil, 2003–2004",
+   "src": [
+    "OH32"
+   ]
+  },
+  {
+   "id": "pos",
+   "text": "Built point-of-sale (POS) systems",
+   "src": [
+    "OH01"
+   ]
+  },
+  {
+   "id": "large_data",
+   "text": "systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)",
+   "src": [
+    "OH10"
+   ],
+   "verbatim": true
+  },
+  {
+   "id": "aws",
+   "text": "AWS every year since 2009, including real-time market-data monitoring",
+   "src": [
+    "OH16",
+    "OH11"
+   ]
+  },
+  {
+   "id": "ml",
+   "text": "ML and early AI work since at least 2021",
+   "src": [
+    "OH17"
+   ]
+  },
+  {
+   "id": "data_exchange",
+   "text": "For years in charge of data exchange between private businesses and public offices, in the exact format each recipient required",
+   "src": [
+    "OH27"
+   ]
+  },
+  {
+   "id": "economics",
+   "text": "BA, Economics, University of Wisconsin–Madison",
+   "src": [
+    "OH14"
+   ]
+  },
+  {
+   "id": "languages",
+   "text": "English native; Spanish full professional (Rioplatense); Portuguese conversational",
+   "src": [
+    "OH33"
+   ]
+  }
+ ],
+ "never": [
+  "testimonials",
+  "client logos",
+  "trusted by",
+  "ratings",
+  "case studies",
+  "invented team",
+  "counters/stats",
+  "stock or AI people photos",
+  "response/delivery-time promises",
+  "guarantee",
+  "from USD X",
+  "20+ years",
+  "deletion promise"
+ ]
+}
