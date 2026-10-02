@@ -72,8 +72,8 @@
           <ul>${tier.included.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
         </div>
         <div data-component="5.PICK.excluded-${tier.price}" data-type="card">
-          <b>Not at this price</b>
-          <ul>${notHere.map((i) => `<li>${esc(i)} <span class="pick-dim">(appears in a larger scope)</span></li>`).join('')}${MOVES_PRICE.map((i) => `<li>${esc(i)} <span class="pick-dim">(moves the price up)</span></li>`).join('')}</ul>
+          <b>Not in this scope</b>
+          <ul>${notHere.map((i) => `<li>${esc(i)} <span class="pick-dim">(part of a different example)</span></li>`).join('')}${MOVES_PRICE.map((i) => `<li>${esc(i)} <span class="pick-dim">(moves the price up)</span></li>`).join('')}</ul>
         </div>
         <div data-component="5.PICK.never-${tier.price}" data-type="card">
           <b>Never, at any price</b>
