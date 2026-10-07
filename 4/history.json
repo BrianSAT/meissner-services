@@ -1,0 +1,77 @@
+{
+  "provenance": "Own site git only. Snapshot adds base, pins own historical CSS, disables controls; iframe sandbox disallows scripts/forms. Shared assets current. Elapsed clock, not labor.",
+  "revisions": [
+    {
+      "sha": "bf8cff2427d4e3dd0423aeeeb02a9d7d318a152c",
+      "timestamp": "2026-10-02T03:13:09-05:00",
+      "title": "Build shared site contract and industrial Workshop concept",
+      "snapshot": "/4/history/bf8cff2.html",
+      "source_html_sha256": "d0d5eb6e79889b806878d21219424f595f324db3c1919d38bd38a4f807e3b5d5",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "39932eae611a2bca0efcb0cd9ce11e1164a46e70475dcb1ba0c0aa9be2f8c622"
+    },
+    {
+      "sha": "d1f6d1713016f2e21c57817a0b4e4c0afbfe2dd1",
+      "timestamp": "2026-10-02T03:26:50-05:00",
+      "title": "Add shared verified-contact form and Workshop rackplate mark",
+      "snapshot": "/4/history/d1f6d17.html",
+      "source_html_sha256": "69c6b213ff1c88f36658b43f508d7ebd9377ac1b44f4d3e089b0e8f7e7eda579",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "843f221179059769bedd36471e41b922b94afb6baede337c3fd86ff246490e38"
+    },
+    {
+      "sha": "2d002109e835fa260f45430046ad719b922a30c6",
+      "timestamp": "2026-10-02T05:03:44-05:00",
+      "title": "Add agent-time speed and measured overnight proof to Wild Card and Workshop",
+      "snapshot": "/4/history/2d00210.html",
+      "source_html_sha256": "11546b0fbf06f7ba6c9e9e5a471e93d167c59f289d5c6d3055b05b45ac298937",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "4a4de3e24d49949354ba566273d160580955e602b4707320069b9cab72551014"
+    },
+    {
+      "sha": "724f65ec5780094086d876b0c64e32b2997a76af",
+      "timestamp": "2026-10-02T10:27:30-05:00",
+      "title": "Echo Review: tag rateable sub-components on all seven pages",
+      "snapshot": "/4/history/724f65e.html",
+      "source_html_sha256": "b417788aa0a2359a59029ec59f32c4c7bdf0d2ebf3e721c72061f1bc49bba59b",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "a2806e72fcd07d5f082b3bf5d85ff88d06ee9e01f8895e234a8f47e3f62cbe1d"
+    },
+    {
+      "sha": "73c2d750e54707848eca06fd32e57986455fb830",
+      "timestamp": "2026-10-02T10:30:28-05:00",
+      "title": "Echo Review: 'How we work' on all seven pages, kit script hook, full inventory",
+      "snapshot": "/4/history/73c2d75.html",
+      "source_html_sha256": "8ced1ed6adfa60f8a7afdf708b8b62511b1848b8f62bb88a0d0db3072b889074",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "90129a0e5a35737515005128da6ff85afaf2c7c8c7b5db99a091a3a204db0aee"
+    },
+    {
+      "sha": "bce2009e60634468053f02fa05454cbf8b5e9c50",
+      "timestamp": "2026-10-02T10:48:45-05:00",
+      "title": "Echo Review: state Brian's one-rating-per-page rule in 'How we work'",
+      "snapshot": "/4/history/bce2009.html",
+      "source_html_sha256": "0775174b468fc7d8980ce0719cc74b6d1d9985dbc13713e1ec53e109a675cdc4",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "a1093b4634081f6da8a19274aeff52bc8df8b19028ce406744deaf0853e8e3a0"
+    },
+    {
+      "sha": "dd78ab511cca7e836201bbdff66073457318c1c8",
+      "timestamp": "2026-10-02T11:13:58-05:00",
+      "title": "Drop the 'only slow part' promise from /3 and /4",
+      "snapshot": "/4/history/dd78ab5.html",
+      "source_html_sha256": "33d076b1f6b63094701ef3f391623f96fa98ef81d7418b0a9cb9eec612e62574",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "478987fa1e86e85eb430f9be16c1607cb83684f96126ab2cbda9b349cc0cf85c"
+    },
+    {
+      "sha": "946ae0df7e7686f485e0b063682a9877b1fd53db",
+      "timestamp": "2026-10-02T12:37:08-05:00",
+      "title": "Add Workshop CSV and real history, private offline review and local share cards",
+      "snapshot": "/4/history/946ae0d.html",
+      "source_html_sha256": "06f5ca5ddbb28c40b43c73727df3df91b914293519923da4de510cb02b4ec515",
+      "source_css_sha256": "a006be3f6903a6013d832f1233c6a64b41e945274f3e4501a23927d10efbebcf",
+      "snapshot_sha256": "01ac1906245fb83256df1f0d780a43a8300d7fa0eeffd2d8701349e6ff0ad31d"
+    }
+  ]
+}

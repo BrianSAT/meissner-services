@@ -1,0 +1,109 @@
+{
+  "scope": "Production HTTPS mobile Lighthouse and390px browser captures, revision1cdd05e. Does not test visitor Turnstile submission.",
+  "rows": [
+    {
+      "variant": 1,
+      "performance": 97,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:54:40.692Z",
+      "report_sha256": "2196c7491e0f0475018e2e5070ffb33b0141eefa4cfb18ef315e7eb6fccf461f",
+      "url": "https://meissner.services/1/",
+      "phone": "phone-1.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 2,
+      "performance": 100,
+      "accessibility": 94,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:54:54.519Z",
+      "report_sha256": "c0d830d61e91e0afccd4b0d1e09544362ecf5d7f66a9fdb44940857ec81dc84f",
+      "url": "https://meissner.services/2/",
+      "phone": "phone-2.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 3,
+      "performance": 100,
+      "accessibility": 96,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:55:05.380Z",
+      "report_sha256": "9b491ee2945676708759bd267eca2433621a4c291da92efd778b77c7bc4075dd",
+      "url": "https://meissner.services/3/",
+      "phone": "phone-3.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 4,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:55:16.307Z",
+      "report_sha256": "03f5acf6097a2e6af2d022c81e6c2ab7b5233ec82171e1280329b66ae0c0ca61",
+      "url": "https://meissner.services/4/",
+      "phone": "phone-4.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 5,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:55:28.129Z",
+      "report_sha256": "ccf9d5ad7ff4a274b8dc9d03c9b63ecfcf0b32df87ab54700607a8cbf15918e7",
+      "url": "https://meissner.services/5/",
+      "phone": "phone-5.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 6,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:55:39.004Z",
+      "report_sha256": "59cf4e80ba4cabe94c20e125928d643455e71b43509c3e04dc93f6e2921ce5a6",
+      "url": "https://meissner.services/6/",
+      "phone": "phone-6.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    },
+    {
+      "variant": 7,
+      "performance": 100,
+      "accessibility": 100,
+      "lighthouse_version": "13.5.0",
+      "fetch_time": "2026-10-02T09:55:49.852Z",
+      "report_sha256": "1c891fbd3b80f5ad215a6fc207ab558ab4ce4901bb620d2b2bf058c86838cad1",
+      "url": "https://meissner.services/7/",
+      "phone": "phone-7.png",
+      "phone_fit": true,
+      "email_and_whatsapp_present": true
+    }
+  ],
+  "backend_test": {
+    "posts": 7,
+    "visible_test_records": 7,
+    "acked": 7,
+    "method": "Cuz-authorized bearer test:true path; separate from visitor challenge"
+  },
+  "open": [
+    "Durable native lead-intake installation pending Gavi; BA source5b2cc0a ready"
+  ],
+  "copy_followup": {
+    "commit": "2d002109e835fa260f45430046ad719b922a30c6",
+    "live_byte_match_variants": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "ba_phone_theme_passed": 4,
+    "note": "Copy-only update; earlier production Lighthouse timestamps retained, not relabelled as a fresh measurement."
+  }
+}

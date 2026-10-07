@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="One operator, a team of AI agents built around your project. Your channel, your tools, a fixed price.">
+<meta name="color-scheme" content="dark light">
+<title>The Wild Card | Meissner Services</title>
+<link rel="stylesheet" href="/assets/shared.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230c0c14%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23c5ff58%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20opacity%3D%22.4%22%20d%3D%22M10%2023c-5-13%2011-18%2016-7v12l-7%208-7-7ZM7%2039h23v9H7Z%22%2F%3E%3Cpath%20d%3D%22M29%2021c-8-15%2017-23%2022-10%206%203%205%208%201%2011v12L40%2045%2029%2036ZM22%2048h34v10H22Zm5%205h7m8%200h9%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" type="image/svg+xml">
+<script defer src="/assets/shared.js"></script>
+<style>
+:root{--bg:#07070a;--fg:#f4f1ea;--dim:#a9a6b3;--neon:#7cff6b;--on-neon:#050505;--hot:#ff3d6e;--line:#2a2a33;--panel:#0e0e14}
+body.light{--bg:#f6f4ee;--fg:#121216;--dim:#4f4d58;--neon:#0f7a37;--on-neon:#ffffff;--hot:#c4123f;--line:#d6d3cb;--panel:#ffffff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--neon);outline-offset:4px}
+.skip{position:absolute;left:12px;top:-100px;z-index:50;padding:10px 14px;background:var(--neon);color:var(--on-neon)}
+.skip:focus{top:8px}
+header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 22px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{font:800 13px/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-decoration:none}
+nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font:13px ui-monospace,Menlo,monospace}
+nav a{text-decoration:none;color:var(--dim)}nav a:hover{color:var(--fg)}
+.theme{background:none;border:1px solid var(--line);color:var(--fg);padding:6px 10px;border-radius:999px;font:inherit;cursor:pointer}
+main{max-width:1240px;margin:0 auto;padding:0 22px}
+section{position:relative;padding:84px 0;border-bottom:1px solid var(--line)}
+.tag{display:none;font:11px ui-monospace,Menlo,monospace;padding:3px 7px;border:1px solid var(--neon);color:var(--neon);width:fit-content;margin-bottom:10px}
+body.tags .tag{display:block}
+.eyebrow{font:12px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--neon)}
+h1,h2,h3{margin:0 0 18px;line-height:.98;letter-spacing:-.045em}
+h2{font-size:clamp(34px,5.4vw,72px)}
+h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
+p{margin:0 0 16px}
+.lead{font-size:clamp(18px,2vw,22px);max-width:640px;color:var(--dim)}
+.btn{display:inline-flex;gap:10px;align-items:center;padding:15px 22px;border-radius:999px;background:var(--neon);color:var(--on-neon);font-weight:800;text-decoration:none;border:0}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+/* HERO */
+.hero{min-height:min(calc(100vh - 60px),900px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;padding-top:40px}
+.hero h1{font-size:clamp(54px,10.5vw,148px);font-weight:900;text-transform:uppercase}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.12s}.hero h1 .ln:nth-child(3)>span{animation-delay:.24s}
+.hero h1 .x{color:var(--hot);-webkit-text-stroke:0}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--fg)}
+@keyframes rise{to{transform:none}}
+.echo{position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:end}
+ .echo>svg{display:block;width:100%;height:100%;color:var(--neon)}
+.echo use{transform-box:view-box;transform-origin:center}
+.logo-study{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.logo-study .full{width:min(100%,380px);color:var(--neon)}
+.logo-study .small{width:32px;height:32px;color:var(--neon)}
+body.light .echo>svg,body.light .logo-study{color:var(--fg)}
+.echo use.copy{opacity:0;animation:fan 3.4s ease-out forwards}
+.echo use:nth-of-type(2){--dx:-9%;--o:.42;animation-delay:.5s}
+.echo use:nth-of-type(3){--dx:-18%;--o:.28;animation-delay:.75s}
+.echo use:nth-of-type(4){--dx:-27%;--o:.17;animation-delay:1s}
+.echo use:nth-of-type(5){--dx:-36%;--o:.09;animation-delay:1.25s}
+@keyframes fan{from{opacity:0;transform:translateX(0)}to{opacity:var(--o);transform:translateX(var(--dx))}}
+.echo figcaption{position:absolute;right:0;bottom:-6px;font:11px ui-monospace,Menlo,monospace;color:var(--dim)}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+/* CONSOLE */
+.console{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -40px color-mix(in srgb,var(--neon) 45%,transparent)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font:12px ui-monospace,Menlo,monospace;color:var(--dim)}
+.dots i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--line);margin-right:6px}
+.badge{border:1px solid var(--hot);color:var(--hot);padding:2px 8px;border-radius:999px;font-weight:700;letter-spacing:.08em}
+.log{height:340px;overflow:hidden;padding:14px 16px;font:13px/1.75 ui-monospace,Menlo,monospace;margin:0;list-style:none}
+.log li{white-space:pre-wrap;opacity:0;animation:in .35s forwards}
+@keyframes in{to{opacity:1}}
+.log .t{color:var(--dim)}.log .a{color:var(--neon)}.log .h{color:var(--hot);font-weight:700}
+.console .ctl{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--line)}
+.console .ctl button{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:6px 12px;font:12px ui-monospace,Menlo,monospace;cursor:pointer}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+/* ANSWERS */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.card{background:var(--bg);padding:26px 22px;min-height:230px}
+.card .q{font:12px ui-monospace,Menlo,monospace;color:var(--hot);letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;display:block}
+.card p{color:var(--dim);font-size:15px}
+/* PROMISE */
+.promise blockquote{margin:0;font-size:clamp(22px,2.9vw,36px);line-height:1.3;letter-spacing:-.02em;max-width:1050px}
+.promise blockquote mark{background:none;color:var(--neon)}
+.promise cite{display:block;margin-top:18px;font:13px ui-monospace,Menlo,monospace;color:var(--dim);font-style:normal}
+/* WHO / PRICE */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.two>div{background:var(--bg);padding:34px 28px}
+.price{font-size:clamp(44px,7vw,92px);font-weight:900;letter-spacing:-.05em;line-height:1}
+.price small{display:block;font:14px ui-monospace,Menlo,monospace;letter-spacing:0;color:var(--dim);margin-top:10px}
+.facts{list-style:none;padding:0;margin:0;columns:2;column-gap:40px}
+.facts li{break-inside:avoid;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px;color:var(--dim)}
+.facts b{color:var(--fg)}
+/* CONTACT */
+.contact h2{font-size:clamp(44px,8vw,110px);text-transform:uppercase;font-weight:900}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+footer{max-width:1240px;margin:0 auto;padding:32px 22px 60px;font:13px/1.7 ui-monospace,Menlo,monospace;color:var(--dim)}
+footer p{margin:0 0 6px}
+/* STACK + PLAN */
+.sp-tool,.pl-tool{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.sp-form label{display:block;font:12px ui-monospace,Menlo,monospace;color:var(--dim);margin-bottom:8px}
+.sp-row{display:flex;gap:10px}
+.sp-row input{flex:1;min-width:0;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:13px 18px;font:inherit}
+.sp-row input:focus-visible,.pl-add input:focus-visible,.pl-add select:focus-visible{outline:3px solid var(--neon);outline-offset:2px}
+.sp-try{margin:14px 0 0;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.sp-try button,.sp-chip,.pl-del{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:5px 11px;font:12px ui-monospace,Menlo,monospace;cursor:pointer;margin:3px 2px}
+.sp-chips{display:flex;flex-wrap:wrap;gap:4px;margin:12px 0}
+.sp-chip{border-color:var(--neon)}.sp-chip.unknown{border-color:var(--hot)}
+.sp-empty{color:var(--dim);font-size:15px}
+.sp-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.sp-cards:empty{display:none}
+.sp-card{background:var(--bg);padding:18px}
+.sp-card h3{margin-bottom:10px}
+.sp-card dl{margin:0;font-size:14px}.sp-card dt{font:11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--neon);margin-top:8px}
+.sp-card dd{margin:2px 0 0;color:var(--dim)}
+.sp-card.unknown h3{color:var(--hot)}.sp-card p{font-size:14px;color:var(--dim);margin:0}
+.sp-caveat{margin-top:10px!important;font-size:13px!important;border-left:2px solid var(--hot);padding-left:8px}
+.sp-flowbox{margin-top:20px}.sp-flows{margin:0;padding-left:1.2em;color:var(--dim);font-size:15px}.sp-flows b{color:var(--fg)}
+.sp-note{margin:18px 0 0;font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-summary{font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+.pl-col{flex:0 0 220px;scroll-snap-align:start}
+.pl-col h3{font:12px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--neon);margin:0 0 8px}
+.pl-col.stuck h3{color:var(--hot)}.pl-col.stuck p{font-size:13px;color:var(--dim)}
+.pl-stage{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pl-task{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.4}
+.pl-task.you{border-color:var(--hot)}.pl-task.both{border-style:dashed}
+.pl-who{display:inline-block;font:10px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:999px;border:1px solid var(--hot);color:var(--hot);margin-right:6px}
+.pl-task.us .pl-who,.pl-who.us{border-color:var(--neon);color:var(--neon)}.pl-task.both .pl-who,.pl-who.both{border-color:var(--dim);color:var(--dim)}
+.pl-legend{font:12px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}.pl-actions .btn{padding:11px 16px;font-size:14px;cursor:pointer}
+.pl-status{min-height:1.4em;font-size:14px;color:var(--neon);margin:10px 0 0}
+.pl-text{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px;font:12px ui-monospace,Menlo,monospace}
+.pl-more{margin-top:16px}.pl-more summary{cursor:pointer;font:13px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-add{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:14px 0}
+.pl-add label{display:grid;gap:4px;font:12px ui-monospace,Menlo,monospace;color:var(--dim)}
+.pl-add input,.pl-add select{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font:14px system-ui,sans-serif;max-width:100%}
+.pl-add .btn{padding:9px 14px;font-size:13px;cursor:pointer}
+.pl-editor{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.pl-edit{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0;min-width:0}
+.pl-edit legend{font-size:14px;font-weight:700;padding:0 4px}
+.pl-hint{font:11px ui-monospace,Menlo,monospace;color:var(--dim);margin:0 0 4px}
+.pl-deps{display:grid;gap:2px;font-size:13px;color:var(--dim);max-height:180px;overflow:auto}
+.pl-deps label{display:flex;gap:6px;align-items:flex-start}
+@media(max-width:520px){.sp-row{flex-direction:column}.pl-col{flex-basis:78vw}.sp-tool,.pl-tool{padding:16px}}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;min-height:auto;padding-top:28px}
+ .echo{justify-self:center;max-width:380px;order:-1}
+ .split{grid-template-columns:1fr;gap:26px}
+ .grid4{grid-template-columns:1fr 1fr}
+ .two{grid-template-columns:1fr}
+ .facts{columns:1}
+}
+@media(max-width:520px){
+ header{padding:12px 16px}nav{gap:10px}nav .hide-sm{display:none}
+ main{padding:0 16px}section{padding:56px 0}
+ .grid4{grid-template-columns:1fr}.card{min-height:auto}
+ .log{height:300px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .hero h1 .ln>span{transform:none}
+ .echo use.copy{opacity:var(--o);transform:translateX(var(--dx))}
+ .log li{opacity:1}
+}
+</style>
+<script defer src="/3/stack-plan.js"></script>
+<script type="module" src="/assets/echo-review.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header data-component="3.header" data-type="header">
+ <a class="brand" href="/">MEISSNER<br>SERVICES</a>
+ <nav>
+  <a class="hide-sm" href="#3.CONSOLE">How it runs</a>
+  <a class="hide-sm" href="#3.PRICE">Price</a>
+  <a href="#3.CONTACT">Start ↗</a>
+  <a class="hide-sm" href="/review/">Compare designs</a>
+  <button class="theme" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+ </nav>
+</header>
+
+<main id="main">
+ <section class="hero" id="3.HERO" aria-labelledby="h-hero" data-component="3.HERO" data-type="hero">
+  <div>
+   <span class="tag">3.HERO</span>
+   <p class="eyebrow" data-component="3.HERO.eyebrow" data-type="eyebrow">Small first steps, built in hours · one operator, a team of AI agents</p>
+   <h1 id="h-hero" data-component="3.HERO.headline" data-type="headline"><span class="ln"><span>One</span></span><span class="ln"><span class="out">human.</span></span><span class="ln"><span>Modern <span class="x">tools.</span></span></span></h1>
+   <p class="lead" data-component="3.HERO.subhead" data-type="subhead">Tell us what you want. A working first version comes back within 24 to 72 hours of agreeing a small first step. The build runs in agent time, directed and reviewed by Brian. Then we refine it with you, and the review rounds go at your pace. Your tools, your channel, a fixed price agreed before we start.</p>
+   <a class="btn" href="#3.CONTACT" data-component="3.HERO.cta" data-type="cta">Tell us what you want ↗</a>
+   <div class="meta"><span>English · Español · Português (conversational)</span><span>Email · WhatsApp · platform chat · Slack · Teams</span></div>
+  </div>
+  <figure class="echo" aria-hidden="false" data-component="3.HERO.logo" data-type="logo">
+   <svg viewBox="0 0 600 480" role="img" aria-labelledby="wild-mark-title" data-component="3.HERO.logo-2" data-type="logo"><title id="wild-mark-title">Meissner Services mark: one operator outline, with fading echoes of him drawn out behind</title><defs><symbol id="wild-operator" viewBox="0 0 300 360"><g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"><circle cx="150" cy="118" r="62"/><path d="M50 340a100 100 0 0 1 200 0"/></g></symbol><symbol id="wild-small" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path opacity=".4" d="M10 23c-5-13 11-18 16-7v12l-7 8-7-7ZM7 39h23v9H7Z"/><path d="M29 21c-8-15 17-23 22-10 6 3 5 8 1 11v12L40 45 29 36ZM22 48h34v10H22Zm5 5h7m8 0h9"/></g></symbol></defs><use href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/><use class="copy" href="#wild-operator" x="280" y="60" width="280" height="340"/></svg>
+   <figcaption>tentative mark · copies = parallel agents</figcaption>
+  </figure>
+ </section>
+
+ <section id="3.SPEED" aria-labelledby="h-speed" data-component="3.SPEED" data-type="speed"><span class="tag">3.SPEED</span><p class="eyebrow" data-component="3.SPEED.eyebrow" data-type="eyebrow">Built overnight / the site is the proof</p><h2 id="h-speed" data-component="3.SPEED.headline" data-type="headline">A working first version. In hours.</h2><p class="lead" data-component="3.SPEED.subhead" data-type="subhead">Seven designs, researched and built overnight by our agent team.</p><p>This site’s actual milestones on 2 October 2026: brief received at 01:49 CT; first page committed at 03:04 CT; first HTTPS deployment receipt at 03:16 CT.</p><p>We agree each project’s turnaround from comparable measured work and the inputs it needs.</p></section>
+
+ <section id="3.LOGO" aria-labelledby="h-logo" data-component="3.LOGO" data-type="logo"><span class="tag">3.LOGO</span><p class="eyebrow" data-component="3.LOGO.eyebrow" data-type="eyebrow">The Wild Card / logo study</p><h2 id="h-logo" data-component="3.LOGO.headline" data-type="headline">One operator. Parallel resources.</h2><div class="logo-study"><svg class="full" viewBox="0 0 600 480" role="img" aria-label="The Wild Card operator and parallel server echoes" data-component="3.LOGO.logo" data-type="logo"><use href="#wild-operator" x="280" y="60" width="280" height="340"/><use href="#wild-operator" x="226" y="60" width="280" height="340" opacity="0.42"/><use href="#wild-operator" x="172" y="60" width="280" height="340" opacity="0.28"/><use href="#wild-operator" x="118" y="60" width="280" height="340" opacity="0.17"/><use href="#wild-operator" x="64" y="60" width="280" height="340" opacity="0.09"/></svg><svg class="small" viewBox="0 0 64 64" role="img" aria-label="Small Wild Card operator and one echo, 32 pixels" data-component="3.LOGO.logo-2" data-type="logo"><use href="#wild-small"/></svg></div></section>
+
+ <section id="3.CONSOLE" aria-labelledby="h-console" data-component="3.CONSOLE" data-type="demo">
+  <div class="split">
+   <div>
+    <span class="tag">3.CONSOLE</span>
+    <p class="eyebrow" data-component="3.CONSOLE.eyebrow" data-type="eyebrow">How a project runs</p>
+    <h2 id="h-console" data-component="3.CONSOLE.headline" data-type="headline">The agents do the heavy lifting. The options help you find what suits you.</h2>
+    <p class="lead" data-component="3.CONSOLE.subhead" data-type="subhead">Every project gets its own agentic workflow. Brian directs it, reviews what it produces, and is the one person accountable to you.</p>
+    <p><small>This console is an illustration of a typical small job, not a live feed and not a real client.</small></p>
+   </div>
+   <div class="console" role="region" aria-label="Illustrative agent console">
+    <div class="bar"><span class="dots"><i></i><i></i><i></i>workflow · example project</span><span class="badge">ILLUSTRATIVE</span></div>
+    <ol class="log" id="log" aria-live="off"></ol>
+    <div class="ctl"><button type="button" id="pause" aria-pressed="false">❚❚ pause</button><button type="button" id="replay">↺ replay</button></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="3.ANSWERS" aria-labelledby="h-answers" data-component="3.ANSWERS" data-type="answers">
+  <span class="tag">3.ANSWERS</span>
+  <p class="eyebrow" data-component="3.ANSWERS.eyebrow" data-type="eyebrow">Four questions, straight answers</p>
+  <h2 id="h-answers" data-component="3.ANSWERS.headline" data-type="headline">Before you hire anyone.</h2>
+  <div class="grid4">
+   <article class="card" data-component="3.ANSWERS.answer" data-type="answer"><span class="q">Is this real?</span><h3>Meissner Services is Brian Meissner.</h3><p>Founder of SA Trails, a software company with offices in six countries (2010–2018), and 14 years running El Diablo Tranquilo in Uruguay. He directs and reviews a team of AI agents built around each project.</p></article>
+   <article class="card" data-component="3.ANSWERS.answer-2" data-type="answer"><span class="q">Will you answer me?</span><h3>Your channel, your hours.</h3><p>Email, WhatsApp, the platform's own chat, Slack or Teams. English and Spanish; Portuguese conversational.</p></article>
+   <article class="card" data-component="3.ANSWERS.answer-3" data-type="answer"><span class="q">Will it cost more?</span><h3>Fixed price, agreed first.</h3><p>The price is agreed before work starts. If the scope grows, we quote the extra before doing it.</p></article>
+   <article class="card" data-component="3.ANSWERS.answer-4" data-type="answer"><span class="q">My tools?</span><h3>We map onto your stack.</h3><p>Your tools, languages and accounts. You own everything from day one.</p></article>
+  </div>
+ </section>
+
+ <section id="3.STACK" class="sp" aria-labelledby="h-stack" data-component="3.STACK" data-type="demo">
+  <span class="tag">3.STACK</span>
+  <p class="eyebrow" data-component="3.STACK.eyebrow" data-type="eyebrow">Your stack, mapped</p>
+  <h2 id="h-stack" data-component="3.STACK.headline" data-type="headline">The tools you already use. See where we slot in.</h2>
+  <p class="lead" data-component="3.STACK.subhead" data-type="subhead">For each tool: how we connect, the narrowest access we'd ask for, and what we usually build on it.</p>
+  <div class="sp-tool" data-stack-mapper data-component="3.STACK.mapper" data-type="tool" data-label="Your-stack mapper">
+   <form class="sp-form" autocomplete="off">
+    <label for="sp-in">Your tools, separated by commas</label>
+    <div class="sp-row"><input id="sp-in" list="sp-list" maxlength="200" placeholder="Airtable, Shopify, Google Sheets…"><button class="btn" type="submit">Map</button></div>
+    <datalist id="sp-list"></datalist>
+   </form>
+   <p class="sp-try">Try: <button type="button" data-try="Shopify,QuickBooks Online,Google Sheets,Slack">a store</button> <button type="button" data-try="Formstack,Airtable,HubSpot,Gmail">a services firm</button> <button type="button" data-try="WhatsApp Business,Google Calendar,ChatGPT / OpenAI">bookings by chat</button> <button type="button" class="sp-clear">clear</button> <span class="sp-count" aria-live="polite"></span></p>
+   <div class="sp-chips"></div>
+   <p class="sp-empty">Your mapped tools appear here.</p>
+   <div class="sp-cards" aria-live="polite"></div>
+   <div class="sp-flowbox" hidden><h3>What we could build between them</h3><p class="sp-note">Ideas to scope with you, not promises: each depends on your plans, your data and what the vendors allow.</p><ul class="sp-flows"></ul></div>
+   <p class="sp-note">How it suggests: it matches the tool names you type against notes written by the crew from each vendor's public developer docs, October 2026. Not generated by AI as you type. Your plan or edition can change what's available, so we confirm before quoting. Nothing you type leaves this page.</p>
+  </div>
+ </section>
+
+ <section id="3.PLAN" class="pl" aria-labelledby="h-plan" data-component="3.PLAN" data-type="demo">
+  <span class="tag">3.PLAN</span>
+  <p class="eyebrow" data-component="3.PLAN.eyebrow" data-type="eyebrow">What has to happen first</p>
+  <h2 id="h-plan" data-component="3.PLAN.headline" data-type="headline">Your project, in order.</h2>
+  <p class="lead" data-component="3.PLAN.subhead" data-type="subhead">Built from the tools above. Steps in the same stage run side by side, which is where parallel agents save you time. Change what waits on what, add your own steps, and send the plan with your note.</p>
+  <div class="pl-tool" data-order-planner data-component="3.PLAN.planner" data-type="tool" data-label="Dependency and order planner">
+   <p class="pl-summary" aria-live="polite"></p>
+   <div class="pl-board"></div>
+   <p class="pl-legend"><span class="pl-who">you</span> waits on you · <span class="pl-who us">us</span> we run it · <span class="pl-who both">together</span> both of us</p>
+   <div class="pl-actions"><button type="button" class="btn pl-attach">Add plan to my project note</button><button type="button" class="btn ghost pl-copy">Copy plan</button><button type="button" class="btn ghost pl-reset">Rebuild from my tools</button></div>
+   <p class="pl-status" role="status"></p>
+   <textarea class="pl-text" rows="6" readonly hidden aria-label="Plan as text"></textarea>
+   <details class="pl-more" data-component="3.PLAN.faq-item" data-type="faq-item"><summary>Edit steps and what they wait on</summary>
+    <form class="pl-add"><label>New step <input name="label" maxlength="80" required placeholder="e.g. Legal approves the wording"></label><label>Who <select name="who"><option value="you">you</option><option value="us">us</option><option value="both">together</option></select></label><label>Starts after <select name="after"></select></label><button class="btn ghost" type="submit">Add step</button></form>
+    <div class="pl-editor"></div>
+   </details>
+   <p class="sp-note">Order only, no dates: we agree timing with you, not here. Changing your tools rebuilds the plan. Saved only in this browser.</p>
+  </div>
+ </section>
+
+ <section class="promise" id="3.PROMISE" aria-labelledby="h-promise" data-component="3.PROMISE" data-type="canonical">
+  <span class="tag">3.PROMISE</span>
+  <p class="eyebrow" id="h-promise" data-component="3.PROMISE.eyebrow" data-type="eyebrow">In Brian's words</p>
+  <blockquote data-component="3.PROMISE.canonical-quote" data-type="canonical-quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. <mark>No cost overages, no delays, the infrastructure is ours, the job is yours.</mark> Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.</blockquote>
+  <cite>Brian Meissner · Meissner Services</cite>
+ </section>
+
+ <section id="3.WHO" aria-labelledby="h-who" data-component="3.WHO" data-type="audience">
+  <span class="tag">3.WHO</span>
+  <p class="eyebrow" data-component="3.WHO.eyebrow" data-type="eyebrow">Who it's for</p>
+  <h2 id="h-who" data-component="3.WHO.headline" data-type="headline">Your idea. Or your overflow.</h2>
+  <div class="two">
+   <div><h3>Your own idea or project</h3><p>A tool, a cleanup, an automation, a report in the exact format someone needs. Start with a working prototype instead of a long proposal.</p></div>
+   <div><h3>Time back, gaps covered</h3><p>Agencies and freelancers who subcontract: hand over the parts you don't want to do, and keep your client relationship.</p></div>
+  </div>
+ </section>
+
+ <section id="3.PRICE" aria-labelledby="h-price" data-component="3.PRICE" data-type="pricing">
+  <span class="tag">3.PRICE</span>
+  <p class="eyebrow" data-component="3.PRICE.eyebrow" data-type="eyebrow">Price</p>
+  <div class="split">
+   <div>
+    <h2 id="h-price" class="price" data-component="3.PRICE.headline" data-type="headline">USD 100–500<small>Typical small jobs · fixed price · agreed before work starts</small></h2>
+   </div>
+   <div>
+    <p class="lead" data-component="3.PRICE.subhead" data-type="subhead">Included on jobs: one correction round. The work is built in your own accounts wherever the tool allows, or handed over as files in the format you need. You keep everything.</p>
+    <ul class="facts">
+     <li data-component="3.PRICE.pricing-card" data-type="pricing-card"><b>SA Trails LLC</b>, founder, 2010–2018</li>
+     <li data-component="3.PRICE.pricing-card-2" data-type="pricing-card"><b>El Diablo Tranquilo</b>, founded and ran, 2006–2020</li>
+     <li data-component="3.PRICE.pricing-card-3" data-type="pricing-card"><b>Point-of-sale systems</b>, built</li>
+     <li data-component="3.PRICE.pricing-card-4" data-type="pricing-card"><b>AWS</b>, every year since 2009</li>
+     <li data-component="3.PRICE.pricing-card-5" data-type="pricing-card"><b>Data exchange</b> in each recipient's exact format</li>
+     <li data-component="3.PRICE.pricing-card-6" data-type="pricing-card"><b>BA Economics</b>, University of Wisconsin–Madison</li>
+    </ul>
+   </div>
+  </div>
+ </section>
+
+ <section id="3.METHOD" class="echo-method" data-tag aria-labelledby="h-3-method" data-component="3.METHOD" data-type="method"><style>.echo-method ol,.echo-method ul{padding-left:1.3em;max-width:62ch}.echo-method li{margin:.5em 0;opacity:1;animation:none;white-space:normal;break-inside:auto}.echo-method .examples-lead{margin-top:1.4em}.echo-spine{margin:0 0 1.4em;max-width:64ch}.echo-spine blockquote{margin:0;padding:.2em 0 .2em 1em;border-left:4px solid currentColor;font-size:1.08em;line-height:1.55;background:none}.echo-spine figcaption{margin-top:.5em;font-size:.88em;opacity:.8}</style>
+<h2 id="h-3-method" data-component="3.METHOD.headline" data-type="headline">How we work, on any task</h2>
+<figure class="echo-spine" data-component="3.METHOD.positioning" data-type="positioning"><blockquote data-component="3.METHOD.quote" data-type="quote">We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period.</blockquote><figcaption>Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents.</figcaption></figure>
+
+<ol>
+<li data-component="3.METHOD.method-step" data-type="method-step"><strong>Prototype.</strong> We build working options for your task, not slides about it.</li>
+<li data-component="3.METHOD.method-step-2" data-type="method-step"><strong>Rate.</strong> You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like.</li>
+<li data-component="3.METHOD.method-step-3" data-type="method-step"><strong>Synthesize.</strong> One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready.</li>
+<li data-component="3.METHOD.method-step-4" data-type="method-step"><strong>Repeat.</strong> Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right.</li>
+<li data-component="3.METHOD.method-step-5" data-type="method-step"><strong>Deliver.</strong> You get the finished work in your tools and formats, at the price agreed before we started.</li>
+</ol>
+<p class="examples-lead">The same loop works on any task:</p>
+<ul>
+<li class="example" data-component="3.METHOD.example" data-type="example"><strong>Database cleanup:</strong> sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose.</li>
+<li class="example" data-component="3.METHOD.example-2" data-type="example"><strong>Research presentation:</strong> slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest.</li>
+<li class="example" data-component="3.METHOD.example-3" data-type="example"><strong>Interactive website:</strong> like this site. You rate seven designs part by part, and the next version combines what you liked.</li>
+</ul>
+<p><a href="/how-we-work/">See how Echo Review works ↗</a></p>
+</section>
+<section class="contact" id="3.CONTACT" aria-labelledby="h-contact" data-component="3.CONTACT" data-type="contact">
+  <span class="tag">3.CONTACT</span>
+  <p class="eyebrow" data-component="3.CONTACT.eyebrow" data-type="eyebrow">Start</p>
+  <h2 id="h-contact" data-component="3.CONTACT.headline" data-type="headline">Tell us what you want.</h2>
+  <p class="lead" data-component="3.CONTACT.subhead" data-type="subhead">The outcome, the tools you use, your timing. Email or WhatsApp. English or Spanish.</p>
+  <meissner-contact data-component="3.CONTACT.contact" data-type="contact">
+   <div class="contact-links">
+    <a class="btn" href="mailto:team@meissner.services?subject=Project%20enquiry">Email team@meissner.services</a>
+    <a class="btn ghost" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project" rel="noopener">WhatsApp +1 (262) 366-1718</a>
+   </div>
+  </meissner-contact>
+ </section>
+</main>
+
+<footer data-component="3.footer" data-type="footer">
+ <p>I work with my own team of AI agents, which I direct and review.</p>
+ <p>Meissner Services · Design 03 "The Wild Card" · tentative mark · noindex draft for review.</p>
+ <p>Patterns borrowed (ideas only): live product panel in the hero (linear.app, railway.com), line-art hero (basement.studio), terminal annotations (evilmartians.com), accessible motion pause (10up.com), loud display type (darkroom.engineering).</p>
+</footer>
+
+<script>
+(function(){
+ var b=document.body,q=new URLSearchParams(location.search);
+ if(q.get('tags')==='1')b.classList.add('tags');
+ try{if(localStorage.getItem('ms3-theme')==='light')b.classList.add('light')}catch(e){}
+ if(!b.classList.contains('light')&&window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches&&!q.has('dark'))b.classList.add('light');
+ document.getElementById('theme').addEventListener('click',function(){b.classList.toggle('light');try{localStorage.setItem('ms3-theme',b.classList.contains('light')?'light':'dark')}catch(e){}});
+ var L=[
+  ['t','00:00','brief received · "clean 5,000 contacts, flag bad emails"'],
+  ['a','00:01','intake agent → scope: dedupe, normalize, flag, summary'],
+  ['a','00:02','planner agent → plan v1 · 3 steps · CSV in, CSV + summary out'],
+  ['h','00:04','HUMAN CHECKPOINT · Brian approves plan, fixed price confirmed'],
+  ['a','00:06','builder agent → prototype on sample rows'],
+  ['a','00:07','checker agent → 30 = 17 kept + 3 merged + 10 flagged ✓'],
+  ['h','00:09','HUMAN CHECKPOINT · Brian reviews prototype, sends to client'],
+  ['t','00:15','client: "keep the flags, lowercase emails too"'],
+  ['a','00:16','builder agent → refine v2'],
+  ['h','00:18','HUMAN CHECKPOINT · Brian signs off v2'],
+  ['t','00:19','delivered · export in the format you asked for']
+ ];
+ var log=document.getElementById('log'),i=0,timer=null,paused=false,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function line(r){var li=document.createElement('li');li.innerHTML='<span class="t">'+r[1]+'</span>  <span class="'+r[0]+'">'+r[2].replace(/</g,'&lt;')+'</span>';log.appendChild(li);while(log.children.length>12)log.removeChild(log.firstChild)}
+ function tick(){if(paused)return;line(L[i%L.length]);i++;if(i%L.length===0){timer=setTimeout(function(){log.innerHTML='';tick()},2600)}else{timer=setTimeout(tick,900)}}
+ function all(){log.innerHTML='';L.forEach(line)}
+ if(reduce){all()}else{
+  for(;i<3;i++)line(L[i]);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!timer&&!paused)tick()})},{threshold:.25});io.observe(log);
+ }
+ var pb=document.getElementById('pause');
+ pb.addEventListener('click',function(){paused=!paused;pb.setAttribute('aria-pressed',String(paused));pb.textContent=paused?'▶ play':'❚❚ pause';if(paused){clearTimeout(timer);timer=null}else if(!reduce)tick()});
+ document.getElementById('replay').addEventListener('click',function(){clearTimeout(timer);timer=null;i=0;if(reduce||paused){all()}else{log.innerHTML='';tick()}});
+})();
+</script>
+</body>
+</html>

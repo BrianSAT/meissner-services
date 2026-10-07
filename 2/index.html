@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Meissner Services · A working prototype first. A fixed price throughout.</title>
+<meta name="description" content="Small fixed-price software and data jobs, run by Brian Meissner with his own team of AI agents. A working prototype first, then refined until it's right.">
+<link rel="icon" href="/2/favicon.svg" type="image/svg+xml">
+<style>
+:root{--hot-btn:#c2410c;--bg:#fffaf3;--ink:#16161d;--muted:#55555f;--card:#ffffff;--line:#ece4d8;--hot:#ff5a1f;--cool:#2346ff;--hot-ink:#ffffff;--ok:#0b7a43}
+@media (prefers-color-scheme:dark){:root{--hot-btn:#ff7a45;--bg:#121218;--ink:#f5f2ec;--muted:#b4b2bd;--card:#1c1c25;--line:#2c2c38;--hot:#ff7a45;--cool:#7d8dff;--hot-ink:#121218;--ok:#4cd28a}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--cool)}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--card);padding:8px 12px;border-radius:8px;z-index:9}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;gap:12px;padding:16px 0}
+.brand{font-weight:800;letter-spacing:-.01em;font-size:18px}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+section{padding:44px 0;border-top:1px solid var(--line);position:relative}
+section:first-of-type{border-top:0}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.02;letter-spacing:-.03em;margin:8px 0 18px}
+h1 .hot{color:var(--hot)}
+h2{font-size:clamp(24px,5vw,34px);letter-spacing:-.02em;margin:0 0 18px;line-height:1.15}
+.lede{font-size:clamp(18px,3.6vw,21px);color:var(--muted);max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 10px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:17px}
+.btn.primary{background:var(--hot-btn);color:var(--hot-ink)}
+.btn.secondary{border:2px solid var(--ink);color:var(--ink)}
+.btn:focus-visible{outline:3px solid var(--cool);outline-offset:3px}
+.fine{font-size:14px;color:var(--muted)}
+.hero{display:grid;gap:18px;grid-template-columns:1fr;align-items:center;padding-top:20px}
+@media (min-width:820px){.hero{grid-template-columns:1.35fr .9fr}}
+.mark-wrap{display:flex;justify-content:center}
+.mark-wrap svg{width:min(320px,80vw);height:auto}
+.echo{animation:fan 2.4s cubic-bezier(.2,.7,.2,1) both}
+.echo.e2{animation-delay:.12s}.echo.e3{animation-delay:.24s}.echo.e4{animation-delay:.36s}
+@keyframes fan{from{transform:translateX(-40px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.echo{animation:none}}
+.qa{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:720px){.qa{grid-template-columns:1fr 1fr}}
+.q{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.q h3{margin:0 0 8px;font-size:19px}
+.q .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--hot-btn);color:var(--hot-ink);font-weight:800;font-size:14px;margin-right:8px}
+.q p{margin:0;color:var(--muted)}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;grid-template-columns:1fr;counter-reset:s}
+@media (min-width:720px){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;counter-increment:s}
+.steps li::before{content:counter(s);display:block;font-weight:800;font-size:28px;color:var(--cool)}
+.steps b{display:block;margin-bottom:4px}
+.price{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:720px){.price{grid-template-columns:1.1fr 1fr}}
+.big{font-size:clamp(28px,6vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.who{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:720px){.who{grid-template-columns:1fr 1fr}}
+blockquote{margin:0;padding:22px;border-left:6px solid var(--hot);background:var(--card);border-radius:0 16px 16px 0;font-size:18px}
+blockquote cite{display:block;margin-top:10px;font-style:normal;color:var(--muted);font-size:14px}
+.facts{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+.facts li{margin:4px 0}
+.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:28px}
+.contact h2{color:var(--bg)}
+.contact .btn.secondary{border-color:var(--bg);color:var(--bg)}
+.contact a.plain{color:var(--bg)}
+.contact meissner-contact a{color:var(--bg)}
+footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
+.mark-wrap{position:relative}.mark-wrap>.review-section-tag{position:absolute;top:0;left:0;margin:0}
+.proof{font-size:14px;color:var(--muted);border-left:4px solid var(--cool);padding:2px 0 2px 12px;margin:14px 0 0;max-width:46ch}
+.feat-grid{display:grid;gap:18px}@media (min-width:760px){.feat-grid{grid-template-columns:1fr 1.2fr}}
+.fl{display:block;font-size:14px;font-weight:700;margin:12px 0 6px}
+.fi{width:100%;font:16px/1.5 inherit;font-family:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+.fi:focus-visible,.fbtn:focus-visible,.outline-out [contenteditable]:focus-visible{outline:3px solid var(--cool);outline-offset:2px}
+.chart-out svg{width:100%;height:auto;border:1px solid var(--line);border-radius:14px;display:block}
+.chart-takeaway{font-weight:700;margin:12px 0 4px}
+.fbtn{min-height:44px;padding:10px 16px;border-radius:999px;border:2px solid var(--cool);background:var(--cool);color:#fff;font:inherit;font-weight:700;cursor:pointer;margin:8px 8px 0 0}
+.fbtn.ghost{background:transparent;color:var(--ink)}
+.outline-out{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.outline-out li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.outline-out .on{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.outline-out .oh{font-weight:800}.outline-out .op{color:var(--muted);font-size:15px}
+.outline-out .op::before{content:"• "}
+</style>
+<link rel="stylesheet" href="/assets/shared.css">
+<script defer src="/assets/shared.js"></script>
+<script type="module" src="/assets/echo-review.js"></script>
+<script type="module" src="/2/features.js"></script>
+</head>
+<body>
+<a class="skip" href="#2.CONTACT">Skip to contact</a>
+<div class="wrap">
+<header class="top" data-component="2.header" data-type="header">
+  <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--hot)"/><circle cx="20" cy="10" r="4" fill="#fff" opacity=".55"/><path d="M14 30v-9a6 6 0 0 1 12 0v9z" fill="#fff" opacity=".55"/><circle cx="13" cy="10" r="4.5" fill="#fff"/><path d="M6 30v-9a7 7 0 0 1 14 0v9z" fill="#fff"/></svg>
+  <div class="brand">Meissner Services<small>Brian Meissner + his AI team</small></div>
+</header>
+<main id="main">
+
+<section id="2.HERO" data-tag class="hero" aria-labelledby="h-hero" data-component="2.HERO" data-type="hero">
+  <div>
+    <h1 id="h-hero" data-component="2.HERO.headline" data-type="headline">A working prototype in hours.<br><span class="hot">A fixed price throughout.</span></h1>
+    <p class="lede" data-component="2.HERO.subhead" data-type="subhead">Bring a rough idea. You don't need a plan or a spec: we build working versions, you react to them, and the idea gets clearer with every round. The first version comes back within 24 to 72 hours of agreeing a small first step, checked by Brian. After that the rounds go at your pace, and the price is agreed before we start.</p>
+    <div class="ctas">
+      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project" data-component="2.HERO.cta" data-type="cta">WhatsApp +1 (262) 366-1718</a>
+      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry" data-component="2.HERO.cta-2" data-type="cta">Email team@meissner.services</a>
+    </div>
+    <p class="fine">English or Spanish. Portuguese conversational.</p>
+    <p class="proof" data-component="2.HERO.proof" data-type="proof"><b>Proof you're looking at:</b> the brief for this site was sent at 01:49 CT on 2 October 2026. The first page was committed at 03:04 CT and first deployed over HTTPS at 03:16 CT. Those are our real timestamps, not a per-job promise.</p>
+  </div>
+  <div class="mark-wrap" id="2.LOGO" data-tag data-component="2.LOGO" data-type="logo">
+    <svg viewBox="0 0 320 240" role="img" aria-label="Meissner Services mark: one operator with three echoes fanning out behind him" data-component="2.LOGO.logo" data-type="logo">
+      <g fill="var(--cool)">
+        <g class="echo e4" opacity=".14"><circle cx="262" cy="70" r="22"/><path d="M228 228v-74a34 34 0 0 1 68 0v74z"/></g>
+        <g class="echo e3" opacity=".26"><circle cx="222" cy="70" r="24"/><path d="M185 228v-76a37 37 0 0 1 74 0v76z"/></g>
+        <g class="echo e2" opacity=".42"><circle cx="180" cy="70" r="26"/><path d="M140 228v-78a40 40 0 0 1 80 0v78z"/></g>
+      </g>
+      <g fill="var(--hot)"><circle cx="118" cy="68" r="30"/><path d="M70 228v-82a48 48 0 0 1 96 0v82z"/><rect x="14" y="150" width="62" height="78" rx="6" opacity=".9"/><rect x="22" y="162" width="46" height="6" rx="3" fill="var(--bg)"/><rect x="22" y="178" width="46" height="6" rx="3" fill="var(--bg)"/><rect x="22" y="194" width="46" height="6" rx="3" fill="var(--bg)"/></g>
+    </svg>
+  </div>
+</section>
+
+<section id="2.ANSWERS" data-tag aria-labelledby="h-answers" data-component="2.ANSWERS" data-type="answers">
+  <h2 id="h-answers" data-component="2.ANSWERS.headline" data-type="headline">Your four questions, answered first</h2>
+  <div class="qa">
+    <article class="q" data-component="2.ANSWERS.answer" data-type="answer"><h3><span class="n">1</span>Is this real?</h3><p>Yes. Meissner Services is Brian Meissner. From founding a venture-accelerated software company to hauling steel as a flatbed owner-operator, Brian knows tech, and knows you just need to get things done. He also ran El Diablo Tranquilo, a hostel in Uruguay, for 14 years. He directs and reviews a team of AI agents built around your project.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-2" data-type="answer"><h3><span class="n">2</span>Will you answer me?</h3><p>Your channel, your hours: email, WhatsApp, your platform's chat, Slack or Teams. In English or Spanish; Portuguese conversational.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-3" data-type="answer"><h3><span class="n">3</span>Will it cost more than quoted?</h3><p>Not for the agreed scope. The price is fixed before work starts; if you want more than we agreed, we quote the extra first, and you decide.</p></article>
+    <article class="q" data-component="2.ANSWERS.answer-4" data-type="answer"><h3><span class="n">4</span>Can you work in my tools?</h3><p>Yes. You don't need to download our tools or learn new workflows: we fit into the way you already work, in your own accounts, and you own everything from day one.</p></article>
+  </div>
+</section>
+
+<section id="2.HOW" data-tag aria-labelledby="h-how" data-component="2.HOW" data-type="process">
+  <h2 id="h-how" data-component="2.HOW.headline" data-type="headline">How it goes</h2>
+  <ol class="steps">
+    <li data-component="2.HOW.step" data-type="step"><b>Tell us what you want</b>In your words, in your channel.</li>
+    <li data-component="2.HOW.step-2" data-type="step"><b>Working prototype</b>Something you can open and try, not a slide.</li>
+    <li data-component="2.HOW.step-3" data-type="step"><b>Refine</b>Tell us what to change; we work toward exactly how you like it.</li>
+    <li data-component="2.HOW.step-4" data-type="step"><b>Yours</b>The infrastructure is ours, the job is yours.</li>
+  </ol>
+</section>
+
+<section id="2.PRICE" data-tag aria-labelledby="h-price" data-component="2.PRICE" data-type="pricing">
+  <h2 id="h-price" data-component="2.PRICE.headline" data-type="headline">What it costs</h2>
+  <div class="price">
+    <div class="panel" data-component="2.PRICE.pricing-card" data-type="pricing-card"><div class="big">USD 100–500</div><p>Typical small jobs: fixed price, agreed before work starts.</p></div>
+    <div class="panel" data-component="2.PRICE.pricing-card-2" data-type="pricing-card"><p><b>Included:</b> one correction round. The work is built in your own accounts wherever the tool allows, or handed over as files you keep.</p></div>
+  </div>
+</section>
+
+<section id="2.WHO" data-tag aria-labelledby="h-who" data-component="2.WHO" data-type="audience">
+  <h2 id="h-who" data-component="2.WHO.headline" data-type="headline">Who it's for</h2>
+  <div class="who">
+    <div class="panel" data-component="2.WHO.audience-item" data-type="audience-item"><b>You have an idea or a project of your own</b><p class="fine">Get it to a working first version fast, then shape it.</p></div>
+    <div class="panel" data-component="2.WHO.audience-item-2" data-type="audience-item"><b>You need time back, or cover for gaps</b><p class="fine">Agencies and freelancers who subcontract part of the work they do for others.</p></div>
+  </div>
+</section>
+
+<section id="2.TEAM" data-tag aria-labelledby="h-team" data-component="2.TEAM" data-type="team">
+  <h2 id="h-team" data-component="2.TEAM.headline" data-type="headline">A real person, with unreal tools</h2>
+  <blockquote data-component="2.TEAM.quote" data-type="quote">"I work with my own team of AI agents, which I direct and review."<cite>Brian Meissner</cite></blockquote>
+  <ul class="facts">
+    <li data-component="2.TEAM.item" data-type="item">Founder, SA Trails: a software company with offices in six countries, from custom firmware to automated guest surveys (2010–2018)</li>
+    <li data-component="2.TEAM.item-2" data-type="item">Built point-of-sale systems; worked on systems for large data sets, including municipal infrastructure and regional retail transaction management (for a rental company)</li>
+    <li data-component="2.TEAM.item-3" data-type="item">AWS every year since 2009; ML and early AI work since at least 2021</li>
+    <li data-component="2.TEAM.item-4" data-type="item">BA, Economics, University of Wisconsin–Madison</li>
+  </ul>
+</section>
+
+<section id="2.CANON" data-tag aria-labelledby="h-canon" data-component="2.CANON" data-type="canonical">
+  <h2 id="h-canon" data-component="2.CANON.headline" data-type="headline">In Brian's words</h2>
+  <blockquote data-component="2.CANON.canonical-quote" data-type="canonical-quote">We build a complete agentic workflow around every project that is managed by a human with extensive entrepreneurial, managerial, and software architecture experience. We will respond quickly and do not waste your time, tell us what you want and we will deliver you a working prototype. Tell us how you want the prototype refined and we will work towards getting it exactly how you like. No cost overages, no delays, the infrastructure is ours, the job is yours. Whether you have an idea or project of your own, or are trying to free up time or cover gaps in the work you do for others, let us make your life easier.<cite>Brian Meissner</cite></blockquote>
+</section>
+
+<section id="2.CHART" class="feat" data-tag aria-labelledby="h-chart" data-feature="chart" data-component="2.CHART" data-type="feature">
+  <h2 id="h-chart" data-component="2.CHART.headline" data-type="headline">Paste numbers, get a chart</h2>
+  <p class="fine">The research-presentation pitch, proven on the spot. It runs in your browser: your numbers never leave this page.</p>
+  <div class="feat-grid">
+    <div>
+      <label class="fl" for="chart-title">Chart title (optional)</label>
+      <input id="chart-title" class="fi" type="text" maxlength="80" placeholder="Monthly bookings">
+      <label class="fl" for="chart-data">Your numbers, one per line (a label first is optional)</label>
+      <textarea id="chart-data" class="fi" rows="7" spellcheck="false">Jan 120
+Feb 135
+Mar 128
+Apr 160
+May 172</textarea>
+      <p class="fine">Example numbers shown; replace them with yours.</p>
+    </div>
+    <div>
+      <div class="chart-out" aria-live="polite"></div>
+      <p class="chart-takeaway" aria-live="polite"></p>
+      <p class="fine">Takeaway computed from your numbers, not written by AI.</p>
+      <button type="button" class="fbtn chart-dl" hidden>Download chart (SVG)</button>
+    </div>
+  </div>
+</section>
+
+<section id="2.OUTLINE" class="feat" data-tag aria-labelledby="h-outline" data-feature="outline" data-component="2.OUTLINE" data-type="feature">
+  <h2 id="h-outline" data-component="2.OUTLINE.headline" data-type="headline">Your facts, as an editable slide outline</h2>
+  <p class="fine">Type your title and your facts; we lay them out as slides you can edit and export. We add no facts and no sources: every slide comes from what you typed.</p>
+  <div class="feat-grid">
+    <div>
+      <label class="fl" for="ol-title">Presentation title</label>
+      <input id="ol-title" class="fi" type="text" maxlength="120" placeholder="Why we should add evening appointments">
+      <label class="fl" for="ol-aud">Audience (optional)</label>
+      <input id="ol-aud" class="fi" type="text" maxlength="80" placeholder="The partners">
+      <label class="fl" for="ol-facts">Facts, one per line; add a source after a | if you have one</label>
+      <textarea id="ol-facts" class="fi" rows="6" placeholder="Most of our missed calls come after 5 pm | our phone log, September"></textarea>
+    </div>
+    <div>
+      <ol class="outline-out" aria-live="polite"></ol>
+      <p class="fine">Click any line to edit it before exporting.</p>
+      <button type="button" class="fbtn outline-dl">Download outline (.md)</button>
+      <button type="button" class="fbtn ghost outline-copy">Copy outline</button>
+    </div>
+  </div>
+</section>
+
+<section id="2.METHOD" class="echo-method" data-tag aria-labelledby="h-2-method" data-component="2.METHOD" data-type="method"><style>.echo-method ol,.echo-method ul{padding-left:1.3em;max-width:62ch}.echo-method li{margin:.5em 0;opacity:1;animation:none;white-space:normal;break-inside:auto}.echo-method .examples-lead{margin-top:1.4em}.echo-spine{margin:0 0 1.4em;max-width:64ch}.echo-spine blockquote{margin:0;padding:.2em 0 .2em 1em;border-left:4px solid currentColor;font-size:1.08em;line-height:1.55;background:none}.echo-spine figcaption{margin-top:.5em;font-size:.88em;opacity:.8}</style>
+<h2 id="h-2-method" data-component="2.METHOD.headline" data-type="headline">How we work, on any task</h2>
+<figure class="echo-spine" data-component="2.METHOD.positioning" data-type="positioning"><blockquote data-component="2.METHOD.quote" data-type="quote">We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period.</blockquote><figcaption>Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents.</figcaption></figure>
+
+<ol>
+<li data-component="2.METHOD.method-step" data-type="method-step"><strong>Prototype.</strong> We build working options for your task, not slides about it.</li>
+<li data-component="2.METHOD.method-step-2" data-type="method-step"><strong>Rate.</strong> You rate each part in echoes, separately for style and for copy, from 1 to 5. One rating per page is enough to move forward; rate more if you like.</li>
+<li data-component="2.METHOD.method-step-3" data-type="method-step"><strong>Synthesize.</strong> One button turns your ratings into the next version. A first draft appears straight away in your browser, built mechanically from your ratings. Our refined version follows: the crew smooths the copy and fixes anything the mechanical merge got wrong, and the page tells you when it's ready.</li>
+<li data-component="2.METHOD.method-step-4" data-type="method-step"><strong>Repeat.</strong> Rate the new version, drag parts into a new order, hide them or swap in the runner-up. Go round again until it's right.</li>
+<li data-component="2.METHOD.method-step-5" data-type="method-step"><strong>Deliver.</strong> You get the finished work in your tools and formats, at the price agreed before we started.</li>
+</ol>
+<p class="examples-lead">The same loop works on any task:</p>
+<ul>
+<li class="example" data-component="2.METHOD.example" data-type="example"><strong>Database cleanup:</strong> sample rows cleaned different ways, and the matching rules shown as options. You rate them, and the full cleanup follows the rules you chose.</li>
+<li class="example" data-component="2.METHOD.example-2" data-type="example"><strong>Research presentation:</strong> slide options with different structures and visual styles. The final deck takes the copy and the style you rated highest.</li>
+<li class="example" data-component="2.METHOD.example-3" data-type="example"><strong>Interactive website:</strong> like this site. You rate seven designs part by part, and the next version combines what you liked.</li>
+</ul>
+<p><a href="/how-we-work/">See how Echo Review works ↗</a></p>
+</section>
+<section id="2.CONTACT" data-tag aria-labelledby="h-contact" data-component="2.CONTACT" data-type="contact">
+  <div class="contact">
+    <h2 id="h-contact" data-component="2.CONTACT.headline" data-type="headline">Tell us what you want</h2>
+    <p>One tap to start. Email or WhatsApp, in English or Spanish.</p>
+    <meissner-contact data-component="2.CONTACT.contact" data-type="contact">
+      <div class="ctas">
+      <a class="btn primary" href="https://wa.me/12623661718?text=Hi%20Meissner%20Services%2C%20I%20have%20a%20project">WhatsApp +1 (262) 366-1718</a>
+      <a class="btn secondary" href="mailto:team@meissner.services?subject=Project%20enquiry">team@meissner.services</a>
+      </div>
+    </meissner-contact>
+  </div>
+</section>
+
+</main>
+<footer data-component="2.footer" data-type="footer">
+  <p>Meissner Services · Variant 2 of 7, "The Pitch" · Copy source: Brian's canonical text and his owner history (r7); shared copy launch/meissner-site-20261002/shared-copy. No trackers, no cookies.</p>
+</footer>
+</div>
+<script>
+if(new URLSearchParams(location.search).get('tags')==='1'){document.body.classList.add('tags')}
+</script>
+</body>
+</html>
