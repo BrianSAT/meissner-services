@@ -270,7 +270,7 @@ async function summaryPage() {
   positioning.append(node('blockquote',"We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."),node('figcaption','Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents.'));host.append(positioning);
   await flushActivity();
   try {const fresh=await api(`/s/${encodeURIComponent(sid)}`),ms=fresh.activity?.per_rater_ms?.[rater];
-    if(Number.isFinite(ms))host.append(node('p',`${rater==='owner'?"Brian’s":"Your"} active review time: ${(ms/60000).toFixed(1)} minutes saved. Idle and background time excluded; overlapping devices counted once.`));
+    if(Number.isFinite(ms))host.append(node('p',`Your active review time: ${(ms/60000).toFixed(1)} minutes saved. Idle and background time excluded; overlapping devices counted once.`));
   }catch{host.append(node('p','Saved active review time is temporarily unavailable.'));}
   const team=aggregateRatings(session.ratings,iteration);
   if(team.splits.length){const group=node('section',null,{class:'echo-summary-group'});group.append(node('h2','Teammate agreement and splits'),node('p','Each rater keeps separate ratings. These comparisons exclude N/A; your own preferences remain above.'));
@@ -349,6 +349,17 @@ async function copiesForCurrent() {
   }
   return publicCopies(catalog);
 }
+function copyText(element){
+  if(!element)return '';
+  const copy=element.cloneNode(true);
+  for(const br of copy.querySelectorAll('br'))br.replaceWith(' ');
+  // Parsed documents have no rendered innerText. Preserve semantic blocks and
+  // the prototypes' explicit heading lines without splitting inline word parts.
+  for(const block of copy.querySelectorAll('p,li,blockquote,div,h1,h2,h3,h4,h5,h6,cite,figcaption,.ln')){
+    block.before(' ');block.after(' ');
+  }
+  return copy.textContent.replace(/\s+/g,' ').trim();
+}
 async function publicCopies(inventory){
   const copies={};const pages=[...new Set(inventory.map(c=>String(c.page)))];
   await Promise.all(pages.map(async page=>{
@@ -356,10 +367,10 @@ async function publicCopies(inventory){
     const doc=new DOMParser().parseFromString(await response.text(),'text/html');
     for(const c of inventory.filter(c=>String(c.page)===page)){
       const el=[...doc.querySelectorAll('[data-component]')].find(e=>e.dataset.component===c.cid);if(!el)continue;
-      const title=el.querySelector('[data-copy-role="title"],h1,h2,h3')?.textContent.trim() || (el.matches('h1,h2,h3')?el.textContent.trim():c.type);
-      const bodies=[...el.querySelectorAll('[data-copy-role="body"],p,li,blockquote')].filter(e=>!e.closest('.tag,.review-section-tag')).map(e=>e.textContent.trim()).filter(Boolean);
+      const title=copyText(el.querySelector('[data-copy-role="title"],h1,h2,h3')) || (el.matches('h1,h2,h3')?copyText(el):c.type);
+      const bodies=[...el.querySelectorAll('[data-copy-role="body"],p,li,blockquote')].filter(e=>!e.closest('.tag,.review-section-tag')).map(copyText).filter(Boolean);
       const a=el.querySelector('[data-copy-role="cta"],a[href]');const image=el.matches('img')?el:el.querySelector('img');
-      copies[c.cid]={title,body:bodies.length?bodies.slice(0,16):[c.text || ''],cta:a?{text:a.textContent.trim(),href:safeHref(a.getAttribute('href'))}:null,
+      copies[c.cid]={title,body:bodies.length?bodies.slice(0,16):[c.text || ''],cta:a?{text:copyText(a),href:safeHref(a.getAttribute('href'))}:null,
         image:image?{src:new URL(image.getAttribute('src'),new URL(`/${page}/`,location.origin)).pathname,alt:image.getAttribute('alt') || ''}:null};
     }
   }));return copies;
