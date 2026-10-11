@@ -1,6 +1,6 @@
 import {publicCacheKey,reviewPages} from './assets/echo-shell.mjs';
 const CACHE='meissner-review-shell-v2-20261002',origin=self.location.origin;
-const modules=['/assets/echo-review.js','/assets/echo-core.mjs','/assets/echo-write-scheduler.mjs','/assets/echo-activity.mjs','/assets/echo-shell.mjs','/assets/echo-share-card.mjs','/assets/echo-qr.mjs','/assets/echo-review.css','/assets/echo-features.css','/assets/shared.js','/assets/shared.css','/assets/facts.json','/review/components.json','/review.webmanifest','/assets/review-app-icon.svg','/offline.html','/4/features.mjs','/4/data-tools.mjs'];
+const modules=['/assets/echo-cutover.mjs','/assets/echo-review.js','/assets/echo-core.mjs','/assets/echo-write-scheduler.mjs','/assets/echo-activity.mjs','/assets/echo-shell.mjs','/assets/echo-share-card.mjs','/assets/echo-qr.mjs','/assets/echo-review.css','/assets/echo-features.css','/assets/shared.js','/assets/shared.css','/assets/facts.json','/review/components.json','/review.webmanifest','/assets/review-app-icon.svg','/offline.html','/4/features.mjs','/4/data-tools.mjs'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['/offline.html','/assets/review-app-icon.svg'])).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('meissner-review-shell-') && key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

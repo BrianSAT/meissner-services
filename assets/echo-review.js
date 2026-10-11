@@ -4,6 +4,11 @@ import {activityRecorder} from './echo-activity.mjs';
 import {mountOfflineFeature,privateSnapshot,restoreSnapshot} from './echo-shell.mjs';
 import {mountShareCard} from './echo-share-card.mjs';
 
+import {legacyContext, publicEntry} from './echo-cutover.mjs';
+
+if (!legacyContext(window)) {
+  publicEntry(window, document);
+} else {
 const config = {...{api: 'https://api.meissner.services/review', catalog: '/review/components.json'}, ...(window.EchoReviewConfig || {})};
 const params = new URLSearchParams(location.search);
 const iteration = Math.max(1, Number(params.get('i')) || 1);
@@ -578,3 +583,5 @@ async function rankPage(){
 }
 let lastScroll=scrollY;addEventListener('scroll',()=>{bar.classList.toggle('echo-bar-small',scrollY>lastScroll && scrollY>200);lastScroll=scrollY;},{passive:true});
 new ResizeObserver(()=>{document.body.style.paddingBottom=`${bar.getBoundingClientRect().height+20}px`;}).observe(bar);
+
+}
