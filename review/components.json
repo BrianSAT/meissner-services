@@ -391,6 +391,46 @@
    "label": "Design 1 how we work, example 3"
   },
   {
+   "cid": "1.SCOPER",
+   "type": "tool",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "Turn one sentence into a starting brief.",
+   "label": "Design 1 instant AI scoper"
+  },
+  {
+   "cid": "1.SCOPER.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.SCOPER",
+   "page": "1",
+   "text": "Turn one sentence into a starting brief.",
+   "label": "Design 1 instant AI scoper, heading"
+  },
+  {
+   "cid": "1.CHECKLIST",
+   "type": "tool",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "1",
+   "text": "Decide what “done” means.",
+   "label": "Design 1 editable acceptance checklist"
+  },
+  {
+   "cid": "1.CHECKLIST.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "1.CHECKLIST",
+   "page": "1",
+   "text": "Decide what “done” means.",
+   "label": "Design 1 editable acceptance checklist, heading"
+  },
+  {
    "cid": "1.CONTACT",
    "type": "contact",
    "kind": "section",
@@ -3969,6 +4009,46 @@
    "page": "6",
    "text": "",
    "label": "Design 6 (Spanish) contact, contact options"
+  },
+  {
+   "cid": "6.BRIEF",
+   "type": "tool",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "A brief in your words. Un resumen con tu texto.",
+   "label": "Design 6 bilingual brief builder"
+  },
+  {
+   "cid": "6.BRIEF.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.BRIEF",
+   "page": "6",
+   "text": "A brief in your words. Un resumen con tu texto.",
+   "label": "Design 6 bilingual brief builder, heading"
+  },
+  {
+   "cid": "6.READINESS",
+   "type": "tool",
+   "kind": "section",
+   "tag": "section",
+   "parent": null,
+   "page": "6",
+   "text": "What is ready? ¿Qué tienes preparado?",
+   "label": "Design 6 input-readiness planner"
+  },
+  {
+   "cid": "6.READINESS.headline",
+   "type": "headline",
+   "kind": "component",
+   "tag": "h2",
+   "parent": "6.READINESS",
+   "page": "6",
+   "text": "What is ready? ¿Qué tienes preparado?",
+   "label": "Design 6 input-readiness planner, heading"
   },
   {
    "cid": "6.PROMISE",
