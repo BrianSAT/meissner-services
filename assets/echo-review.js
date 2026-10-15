@@ -3,8 +3,21 @@ import {ratingId, ratingsFor, progress, nextUnrated, summarize, synthesize, norm
 import {activityRecorder} from './echo-activity.mjs';
 import {mountOfflineFeature,privateSnapshot,restoreSnapshot} from './echo-shell.mjs';
 import {mountShareCard} from './echo-share-card.mjs';
+import {privacyCopy, operatorPath, operatorLayers, componentLabel, roleLabel, nextPageTarget, reviewHref, summaryHighlights} from './echo-presentation.mjs';
+import {audioBinding,audioClient,voiceController} from './echo-audio.mjs';
+import {audioDraftStore} from './echo-audio-store.mjs';
+import {mountVoiceFeedback} from './echo-voice.mjs';
+import {mountInterestPlaces} from './interest-list.mjs';
 
 import {legacyContext, publicEntry} from './echo-cutover.mjs';
+
+// The opt-in is independent of review/session loading, including summaries without a session.
+if (/^\/review\/summary(?:\/|$)/.test(location.pathname)) {
+  fetch('/assets/facts.json?v=a960d195b99443a9', {cache:'no-store'}).then(response => {
+    if(!response.ok)throw new Error('Shared facts unavailable');return response.json();
+  }).then(data => mountInterestPlaces(document, {sitekey:data.contact?.form?.turnstile_sitekey}))
+    .catch(()=>mountInterestPlaces(document, {sitekey:undefined}));
+}
 
 if (!legacyContext(window)) {
   publicEntry(window, document);
@@ -21,6 +34,13 @@ let enabled = params.get('review') !== 'off' && !!sid;
 let session = {ratings: [], layouts: {}, requests: []}, ratings = new Map(), catalog = [], selected = null, layout = null;
 let syncError = '', moveFrom = null, pointerStart = null, loadPromise = null;
 let offlineSession=false;
+let currentVoice=null,audioController=null;
+function audioService() {
+  if(!audioController)audioController=voiceController({sid,rater,client:audioClient(config.api),store:audioDraftStore(),initial:session.audio,
+    onChange:()=>{currentVoice?.update();reflect();}});
+  return audioController;
+}
+window.addEventListener('pagehide',()=>{currentVoice?.dispose();audioController?.dispose();});
 let activity=null, activitySid='';
 const activityEpoch=Date.now(), activityMonotonic=performance.now();
 function browserId(storage,key) {
@@ -67,11 +87,12 @@ function node(tag, text, attrs = {}) {
 }
 function button(text, handler, attrs = {}) { const b = node('button', text, {type:'button', ...attrs}); b.addEventListener('click', handler); return b; }
 function echoIcon(value) {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox','0 0 24 24'); svg.setAttribute('aria-hidden','true'); svg.classList.add('echo-icon');
-  for (let i = value - 1; i >= 0; i--) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox','0 0 64 44'); svg.setAttribute('aria-hidden','true'); svg.classList.add('echo-icon');
+  for (const layer of operatorLayers(value)) {
     const path = document.createElementNS(svg.namespaceURI,'path');
-    path.setAttribute('d','M2 5h11v10H7l-4 4v-4H2Z'); path.setAttribute('transform',`translate(${i*2.2} ${i*.8})`);
-    path.setAttribute('fill','var(--echo-surface)'); path.setAttribute('stroke','currentColor'); path.setAttribute('stroke-width','1.4'); svg.append(path);
+    path.setAttribute('d',operatorPath);path.setAttribute('transform',layer.transform);path.setAttribute('opacity',String(layer.opacity));
+    path.setAttribute('fill','none');path.setAttribute('stroke','currentColor');path.setAttribute('stroke-width','2');path.setAttribute('stroke-linejoin','round');
+    if(!layer.depth)path.classList.add('echo-operator-front');svg.append(path);
   }
   return svg;
 }
@@ -82,10 +103,7 @@ async function api(path, method = 'GET', body) {
   return response.json();
 }
 function link(path, cid) {
-  const u = new URL(path, location.origin); if (sid) {u.searchParams.set('s',sid);u.searchParams.set('r',rater);}
-  if (iteration > 1) u.searchParams.set('i',String(iteration));
-  if (!enabled) u.searchParams.set('review','off');
-  if (cid) u.hash = cid; return u.pathname + u.search + u.hash;
+  return reviewHref(path,{origin:location.origin,sid,rater,iteration,enabled},cid);
 }
 function propagate() {
   if (!sid) return;
@@ -104,7 +122,7 @@ function propagate() {
 function components() {
   return [...document.querySelectorAll('[data-component]')].filter(el=>!el.closest('[data-echo-ui]')).map(el=>({
     cid:el.dataset.component, type:el.dataset.type || 'component', page:el.dataset.variant || location.pathname.split('/')[1],
-    label:el.dataset.label || el.dataset.component.replaceAll('.',' / '), el
+    label:componentLabel({cid:el.dataset.component,type:el.dataset.type,page:el.dataset.variant || location.pathname.split('/')[1],label:el.dataset.label},catalog), el
   }));
 }
 function reflect() {
@@ -115,7 +133,9 @@ function reflect() {
   const first=ratingsFor(session.ratings,1,rater);if(iteration===1)for(const [id,row] of ratings)first.set(id,row);
   const state=pageProgress(first);meter.textContent=`${state.answered} of 7 pages rated · one 1–5 score anywhere per page${Object.keys(cachePending()).length?' · saved on this device; sync pending':''}`;
   if(offlineSession)meter.textContent+=' · offline, using saved choices';
-  progressBar.value=state.answered;nextButton.textContent=state.next?'Next rating':'Review complete · summary';
+  const previews=audioController?.pending().length || 0;if(previews)meter.textContent+=` · ${previews} unattached voice ${previews===1?'preview':'previews'} on this browser`;
+  const target=iteration>1?nextUnrated(components(),ratings,selected?.cid):nextPageTarget(state,catalog);
+  progressBar.value=state.answered;nextButton.textContent=target?`Next up: ${componentLabel(target,catalog)}`:'Review complete · summary';
   summaryLink.href = link('/review/summary/'); propagate();
 }
 function cachePending() { try { return JSON.parse(stored(`echo:pending:${sid}:${rater}`) || '{}'); } catch { return {}; } }
@@ -175,17 +195,21 @@ const progressBar=node('progress',null,{max:'7',value:'0','aria-label':'Pages ra
 const nextButton=button('Next rating',()=>nextPageRating());
 const modeNav=node('nav',null,{'aria-label':'Review mode',class:'echo-modes'});for(const [label,path] of [['Pages','/1/'],['Compare','/review/compare/'],['Rank','/review/rank/']])modeNav.append(node('a',label,{href:link(path),'data-path':path,'aria-current':ratingMode===label.toLowerCase() || ratingMode==='tour' && label==='Pages'?'page':'false'}));
 bar.append(toggle,nextButton,modeNav,progressBar,meter,summaryLink);document.body.append(bar,ui);
-const dialog = node('dialog',null,{class:'echo-dialog','aria-labelledby':'echo-title','data-echo-ui':''});ui.append(dialog);
+const dialog = node('dialog',null,{class:'echo-dialog echo-rating-dialog','aria-labelledby':'echo-title','aria-describedby':'echo-rating-id echo-rating-help','data-echo-ui':''});ui.append(dialog);
 let priorFocus = null;
-function closeModal() { dialog.close(); selected?.el.classList.remove('echo-selected'); priorFocus?.focus(); }
+function closeModal() { currentVoice?.dispose();currentVoice=null;dialog.close(); selected?.el.classList.remove('echo-selected'); priorFocus?.focus(); }
 function openModal(component) {
   if (!enabled || !sid) return;
-  selected?.el.classList.remove('echo-selected'); selected=component; priorFocus=document.activeElement;
+  currentVoice?.dispose();currentVoice=null;
+  selected?.el.classList.remove('echo-selected'); selected=component;if(!dialog.open)priorFocus=document.activeElement;
   component.el.classList.add('echo-selected'); dialog.replaceChildren();modalOpened=performance.now();
-  const heading=node('h2',component.label,{id:'echo-title'}); const crumbs=node('nav',null,{'aria-label':'Component breadcrumb',class:'echo-breadcrumb'});
+  const heading=node('h2',componentLabel(component,catalog),{id:'echo-title'}); const crumbs=node('nav',null,{'aria-label':'Component breadcrumb',class:'echo-breadcrumb'});
   const ancestry=[]; let el=component.el;
   while(el) { if(el.dataset?.component) ancestry.unshift(el); el=el.parentElement; }
-  for(const ancestor of ancestry) crumbs.append(button(ancestor.dataset.label || ancestor.dataset.component,()=>openModal(components().find(c=>c.el===ancestor))));
+  for(const ancestor of ancestry.slice(0,-1)) {
+    const parent=components().find(c=>c.el===ancestor);
+    crumbs.append(button(`Up: ${componentLabel(parent,catalog)}`,()=>openModal(parent)));
+  }
   const draftKey=`echo:modal-draft:${sid}:${rater}:${iteration}:${component.cid}`;let draft=null;try{draft=JSON.parse(stored(draftKey) || 'null');}catch{}
   const values={style:null,copy:null,note:'',...(ratings.get(component.cid)||{}),...(draft?.values || {})};
   const rows=[],changedMeasures=new Set(draft?.changedMeasures || []);
@@ -200,7 +224,7 @@ function openModal(component) {
     }).catch(error=>{status.textContent=savedLocally?`Saved on this device; sync pending: ${error.message}`:`Not saved: ${error.message}. Keep this page open and retry.`;});
   }
   for(const measure of ['style','copy']) {
-    const field=node('fieldset'); const legend=node('legend',measure==='style'?'STYLE · how it looks':'COPY · what it says');
+    const field=node('fieldset'); const legend=node('legend',measure==='style'?'Style · how it looks':'Copy · what it says');
     const choices=node('div',null,{class:'echo-choices'});
     for(const value of [1,2,3,4,5,0]) {
       const label=value===0?'N/A':`${value} ${value===1?'echo':'echoes'}`;
@@ -208,31 +232,37 @@ function openModal(component) {
         {'aria-label':`${measure}: ${label}`,'aria-pressed':String(values[measure]===value),'data-value':String(value)});
       if(value) b.prepend(echoIcon(value)); choices.append(b);
     }
-    const clear=button('Leave unrated',()=>{changedMeasures.add(measure);values[measure]=null;remember();for(const choice of choices.children)choice.setAttribute('aria-pressed','false');},{class:'echo-clear'});
-    field.append(legend,choices,clear); rows.push(field);
+    field.append(legend,choices); rows.push(field);
   }
-  const note=node('textarea',null,{id:'echo-note',rows:'3',maxlength:'2000'});note.value=values.note || '';note.addEventListener('input',()=>{values.note=note.value;remember(400);});
-  const status=node('p','Changes save automatically. Choose either measure, both, or N/A.',{role:'status','aria-live':'polite'});
+  const note=node('textarea',null,{id:'echo-note',rows:'2',maxlength:'2000',placeholder:'Anything to add? (Optional)'});note.value=values.note || '';note.addEventListener('input',()=>{values.note=note.value;remember(400);});
+  const help=node('p','An untouched new row stays unrated. N/A means it does not apply. Keys 1–5 rate the focused row; 0 is N/A.',{id:'echo-rating-help',class:'echo-rating-help'});
+  const status=node('p','Changes save automatically. Choose either measure, both, or N/A.',{role:'status','aria-live':'polite',class:'echo-rating-status'});
   const save=button('Next unrated',async()=>{
     save.disabled=true; values.note=note.value;
     try {
       const savingDraft=stored(draftKey);
       await persistRating(component,{style:values.style,copy:values.copy,note:values.note,changedMeasures:[...changedMeasures]});
       if(stored(draftKey)===savingDraft)store(draftKey,'');
+      const voice=audioController?.state(audioBinding(sid,rater,iteration,component));
+      if(voice?.recording || voice?.busy || voice?.draft){status.textContent='Ratings and text saved. Stop recording, then attach or delete the preview before moving on.';save.disabled=false;return;}
       if(iteration===1 && ratingMode==='tour'){closeModal();await nextPageRating();return;}
       const next=nextUnrated(components(),ratings,component.cid);
       if(next) { next.el.scrollIntoView({block:'center',behavior:'auto'});openModal(next); }
       else { closeModal(); meter.textContent='This page is answered. Try another design or see your summary.'; }
     } catch(error) { status.textContent=`Saved on this device; not synced: ${error.message}. Try Save again when connected.`; save.disabled=false; }
   });
-  dialog.append(button('Close',closeModal,{'aria-label':'Close rating dialog',class:'echo-close'}),heading,crumbs,...rows,
-    node('label','Optional note',{for:'echo-note'}),note,status,save,node('a','Continue to summary',{href:link('/review/summary/')}));
+  const actions=node('div',null,{class:'echo-rating-actions'});actions.append(save,node('a','Your summary',{href:link('/review/summary/')}));
+  dialog.append(button('Close',closeModal,{'aria-label':'Close rating dialog',class:'echo-close'}),heading,
+    node('p',component.cid,{id:'echo-rating-id',class:'echo-rating-id echo-component-id'}));
+  if(crumbs.childElementCount)dialog.append(crumbs);
+  currentVoice=mountVoiceFeedback({binding:audioBinding(sid,rater,iteration,component),controller:audioService(),node,button,lang:document.documentElement.lang || 'en'});
+  dialog.append(...rows,help,node('label','Optional note',{for:'echo-note'}),note,currentVoice.element,status,actions);
   if(!dialog.open) dialog.showModal(); rows[0].querySelector('button').focus();
 }
 dialog.addEventListener('cancel',event=>{event.preventDefault();closeModal();});
 dialog.addEventListener('keydown',event=>{
-  if(event.target.matches('textarea,input') || !/^[1-5]$/.test(event.key)) return;
-  const field=event.target.closest('fieldset') || dialog.querySelector('fieldset');
+  if(event.target.matches('textarea,input') || !/^[0-5]$/.test(event.key)) return;
+  const field=event.target.closest('fieldset');if(!field)return;
   field.querySelector(`[data-value="${event.key}"]`).click();event.preventDefault();
 });
 document.addEventListener('click',async event=>{
@@ -254,23 +284,40 @@ window.addEventListener('online',()=>loadSession().catch(error=>{meter.textConte
 async function loadCatalog() {
   const response=await fetch(config.catalog,{referrerPolicy:'no-referrer'});if(!response.ok)throw new Error('Component inventory unavailable');
   const data=await response.json();catalog=Array.isArray(data)?data:Object.values(data).flat();
-  for(let page=1;page<=7;page++){const cid=`${page}.PWA`;if(!catalog.some(c=>c.cid===cid))catalog.push({cid,page:String(page),type:'pwa',kind:'section',parent:null,path:`/${page}/`,text:'Take the review with you. Save the designs to browse without internet; ratings and notes sync when you reconnect.'});}
-  catalog.push({cid:'REVIEW.POSITIONING',page:'review',type:'positioning',kind:'section',parent:null,path:'/review/summary/',text:'Full AI consulting, led by Brian, without long-term subscriptions or huge contracts.'});
-  catalog.push({cid:'REVIEW.SHARE',page:'review',type:'share-card',kind:'section',parent:null,path:'/review/summary/',text:'Generate a summary image locally. Private link excluded; notes require explicit choice.'});return catalog;
+  for(let page=1;page<=7;page++){const cid=`${page}.PWA`;if(!catalog.some(c=>c.cid===cid))catalog.push({cid,page:String(page),label:`Design ${page} offline review`,type:'pwa',kind:'section',parent:null,path:`/${page}/`,text:'Take the review with you. Save the designs to browse without internet; ratings and notes sync when you reconnect.'});}
+  catalog.push({cid:'REVIEW.POSITIONING',page:'review',label:'What we do',type:'positioning',kind:'section',parent:null,path:'/review/summary/',text:'Full AI consulting, led by Brian, without long-term subscriptions or huge contracts.'});
+  catalog.push({cid:'REVIEW.SHARE',page:'review',label:'Your share card',type:'share-card',kind:'section',parent:null,path:'/review/summary/',text:'Generate a summary image locally. Private link excluded; notes require explicit choice.'});return catalog;
 }
 async function hub() {
   const host=document.querySelector('[data-echo-hub]');if(!host)return;
   host.replaceChildren(node('h1','Find what feels right.'),node('p','Rate any part of seven prototypes in echoes. Keep style and copy separate, then combine your preferences into the next version.'),
     button(sid?'Resume your review':'Start a review',async()=>{try{await ensureSession();enabled=true;await onboarding();location.href=link('/1/');}catch(error){meter.textContent=error.message;}}));
   const pages=node('nav',null,{'aria-label':'Seven prototypes'});for(let i=1;i<=7;i++)pages.append(node('a',`Design ${i}`,{href:link(`/${i}/`)}));
-  host.append(pages,node('a','See your summary',{href:link('/review/summary/')}),node('p','Your ratings are stored under your private review link. Anyone with the link can see and change them, so share it only with people you trust. Our team can see them too, to build your next version. They are never published.'));
+  host.append(pages,node('a','See your summary',{href:link('/review/summary/')}),node('p',privacyCopy,{class:'echo-privacy'}));
 }
-function componentLink(c, label) { return node('a',label || c.cid,{href:link(`/${c.page}/`,c.cid)}); }
+function componentLink(c, label) { return node('a',label || componentLabel(c,catalog),{href:link(c.path || `/${c.page}/`,c.cid)}); }
+function componentDetailLink(c, label) {
+  const a=componentLink(c,label);a.append(node('span',` · ${c.cid}`,{class:'echo-component-id'}));return a;
+}
 async function summaryPage() {
   const host=document.querySelector('[data-echo-summary]');if(!host)return;
   if(!sid){host.replaceChildren(node('p','Start a review to see your preferences.'),node('a','Start a review',{href:'/review/'}));return;}
   await loadCatalog(); const signals=inheritSignals(catalog,ratings);const summaries=summarize(catalog,signals);
   host.replaceChildren(node('h1','Your echoes, side by side.'),node('p','Style and copy are separate. N/A is respected; unrated parts never become zero. Partial ratings are enough to explore.'));
+  const highlights=summaryHighlights(catalog,signals);
+  for(const [key,title] of [['liked','What you liked'],['disliked',"What you didn't"],['guesses',"What we're guessing"]]) {
+    const section=node('section',null,{class:'echo-summary-lead'}),list=node('ul');section.append(node('h2',title));
+    for(const c of highlights[key].items) {
+      const item=node('li');item.append(componentLink(c));
+      item.append(document.createTextNode(key==='guesses'?`: a guess from the rest of that page (${c.measures.join(' and ')}). One tap would settle it.`:
+        ` — ${c.scores.map(s=>`${s.measure} ${s.value} ${s.value===1?'echo':'echoes'}`).join(', ')}`));list.append(item);
+    }
+    if(!list.childElementCount)list.append(node('li',key==='guesses'?'Nothing to guess yet.':'Nothing here yet.'));
+    section.append(list);
+    if(highlights[key].total>highlights[key].items.length)section.append(node('p','More in “All the details, part by part” below.'));
+    host.append(section);
+  }
+  const details=node('details',null,{class:'echo-summary-details'});details.append(node('summary','All the details, part by part'));
   const positioning=node('figure',null,{class:'echo-spine','data-component':'REVIEW.POSITIONING','data-type':'positioning'});
   positioning.append(node('blockquote',"We're not a drop-in developer or a website tool, or even an AI assistant that helps you work out your own path. We're a full AI consulting company at your fingertips, for a price you can afford, without long-term subscriptions or huge contracts. Pick a price, don't worry about vague specs, make your choices through our prototypes, and love your finished product. Period."),node('figcaption','Brian Meissner. Meissner Services is Brian, an experienced operator, directing his own team of AI agents.'));host.append(positioning);
   await flushActivity();
@@ -279,26 +326,29 @@ async function summaryPage() {
   }catch{host.append(node('p','Saved active review time is temporarily unavailable.'));}
   const team=aggregateRatings(session.ratings,iteration);
   if(team.splits.length){const group=node('section',null,{class:'echo-summary-group'});group.append(node('h2','Teammate agreement and splits'),node('p','Each rater keeps separate ratings. These comparisons exclude N/A; your own preferences remain above.'));
-    for(const split of team.splits)group.append(node('p',`${split.cid} · ${split.measure}: ${split.raters} raters, ${split.min.toFixed(1)}–${split.max.toFixed(1)} echoes · ${split.agreement?'agreement':'different preferences'}.`));host.append(group);}
+    for(const split of team.splits){const c=catalog.find(c=>c.cid===split.cid) || {cid:split.cid};const p=node('p');p.append(componentDetailLink(c),document.createTextNode(` · ${split.measure}: ${split.raters} raters, ${split.min.toFixed(1)}–${split.max.toFixed(1)} echoes · ${split.agreement?'agreement':'different preferences'}.`));group.append(p);}details.append(group);}
   for(const group of summaries) {
-    const section=node('section',null,{class:'echo-summary-group'});section.append(node('h2',group.type));
+    const section=node('section',null,{class:'echo-summary-group'});section.append(node('h2',roleLabel(group.type)));
     for(const measure of ['style','copy']) {
       const result=group.measures[measure], block=node('div');
       block.append(node('h3',measure.toUpperCase()),node('p',`${result.rated} of ${result.total} candidates rated${result.average===null?'':`; average ${result.average.toFixed(1)} echoes`}.`));
       for(const [label,list] of [['Liked (4–5)',result.liked],['Didn’t like (1–2)',result.disliked]]) {
         const p=node('p',label+': ');if(!list.length)p.append(document.createTextNode('none recorded directly'));
-        for(const c of list)p.append(componentLink(c,`${c.cid} (${c.value}) `));block.append(p);
+        for(const c of list)p.append(componentDetailLink(c,`${componentLabel(c,catalog)} (${c.value}) `),document.createTextNode(' '));block.append(p);
       }
-      if(result.inherited.length){const p=node('p','Weak inherited signal from each candidate’s own page; this is a guess, not a direct score: ');for(const c of result.inherited)p.append(componentLink(c,`${c.cid} (${c.value.toFixed(1)} page average) `));block.append(p);}
+      if(result.inherited.length){const p=node('p','A guess from the rest of each page: ');for(const c of result.inherited)p.append(componentDetailLink(c,`${componentLabel(c,catalog)} (${c.value.toFixed(1)} page average) `),document.createTextNode(' '));block.append(p);}
       if(result.inconclusive) {
         const reason=result.rated<2?'Fewer than two candidates have a score.':'The leading two are within half an echo.';
         block.append(node('p',`Not enough to conclude. ${reason} Optional: rate another candidate to help settle it; the seven-page minimum never grows.`));
-        const unscored=group.candidates.find(c=>ratings.get(c.cid)?.[measure]==null);if(unscored)block.append(componentLink(unscored,'Try another candidate'));
-      } else {block.append(componentLink(result.ranked[0],`${measure} preference: ${result.ranked[0].cid}`));}
+        const unscored=group.candidates.find(c=>ratings.get(c.cid)?.[measure]==null);if(unscored)block.append(componentDetailLink(unscored,`Try ${componentLabel(unscored,catalog)}`));
+      } else {block.append(componentDetailLink(result.ranked[0],`${measure} preference: ${componentLabel(result.ranked[0],catalog)}`));}
       section.append(block);
     }
-    host.append(section);
+    details.append(section);
   }
+  const unrated=node('details');unrated.append(node('summary','Parts nobody has rated yet'));const unscoredList=node('ul');
+  for(const c of catalog.filter(c=>['style','copy'].every(m=>ratings.get(c.cid)?.[m]==null))){const item=node('li');item.append(componentDetailLink(c));unscoredList.append(item);}
+  unrated.append(unscoredList.childElementCount?unscoredList:node('p','Every part has a choice recorded.'));details.append(unrated);host.append(details);
   const create=button('Generate your next iteration',async()=>{
     create.disabled=true;
     try {
@@ -312,8 +362,8 @@ async function summaryPage() {
       const u=new URL('/review/iterate/',location.origin);u.searchParams.set('s',sid);u.searchParams.set('r',rater);u.searchParams.set('i',String(next));location.href=u.pathname+u.search;
     }catch(error){meter.textContent=error.message;create.disabled=false;}
   });
-  host.prepend(create,node('p','Your first draft appears immediately, built deterministically from your ratings. The crew then refines the copy and transitions; this page will show when that version is ready.'));
-  mountShareCard(host,()=>[...ratings.values()],iteration,rater);
+  host.append(create,node('p','Your first draft appears immediately, built deterministically from your ratings. The crew then refines the copy and transitions; this page will show when that version is ready.'),node('p',privacyCopy,{class:'echo-privacy'}));
+  mountShareCard(host,()=>[...ratings.values()],iteration,rater,()=>catalog);
   await pollReady(host);
 }
 async function pollReady(host) {
@@ -332,8 +382,8 @@ async function pollReady(host) {
 function layoutValue(value) { return value?.layout || value; }
 function iterationCatalog(value) {
   return (value?.slots || []).flatMap(slot=>[
-    {cid:slot.id,type:slot.type,kind:'section',parent:null,page:slot.style_from,path:'/review/iterate/'},
-    ...['headline','body','cta'].map(type=>({cid:`${slot.id}.${type}`,type,kind:'component',parent:slot.id,page:slot.style_from,path:'/review/iterate/'}))
+    {cid:slot.id,label:`Your next version ${roleLabel(slot.type)}`,type:slot.type,kind:'section',parent:null,page:slot.style_from,path:'/review/iterate/'},
+    ...['headline','body','cta'].map(type=>({cid:`${slot.id}.${type}`,label:`Your next version ${roleLabel(slot.type)}, ${roleLabel(type)}`,type,kind:'component',parent:slot.id,page:slot.style_from,path:'/review/iterate/'}))
   ]);
 }
 const originalLoadCatalog=loadCatalog;
@@ -341,8 +391,6 @@ loadCatalog=async function(){
   if(iteration>1){catalog=iterationCatalog(layoutValue(session.layouts?.[String(iteration)]));return catalog;}
   return originalLoadCatalog();
 };
-const originalComponentLink=componentLink;
-componentLink=function(c,label){return c.path?node('a',label || c.cid,{href:link(c.path,c.cid)}):originalComponentLink(c,label);};
 function safeHref(raw) {
   try {const u=new URL(raw,location.origin);return ['http:','https:','mailto:'].includes(u.protocol)?u.href:'#';}catch{return '#';}
 }
@@ -406,7 +454,8 @@ function renderSlots(host) {
     const slot=layout.slots.find(s=>s.id===id);if(!slot || layout.hidden.includes(id))continue;
     const refined=layout.refined?.slots?.find(s=>s.id===id);
     const copy=refined?.copy_from===slot.copy_from?refined.copy:layout.copies?.[slot.copy_from] || {title:slot.type,body:[]};
-    const article=node('section',null,{id:slot.id,'data-component':slot.id,'data-type':slot.type,'data-variant':slot.style_from,'data-style':slot.style_from,'data-slot':slot.id,class:'echo-slot'});
+    const partLabel=`Your next version ${roleLabel(slot.type)}`;
+    const article=node('section',null,{id:slot.id,'data-component':slot.id,'data-label':partLabel,'data-type':slot.type,'data-variant':slot.style_from,'data-style':slot.style_from,'data-slot':slot.id,class:'echo-slot'});
     const tools=node('div',null,{'data-echo-ui':'',class:'echo-slot-tools'});
     const handle=button('↕ Drag',()=>{}, {'aria-label':`Drag ${slot.type} to reorder`,class:'echo-drag-handle',draggable:'true'});
     handle.addEventListener('dragstart',event=>{moveFrom=slot.id;event.dataTransfer.setData('text/plain',slot.id);event.dataTransfer.effectAllowed='move';});
@@ -427,11 +476,11 @@ function renderSlots(host) {
     tools.append(handle,button('Move up',()=>reorder(-1)),button('Move down',()=>reorder(1)),
       button('Hide',()=>{layout.hidden.push(id);renderSlots(host);saveLayout();}),button('Swap copy',()=>swap('copy')),button('Swap style',()=>swap('style')));
     const caption=node('p',`${slot.type} · copy ${slot.copy_from} · style /${slot.style_from}${slot.provisional_copy || slot.provisional_style?' · provisional preference':''}${refined && refined.copy_from!==slot.copy_from?' · your swap kept; crew copy belongs to the previous source':''}`,{class:'echo-source-caption','data-echo-ui':''});
-    const title=node(slot.type==='hero'?'h1':'h2',copy.title || slot.type,{'data-component':`${id}.headline`,'data-type':'headline'});
-    const body=node('div',null,{'data-component':`${id}.body`,'data-type':'body'});for(const text of copy.body || [])body.append(node('p',text));
+    const title=node(slot.type==='hero'?'h1':'h2',copy.title || slot.type,{'data-component':`${id}.headline`,'data-label':`${partLabel}, heading`,'data-type':'headline'});
+    const body=node('div',null,{'data-component':`${id}.body`,'data-label':`${partLabel}, body`,'data-type':'body'});for(const text of copy.body || [])body.append(node('p',text));
     article.append(tools,caption,title,body);
-    if(copy.image?.src && copy.image.src.startsWith('/'))article.append(node('img',null,{src:copy.image.src,alt:copy.image.alt || '',class:'echo-slot-logo','data-component':`${id}.logo`,'data-type':'logo'}));
-    if(copy.cta)article.append(node('a',copy.cta.text,{href:safeHref(copy.cta.href),'data-component':`${id}.cta`,'data-type':'cta',class:'echo-slot-cta'}));
+    if(copy.image?.src && copy.image.src.startsWith('/'))article.append(node('img',null,{src:copy.image.src,alt:copy.image.alt || '',class:'echo-slot-logo','data-component':`${id}.logo`,'data-label':`${partLabel}, logo`,'data-type':'logo'}));
+    if(copy.cta)article.append(node('a',copy.cta.text,{href:safeHref(copy.cta.href),'data-component':`${id}.cta`,'data-label':`${partLabel}, button`,'data-type':'cta',class:'echo-slot-cta'}));
     article.addEventListener('dragover',event=>{if(moveFrom){event.preventDefault();event.dataTransfer.dropEffect='move';}});
     article.addEventListener('drop',event=>{event.preventDefault();if(moveFrom){layout=move(layout,moveFrom,id);moveFrom=null;renderSlots(host);saveLayout();}});
     host.append(article);
@@ -462,7 +511,8 @@ async function initialize(){
   const featureSheet=node('link',null,{rel:'stylesheet',href:'/assets/echo-features.css'});if(!document.querySelector('link[href="/assets/echo-features.css"]'))document.head.append(featureSheet);
   for(const c of components())if(!c.el.id)c.el.id=c.cid;
   if(sid){store('echo:last-session',sid);loadPromise=loadSession();try{await loadPromise;}catch(error){meter.textContent=error.message;}}
-  reflect();await hub();
+  try{await loadCatalog();}catch(error){meter.textContent=error.message;}
+  if(sid)audioService();reflect();await hub();
   try{await summaryPage();await iterationPage();await comparePage();await rankPage();if(sid)await onboarding();}catch(error){meter.textContent=error.message;}
   mountOfflineFeature(document.querySelector('main') || document.body,location.pathname.split('/')[1]?.match(/^[1-7]$/)?.[0] || 'REVIEW');deepLink();
   new MutationObserver(()=>propagate()).observe(document.body,{childList:true,subtree:true});
@@ -479,11 +529,12 @@ async function ensurePlan() {
 async function nextPageRating() {
   if(!sid){await ensureSession();await onboarding();}
   enabled=true;reflect();
-  if(iteration>1){const next=nextUnrated(components(),ratings,selected?.cid);if(next){next.el.scrollIntoView({block:'center'});openModal(next);}else{store(draftKey,'');location.href=link('/review/summary/');}return;}
+  if(iteration>1){const next=nextUnrated(components(),ratings,selected?.cid);if(next){next.el.scrollIntoView({block:'center'});openModal(next);}else{location.href=link('/review/summary/');}return;}
   const state=pageProgress(ratings);
-  if(!state.next){location.href=link('/review/summary/');return;}
-  if(location.pathname===`/${state.next}/`){const c=components().find(c=>c.type==='hero') || components()[0];if(c){c.el.scrollIntoView({block:'center'});openModal(c);}return;}
-  if(!catalog.length)await loadCatalog();const hero=comparisonCandidates(catalog,'hero').find(c=>String(c.page)===state.next);location.href=link(`/${state.next}/`,hero?.cid);
+  const target=nextPageTarget(state,catalog);
+  if(!target){location.href=link('/review/summary/');return;}
+  if(location.pathname===`/${target.page}/`){const c=components().find(c=>c.cid===target.cid) || components().find(c=>c.type==='hero') || components()[0];if(c){c.el.scrollIntoView({block:'center'});openModal(c);}return;}
+  location.href=link(target.path || `/${target.page}/`,target.cid);
 }
 async function onboarding() {
   if(onboardingPromise)return onboardingPromise;
@@ -501,6 +552,15 @@ async function onboarding() {
   });
   return onboardingPromise;
 }
+function pendingVoices(){
+  const previews=audioService().pending(),box=node('dialog',null,{class:'echo-dialog','data-echo-ui':'','aria-labelledby':'echo-previews-title'});
+  box.append(node('h2','Unattached voice previews',{id:'echo-previews-title'}),node('p','These are private previews on this browser, not uploaded feedback. Open the part, then attach or delete its preview.'));
+  for(const binding of previews){const logical=binding.cid.slice(binding.cid.indexOf(':')+1),component=catalog.find(c=>c.cid===logical) || {cid:logical,page:binding.variant};
+    const path=binding.iteration>1?'/review/iterate/':component.path || `/${binding.variant}/`;
+    box.append(node('a',`${componentLabel(component,catalog)} · iteration ${binding.iteration}`,{href:reviewHref(path,{origin:location.origin,sid:binding.sid,rater:binding.rater,iteration:binding.iteration,enabled:true},logical)}));}
+  if(!previews.length)box.append(node('p','No unattached previews on this browser.'));
+  box.append(button('Close',()=>{box.close();box.remove();}));ui.append(box);box.showModal();
+}
 function privateLink(){const u=new URL(location.href);u.searchParams.set('s',sid);u.searchParams.set('r',rater);return u.href;}
 async function sharing() {
   if(!sid)return;
@@ -513,6 +573,7 @@ async function sharing() {
 }
 const extras=node('details',null,{class:'echo-more'});extras.append(node('summary','Resume · invite'));bar.append(extras);
 extras.append(node('span','',{role:'status','data-echo-activity-status':''}));
+extras.append(button('Unattached voice previews',pendingVoices));
 extras.append(button('Continue on another device',sharing),button('Invite a teammate',async()=>{
   if(!sid)await ensureSession();const name=prompt('Teammate name (shown inside this review only)');if(!name)return;
   try{const invite=await api(`/s/${encodeURIComponent(sid)}/raters`,'POST',{name});const u=new URL(privateLink());u.searchParams.set('r',invite.rater);const box=node('dialog',null,{class:'echo-dialog','data-echo-ui':''});box.append(node('h2','Private teammate link'),node('input',null,{type:'url',value:u.href,readonly:'','aria-label':'Teammate private review link'}),button('Close',()=>{box.close();box.remove();}));ui.append(box);box.showModal();}catch(error){meter.textContent=error.message;}
@@ -557,10 +618,10 @@ async function rankPage(){
       handle.addEventListener('pointercancel',()=>{clearTimeout(timer);held=false;row.classList.remove('echo-dragging');});
       const preview=node('div',null,{'data-style':c.page,class:'echo-slot'});preview.append(node('strong',`/${c.page} · ${copy.title || id}`));if(copy.image?.src)preview.append(node('img',null,{src:copy.image.src,alt:copy.image.alt || '',class:'echo-slot-logo'}));
       if(measure==='copy')for(const text of (copy.body || []).slice(0,3))preview.append(node('p',text));
-      row.append(handle,preview,button('Move up',()=>{if(index>0)reposition(id,order[index-1]);}),button('Move down',()=>{if(index<order.length-1)reposition(id,order[index+2] || null);}),button('Skip',()=>{order=order.filter(v=>v!==id);skipped.push(id);render();}));list.append(row);
+      row.append(handle,preview,button('Move up',()=>{if(index>0)reposition(id,order[index-1]);}),button('Move down',()=>{if(index<order.length-1)reposition(id,order[index+2] || null);}),button('Skip',()=>{order=order.filter(v=>v!==id);skipped.push(id);render();}),button('Comment / Record feedback',()=>openModal({...c,el:preview}),{'data-echo-ui':'','aria-label':`Comment or record feedback on ${componentLabel(c,catalog)}`}));list.append(row);
     }
     host.append(list);const tray=node('section',null,{class:'echo-skip-tray'});tray.append(node('h2','Skip / no opinion'));
-    for(const id of skipped)tray.append(button(`Restore ${id}`,()=>{skipped=skipped.filter(v=>v!==id);order.push(id);render();}));host.append(tray);
+    for(const id of skipped){const c=candidates.find(c=>c.cid===id),feedback=button(`Comment / Record feedback: ${componentLabel(c,catalog)}`,()=>openModal({...c,el:feedback}),{'data-echo-ui':''});tray.append(button(`Restore ${id}`,()=>{skipped=skipped.filter(v=>v!==id);order.push(id);render();}),feedback);}host.append(tray);
     const status=node('p','',{role:'status'});
     const save=button(measure==='style'?'Save style · then copy':'Save copy · see summary',async()=>{
       save.disabled=true;

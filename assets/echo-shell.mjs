@@ -7,7 +7,7 @@ export function publicCacheKey(url,origin,method='GET') {
     /^\/(?:assets|[1-7])\/[\w./-]+\.(?:css|js|mjs|svg|png|jpg|webp|json)$/.test(path))return origin+path;
   return null;
 }
-export function privateSnapshot(session,sid,rater){return {sid,rater,session:{...session,ratings:(session.ratings || []).filter(row=>(row.rater || 'owner')===rater),activity:{per_rater_ms:{[rater]:session.activity?.per_rater_ms?.[rater] || 0}}}};}
+export function privateSnapshot(session,sid,rater){const {audio,...rest}=session;return {sid,rater,session:{...rest,ratings:(session.ratings || []).filter(row=>(row.rater || 'owner')===rater),activity:{per_rater_ms:{[rater]:session.activity?.per_rater_ms?.[rater] || 0}}}};}
 export function restoreSnapshot(value,sid,rater){return value?.sid===sid && value?.rater===rater?value.session:null;}
 export function mountOfflineFeature(parent,page) {
   if(!('serviceWorker' in navigator))return;

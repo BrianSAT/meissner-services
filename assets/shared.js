@@ -5,18 +5,15 @@
     if (!r.ok) throw new Error('Contact facts unavailable');
     return r.json();
   });
-  let turnstile;
   function challengeApi() {
-    if (!turnstile) turnstile = new Promise((resolve, reject) => {
-      if (window.turnstile) { resolve(window.turnstile); return; }
-      const script = document.createElement('script');
-      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-      script.async = true; script.defer = true;
-      // This script loads after DOM ready; use its load event, not a second ready wait.
-      script.onload = () => resolve(window.turnstile);
-      script.onerror = reject; document.head.append(script);
-    });
-    return turnstile;
+    return import('./interest-list.mjs').then(module => module.challengeApi(document, window));
+  }
+  // A separate form beside the contact component; no contact event can enroll.
+  if (/^\/[1-7](?:\/|$)/.test(location.pathname)) {
+    facts.catch(() => null).then(async data => {
+      const {mountInterestPlaces} = await import('./interest-list.mjs');
+      await mountInterestPlaces(document, {sitekey: data?.contact?.form?.turnstile_sitekey});
+    }).catch(() => { /* Contact fallback remains available if shared facts cannot load. */ });
   }
   function projectForm(spanish, config) {
     const details = document.createElement('details'); details.className = 'shared-project-form';

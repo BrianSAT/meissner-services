@@ -1,5 +1,6 @@
 import {ratingsFor} from './echo-core.mjs';
-export function shareLines(rows,iteration,rater,{includeNotes=false}={}) {
+import {componentLabel} from './echo-presentation.mjs';
+export function shareLines(rows,iteration,rater,{includeNotes=false,inventory=[]}={}) {
   const choices=[];
   for(const [id,row] of ratingsFor(rows,iteration,rater)){
     if(!/^[A-Za-z0-9_.-]{1,100}$/.test(id))continue;
@@ -7,7 +8,7 @@ export function shareLines(rows,iteration,rater,{includeNotes=false}={}) {
   }
   choices.sort((a,b)=>b.value-a.value || a.id.localeCompare(b.id) || a.measure.localeCompare(b.measure));
   return choices.slice(0,6).map(({id,measure,value,note})=>{
-    const label=id.replaceAll('.',' · ').slice(0,60),line=`${Number(value.toFixed(3))} echoes · ${label} · ${measure}`;
+    const label=componentLabel({cid:id,type:id.split('.').at(-1).toLowerCase()},inventory).slice(0,80),line=`${Number(value.toFixed(3))} echoes · ${label} · ${measure}`;
     const safeNote=String(note || '').replace(/https?:\/\/[^\s]*[?&]s=[^\s]*/gi,'[private review link omitted]').slice(0,160);
     return includeNotes && safeNote?`${line}\nNote: ${safeNote}`:line;
   });
@@ -26,7 +27,7 @@ export function drawShareCard(canvas,lines,iteration) {
   ctx.font='21px Arial';ctx.fillText('Generated locally from my ratings · no AI output',60,815);
   ctx.fillText('Try the prototypes: meissner.services/review/',60,855);
 }
-export function mountShareCard(parent,getRows,iteration,rater) {
+export function mountShareCard(parent,getRows,iteration,rater,getInventory=()=>[]) {
   const section=document.createElement('section');section.className='echo-feature';section.dataset.component='REVIEW.SHARE';section.dataset.type='share-card';section.id='REVIEW.SHARE';
   const heading=document.createElement('h2');heading.textContent='Make your choices shareable.';
   const text=document.createElement('p');text.textContent='Generate a summary image entirely on this device. It contains selected ratings, never your private review link. Notes are excluded unless you choose to include them. Preview it before sharing.';
@@ -41,7 +42,7 @@ export function mountShareCard(parent,getRows,iteration,rater) {
   function invalidate(){download.hidden=true;share.hidden=true;canvas.hidden=true;transcript.replaceChildren();file=null;if(url)URL.revokeObjectURL(url);url=null;status.textContent='Create a new image to apply your privacy choice.';}
   consent.addEventListener('change',invalidate);
   generate.addEventListener('click',async()=>{
-    invalidate();const lines=shareLines(getRows(),iteration,rater,{includeNotes:consent.checked});drawShareCard(canvas,lines,iteration);canvas.hidden=false;
+    invalidate();const lines=shareLines(getRows(),iteration,rater,{includeNotes:consent.checked,inventory:getInventory()});drawShareCard(canvas,lines,iteration);canvas.hidden=false;
     for(const line of lines){const li=document.createElement('li');li.textContent=line;transcript.append(li);}
     const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob){status.textContent='This browser could not create a PNG.';return;}
     url=URL.createObjectURL(blob);download.href=url;download.hidden=false;file=new File([blob],'my-echo-review.png',{type:'image/png'});
