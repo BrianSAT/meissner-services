@@ -16,7 +16,7 @@
     }).catch(() => { /* Contact fallback remains available if shared facts cannot load. */ });
   }
   function projectForm(spanish, config) {
-    const details = document.createElement('details'); details.className = 'shared-project-form';
+    const details = document.createElement('details'); details.className = 'shared-project-form'; details.id = 'sms-opt-in';
     const summary = document.createElement('summary');
     summary.textContent = spanish ? 'Enviar una nota sobre tu proyecto' : 'Send a project note';
     const form = document.createElement('form');
@@ -29,10 +29,37 @@
       const input = document.createElement(type === 'textarea' ? 'textarea' : 'input');
       input.name = name; input.autocomplete = autocomplete;
       if (type !== 'textarea') input.type = type;
-      else { input.required = true; input.rows = 4; }
+      else { input.required = true; input.rows = 4; input.maxLength = 15000; }
       input.addEventListener('input', () => form.elements.email.setCustomValidity(''));
       wrap.append(input); form.append(wrap);
     }
+    const sms = document.createElement('fieldset'); sms.className = 'shared-sms';
+    const legend = document.createElement('legend'); legend.textContent = spanish ? 'SMS opcional' : 'Optional SMS';
+    const choice = document.createElement('label'); choice.className = 'shared-sms-choice';
+    const consent = document.createElement('input'); consent.type = 'checkbox';
+    choice.append(consent, spanish ? 'Envíenme textos sobre este proyecto' : 'Text me about this project');
+    const phoneLabel = document.createElement('label');
+    phoneLabel.textContent = spanish ? 'Número móvil con código de país (p. ej. +12623152739)' : 'Mobile number with country code (e.g. +12623152739)';
+    const phone = document.createElement('input'); phone.type = 'tel'; phone.autocomplete = 'tel';
+    phone.pattern = '[+][1-9][0-9]{6,14}'; phone.disabled = true;
+    phoneLabel.append(phone);
+    consent.addEventListener('change', () => { phone.disabled = !consent.checked; phone.required = consent.checked; });
+    const disclosure = document.createElement('p'); disclosure.className = 'shared-contact-note';
+    disclosure.textContent = spanish
+      ? 'Al marcar la casilla y enviar, aceptas SMS de Meissner Services LLC sobre tu proyecto o servicio. La frecuencia varía. Pueden aplicarse tarifas de mensajes y datos (Msg&data rates may apply). Responde STOP para cancelar o HELP para ayuda. No es una condición de compra; puedes usar email. '
+      : 'By checking this box and submitting, you agree to SMS from Meissner Services LLC about your project or service. Message frequency varies. Msg&data rates may apply. Reply STOP to stop or HELP for help. Consent is not a condition of purchase; email is available instead. ';
+    for (const [href, text] of [['/sms/privacy/', spanish ? 'Privacidad SMS' : 'SMS privacy'], ['/sms/terms/', spanish ? 'Términos SMS' : 'SMS terms']]) {
+      const link = document.createElement('a'); link.href = href; link.textContent = text;
+      disclosure.append(link, ' ');
+    }
+    sms.append(legend, choice, phoneLabel, disclosure); form.append(sms);
+    // Keep the existing intake contract: its stored message carries the explicit opt-in evidence.
+    form.addEventListener('formdata', event => {
+      if (!consent.checked) return;
+      const proof = {sms_consent: true, mobile: phone.value, source: location.origin + location.pathname,
+        disclosure_version: '2026-10-19', disclosure: disclosure.textContent.trim()};
+      event.formData.set('message', `${event.formData.get('message')}\n\nSMS consent record: ${JSON.stringify(proof)}`);
+    });
     const variant = location.pathname.match(/^\/([1-7])(?:\/|$)/)?.[1];
     for (const [name, value] of [['variant', variant || ''], ['lang', spanish ? 'es' : 'en']]) {
       const input = document.createElement('input'); input.type = 'hidden';
@@ -79,6 +106,7 @@
     }
     details.append(summary, form);
     wrapper.append(result, details);
+    if (location.hash === '#sms-opt-in') details.open = true;
     return wrapper;
   }
   class MeissnerContact extends HTMLElement {
