@@ -109,6 +109,108 @@
     if (location.hash === '#sms-opt-in') details.open = true;
     return wrapper;
   }
+  const GOOGLE_CLIENT_ID = '738034860039-ttpr2t1r6r7nj3miag16fgps2jr5ksmv.apps.googleusercontent.com';
+  const MICROSOFT_CLIENT_ID = '8e9dfe09-51b5-480b-9093-a2c1f7d88cb6';
+  const OAUTH_CONTACT_ENDPOINT = 'https://echo.meissner.services/api/contact';
+  let oauthPromise = null;
+  function checkOAuthReturn() {
+    if (oauthPromise) return oauthPromise;
+    const rawHash = location.hash.startsWith('#') ? location.hash.slice(1) : '';
+    if (!rawHash.includes('meissner_oauth:')) return null;
+    const params = new URLSearchParams(rawHash);
+    const state = params.get('state') || '';
+    const match = state.match(/^meissner_oauth:(google|microsoft)$/);
+    if (!match) return null;
+    const provider = match[1];
+    const idToken = params.get('id_token') || '';
+    try { history.replaceState(null, '', location.pathname + location.search); } catch {}
+    if (!idToken) {
+      oauthPromise = Promise.resolve({ok: false, provider, error: params.get('error') || 'cancelled'});
+      return oauthPromise;
+    }
+    oauthPromise = fetch(OAUTH_CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify({
+        project_id: 'meissner.services',
+        oauth_provider: provider,
+        id_token: idToken,
+        page: location.origin + location.pathname
+      })
+    }).then(r => ({ok: r.ok, provider})).catch(() => ({ok: false, provider, error: 'network'}));
+    return oauthPromise;
+  }
+  function startOAuth(provider) {
+    const m = location.pathname.match(/^\/([1-7])(?:\/|$)/);
+    const redirectUri = m && location.origin === 'https://meissner.services'
+      ? `https://meissner.services/${m[1]}/`
+      : 'https://meissner.services/1/';
+    const nonce = typeof crypto !== 'undefined' && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    try { sessionStorage.setItem('meissner_oauth_nonce', nonce); } catch {}
+    const u = new URL(provider === 'microsoft'
+      ? 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
+      : 'https://accounts.google.com/o/oauth2/v2/auth');
+    u.searchParams.set('client_id', provider === 'microsoft' ? MICROSOFT_CLIENT_ID : GOOGLE_CLIENT_ID);
+    u.searchParams.set('redirect_uri', redirectUri);
+    u.searchParams.set('response_type', 'id_token');
+    if (provider === 'microsoft') u.searchParams.set('response_mode', 'fragment');
+    u.searchParams.set('scope', 'openid email');
+    u.searchParams.set('nonce', nonce);
+    u.searchParams.set('state', `meissner_oauth:${provider}`);
+    u.searchParams.set('prompt', 'select_account');
+    location.assign(u.toString());
+  }
+  function dropALine(spanish) {
+    const box = document.createElement('div');
+    box.className = 'shared-drop-line';
+    box.setAttribute('data-echo-ui', '');
+    const title = document.createElement('p');
+    title.className = 'shared-drop-line-title';
+    title.textContent = spanish ? 'Te escribimos nosotros' : 'We’ll drop you a line';
+    const desc = document.createElement('p');
+    desc.className = 'shared-contact-note';
+    desc.textContent = spanish
+      ? 'Inicia sesión con Google o Microsoft (solo permiso de email) y te enviaremos un saludo inmediato desde team@meissner.services.'
+      : 'One click: sign in with Google or Microsoft (email scope only) and we’ll send you a hello from team@meissner.services.';
+    const buttons = document.createElement('div');
+    buttons.className = 'shared-contact-links shared-oauth-buttons';
+    for (const [provider, label] of [
+      ['google', spanish ? 'Te escribimos · Entrar con Google' : 'We’ll drop you a line · Sign in with Google'],
+      ['microsoft', spanish ? 'Te escribimos · Entrar con Microsoft' : 'We’ll drop you a line · Sign in with Microsoft']
+    ]) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'shared-oauth-btn';
+      btn.dataset.oauthProvider = provider;
+      btn.textContent = label;
+      btn.addEventListener('click', () => startOAuth(provider));
+      buttons.append(btn);
+    }
+    const status = document.createElement('p');
+    status.className = 'shared-contact-note';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    const pending = checkOAuthReturn();
+    if (pending) {
+      status.textContent = spanish
+        ? 'Registrando tu email para enviarte un saludo desde team@meissner.services…'
+        : 'Recording your email so team@meissner.services can drop you a line…';
+      pending.then(res => {
+        status.textContent = res.ok
+          ? (spanish
+              ? 'Listo — te escribiremos desde team@meissner.services en breve.'
+              : 'Got it — we’ll drop you a line from team@meissner.services shortly.')
+          : (spanish
+              ? 'No se completó el inicio de sesión. Inténtalo de nuevo o escribe a team@meissner.services.'
+              : 'Sign-in did not complete. Please try again or email team@meissner.services.');
+      });
+    }
+    box.append(title, desc, buttons, status);
+    return box;
+  }
   class MeissnerContact extends HTMLElement {
     connectedCallback() {
       if (this.dataset.ready) return;
@@ -141,7 +243,7 @@
       note.textContent = `${contact.email} · ${contact.whatsapp_display} · ${spanish ? 'Inglés o español. Portugués conversacional.' : 'English or Spanish. Portuguese conversational.'}`;
       // Render the contact channels before optional form setup: cached legacy facts
       // must never remove the owner's real WhatsApp or email link.
-      this.append(links, note);
+      this.append(links, note, dropALine(spanish));
       if (contact.form?.endpoint && contact.form?.turnstile_sitekey) {
         try { this.append(projectForm(spanish, contact.form)); }
         catch {
