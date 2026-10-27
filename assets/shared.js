@@ -173,7 +173,7 @@
     const desc = document.createElement('p');
     desc.className = 'shared-contact-note';
     desc.textContent = spanish
-      ? 'Inicia sesión con Google o Microsoft (solo permiso de email) y te enviaremos un saludo inmediato desde team@meissner.services.'
+      ? 'Inicia sesión con Google o Microsoft (solo permiso de email) y te enviaremos un saludo desde team@meissner.services.'
       : 'One click: sign in with Google or Microsoft (email scope only) and we’ll send you a hello from team@meissner.services.';
     const buttons = document.createElement('div');
     buttons.className = 'shared-contact-links shared-oauth-buttons';
@@ -201,8 +201,8 @@
       pending.then(res => {
         status.textContent = res.ok
           ? (spanish
-              ? 'Listo — te escribiremos desde team@meissner.services en breve.'
-              : 'Got it — we’ll drop you a line from team@meissner.services shortly.')
+              ? 'Listo — te escribiremos desde team@meissner.services.'
+              : 'Got it — we’ll drop you a line from team@meissner.services.')
           : (spanish
               ? 'No se completó el inicio de sesión. Inténtalo de nuevo o escribe a team@meissner.services.'
               : 'Sign-in did not complete. Please try again or email team@meissner.services.');
