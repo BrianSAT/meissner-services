@@ -116,7 +116,7 @@
   function checkOAuthReturn() {
     if (oauthPromise) return oauthPromise;
     const rawHash = location.hash.startsWith('#') ? location.hash.slice(1) : '';
-    if (!rawHash.includes('meissner_oauth:')) return null;
+    if (!rawHash.includes('meissner_oauth')) return null;
     const params = new URLSearchParams(rawHash);
     const state = params.get('state') || '';
     const match = state.match(/^meissner_oauth:(google|microsoft)$/);
