@@ -1,0 +1,16 @@
+name: Site checks
+on:
+  pull_request:
+  push:
+    branches: [pages-echo-b63db4e]
+permissions:
+  contents: read
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: node --test tests/plan-tools.test.mjs
