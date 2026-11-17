@@ -1,0 +1,48 @@
+/* Meissner.Services — Option 7 palette; Brian Oct 19 lead red override.
+   --ms-cream is the brand off-white background (Brian Nov 9). The echo tokens are the mark's trail, front to back
+   after the red: olive, gold, sky and the far echo that nearly blends into the page (olive + sky, Brian Nov 9). */
+:root {
+  --ms-red:#C8102E; --ms-red-hover:#a70d26;
+  --ms-cream:#fdf5e6; --ms-linen:#f7ead6; --ms-white:#fffaf1;
+  --ms-ink:#4b3b31; --ms-soft:#735d4e; --ms-rule:#e2cfb4;
+  --ms-butter:#fbe4a8; --ms-peach:#f8d3b8; --ms-blush:#f4c9c4;
+  --ms-rose:#e9a9a0; --ms-sage:#cfe0c4; --ms-mint:#dcefe4;
+  --ms-sky:#d4e4f0; --ms-lilac:#e6dbf0; --ms-wood:#b4865a;
+  --ms-echo-olive:#9AA570; --ms-echo-gold:#8D6724; --ms-echo-sky:#C4D8F1; --ms-echo-far:#F1E3CB;
+  --ms-shadow:color-mix(in srgb,var(--ms-ink) 18%,transparent);
+  --ms-wash:color-mix(in srgb,var(--ms-red) 6%,transparent);
+}
+
+/* Dark theme (Brian Nov 9): black page, cream text, the same red. theme.js sets <html data-theme="dark">.
+   The surface and ink tokens swap roles and each echo becomes its twin (same hue, same contrast against its own
+   background), so a page built on these tokens needs no dark rules of its own.
+   ponytail: a page that uses a surface token as text on red, or the pastel tokens, needs its own look in dark. */
+:root[data-theme=dark] {
+  color-scheme:dark;
+  --ms-cream:#000; --ms-linen:#14171a; --ms-white:#0c0d0f;
+  --ms-ink:#fdf5e6; --ms-soft:#c9bfae; --ms-rule:#3a332b; --ms-red-hover:#ee2244;
+  --ms-echo-olive:#474F1D; --ms-echo-gold:#987130; --ms-echo-sky:#142436; --ms-echo-far:#14171A;
+}
+/* The mark: put both files in the page, <img class="ms-on-cream" src="echo-slash-motion.svg"> and
+   <img class="ms-on-dark" src="echo-slash-motion-on-dark.svg">; only the one drawn for the current background shows. */
+:root:not([data-theme=dark]) .ms-on-dark, [data-theme=dark] .ms-on-cream { display:none }
+/* The toggle theme.js adds to the page header: a disc cut at the slash's angle, and the theme it switches to. */
+.ms-theme-toggle {
+  appearance:none; display:inline-flex; align-items:center; gap:.6em; min-height:44px; padding:0 2px; border:0;
+  background:none; color:var(--ms-soft); font:inherit; font-size:.72rem; letter-spacing:.14em;
+  text-transform:uppercase; cursor:pointer;
+}
+.ms-theme-toggle::before {
+  content:""; width:1.3em; height:1.3em; border:1.5px solid; border-radius:50%;
+  background:linear-gradient(122deg,currentColor 50%,transparent 0);
+}
+.ms-theme-toggle:hover { color:var(--ms-red) }
+.ms-theme-toggle:focus-visible { outline:2px solid var(--ms-red); outline-offset:4px }
+/* Switching themes: the new theme sweeps across the page behind a slanted edge, the way the mark's echoes fan out. */
+::view-transition-old(root), ::view-transition-new(root) { animation:none; mix-blend-mode:normal }
+@media (prefers-reduced-motion:no-preference) {
+  .ms-theme-toggle::before { transition:transform .6s cubic-bezier(.3,0,.1,1) }
+  [data-theme=dark] .ms-theme-toggle::before { transform:rotate(180deg) }
+  ::view-transition-new(root) { animation:ms-sweep .75s cubic-bezier(.3,0,.1,1) }
+}
+@keyframes ms-sweep { from { clip-path:polygon(0 0,0 0,-30% 100%,-30% 100%) } to { clip-path:polygon(0 0,130% 0,100% 100%,-30% 100%) } }

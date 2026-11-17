@@ -1,0 +1,236 @@
+/* One job, start to finish (Face, t-91713ac0b5, pass 2 + Carbon polish t-f8ef0a2e04). One portrait SVG (viewBox 560 x 760),
+   whole map always in view: a spine with seven stations, the job (the brand's mark) travelling down it. Without script it
+   shows the finished job; flow.js plays it. Colours are the page's tokens where a token has the value in that theme; paper
+   (ticket, bubbles, pieces) stays cream or white with brown ink in both themes. */
+.flow {
+  --f-card: var(--paper); --f-card-hi: #ffffff; --f-in: #f4e6cf; --f-rule: #d8c2a3; --f-ink: var(--ink); --f-soft: var(--soft);
+  --f-red: var(--red); --f-lit: var(--red); --f-hot: #ee2244;
+  --f-gold: #9a6c1e; --f-olive: #6c7c3d; --f-sky: #4e80ba; --f-far: #dac5a2;
+  --f-paper: #ffffff; --f-pink: var(--ink); --f-psoft: var(--soft); --f-plin: #d3bc98;
+  --f-dog: var(--ink); --f-dogw: #a87a2a; --f-c2: var(--ms-echo-olive); --f-c3: var(--ms-echo-sky); --f-tink: #14171a;
+  --f-dim: 0.72; --f-drop-alpha: 0.16; --f-well: #ebd9be;
+  display: flex; flex-direction: column; gap: 14px;
+}
+[data-theme=dark] .flow {
+  --f-card: var(--linen); --f-card-hi: #1d2228; --f-in: #1e2327; --f-rule: var(--rule); --f-lit: var(--red-hover); --f-hot: var(--red-hover);
+  --f-gold: #e0b45c; --f-olive: #a9b77a; --f-sky: #8fb8e6; --f-far: #5b5346;
+  --f-paper: var(--ink); --f-pink: #4b3b31; --f-psoft: #735d4e; --f-plin: #f1dfc4;
+  --f-dog: var(--f-gold); --f-dogw: var(--ink); --f-c2: #9AA570; --f-c3: #C4D8F1; --f-tink: var(--linen);
+  --f-dim: 0.54; --f-drop-alpha: 0.42; --f-well: #0d1013;
+}
+.flow-pick { order: 0; display: flex; flex-direction: column; gap: 6px; max-width: 420px }
+.flow-pick label { font: 700 14px/1.3 Arial, sans-serif; color: var(--ink) }
+.flow-pick select {
+  appearance: none; min-height: 48px; padding: 10px 44px 10px 14px; border: 1px solid var(--ink); border-radius: 0;
+  background: linear-gradient(45deg, transparent 50%, var(--ink) 0) right 22px top 50% / 7px 7px no-repeat,
+    linear-gradient(-45deg, transparent 50%, var(--ink) 0) right 15px top 50% / 7px 7px no-repeat, var(--paper);
+  color: var(--ink); font: 700 16px/1.3 Arial, sans-serif; cursor: pointer;
+  transition: border-color .22s;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+.flow-pick select:focus-visible { outline: 2px solid var(--red); outline-offset: 3px }
+.flow [hidden] { display: none }
+.flow-pic { order: 1 }
+.flow-box { container-type: inline-size; width: 100%; margin: 0 auto }
+.flow-stage { position: relative }
+.flow-caps { order: 2; list-style: none; margin: 0; padding: 0; font: 16px/1.55 Arial, sans-serif; color: var(--soft) }
+.flow-caps li + li { margin-top: 18px }
+.flow-caps strong { display: block; margin-bottom: 4px; font: 400 23px/1.25 var(--ms-font); letter-spacing: -.03em; color: var(--ink) }
+.flow-dots { order: 3; display: flex; justify-content: center }
+.flow-dots button { width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer }
+.flow-dots button::before { content: ""; display: block; width: 10px; height: 10px; margin: auto; border: 2px solid var(--soft); border-radius: 50%; transition: transform .25s, background-color .25s, border-color .25s }
+.flow-dots button[aria-current=step]::before { border-color: var(--red); background: var(--red); transform: scale(1.18) }
+.flow-say { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0 }
+.flow-fine { margin: 6px 0 0; font: 12px/1.35 var(--ms-font); color: var(--soft); text-align: center }
+
+/* The voicemail number: a call link that script turns into a small dialog (call, copy, close). */
+.fl-dial { width: min(92vw, 380px); padding: 22px 22px 18px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink) }
+.fl-dial::backdrop { background: color-mix(in srgb, #000 55%, transparent) }
+.fl-dial h3 { margin: 0 0 8px; font: 400 28px/1.15 var(--ms-font); letter-spacing: -.02em }
+.fl-dial p { margin: 0 0 18px; font: 16px/1.5 Arial, sans-serif; color: var(--soft) }
+.fl-dial-do { display: flex; flex-wrap: wrap; gap: 8px }
+.fl-dial-do > * { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; border: 1px solid var(--ink); background: none; color: var(--ink); font: 700 14px/1 Arial, sans-serif; text-decoration: none; cursor: pointer }
+.fl-dial-do .fl-dial-call { border-color: var(--red); background: var(--red); color: #fdf5e6; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%) }
+.fl-dial-do .fl-dial-call:hover { background: var(--red-hover); color: #fdf5e6 }
+.fl-dial-do .fl-dial-call:focus-visible { outline: 2px solid #fdf5e6; outline-offset: -5px } /* the cut would clip an outside ring */
+.fl-svg .fl-hit { cursor: pointer } .fl-svg .fl-hit > rect { pointer-events: all }
+
+/* After delivery a small card rises over the picture's lower edge: "Not quite right" (a slow pulse, under one beat a
+   second) or "It's perfect". It never blocks the page; flow.js shows it only while the flow is on screen. */
+.flow.has-card .flow-stage { margin-bottom: 64px } /* the card hangs 54px below; 16px clear of the fine print */
+.fl-card {
+  position: absolute; left: 50%; bottom: -54px; z-index: 2; transform: translateX(-50%); display: flex; gap: 8px; padding: 8px;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); white-space: nowrap;
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, .6);
+}
+.fl-card button { min-height: 44px; padding: 0 18px; border-radius: 999px; font: 700 16px/1 var(--ms-font); cursor: pointer }
+.fl-again { border: 0; background: var(--red); color: #fdf5e6 }
+.fl-again:hover { background: var(--f-hot) }
+.fl-again:disabled { background: var(--soft); color: var(--paper); cursor: default }
+.fl-perfect { border: 1px solid var(--rule); background: none; color: var(--soft) }
+.fl-perfect:hover { border-color: var(--ink); color: var(--ink) }
+.fl-card button:focus-visible { outline: 2px solid var(--f-gold); outline-offset: 2px }
+@media (prefers-reduced-motion: no-preference) {
+  .fl-card:not([hidden]) { animation: fl-rise .5s cubic-bezier(.3, 1.4, .5, 1) }
+  .fl-again:not(:disabled) { animation: fl-beat 1.6s ease-in-out infinite }
+}
+@keyframes fl-rise { from { transform: translate(-50%, 10px) } }
+@keyframes fl-beat {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--red) 55%, transparent) }
+  55% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--red) 0%, transparent); background: var(--f-hot) }
+}
+
+/* Phone, with the show running: one caption slot under the picture. */
+@media (max-width: 899px) { .flow.is-live .flow-caps li:not(.on) { display: none } }
+.flow.is-live .flow-caps { min-height: 9.5em }
+
+@media (min-width: 900px) {
+  .flow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 40px; align-items: start }
+  .flow-pick { grid-column: 1; grid-row: 1 }
+  .flow-caps { grid-column: 1; grid-row: 2; margin-top: 18px }
+  .flow-pic { grid-column: 2; grid-row: 1 / span 3; position: sticky; top: 40px; height: calc(100vh - 80px) }
+  .flow-box { width: min(100%, calc((100vh - 160px) * 560 / 868)) }
+  .flow-dots { display: none }
+  .flow.is-live .flow-caps { min-height: 0; padding-bottom: 30vh }
+  .flow.is-live .flow-caps li { display: block; min-height: 70vh; margin: 0; transition: color .3s }
+  .flow.is-live .flow-caps li:not(.on), .flow.is-live .flow-caps li:not(.on) strong { color: var(--soft) }
+}
+
+/* The picture */
+.fl-svg { display: block; width: 100%; height: auto; max-width: none; overflow: visible; font-family: var(--ms-font) }
+/* Parts drawn once in <defs> and shown through <use>: their selectors name no ancestor outside the drawn part, since
+   a <use> copy is styled inside its own shadow tree. The f- classes are used nowhere else on the page. */
+.f-far { fill: var(--f-far) } .f-sky { fill: var(--f-sky) } .f-gold { fill: var(--f-gold) } .f-olive { fill: var(--f-olive) } .f-red { fill: var(--f-red) }
+.f-art .kp { fill: var(--f-paper) } .f-art .kl { fill: var(--f-plin) } .f-art .ki, .fl-svg .f-art .ki { fill: var(--f-pink) } /* WebKit also matches .fl-svg .ki inside the copy */ .f-art .ks { fill: var(--f-psoft) }
+.f-art .c0 { fill: #C8102E } .f-art .c1 { fill: #e0b45c } .f-art .c2 { fill: var(--f-c2) } .f-art .c3 { fill: var(--f-c3) }
+.f-art .o { stroke: var(--f-pink); stroke-width: .8 }
+.f-art .fl-mono { fill: var(--f-pink); font-size: 12px; font-weight: 700; text-anchor: middle }
+.f-art .fl-ok { fill: none; stroke: var(--f-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+.f-art .fl-ar { fill: none; stroke: var(--f-pink); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round }
+.f-art .fl-grid { fill: none; stroke: var(--f-plin); stroke-width: .7 }
+/* logo tiles: a light tile in both themes, each mark in its vendor's own colour (brand-marks.md) */
+.f-tl { fill: #fffaf1; stroke: rgba(75, 59, 49, .3); stroke-width: .8 }
+.f-lC { fill: #d97757 } .f-lX { fill: #000 } .f-lG { fill: #8e75b2 } .f-lT { fill: #1e1e1e; fill-rule: evenodd } .f-lH { fill: #181717 } .f-lF { fill: #f38020 }
+.f-tick { fill: var(--f-gold) } .f-ck { fill: none; stroke: var(--f-tink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round }
+
+/* route */
+.fl-svg .sp { fill: none; stroke: var(--f-rule); stroke-width: 3; stroke-linecap: round }
+.fl-svg .sp.on { stroke: var(--f-red) }
+.fl-svg .nd circle { fill: var(--f-card); stroke: var(--f-red); stroke-width: 3 }
+.fl-svg .nd path { fill: none; stroke: var(--f-red); stroke-width: 3 }
+.fl-svg .fl-nf { fill: var(--f-red); opacity: 0 }
+.fl-svg .back { fill: none; stroke: var(--f-soft); stroke-width: 1.6; stroke-dasharray: 2 5; stroke-linecap: round; stroke-linejoin: round }
+.fl-svg .back.hd { stroke-dasharray: none }
+.fl-svg .back-on { fill: none; stroke: var(--f-lit); stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1 }
+
+/* cards and type */
+.fl-svg .cd { fill: url(#fl-card-surface); stroke: var(--f-rule); stroke-width: 1.3; transition: stroke .38s }
+.fl-svg .glow { fill: url(#fl-stage-aura); stroke: var(--f-lit); stroke-width: 6; stroke-opacity: .16; opacity: 0; transition: opacity .38s }
+.fl-svg .in { fill: var(--f-in); stroke: var(--f-rule); stroke-width: 1.1 }
+.fl-svg .lb { fill: var(--f-ink); font-size: 15px; font-weight: 700 }
+.fl-svg .sm { fill: var(--f-soft); font-size: 13px }
+.fl-svg .mid { text-anchor: middle }
+.fl-svg .ln { fill: none; stroke: var(--f-ink); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round }
+.fl-svg .ki { fill: var(--f-ink) } .fl-svg .ok { fill: var(--f-olive); stroke: var(--f-card); stroke-width: 2 }
+.fl-svg .gd { fill: none; stroke: var(--f-soft); stroke-width: 1.2; stroke-dasharray: 2 5; stroke-linecap: round }
+.fl-svg .fl-you { fill: var(--f-red) } .fl-svg .onred { fill: #fdf5e6 }
+.fl-svg .fl-bar { fill: var(--f-lit) }
+
+/* paper: cream or white with brown ink in both themes */
+.fl-svg .pp { fill: var(--f-paper); stroke: var(--f-plin); stroke-width: 1.1 }
+.fl-svg .pt { fill: var(--f-pink); font-size: 13px }
+.fl-svg .pl { fill: var(--f-psoft); opacity: .52 }
+.fl-svg .fl-cover { fill: var(--f-paper); transform: scaleX(0) }
+.fl-svg .fl-pen-halo { fill: var(--f-lit); opacity: .28 }
+.fl-svg .fl-pen-core { fill: var(--f-lit) }
+.fl-svg .ol { fill: none; stroke-width: 2.4; stroke-linejoin: round }
+.fl-svg .o0 { stroke: var(--f-lit) } .fl-svg .o1 { stroke: var(--f-gold) } .fl-svg .o2 { stroke: var(--f-olive) } .fl-svg .o3 { stroke: var(--f-sky) }
+.fl-svg .b0 { fill: var(--f-lit) } .fl-svg .b1 { fill: var(--f-gold) } .fl-svg .b2 { fill: var(--f-olive) } .fl-svg .b3 { fill: var(--f-sky) }
+.fl-svg .fl-hole { fill: var(--f-paper); stroke: var(--f-psoft); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0 }
+
+/* rail */
+.fl-svg .rail { fill: none; stroke: var(--f-soft); stroke-width: 1.8; stroke-linecap: round }
+.fl-svg .clip { fill: var(--f-gold); stroke: var(--f-rule); stroke-width: .7 }
+.f-slp { fill: var(--f-paper); stroke: var(--f-plin); stroke-width: var(--f-slpw, .9); stroke-linejoin: round }
+.f-perf { fill: none; stroke: var(--f-plin); stroke-width: .9; stroke-dasharray: 1.2 2.2 }
+.fl-svg .fl-word { fill: var(--f-pink) }
+
+/* crews */
+.fl-svg .cw { fill: var(--f-in); stroke: var(--f-rule); stroke-width: 1.1 }
+.fl-svg .cl { fill: var(--f-ink); font-size: 14px; font-weight: 700 }
+.fl-svg .tr { fill: var(--f-rule) }
+.fl-svg .fl-td { fill: #6a9a3a; stroke: var(--f-in); stroke-width: 1.4 }.f-dg { fill: var(--f-dog) } .f-dw { fill: var(--f-dogw) } .f-dgc { fill: var(--f-card) }
+.f-dgr { fill: none; stroke: var(--f-lit); stroke-width: 2.2; stroke-linecap: round }
+/* what a dog carries: paper with an ink outline in both themes (the slip in the mouth takes the ink outline too) */
+.fl-svg .fl-cpp { fill: var(--f-paper); stroke: var(--f-pink); stroke-width: 1.2; stroke-linejoin: round }
+.fl-svg .fl-cin { fill: none; stroke: var(--f-pink); stroke-width: 1; stroke-linecap: round }
+.fl-svg .fl-cov { stroke: var(--f-pink); stroke-width: 1.2 }
+.fl-carry { --f-plin: var(--f-pink); --f-slpw: 2.4 }
+/* Without script, or with reduced motion, the dogs are caught mid-errand (flow.js puts them home before the show): the
+   Rail dog runs the fourth slip down the gutter (so its clip hangs empty), the files dog takes a folder up from your
+   files, the Library dog brings a book up from The Library. Offsets are from each dog's data-home. */
+.flow:not(.is-live) .fl-carry { opacity: 1 }
+.flow:not(.is-live) .fl-rp[data-fetched] { opacity: 0 }
+.flow:not(.is-live) .fl-dhind { transform: rotate(30deg) }
+.flow:not(.is-live) .fl-dfore { transform: rotate(-30deg) }
+.flow:not(.is-live) .fl-dtail { transform: rotate(18deg) }
+.flow:not(.is-live) .fl-dy { transform: translate(0px, -4px) }
+.flow:not(.is-live) [data-pose=rail] .fl-dx { transform: translate(-8px, -127px) }
+.flow:not(.is-live) [data-pose=rail] .fl-dp { transform: rotate(6deg) }
+.flow:not(.is-live) [data-pose=files] .fl-dx { transform: translate(-2px, -35px) }
+.flow:not(.is-live) [data-pose=files] .fl-df { transform: scaleX(-1) }
+.flow:not(.is-live) [data-pose=files] .fl-dp { transform: rotate(-9deg) }
+.flow:not(.is-live) [data-pose=lib] .fl-dx { transform: translate(-30px, -35px) }
+.flow:not(.is-live) [data-pose=lib] .fl-df { transform: scaleX(-1) }
+.flow:not(.is-live) [data-pose=lib] .fl-dp { transform: rotate(-9deg) }
+.fl-svg .fl-ring { fill: none; stroke: var(--f-gold); stroke-width: 2.2; opacity: 0 }
+.fl-svg .vault { fill: var(--f-in); stroke: var(--f-lit); stroke-width: 1.5 }
+.fl-svg .vr { fill: var(--f-lit) } .fl-svg .vs { fill: none; stroke: var(--f-lit); stroke-width: 2; stroke-linecap: round }
+.fl-svg .fo { fill: var(--f-soft) }
+.fl-svg .fl-dust { fill: var(--f-gold); opacity: .38 }
+.fl-svg .fl-glint { fill: #fff8e4 }
+
+/* fitting and delivery */
+.fl-svg .scr { fill: var(--f-in); stroke: var(--f-ink); stroke-width: 1.6 }
+.fl-svg .bub { fill: var(--f-paper); stroke: var(--f-plin); stroke-width: 1.1 }
+.fl-svg .fl-tdot { fill: var(--f-psoft) }
+.fl-svg .ev-well { fill: var(--f-well); stroke: var(--f-ink); stroke-width: 1.2; stroke-linejoin: round }
+.fl-svg .ev { fill: var(--f-in); stroke: var(--f-ink); stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round }
+.fl-svg .ev-shut { fill: var(--f-card); stroke: var(--f-ink); stroke-width: 1.4; stroke-linejoin: round }
+.fl-svg .fl-seal { fill: var(--f-red); stroke: #fdf5e6; stroke-width: 1 }
+.fl-svg .fl-seal-in { fill: none; stroke: var(--f-gold); stroke-width: .8 }
+
+/* what moves */
+.fl-svg .fl-fx, .fl-svg .fl-tv { opacity: 0 }
+#fl-sheet { fill: var(--f-paper); fill-opacity: .35; stroke: var(--f-psoft); stroke-width: 1.3 }
+.fl-svg .fl-cut { fill: none; stroke: var(--f-lit); stroke-width: 2.2; stroke-dasharray: 5 3; stroke-linecap: round }
+.fl-svg:not([data-at]) #fl-tok, .fl-svg[data-at] #fl-mark { display: none }
+
+/* lit stage: the station the job is at is lit (red edge, soft glow, full strength), the rest sit back */
+.fl-svg[data-at] .z { opacity: var(--f-dim); transition: opacity .36s }
+.fl-svg[data-at=ask] .z-ask, .fl-svg[data-at=ticket] .z-ticket, .fl-svg[data-at=scope] .z-scope, .fl-svg[data-at=rail] .z-rail,
+.fl-svg[data-at=build] .z-build, .fl-svg[data-at=fit] .z-fit, .fl-svg[data-at=deliver] .z-deliver { opacity: 1 }
+.fl-svg[data-at=ask] .z-ask > .cd, .fl-svg[data-at=ticket] .z-ticket > .cd, .fl-svg[data-at=scope] .z-scope > .cd,
+.fl-svg[data-at=rail] .z-rail > .cd, .fl-svg[data-at=build] .z-build > .cd, .fl-svg[data-at=fit] .z-fit > .cd,
+.fl-svg[data-at=deliver] .z-deliver > .cd { stroke: var(--f-lit); stroke-width: 2 }
+.fl-svg[data-at=ask] .z-ask > .glow, .fl-svg[data-at=ticket] .z-ticket > .glow, .fl-svg[data-at=scope] .z-scope > .glow,
+.fl-svg[data-at=rail] .z-rail > .glow, .fl-svg[data-at=build] .z-build > .glow, .fl-svg[data-at=fit] .z-fit > .glow,
+.fl-svg[data-at=deliver] .z-deliver > .glow { opacity: 1 }
+
+/* Moving parts: flow.js animates transform and opacity on these wrappers only (never on an element that carries a
+   transform attribute). Positions are in picture units from the picture's origin unless a part turns on itself. */
+.fl-te, .fl-tv, #fl-progw, .fl-dx, .fl-dy, #fl-tkw, #fl-tk-pen, #fl-cutw, #fl-cuth, #fl-ask, #fl-fly > *, #fl-sheen, .fl-rp, #fl-env-art { transform-box: view-box; transform-origin: 0 0 }
+#fl-progw { transform-origin: 28px 46px }
+#fl-hm, #fl-hh { transform-box: view-box; transform-origin: 502px 298px }
+#fl-env-flap, #fl-env-shut { transform-box: view-box; transform-origin: 346px 800px }
+#fl-env-seal { transform-box: view-box; transform-origin: 346px 822px }
+.fl-t, .fl-bar, .fl-chip, .fl-eyes, .fl-led, .fl-nf, .fl-td, .fl-tick, .fl-scr, #fl-big, .fl-df, .fl-dp, .fl-carry, .fl-ring, #fl-lock, .fl-tdot, #fl-typing, #fl-tk, .fl-glint { transform-box: fill-box; transform-origin: 50% 50% }
+.fl-clipw { transform-box: fill-box; transform-origin: 50% 0 }
+.fl-pg, .fl-svg .pl { transform-box: fill-box; transform-origin: 0 50% }
+.fl-svg .fl-cover { transform-box: fill-box; transform-origin: 100% 50% }
+#fl-tk-band { transform-box: fill-box; transform-origin: 50% 0 }
+#fl-bubw { transform-box: fill-box; transform-origin: 3% 100% }
+#fl-shelf rect { transform-box: fill-box; transform-origin: 50% 100% }
+.fl-dhind, .fl-dfore { transform-box: fill-box; transform-origin: 50% 0 }
+.fl-dtail { transform-box: fill-box; transform-origin: 92% 8% }
+.fl-dhead { transform-box: fill-box; transform-origin: 18% 88% }

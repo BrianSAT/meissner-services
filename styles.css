@@ -1,0 +1,1963 @@
+:root {
+  --ink: var(--ms-ink);
+  --soft: var(--ms-soft);
+  --cream: var(--ms-cream);
+  --paper: var(--ms-white);
+  --linen: var(--ms-linen);
+  --rule: var(--ms-rule);
+  --red: var(--ms-red);
+  --red-hover: var(--ms-red-hover);
+  --cut: 12px;
+  /* The flow picture's hand: its easing, its pop, its paper and its drop shadow (flow/flow.css). Paper stays cream
+     or white with brown ink in both themes. */
+  --ease: cubic-bezier(0.3, 0, 0.1, 1);
+  --pop: cubic-bezier(0.3, 1.45, 0.55, 1);
+  --pp: #ffffff;
+  --pp-ink: #4b3b31;
+  --pp-soft: #735d4e;
+  --pp-line: #d3bc98;
+  --pp-in: #f4e6cf;
+  --drop: rgba(20, 13, 8, 0.16);
+  --e-gold: #9a6c1e;
+  --e-olive: #6c7c3d;
+  --e-sky: #4e80ba;
+  --e-far: #dac5a2;
+}
+
+:root[data-theme="dark"] {
+  --pp: #fdf5e6;
+  --pp-line: #e2cfb4;
+  --pp-in: #f1dfc4;
+  --drop: rgba(20, 13, 8, 0.42);
+  --e-gold: #e0b45c;
+  --e-olive: #a9b77a;
+  --e-sky: #8fb8e6;
+  --e-far: #5b5346;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 17px/1.6 var(--ms-font);
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--red);
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: var(--red-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--cream);
+  font: 700 13px/1.4 Arial, sans-serif;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 16px;
+}
+
+header,
+main,
+footer {
+  width: min(100% - 32px, 1080px);
+  margin-inline: auto;
+}
+
+/* Header: wordmark, Write to us link, and theme.js toggle */
+header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-right: auto;
+  color: var(--ink);
+  font: 700 12px/1.2 Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.wordmark:hover {
+  color: var(--ink);
+}
+
+.wordmark img {
+  width: 74px;
+  height: auto;
+}
+
+.wordmark span {
+  color: var(--red);
+}
+
+.header-write {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 6px;
+  font: 700 12px/1.2 Arial, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.header-write:hover {
+  color: var(--red);
+}
+
+/* First Screen */
+.first-screen {
+  padding: 20px 0 32px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font: 700 11px/1.4 Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.05;
+  margin-bottom: 14px;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.lead {
+  margin: 0 0 20px;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 56ch;
+}
+
+/* Paragraphs 2 and 3: a step quieter. The last sentence is the kicker. */
+.lead.lead-quiet {
+  margin-bottom: 14px;
+  font-size: clamp(15.5px, 1.55vw, 17.5px);
+  line-height: 1.55;
+  color: var(--soft);
+}
+
+.lead.lead-quiet:last-child {
+  margin-bottom: 22px;
+}
+
+.kicker {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.22em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.kicker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red) 62%, var(--e-olive) 0 80%, var(--e-sky) 0 92%, var(--e-far) 0);
+  transform-origin: 0 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kicker::after {
+    animation: leader-draws 0.9s var(--ease) 1.1s backwards;
+  }
+}
+
+/* The mark and its five labels (Face). Each label sits level with its stroke and a leader runs from the stroke's
+   end to it. The numbers are the mark's own geometry (viewBox -318 -231 636 279): --y is the stroke's centre as a
+   share of the mark's height, --reach the gap from the stroke's end to the mark's right edge as a share of its
+   width. --lands is when that echo arrives in echo-slash-motion.svg (its delay plus its duration there); the red
+   stroke never moves, so its label turns last. */
+.mark-stage {
+  --mark: 60;
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: calc(var(--mark) * 1%) minmax(0, 1fr);
+  padding: 18px 12px 30px;
+  margin: 0 0 14px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1.6 * var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    0 100%
+  );
+}
+
+.mark-figure {
+  margin: 0;
+}
+
+.mark-figure img {
+  width: 100%;
+}
+
+/* Show motion SVG by default; swap to still SVG when reduced motion is active */
+.mark-still {
+  display: none !important;
+}
+
+.stroke-labels {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font: 12px/1.15 Arial, sans-serif;
+}
+
+.stroke-labels li {
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: calc(var(--y) - 0.575em);
+  color: var(--ink);
+}
+
+.stroke-labels li::before {
+  content: "";
+  position: absolute;
+  right: calc(100% + 5px);
+  top: 0.575em;
+  width: calc(var(--reach) * var(--mark) * 1cqw + 7px);
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  transform-origin: 0 50%;
+}
+
+.stroke-labels li:nth-child(1) { --y: 10%; --reach: 0.525; --lands: 1.85s; }
+.stroke-labels li:nth-child(2) { --y: 28.2%; --reach: 0.42; --lands: 1.74s; }
+.stroke-labels li:nth-child(3) { --y: 47.2%; --reach: 0.31; --lands: 1.63s; }
+.stroke-labels li:nth-child(4) { --y: 65.8%; --reach: 0.2; --lands: 1.52s; }
+.stroke-labels li:nth-child(5) { --y: 82.8%; --reach: 0.1; --lands: 2.05s; }
+
+.stroke-labels li.front {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.stroke-labels li.front::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stroke-labels li {
+    animation: label-lands 0.3s cubic-bezier(0.3, 0, 0.1, 1) var(--lands) backwards;
+  }
+
+  .stroke-labels li::before {
+    animation: leader-draws 0.3s cubic-bezier(0.3, 0, 0.1, 1) var(--lands) backwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mark-motion {
+    display: none !important;
+  }
+
+  :root:not([data-theme="dark"]) .mark-still.ms-on-cream,
+  [data-theme="dark"] .mark-still.ms-on-dark {
+    display: block !important;
+  }
+}
+
+@keyframes label-lands {
+  from {
+    color: var(--soft);
+  }
+}
+
+@keyframes leader-draws {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 13px 24px;
+  background: var(--red);
+  color: #fdf5e6;
+  font: 700 14px/1.3 Arial, sans-serif;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1.6 * var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    0 100%
+  );
+}
+
+.cta-btn:hover {
+  background: var(--red-hover);
+  color: #fdf5e6;
+}
+
+.small-note {
+  display: block;
+  font: 13px/1.45 Arial, sans-serif;
+  color: var(--soft);
+}
+
+/* Shared Section Layout */
+section {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+h2 {
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+
+.section-intro {
+  margin: 0 0 22px;
+  color: var(--soft);
+  font-size: 18px;
+  max-width: 58ch;
+}
+
+/* The claim under "What you can hand us", large, the full width of the section */
+.claim {
+  margin: 0 0 14px;
+  font-size: clamp(26px, 4.2vw, 46px);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+
+/* The line under it, at lead size. Once, as it comes into view, a soft highlight reads along it at reading speed
+   (an inline box's background runs on from line to line, so the band follows the words) and comes to rest under
+   "as you read this line". Still state: only the resting highlight. */
+.claim-more {
+  --hl: color-mix(in srgb, var(--e-gold) 50%, transparent);
+  margin: 0 0 30px;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.read-mark {
+  color: inherit;
+  white-space: nowrap;
+  background: linear-gradient(var(--hl), var(--hl)) 0 90% / 100% 0.5em no-repeat;
+}
+
+.anim .claim-more:not(.is-in) .read-mark {
+  background-size: 0 0.5em;
+}
+
+.anim .claim-more.is-in .read-run {
+  background: linear-gradient(90deg, transparent, var(--hl) 35% 65%, transparent) no-repeat;
+  animation: read-along 5.6s linear both;
+}
+
+.anim .claim-more.is-in .read-mark {
+  transition: background-size 0.8s var(--ease) 5.3s;
+}
+
+@keyframes read-along {
+  from { background-position: -7em 90%; background-size: 7em 0.5em; }
+  to { background-position: calc(100% + 7em) 90%; background-size: 7em 0.5em; }
+}
+
+/* ---------- What you can hand us: the idea belt ----------
+   The twelve ideas hang from a rail like the pieces on The Rail in the flow picture. Without script, or with reduced
+   motion, they are a wrapped list. With both, app.js adds .is-belt, clones the list once (aria-hidden, unfocusable)
+   and drifts the track sideways; hover, focus and touch pause it. */
+.ideas {
+  margin: 0 0 34px;
+}
+
+.ideas-cap {
+  margin: 0 0 6px;
+  font: 700 11px/1.4 Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.ideas-belt {
+  position: relative;
+}
+
+.ideas-track {
+  display: flex;
+}
+
+.ideas-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ideas-list li {
+  max-width: 100%;
+}
+
+.idea {
+  --band: var(--red);
+  position: relative;
+  max-width: 100%;
+  margin-top: 16px;
+  padding: 0.42em 0.85em 0.46em 1em;
+  border: 1px solid var(--pp-line);
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--band) 4px, transparent 0), var(--pp);
+  color: var(--pp-ink);
+  font: 400 calc(14px + var(--i) * 0.8px) / 1.2 var(--ms-font);
+  letter-spacing: -0.01em;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 3px 5px -1px var(--drop);
+  transform-origin: 50% -16px;
+  transition: transform 0.35s var(--pop), color 0.2s, border-color 0.2s;
+}
+
+/* the clip that holds each idea to the rail */
+.idea::before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 4px);
+  top: -14px;
+  width: 8px;
+  height: 15px;
+  border-radius: 2px;
+  background: var(--e-gold);
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+.ideas-list li:nth-child(4n + 2) .idea { --band: var(--e-gold); }
+.ideas-list li:nth-child(4n + 3) .idea { --band: var(--e-olive); }
+.ideas-list li:nth-child(4n + 4) .idea { --band: var(--e-sky); }
+
+.idea:hover {
+  color: var(--red);
+  border-color: var(--red);
+  transform: rotate(-2.5deg);
+}
+
+.idea:active {
+  transform: rotate(-2.5deg) translateY(2px);
+}
+
+.ideas-belt.is-belt {
+  overflow: hidden;
+  overflow: clip;
+  padding: 0 0 14px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+/* the rail: two thin lines, as in the flow picture */
+.ideas-belt.is-belt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4px;
+  height: 5px;
+  border-top: 1.8px solid var(--soft);
+  border-bottom: 1.8px solid var(--soft);
+  opacity: 0.6;
+}
+
+.is-belt .ideas-track {
+  width: max-content;
+  will-change: transform;
+}
+
+.is-belt .ideas-list {
+  flex-wrap: nowrap;
+  gap: 0 26px;
+  padding: 0 13px;
+}
+
+.is-belt .ideas-list li {
+  max-width: none;
+}
+
+.is-belt .idea {
+  margin-top: 22px;
+  white-space: nowrap;
+  font-size: calc(14px + var(--i) * 1.5px);
+}
+
+.is-belt .idea::before {
+  top: -20px;
+  height: 21px;
+}
+
+/* the idea a visitor picked, flying into box 1 */
+.idea-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  margin: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.idea-ghost::before {
+  display: none;
+}
+
+/* ---------- The form, drawn as the flow picture's ticket ---------- */
+.hand-grid {
+  display: grid;
+  gap: 40px;
+  align-items: start;
+}
+
+.ticket {
+  position: relative;
+  margin: 0;
+  padding: 26px 22px 24px 58px;
+  border: 1px solid var(--pp-line);
+  border-radius: 3px;
+  background:
+    radial-gradient(circle at 25px 38px, var(--cream) 0 5.5px, #4b3b31 6px 6.6px, transparent 7.2px),
+    linear-gradient(90deg, var(--red) 6px, transparent 0),
+    var(--pp);
+  color: var(--pp-ink);
+  box-shadow: 0 3.5px 6px var(--drop), 0 22px 44px -22px var(--drop);
+}
+
+/* the perforation between the stub and the ticket */
+.ticket::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 42px;
+  border-left: 1.5px dashed #b9a58b;
+}
+
+.ticket-body {
+  display: grid;
+  gap: 22px;
+}
+
+.tk-field {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.tk-field label {
+  font: 700 14px/1.35 Arial, sans-serif;
+  color: var(--pp-ink);
+}
+
+.tk-line {
+  position: relative;
+  display: block;
+  border-bottom: 1.5px solid var(--pp-line);
+}
+
+/* the pen line: red, drawn under the box being written in */
+.tk-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.5px;
+  height: 2.5px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.45s var(--ease);
+}
+
+.tk-line:focus-within::after {
+  transform: scaleX(1);
+}
+
+.tk-line::before {
+  content: "";
+  position: absolute;
+  inset: -4px -8px -2px;
+  background: color-mix(in srgb, var(--red) 12%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tk-line textarea,
+.tk-line input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: var(--pp-ink);
+  font: 400 18px/27px var(--ms-font);
+  caret-color: var(--red);
+}
+
+.tk-line textarea {
+  min-height: 93px;
+  padding: 0 0 6px;
+  overflow: hidden;
+  resize: none;
+  background: linear-gradient(transparent 26px, color-mix(in srgb, var(--pp-line) 55%, transparent) 0) 0 0 / 100% 27px local;
+}
+
+.tk-line input::placeholder {
+  color: var(--pp-soft);
+  opacity: 0.62;
+}
+
+.tk-money input {
+  padding-left: 22px;
+  font-size: 22px;
+}
+
+.tk-dollar {
+  position: absolute;
+  left: 0;
+  bottom: 7px;
+  font: 400 24px/1 var(--ms-font);
+  color: var(--red);
+}
+
+.tk-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: end;
+}
+
+.tk-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 34px 8px 12px;
+  border: 1px solid var(--pp-ink);
+  border-radius: 0;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--pp-ink) 0) right 21px top 50% / 7px 7px no-repeat,
+    linear-gradient(-45deg, transparent 50%, var(--pp-ink) 0) right 14px top 50% / 7px 7px no-repeat,
+    var(--pp);
+  color: var(--pp-ink);
+  font: 700 15px/1.3 Arial, sans-serif;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+.tk-select:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: -4px;
+}
+
+/* With script, a face stands in for the select (app.js): it reads "I need this by..." in placeholder style until a
+   pick, then flips to ASAP. Its list offers the three picks. */
+.tk-face {
+  display: block;
+  text-align: left;
+  perspective: 160px;
+}
+
+.tk-card {
+  display: inline-block;
+  backface-visibility: hidden;
+}
+
+.tk-face.is-empty .tk-card {
+  font: 400 17px/1.3 var(--ms-font);
+  color: var(--pp-soft);
+}
+
+.tk-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 6;
+  margin: 4px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  border: 1px solid var(--pp-ink);
+  background: var(--pp);
+  color: var(--pp-ink);
+  font: 700 15px/1.3 Arial, sans-serif;
+  box-shadow: 0 3.5px 6px var(--drop), 0 12px 26px -10px var(--drop);
+}
+
+.tk-list:focus {
+  outline: none;
+}
+
+.tk-list li {
+  padding: 11px 12px;
+  cursor: pointer;
+}
+
+.tk-list li:hover,
+.tk-list li.is-active {
+  background: var(--pp-in);
+}
+
+.tk-list li[aria-selected="true"] {
+  box-shadow: inset 3px 0 var(--red);
+}
+
+.tk-list:focus-visible li.is-active {
+  outline: 2px solid var(--red);
+  outline-offset: -2px;
+}
+
+/* The team's answer to Timing, in the flow's speech bubble with the team lead's face. Without script it sits under
+   the select; with script it pops up above it, over nothing that moves. */
+.tk-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 9px 12px 9px 9px;
+  border: 1.1px solid var(--pp-line);
+  border-radius: 8px;
+  background: var(--pp);
+  color: var(--pp-ink);
+  box-shadow: 0 3.5px 6px var(--drop), 0 12px 26px -10px var(--drop);
+}
+
+.tk-bubble::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  top: -6.5px;
+  width: 12px;
+  height: 12px;
+  border: solid var(--pp-line);
+  border-width: 1.1px 0 0 1.1px;
+  background: var(--pp);
+  transform: rotate(45deg);
+}
+
+.tk-lead {
+  position: relative;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: 1.1px solid var(--pp-line);
+  border-radius: 8px;
+  background: var(--pp-in);
+}
+
+.tk-eye {
+  position: absolute;
+  top: 10px;
+  left: 9px;
+  width: 3.5px;
+  height: 8px;
+  border-radius: 2px;
+  background: #4b3b31;
+}
+
+.tk-eye + .tk-eye {
+  left: 17px;
+}
+
+.tk-led {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--pp);
+  border-radius: 50%;
+  background: #6c7c3d;
+}
+
+.tk-say {
+  margin: 0;
+  font: 400 14.5px/1.35 var(--ms-font);
+  color: var(--pp-ink);
+}
+
+.tk-dots {
+  display: none;
+}
+
+.js .tk-bubble {
+  position: absolute;
+  right: -6px;
+  bottom: calc(100% + 10px);
+  z-index: 5;
+  width: max-content;
+  max-width: min(310px, calc(100vw - 48px));
+  margin: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.92);
+  transform-origin: 88% 100%;
+  transition: opacity 0.2s, transform 0.2s, visibility 0s 0.2s;
+}
+
+.js .tk-bubble::after {
+  top: auto;
+  bottom: -6.5px;
+  border-width: 0 1.1px 1.1px 0;
+}
+
+.js .tk-bubble.is-up {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.18s, transform 0.42s var(--pop), visibility 0s;
+}
+
+.js .tk-dots {
+  position: absolute;
+  left: 52px;
+  top: 50%;
+  display: flex;
+  gap: 5px;
+  margin-top: -3px;
+  opacity: 0;
+}
+
+.tk-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pp-soft);
+}
+
+.js .tk-bubble.is-typing {
+  min-width: 94px; /* the face, then the three dots at 52px, inside the right padding */
+}
+
+.tk-bubble.is-typing .tk-dots {
+  opacity: 1;
+}
+
+.tk-bubble.is-typing .tk-say {
+  opacity: 0;
+}
+
+.tk-say {
+  transition: opacity 0.2s;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tk-bubble.is-typing .tk-dots span {
+    animation: tk-dot 0.5s var(--ease) infinite alternate;
+  }
+
+  .tk-bubble.is-typing .tk-dots span:nth-child(2) { animation-delay: 0.12s; }
+  .tk-bubble.is-typing .tk-dots span:nth-child(3) { animation-delay: 0.24s; }
+
+  .tk-field.is-fed .tk-line {
+    animation: tk-fed 0.55s var(--pop);
+  }
+
+  .tk-field.is-fed .tk-line::after {
+    animation: tk-pen 0.9s var(--ease);
+  }
+}
+
+.tk-field.is-fed .tk-line::before {
+  animation: tk-wash 1.1s var(--ease);
+}
+
+@keyframes tk-dot {
+  to { transform: translateY(-4px); }
+}
+
+@keyframes tk-fed {
+  35% { transform: scale(1.018) translateY(-1px); }
+}
+
+@keyframes tk-pen {
+  0% { transform: scaleX(0); }
+  55% { transform: scaleX(1); }
+}
+
+@keyframes tk-wash {
+  0%, 30% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.tk-send {
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.tk-send .small-note {
+  color: var(--pp-soft);
+}
+
+/* ---------- Beside the form: the price split ---------- */
+.split-side h3 {
+  margin-bottom: 14px;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1.15;
+}
+
+.split-side > p {
+  margin: 0 0 12px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--soft);
+  max-width: 40ch;
+}
+
+.split {
+  margin-top: 26px;
+}
+
+.split-bar {
+  position: relative;
+  height: 46px;
+  margin-bottom: 16px;
+}
+
+.split-a,
+.split-b {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  transform-origin: 0 50%;
+  transition: transform 0.9s var(--ease);
+}
+
+.split-a {
+  left: 0;
+  width: calc(25% + 9px);
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+}
+
+.split-b {
+  left: calc(25% - 5px);
+  right: 0;
+  background: var(--e-olive);
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+  transition-delay: 0.3s;
+}
+
+.anim .split:not(.is-in) .split-a,
+.anim .split:not(.is-in) .split-b {
+  transform: scaleX(0);
+}
+
+.split-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 25%, rgba(255, 250, 235, 0.55) 50%, transparent 75%);
+  transform: translateX(-110%);
+}
+
+.split.is-money .split-shine {
+  animation: split-shine 1.05s var(--ease);
+}
+
+.split.is-money .split-b .split-shine {
+  animation-delay: 0.12s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes split-shine {
+  to { transform: translateX(110%); }
+}
+
+.split-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 6px;
+  font: 400 16px/1.3 Arial, sans-serif;
+  color: var(--soft);
+}
+
+.split-key {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background: var(--red);
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+}
+
+.split-row-b .split-key {
+  background: var(--e-olive);
+}
+
+.split-num {
+  display: inline-block;
+  margin-right: 2px;
+  font: 400 clamp(28px, 3vw, 36px) / 1.1 var(--ms-font);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.split-row-a .split-num {
+  color: var(--red);
+}
+
+.split-num.is-landed {
+  animation: split-land 0.5s var(--pop);
+}
+
+@keyframes split-land {
+  40% { transform: scale(1.08); }
+}
+
+/* ---------- Two kinds of things people hand us ---------- */
+.kinds {
+  display: grid;
+  border: 1px solid var(--rule);
+  background: var(--linen);
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+.kind {
+  position: relative;
+  padding: 26px 22px 28px;
+}
+
+.kind h3 {
+  position: relative;
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.1;
+}
+
+.kind-line {
+  position: relative;
+  margin: 4px 0 20px;
+  font: 700 12px/1.4 Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.kind-list {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kind-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font: 16px/1.5 Arial, sans-serif;
+}
+
+.kind-list li span {
+  padding-top: 7px;
+}
+
+.ic {
+  --tile: var(--paper);
+  --tile-line: var(--rule);
+  --accent: var(--red);
+  flex: none;
+  width: 42px;
+  height: 42px;
+  color: var(--ink);
+}
+
+.ic > * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.ic .ic-tile {
+  fill: var(--tile);
+  stroke: var(--tile-line);
+  stroke-width: 1.1;
+}
+
+.ic .ic-a {
+  stroke: var(--accent);
+  stroke-width: 1.9;
+}
+
+.kind-chores {
+  color: var(--ink);
+}
+
+.kind-work {
+  color: #fdf5e6;
+  background: linear-gradient(160deg, #d3142f, #b00d27);
+  clip-path: polygon(0 26px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -26px;
+  padding-top: 50px;
+}
+
+.kind-work .kind-line {
+  color: #fdf5e6;
+  opacity: 0.86;
+}
+
+.kind-work .ic {
+  --tile: rgba(253, 245, 230, 0.1);
+  --tile-line: rgba(253, 245, 230, 0.4);
+  --accent: #fbe4a8;
+  color: #fdf5e6;
+}
+
+.kind-work a {
+  color: #fdf5e6;
+}
+
+/* ---------- How this page got here: the record and its clock ---------- */
+.record-box {
+  border: 1px solid var(--rule);
+  background: linear-gradient(
+      90deg,
+      var(--red) 62%,
+      var(--ms-echo-olive) 0 80%,
+      var(--ms-echo-sky) 0 92%,
+      var(--ms-echo-far) 0
+    )
+    0 0 / 100% 3px no-repeat var(--paper);
+  padding: 20px 22px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 1.6 * var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    0 100%
+  );
+}
+
+.record-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.record-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.clock-svg {
+  width: min(190px, 60vw);
+  overflow: visible;
+}
+
+.clock-svg .clock-rim {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 2;
+}
+
+.clock-svg .clock-face {
+  fill: var(--linen);
+  stroke: var(--rule);
+  stroke-width: 1.2;
+}
+
+.clock-svg .clock-ticks path {
+  fill: none;
+  stroke: var(--soft);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.clock-svg .clock-span {
+  fill: var(--red);
+  opacity: 0.16;
+}
+
+.clock-svg .clock-hand,
+.clock-svg .clock-echo {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+}
+
+.clock-svg .clock-hand path,
+.clock-svg .clock-echo path {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.clock-svg .clock-hr path {
+  stroke: var(--ink);
+  stroke-width: 6.5;
+}
+
+.clock-svg .clock-mn path {
+  stroke: var(--red);
+  stroke-width: 3.6;
+}
+
+.clock-svg .clock-echo {
+  opacity: 0;
+}
+
+.clock-svg .clock-echo path {
+  stroke-width: 3.2;
+}
+
+.clock-svg .clock-e1 path { stroke: var(--e-olive); }
+.clock-svg .clock-e2 path { stroke: var(--e-gold); }
+.clock-svg .clock-e3 path { stroke: var(--e-sky); }
+.clock-svg .clock-e4 path { stroke: var(--e-far); }
+
+.clock-svg .clock-pin {
+  fill: var(--red);
+}
+
+.clock-svg .clock-pin-in {
+  fill: var(--paper);
+}
+
+.record-clock.is-done .clock-svg {
+  animation: clock-ding 0.5s var(--pop);
+}
+
+@keyframes clock-ding {
+  40% { transform: scale(1.04); }
+}
+
+.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 15px/1.5 Arial, sans-serif;
+}
+
+.record-table tr {
+  border-bottom: 1px solid var(--rule);
+}
+
+.record-table th,
+.record-table td {
+  padding: 12px 8px;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.record-table th {
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.record-table td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--soft);
+  white-space: nowrap;
+}
+
+.record-table .rec-row th::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  vertical-align: 1px;
+  transition: transform 0.4s var(--pop);
+}
+
+.record-table .rec-row,
+.record-table .rec-note {
+  transition: opacity 0.35s;
+}
+
+.record-table .rec-note {
+  border-bottom-style: dashed;
+}
+
+.record-table .rec-note td {
+  position: relative;
+  padding: 8px 8px 8px 38px;
+  text-align: left;
+  white-space: normal;
+  font: italic 15px/1.5 var(--ms-font);
+  color: var(--soft);
+}
+
+.record-table .rec-note td::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  border-left: 1.6px dashed var(--soft);
+  opacity: 0.6;
+}
+
+.record-summary {
+  margin: 0;
+  font: 700 15px/1.45 Arial, sans-serif;
+  color: var(--ink);
+  text-align: center;
+  max-width: 30ch;
+  text-wrap: balance;
+  transition: opacity 0.4s, transform 0.5s var(--ease);
+}
+
+/* With script and motion, the record starts at the request and the hands run to the checked page. */
+.anim .record-wrap.is-armed .rec-row:not(.is-lit),
+.anim .record-wrap.is-armed .rec-note:not(.is-lit) {
+  opacity: 0.3;
+}
+
+.anim .record-wrap.is-armed .rec-row:not(.is-lit) th::before {
+  transform: scale(0);
+}
+
+.anim .record-wrap.is-armed .record-clock:not(.is-done) .record-summary {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.anim .record-wrap.is-armed .clock-span {
+  transition: opacity 0.6s;
+}
+
+.anim .record-wrap.is-armed .record-clock:not(.is-done) .clock-span {
+  opacity: 0;
+}
+
+/* ---------- Who answers for it ---------- */
+.who-copy {
+  max-width: 62ch;
+}
+
+.who-copy p {
+  margin: 0 0 16px;
+  font-size: clamp(17px, 1.9vw, 19px);
+  line-height: 1.65;
+}
+
+.who-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.who-loop {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 14px 0 10px;
+  padding-bottom: 6px;
+  font-weight: 400;
+  font-size: clamp(24px, 3vw, 33px);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.who-loop::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 62%, var(--e-olive) 0 80%, var(--e-sky) 0 92%, var(--e-far) 0);
+  transform-origin: 0 50%;
+  transition: transform 1s var(--ease) 0.2s;
+}
+
+.anim .who-copy:not(.is-in) .who-loop::after {
+  transform: scaleX(0);
+}
+
+/* The figure under "copied ... in both directions": You and Crew, with a copy line from each direction down to
+   Brian. Still (no script, reduced motion, frame 0) it is the lines and arrows alone; with motion a message runs
+   You to Crew and a copy drops to Brian, then one runs back and a copy drops again, slowly, on a loop. Only the
+   wrapper <g>s move. */
+.who-fig {
+  width: 100%;
+  max-width: 340px;
+  display: block;
+  margin: 18px 0 20px;
+  overflow: visible;
+}
+
+.wf-line {
+  fill: var(--soft);
+  stroke: var(--soft);
+  stroke-width: 2;
+}
+
+.wf-copy {
+  fill: none;
+  stroke: var(--soft);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.wf-chip rect {
+  fill: var(--paper);
+  stroke: var(--soft);
+  stroke-width: 1.5;
+}
+
+.wf-brian rect {
+  stroke: var(--red);
+  stroke-width: 2;
+}
+
+.wf-chip text {
+  fill: var(--ink);
+  font: 400 16px var(--ms-font);
+  text-anchor: middle;
+}
+
+.wf-dot {
+  fill: var(--red);
+  opacity: 0;
+}
+
+.wf-cc {
+  fill: var(--e-gold);
+}
+
+.wf-brian {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+.anim .who-copy.is-in .wf-out { animation: wf-out 9s var(--ease) infinite; }
+.anim .who-copy.is-in .wf-cc1 { animation: wf-cc1 9s ease-in infinite; }
+.anim .who-copy.is-in .wf-back { animation: wf-back 9s var(--ease) infinite; }
+.anim .who-copy.is-in .wf-cc2 { animation: wf-cc2 9s ease-in infinite; }
+.anim .who-copy.is-in .wf-brian { animation: wf-ping 9s var(--ease) infinite; }
+
+@keyframes wf-out {
+  0%, 2% { opacity: 0; transform: none; }
+  5% { opacity: 1; transform: none; }
+  30% { opacity: 1; transform: translate(148px, 0); }
+  34%, 100% { opacity: 0; transform: translate(148px, 0); }
+}
+
+@keyframes wf-cc1 {
+  0%, 12% { opacity: 0; transform: none; }
+  13% { opacity: 1; transform: none; }
+  26% { opacity: 1; transform: translate(24px, 66px); }
+  29%, 100% { opacity: 0; transform: translate(24px, 66px); }
+}
+
+@keyframes wf-back {
+  0%, 52% { opacity: 0; transform: none; }
+  55% { opacity: 1; transform: none; }
+  80% { opacity: 1; transform: translate(-148px, 0); }
+  84%, 100% { opacity: 0; transform: translate(-148px, 0); }
+}
+
+@keyframes wf-cc2 {
+  0%, 62% { opacity: 0; transform: none; }
+  63% { opacity: 1; transform: none; }
+  76% { opacity: 1; transform: translate(-24px, 46px); }
+  79%, 100% { opacity: 0; transform: translate(-24px, 46px); }
+}
+
+@keyframes wf-ping {
+  0%, 25%, 33%, 75%, 83%, 100% { transform: none; }
+  28%, 78% { transform: scale(1.1); }
+}
+
+/* Wide screens: the loop line is lifted out beside the column, large. */
+@media (min-width: 960px) {
+  .who-copy {
+    position: relative;
+    max-width: none;
+    padding-right: 50%;
+  }
+
+  .who-loop {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 42%;
+    margin: 0;
+    padding-bottom: 14px;
+    transform: translateY(-50%);
+    font-size: clamp(40px, 4.6vw, 60px);
+    line-height: 1.06;
+  }
+}
+
+/* ---------- Questions: the last band ---------- */
+.qa-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.qa {
+  padding: 20px 20px 22px;
+  border: 1px solid var(--rule);
+  background: linear-gradient(90deg, var(--red) 62%, var(--ms-echo-olive) 0 80%, var(--ms-echo-sky) 0 92%, var(--ms-echo-far) 0)
+    0 0 / 100% 3px no-repeat var(--paper);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+  transition-delay: calc(var(--k) * 0.09s);
+}
+
+.qa h3 {
+  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.qa p {
+  margin: 0;
+  font: 15px/1.55 Arial, sans-serif;
+  color: var(--soft);
+}
+
+.anim .qa-grid:not(.is-in) .qa {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Reveal for the panels' icons and lines (transform and opacity only) */
+.anim .kinds:not(.is-in) .ic > :not(.ic-tile),
+.anim .kinds:not(.is-in) .kind-list span {
+  opacity: 0;
+}
+
+.anim .kinds.is-in .ic > :not(.ic-tile) {
+  animation: ic-pop 0.5s var(--pop) calc(var(--row) * 0.2s + var(--d) * 0.09s + 0.15s) backwards;
+}
+
+.anim .kinds.is-in .kind-list span {
+  animation: rise 0.55s var(--ease) calc(var(--row) * 0.2s + 0.2s) backwards;
+}
+
+@keyframes ic-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* About page */
+.about-page section:first-child {
+  padding-top: 36px;
+}
+
+.about-page h1 {
+  max-width: 20ch;
+}
+
+.about-copy {
+  margin: 0 0 16px;
+  font-size: clamp(18px, 2.1vw, 21px);
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+.about-copy:last-child {
+  margin-bottom: 0;
+}
+
+.after-line {
+  margin: 0;
+  font: 15px/1.55 Arial, sans-serif;
+  color: var(--soft);
+}
+
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font: 700 14px/1.4 Arial, sans-serif;
+}
+
+/* Footer */
+footer {
+  padding: 24px 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font: 13px/1.5 Arial, sans-serif;
+  color: var(--soft);
+}
+
+footer strong {
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: var(--ink);
+}
+
+footer .footer-legal {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 12px;
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+@media (min-width: 600px) {
+  .qa-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop Two-Column Hero & Wide Screens */
+@media (min-width: 820px) {
+  .first-screen {
+    padding: 36px 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+    align-items: center;
+  }
+
+  .first-screen-copy {
+    grid-column: 1;
+  }
+
+  .mark-stage {
+    --mark: 66;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    padding: 36px 26px 48px;
+  }
+
+  .stroke-labels {
+    font-size: 15px;
+  }
+
+  .stroke-labels li {
+    left: 16px;
+  }
+
+  .stroke-labels li::before {
+    right: calc(100% + 7px);
+    width: calc(var(--reach) * var(--mark) * 1cqw + 9px);
+  }
+
+  .cta-wrap {
+    grid-column: 1;
+  }
+
+  .record-wrap {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 36px;
+    align-items: center;
+    padding: 28px 30px;
+  }
+
+  .clock-svg {
+    width: 190px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hand-grid {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 52px;
+  }
+
+  .split-side {
+    padding-top: 6px;
+  }
+
+  /* Side by side, the seam between Chores and Work is cut on a slant: the Work panel's red is a skewed plane,
+     leaning like the slash at the cut the page's corners use (1 across for 1.6 down). */
+  .kinds {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr);
+  }
+
+  .kind {
+    padding: 34px 34px 38px;
+  }
+
+  .kind-chores {
+    padding-right: 96px;
+  }
+
+  .kind-work {
+    margin: 0;
+    padding: 34px 34px 38px 92px;
+    background: none;
+    clip-path: none;
+  }
+
+  .kind-work::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    background: linear-gradient(160deg, #d3142f, #b00d27 70%);
+    transform: skewX(-32deg);
+    transform-origin: 0 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .qa-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Phone <= 640px */
+@media (max-width: 640px) {
+  header {
+    padding: 8px 0;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .wordmark img {
+    width: 48px;
+  }
+
+  .wordmark {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .header-write {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 0 4px;
+    white-space: nowrap;
+  }
+
+  /* Phones have room for one header link: Demos stays, and "Write to us" is the red button below. */
+  .header-write + .header-write {
+    display: none;
+  }
+
+  /* The switch keeps its disc and its spoken label; the word gives its room to the wordmark. */
+  .ms-theme-toggle {
+    font-size: 0;
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .ms-theme-toggle::before {
+    width: 17px;
+    height: 17px;
+  }
+
+  .first-screen {
+    padding: 12px 0 22px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 15.5px;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .lead.lead-quiet {
+    font-size: 14.5px;
+    margin-bottom: 10px;
+  }
+
+  .record-table th,
+  .record-table td {
+    display: block;
+    text-align: left;
+    padding: 6px 0;
+  }
+
+  .record-table td {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+
+  .record-table .rec-note td {
+    padding: 8px 0 8px 26px;
+  }
+
+  .record-table .rec-note td::before {
+    left: 8px;
+  }
+
+  .record-table .rec-row td {
+    padding-left: 19px;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  .ticket {
+    padding: 22px 16px 20px 42px;
+    background:
+      radial-gradient(circle at 16px 34px, var(--cream) 0 4.5px, #4b3b31 5px 5.6px, transparent 6.2px),
+      linear-gradient(90deg, var(--red) 5px, transparent 0),
+      var(--pp);
+  }
+
+  .ticket::before {
+    left: 30px;
+  }
+
+  /* At phone width the placeholder "Excel, Gmail, QuickBooks" does not fit beside the select: one above the other. */
+  .tk-pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .js .tk-bubble {
+    right: -4px;
+  }
+
+  .kind {
+    padding: 24px 18px 26px;
+  }
+
+  .kind-work {
+    padding-top: 46px;
+  }
+}
+
+/* Reduced motion: final states, nothing moving */
+@media (prefers-reduced-motion: reduce) {
+  .idea,
+  .tk-line::after,
+  .split-a,
+  .split-b,
+  .qa,
+  .who-loop::after,
+  .rec-row,
+  .record-summary,
+  .js .tk-bubble,
+  .js .tk-bubble.is-up {
+    transition: none;
+  }
+
+  .idea:hover,
+  .idea:active {
+    transform: none;
+  }
+}

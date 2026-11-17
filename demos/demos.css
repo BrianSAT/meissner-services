@@ -1,0 +1,1157 @@
+/* Meissner.Services demos page (t-623587f537). Loaded after ../styles.css, which gives the header, footer, type,
+   tokens, the easing (--ease, --pop), the paper (--pp) and the drop shadow (--drop). Every rule here sits under
+   .demos (the page's <body>). The case files are paper, cream or white with brown ink in both themes, like the
+   home page's ticket; their scenes are inline SVG drawn in the flow picture's hand. Motion is transform and opacity
+   only, starts when its part scrolls into view (.is-play from demos.js), plays once, and is absent without script
+   or with reduced motion: then every part shows its last frame. */
+.demos {
+  --s-red: #c8102e;
+  --s-gold: #9a6c1e;
+  --s-olive: #6c7c3d;
+  --s-sky: #4e80ba;
+  --s-ink: #4b3b31;
+  --s-soft: #735d4e;
+  --s-line: #d3bc98;
+  --s-in: #f4e6cf;
+  --s-paper: #ffffff;
+  --s-her: #efe2cc;
+  --seam-a: 72px;
+  --seam-b: 40px;
+}
+
+[data-theme="dark"] .demos {
+  --s-paper: #fdf5e6;
+  --s-in: #f1dfc4;
+  --s-line: #dcc6a6;
+  --s-her: #ead9bd;
+}
+
+/* ---------- header and footer: the Demos link, current ---------- */
+.demos .dm-here {
+  position: relative;
+  color: var(--red);
+}
+
+.demos .dm-here::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 9px;
+  height: 2px;
+  background: var(--red);
+}
+
+.demos footer a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ---------- top ---------- */
+.demos .dm-top {
+  padding: 26px 0 24px;
+}
+
+.demos .dm-top h1 {
+  position: relative;
+  max-width: none;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+}
+
+.demos .dm-top h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(220px, 40%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 62%, var(--e-olive) 0 80%, var(--e-sky) 0 92%, var(--e-far) 0);
+  transform-origin: 0 50%;
+}
+
+.demos .dm-top .lead {
+  margin: 0;
+  max-width: 50ch;
+}
+
+/* ---------- 1. the walkthrough ---------- */
+.demos .dm-walk {
+  padding-top: 32px;
+}
+
+.demos .dm-walk .section-intro {
+  margin-bottom: 20px;
+}
+
+.demos .dm-walk-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.demos .dm-player {
+  margin: 0;
+  min-width: 0;
+}
+
+.demos .dm-screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, var(--red) 62%, #9aa570 0 80%, #c4d8f1 0 92%, #5b5346 0) 0 0 / 100% 3px no-repeat,
+    radial-gradient(120% 90% at 30% 20%, #20262b, #0c0d0f 70%);
+  color: #fdf5e6;
+  box-shadow: 0 3.5px 6px var(--drop), 0 26px 50px -24px var(--drop);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+/* The slate sits behind the video: it shows through until the poster or the first frame arrives, and stays when
+   there is no video. */
+.demos .dm-slate {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 7% 7% 9%;
+}
+
+.demos .dm-slate img {
+  width: clamp(70px, 16%, 130px);
+}
+
+.demos .dm-slate p {
+  margin: 0;
+  max-width: 14ch;
+  font: 400 clamp(26px, 4.4vw, 48px) / 1.06 var(--ms-font);
+  letter-spacing: -0.035em;
+  color: #fdf5e6;
+}
+
+.demos .dm-screen video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  background: transparent;
+}
+
+.demos .dm-player.is-missing video {
+  visibility: hidden;
+}
+
+.demos .dm-player.is-custom video {
+  cursor: pointer;
+}
+
+/* the caption, in the site's speech bubble */
+.demos .dm-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 54px;
+  z-index: 2;
+  width: max-content;
+  max-width: min(86%, 680px);
+  margin: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.demos .dm-cue[hidden] {
+  display: none;
+}
+
+.demos .dm-cue span {
+  display: block;
+  padding: 8px 14px 9px;
+  border: 1.1px solid var(--pp-line);
+  border-radius: 8px;
+  background: #fdf5e6;
+  color: #4b3b31;
+  font: 400 clamp(14px, 1.7vw, 18px) / 1.38 var(--ms-font);
+  text-align: center;
+  text-wrap: balance;
+  box-shadow: 0 3.5px 6px rgba(20, 13, 8, 0.3), 0 12px 26px -10px rgba(20, 13, 8, 0.5);
+}
+
+/* the big play control: the red disc with two echo rings */
+.demos .dm-big {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: clamp(72px, 13%, 104px);
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s var(--pop), opacity 0.25s;
+}
+
+.demos .dm-big svg {
+  width: 100%;
+  height: 100%;
+}
+
+.demos .dm-big-e3 { fill: rgba(196, 216, 241, 0.16); }
+.demos .dm-big-e2 { fill: rgba(154, 165, 112, 0.34); }
+.demos .dm-big-disc { fill: var(--ms-red); }
+.demos .dm-big-tri { fill: #fdf5e6; }
+
+.demos .dm-big:hover {
+  transform: translate(-50%, -50%) scale(1.07);
+}
+
+.demos .dm-big:focus-visible,
+.demos .dm-ctl:focus-visible {
+  outline: 2px solid #e0b45c;
+  outline-offset: 3px;
+}
+
+.demos .is-started .dm-big {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.demos .dm-big[hidden],
+.demos .dm-bar[hidden] {
+  display: none;
+}
+
+.demos .dm-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 18px 8px 9px;
+  background: linear-gradient(transparent, rgba(8, 9, 10, 0.72));
+  transition: opacity 0.3s;
+}
+
+.demos .is-playing:not(:hover):not(:focus-within) .dm-bar {
+  opacity: 0;
+}
+
+/* before the first play the big control is the play button; the bar keeps captions and mute */
+.demos .dm-player:not(.is-started) .dm-pp {
+  visibility: hidden;
+}
+
+.demos .dm-gap {
+  flex: 1;
+}
+
+.demos .dm-ctl {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: #fdf5e6;
+  cursor: pointer;
+}
+
+.demos .dm-ctl:hover {
+  background: rgba(253, 245, 230, 0.12);
+}
+
+.demos .dm-ctl svg {
+  width: 24px;
+  height: 24px;
+}
+
+.demos .dm-ctl .i-play,
+.demos .dm-ctl .i-pause,
+.demos .dm-ctl .i-fill {
+  fill: currentColor;
+}
+
+.demos .dm-ctl .i-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.demos .dm-pp .i-pause,
+.demos .is-playing .dm-pp .i-play,
+.demos .dm-mute .i-x,
+.demos .dm-mute[aria-pressed="true"] .i-waves {
+  display: none;
+}
+
+.demos .is-playing .dm-pp .i-pause,
+.demos .dm-mute[aria-pressed="true"] .i-x {
+  display: inline;
+}
+
+.demos .dm-cc[aria-pressed="false"] {
+  opacity: 0.5;
+}
+
+.demos .dm-cc[aria-pressed="true"] svg {
+  color: #fbe4a8;
+}
+
+/* the thin progress line along the screen's foot */
+.demos .dm-prog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 3px;
+  background: rgba(253, 245, 230, 0.16);
+}
+
+.demos .dm-prog span {
+  display: block;
+  height: 100%;
+  background: var(--ms-red);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.demos .is-missing .dm-prog,
+.demos .dm-player:not(.is-custom) .dm-prog {
+  display: none;
+}
+
+.demos .dm-player figcaption {
+  margin-top: 10px;
+}
+
+/* the ten beats: the transcript, always in the page */
+.demos .dm-beats {
+  counter-reset: beat;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 15px/1.5 Arial, sans-serif;
+  color: var(--soft);
+}
+
+.demos .dm-beats li {
+  position: relative;
+  counter-increment: beat;
+  padding: 8px 10px 8px 42px;
+  border-left: 2px solid var(--rule);
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.demos .dm-beats li::before {
+  content: counter(beat, decimal-leading-zero);
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font: 700 11px/1.4 Arial, sans-serif;
+  letter-spacing: 0.08em;
+  color: var(--red);
+}
+
+.demos .dm-beats li.is-now {
+  border-left-color: var(--red);
+  background: color-mix(in srgb, var(--red) 9%, transparent);
+  color: var(--ink);
+}
+
+/* ---------- 2 and 3. the bands and their case files ---------- */
+.demos .dm-bands {
+  position: relative;
+  margin: 44px 0;
+  border: 1px solid var(--rule);
+  background: var(--linen);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+.demos .dm-band {
+  position: relative;
+  padding: 30px 18px 34px;
+  border-bottom: 0;
+}
+
+.demos .dm-band-h {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 30px;
+}
+
+.demos .dm-band-h .eyebrow {
+  display: block;
+  margin: 0;
+}
+
+.demos .dm-sub {
+  display: block;
+  font-size: clamp(28px, 3.8vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.demos .dm-chores {
+  z-index: 0;
+  padding-bottom: calc(var(--seam-a) + 40px);
+}
+
+.demos .dm-chores .dm-sub {
+  color: var(--ink);
+}
+
+/* The seam between the bands is cut on the brand slash: a long low rise, then the steep stroke. Three echoes in
+   the mark's colours sit behind it, as the mark's echoes sit behind its red stroke. */
+.demos .dm-seam {
+  position: relative;
+  z-index: 1;
+  height: 0;
+}
+
+.demos .dm-seam i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(-1 * var(--seam-a) - var(--off));
+  height: calc(var(--seam-a) + var(--off) + 2px);
+  background: var(--c);
+  clip-path: polygon(0 var(--seam-a), 74% var(--seam-b), 85% 0, 100% 0, 100% 100%, 0 100%);
+  transition: transform 0.8s var(--ease) calc(var(--k) * 0.12s);
+}
+
+.demos .dm-seam i:nth-child(1) { --off: 21px; --k: 2; --c: var(--e-sky); }
+.demos .dm-seam i:nth-child(2) { --off: 14px; --k: 1; --c: var(--e-gold); }
+.demos .dm-seam i:nth-child(3) { --off: 7px; --k: 0; --c: var(--e-olive); }
+
+.demos.dm-anim .dm-seam:not(.is-play) i {
+  transform: translateY(var(--off));
+}
+
+.demos .dm-work {
+  z-index: 2;
+  margin-top: calc(-1 * var(--seam-a));
+  padding-top: calc(var(--seam-a) + 34px);
+  background: linear-gradient(172deg, #d3142f, #a90c25 80%);
+  color: #fdf5e6;
+  clip-path: polygon(0 var(--seam-a), 74% var(--seam-b), 85% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.demos .dm-work .eyebrow {
+  color: #fbe4a8;
+}
+
+/* The case file: paper, a coloured band down its spine and a folder tab cut on the slash. */
+.demos .dm-file {
+  --band: var(--s-red);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  margin: 46px 0 0;
+  padding: 24px 18px 26px 24px;
+  border: 1px solid var(--s-line);
+  border-radius: 0 3px 3px 3px;
+  background: linear-gradient(90deg, var(--band) 5px, transparent 0), var(--s-paper);
+  color: var(--s-ink);
+  box-shadow: 0 3.5px 6px var(--drop), 0 26px 48px -24px var(--drop);
+}
+
+.demos .dm-band-h + .dm-file {
+  margin-top: 16px;
+}
+
+.demos .dm-file::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  bottom: 100%;
+  width: min(44%, 210px);
+  height: 15px;
+  background: linear-gradient(90deg, var(--band) 5px, transparent 0), var(--s-paper);
+  clip-path: polygon(0 0, calc(100% - 9.4px) 0, 100% 100%, 0 100%);
+}
+
+.demos .dm-c-inbox { --band: var(--s-gold); }
+.demos .dm-c-cand { --band: var(--s-olive); }
+.demos .dm-c-land { --band: var(--s-sky); }
+
+.demos .dm-file-h {
+  margin: 0;
+  font-size: clamp(24px, 2.8vw, 32px);
+  line-height: 1.12;
+  color: var(--s-ink);
+  text-wrap: balance;
+}
+
+.demos .dm-stage {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding: 18px 14px;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle, rgba(115, 93, 78, 0.16) 1px, transparent 1.4px) 0 0 / 18px 18px,
+    var(--s-in);
+}
+
+.demos .dm-copy {
+  min-width: 0;
+}
+
+/* the steps run down a spine, like the stations on the flow picture's route */
+.demos .dm-steps {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 16px/1.5 Arial, sans-serif;
+}
+
+.demos .dm-steps::before,
+.demos .dm-steps::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--s-line);
+}
+
+.demos .dm-steps::after {
+  background: var(--s-red);
+  transform-origin: 50% 0;
+}
+
+.demos .dm-steps li {
+  position: relative;
+  z-index: 1;
+  padding-left: 30px;
+}
+
+.demos .dm-steps li::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 0.38em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--s-red);
+  box-shadow: 0 0 0 3px var(--s-paper);
+}
+
+.demos .dm-date,
+.demos .dm-yes-q {
+  color: var(--s-red);
+  font-weight: 700;
+}
+
+.demos .dm-n {
+  display: inline-block;
+  min-width: calc(var(--w, 3) * 1ch);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--s-red);
+}
+
+.demos .dm-close {
+  margin: 24px 0 0;
+  padding: 16px 0 0 30px;
+  border-top: 1.5px dashed var(--s-line);
+  font: italic 400 clamp(18px, 1.9vw, 21px) / 1.45 var(--ms-font);
+  letter-spacing: -0.01em;
+  color: var(--s-ink);
+}
+
+.demos .dm-line {
+  margin: 0;
+  font: 16.5px/1.55 Arial, sans-serif;
+  color: var(--s-ink);
+}
+
+.demos .dm-c-land .dm-copy {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.demos .dm-c-land .dm-line:first-child {
+  font: 400 clamp(20px, 2.1vw, 24px) / 1.35 var(--ms-font);
+  letter-spacing: -0.015em;
+}
+
+.demos .dm-c-land .dm-line + .dm-line {
+  padding-left: 16px;
+  border-left: 3px solid var(--s-sky);
+}
+
+/* the scenes */
+.demos .dm-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  overflow: visible;
+  font-family: var(--ms-font);
+}
+
+.demos .dm-svg * {
+  transform-box: fill-box;
+  transform-origin: var(--o, 50% 50%);
+}
+
+.demos .dm-bird { max-width: 380px; }
+.demos .dm-inbox { max-width: 520px; }
+.demos .dm-land { max-width: 560px; }
+.demos .dm-sheet { max-width: 300px; }
+.demos .dm-dl { max-width: 300px; }
+
+.demos .dm-svg .s-body { fill: var(--s-ink); }
+.demos .dm-svg .s-screen { fill: var(--s-paper); }
+.demos .dm-svg .s-rule { fill: var(--s-line); }
+.demos .dm-svg .s-chip { fill: var(--s-in); }
+.demos .dm-svg .s-date { fill: var(--s-soft); font: 700 10.5px Arial, sans-serif; letter-spacing: 0.06em; text-anchor: middle; }
+.demos .dm-svg .s-her > * { fill: var(--s-her); }
+.demos .dm-svg .s-us > * { fill: var(--s-red); }
+.demos .dm-svg .s-red { fill: var(--s-red); }
+.demos .dm-svg .s-gold { fill: var(--s-gold); }
+.demos .dm-svg .s-olive { fill: var(--s-olive); }
+.demos .dm-svg .s-sky { fill: var(--s-sky); }
+.demos .dm-svg .s-ink { fill: var(--s-ink); }
+.demos .dm-svg .s-soft { fill: var(--s-soft); opacity: 0.6; }
+.demos .dm-svg .s-cream { fill: #fdf5e6; }
+.demos .dm-svg .s-on-red { fill: #fdf5e6; opacity: 0.85; }
+.demos .dm-svg .s-her-ink { fill: var(--s-soft); opacity: 0.5; }
+.demos .dm-svg .s-wave { fill: var(--s-soft); }
+.demos .dm-svg .s-yes { fill: var(--s-ink); font: italic 700 16px var(--ms-font); text-anchor: middle; }
+.demos .dm-svg .s-bag { fill: #e9cf9b; stroke: var(--s-ink); stroke-width: 1.3; stroke-linejoin: round; }
+.demos .dm-svg .s-bag-top,
+.demos .dm-svg .s-bag-line { fill: none; stroke: var(--s-ink); stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+.demos .dm-svg .s-paper { fill: var(--s-paper); stroke: var(--s-line); stroke-width: 1.1; }
+.demos .dm-svg .s-dash { fill: none; stroke: var(--s-line); stroke-width: 1.3; stroke-dasharray: 3 3; }
+.demos .dm-svg .s-card { fill: none; stroke: var(--s-ink); stroke-width: 1.3; }
+.demos .dm-svg .s-ok { fill: var(--s-olive); }
+.demos .dm-svg .s-ck { fill: none; stroke: #fdf5e6; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.demos .dm-svg .s-ck-red { fill: none; stroke: var(--s-red); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.demos .dm-svg .s-code { fill: none; stroke: var(--s-ink); stroke-width: 1.4; opacity: 0.7; }
+.demos .dm-svg .s-tray,
+.demos .dm-svg .s-arch { fill: var(--s-paper); stroke: var(--s-ink); stroke-width: 1.8; stroke-linejoin: round; }
+.demos .dm-svg .s-tray-in { fill: none; stroke: var(--s-ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+.demos .dm-svg .s-lane { fill: var(--s-paper); stroke: var(--s-line); stroke-width: 1.1; }
+.demos .dm-svg .s-funnel { fill: none; stroke: var(--s-soft); stroke-width: 1.3; stroke-linejoin: round; }
+.demos .dm-svg .s-paper-line { fill: var(--s-paper); stroke: var(--s-line); stroke-width: 1.1; }
+.demos .dm-svg .s-box { fill: var(--s-paper); stroke: var(--s-ink); stroke-width: 1.4; }
+.demos .dm-svg .s-arrow { fill: none; stroke: var(--s-red); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.demos .dm-svg .s-row { fill: var(--s-soft); opacity: 0.42; }
+.demos .dm-svg .s-row-soft { fill: var(--s-line); }
+.demos .dm-svg .s-chrome { fill: var(--s-in); }
+.demos .dm-svg .s-lock { fill: var(--s-olive); }
+.demos .dm-svg .s-lock-bow { fill: none; stroke: var(--s-olive); stroke-width: 1.2; }
+.demos .dm-svg .s-band { fill: var(--s-gold); opacity: 0.12; }
+.demos .dm-svg .s-note { fill: #fbe4a8; stroke: var(--s-gold); stroke-width: 1; }
+.demos .dm-svg .s-cream-line { fill: none; stroke: #fdf5e6; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.demos .dm-svg .s-grid { fill: none; stroke: var(--s-line); stroke-width: 1; }
+.demos .dm-svg .s-tab { fill: var(--s-line); opacity: 0.55; }
+.demos .dm-svg .s-sky-l { fill: #c4d8f1; }
+.demos .dm-svg .s-sage { fill: #cfe0c4; }
+.demos .dm-svg .s-butter { fill: #fbe4a8; }
+.demos .dm-svg .s-peach { fill: #f8d3b8; }
+.demos .dm-svg .s-voice { fill: var(--s-ink); }
+.demos .dm-svg .s-rate { fill: none; stroke: var(--s-soft); stroke-width: 1.4; stroke-linejoin: round; }
+.demos .dm-svg .s-pointer { fill: #ffffff; stroke: var(--s-ink); stroke-width: 1.4; stroke-linejoin: round; }
+
+/* the landing scene's earlier versions only show while it plays */
+.demos .dm-svg .dm-flip {
+  opacity: 0;
+}
+
+/* candidates: the sources, the list, the two numbers and the download */
+.demos .dm-c-cand {
+  gap: 24px;
+}
+
+.demos .dm-lead {
+  margin: -8px 0 0;
+  max-width: 62ch;
+  font: 400 clamp(17px, 1.8vw, 19px) / 1.5 var(--ms-font);
+  color: var(--s-soft);
+}
+
+.demos .dm-feed {
+  display: grid;
+  gap: 20px;
+}
+
+.demos .dm-cap {
+  margin: 0 0 12px;
+  font: 700 11px/1.4 Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--s-soft);
+}
+
+.demos .dm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demos .dm-chips li {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.demos .dm-chip {
+  max-width: 100%;
+  padding: 0.4em 0.8em 0.44em 1em;
+  border: 1px solid var(--s-line);
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--c) 4px, transparent 0), var(--s-paper);
+  font: 400 15px/1.25 var(--ms-font);
+  color: var(--s-ink);
+  box-shadow: 0 3px 5px -1px rgba(20, 13, 8, 0.16);
+}
+
+.demos .dm-wire {
+  display: none;
+}
+
+.demos .dm-stage-sheet {
+  padding: 18px;
+}
+
+.demos .dm-nums {
+  display: grid;
+  gap: 18px;
+  padding-top: 22px;
+  border-top: 1.5px dashed var(--s-line);
+}
+
+.demos .dm-num {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.demos .dm-big-n {
+  font: 400 clamp(56px, 8vw, 96px) / 0.95 var(--ms-font);
+  letter-spacing: -0.04em;
+  color: var(--s-red);
+  white-space: nowrap;
+}
+
+.demos .dm-big-n .dm-n {
+  display: inline;
+  min-width: 0;
+  font-weight: 400;
+}
+
+.demos .dm-to {
+  font-size: 0.36em;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--s-soft);
+}
+
+.demos .dm-num-l {
+  max-width: 30ch;
+  font: 15.5px/1.45 Arial, sans-serif;
+  color: var(--s-soft);
+}
+
+.demos .dm-dl-row {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+}
+
+/* ---------- 4. this site ---------- */
+.demos .dm-site {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.demos .dm-site h2 {
+  margin-bottom: 10px;
+}
+
+.demos .dm-site-line {
+  margin: 0 0 4px;
+  max-width: 52ch;
+  font-size: 18px;
+  color: var(--soft);
+}
+
+.demos .dm-clock {
+  width: 116px;
+  overflow: visible;
+}
+
+.demos .dm-clock .c-rim { fill: none; stroke: var(--rule); stroke-width: 2; }
+.demos .dm-clock .c-face { fill: var(--linen); stroke: var(--rule); stroke-width: 1.2; }
+.demos .dm-clock .c-tick { fill: none; stroke: var(--soft); stroke-width: 2.6; stroke-linecap: round; }
+.demos .dm-clock .c-hand { transform-box: view-box; transform-origin: 60px 60px; }
+.demos .dm-clock .c-hand path { fill: none; stroke-linecap: round; }
+.demos .dm-clock .c-hr { transform: rotate(110deg); }
+.demos .dm-clock .c-hr path { stroke: var(--ink); stroke-width: 5; }
+.demos .dm-clock .c-mn { transform: rotate(240deg); }
+.demos .dm-clock .c-mn path { stroke: var(--red); stroke-width: 3; }
+.demos .dm-clock .c-e1 { transform: rotate(228deg); }
+.demos .dm-clock .c-e2 { transform: rotate(216deg); }
+.demos .dm-clock .c-e3 { transform: rotate(204deg); }
+.demos .dm-clock .c-e1 path { stroke: var(--e-olive); stroke-width: 2.6; }
+.demos .dm-clock .c-e2 path { stroke: var(--e-gold); stroke-width: 2.4; }
+.demos .dm-clock .c-e3 path { stroke: var(--e-sky); stroke-width: 2.2; }
+.demos .dm-clock .c-pin { fill: var(--red); }
+.demos .dm-clock .c-pin-in { fill: var(--paper); }
+
+.demos .dm-more {
+  font-size: 15px;
+}
+
+/* ---------- 5. close ---------- */
+.demos .dm-end {
+  position: relative;
+  padding: 48px 0 56px;
+  border-bottom: 0;
+}
+
+.demos .dm-end h2 {
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1;
+  margin-bottom: 22px;
+}
+
+.demos .dm-end-mark {
+  width: 132px;
+  margin-bottom: 18px;
+}
+
+.demos .dm-end-mark img {
+  width: 100%;
+}
+
+/* ---------- wider screens ---------- */
+@media (min-width: 640px) {
+  .demos .dm-band {
+    padding: 36px 32px 40px;
+  }
+
+  .demos .dm-chores {
+    padding-bottom: calc(var(--seam-a) + 46px);
+  }
+
+  .demos .dm-work {
+    padding-top: calc(var(--seam-a) + 40px);
+  }
+
+  .demos .dm-file {
+    padding: 30px 30px 32px 36px;
+  }
+
+  .demos .dm-nums {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .demos .dm-site {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .demos .dm-clock {
+    width: 140px;
+  }
+}
+
+@media (min-width: 900px) {
+  .demos .dm-walk-grid {
+    grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  /* beside the video, the transcript is a column as tall as the player that scrolls to the beat being spoken */
+  .demos .dm-beats-wrap {
+    position: relative;
+    min-height: 240px;
+  }
+
+  .demos .dm-beats {
+    position: absolute;
+    inset: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 36px;
+    scrollbar-width: thin;
+    -webkit-mask-image: linear-gradient(#000 82%, transparent);
+    mask-image: linear-gradient(#000 82%, transparent);
+  }
+
+  .demos .dm-file {
+    padding: 36px 40px 38px 44px;
+  }
+
+  /* a scene on one side, the title and its steps on the other; the candidates file runs top to bottom */
+  .demos .dm-file:not(.dm-c-cand) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "stage h" "stage copy";
+    gap: 18px 40px;
+  }
+
+  .demos .dm-file.dm-flip-side {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    grid-template-areas: "h stage" "copy stage";
+  }
+
+  .demos .dm-file:not(.dm-c-cand) > .dm-file-h { grid-area: h; align-self: end; }
+  .demos .dm-file:not(.dm-c-cand) > .dm-stage { grid-area: stage; align-self: stretch; padding: 26px; }
+  .demos .dm-file:not(.dm-c-cand) > .dm-copy { grid-area: copy; }
+
+  .demos .dm-feed {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+    gap: 0;
+    align-items: center;
+  }
+
+  .demos .dm-chips {
+    display: grid;
+    gap: 10px;
+  }
+
+  .demos .dm-chip {
+    flex: none;
+  }
+
+  /* each source runs a wire to the list */
+  .demos .dm-wire {
+    position: relative;
+    display: block;
+    flex: 1;
+    min-width: 28px;
+    height: 1.5px;
+    margin-left: 8px;
+    background: repeating-linear-gradient(90deg, var(--s-soft) 0 3px, transparent 3px 7px);
+    opacity: 0.7;
+    transform-origin: 0 50%;
+  }
+
+  .demos .dm-wire::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: -4.5px;
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    background: var(--c);
+  }
+
+  .demos .dm-dl-row {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .demos .dm-dl-row .dm-line {
+    font-size: 18px;
+    max-width: 40ch;
+  }
+
+  .demos .dm-end {
+    padding: 64px 0 72px;
+  }
+
+  .demos .dm-end-mark {
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    width: min(40%, 380px);
+    margin: 0;
+    transform: translateY(-50%);
+  }
+}
+
+/* ---------- motion: only with script, IntersectionObserver and no reduced-motion preference ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .demos .dm-top h1::after {
+    animation: dm-draw 0.9s var(--ease) 0.3s backwards;
+  }
+}
+
+.demos.dm-anim [data-play]:not(.is-play) :is(.dm-p, .dm-point) {
+  opacity: 0;
+}
+
+.demos.dm-anim [data-play]:not(.is-play) :is(.dm-steps li, .dm-close, .dm-line, .dm-num, .dm-chips li) {
+  opacity: 0.3;
+}
+
+.demos.dm-anim [data-play]:not(.is-play) .dm-steps li::before {
+  transform: scale(0);
+}
+
+.demos.dm-anim [data-play]:not(.is-play) .dm-steps::after {
+  transform: scaleY(0);
+}
+
+.demos.dm-anim [data-play]:not(.is-play) .dm-wire {
+  transform: scaleX(0);
+}
+
+.demos.dm-anim .dm-site:not(.is-play) .c-hand {
+  transform: rotate(0deg);
+}
+
+.demos.dm-anim .is-play .dm-p { animation: dm-in 0.55s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-pop { animation: dm-pop 0.5s var(--pop) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-grow { --o: 0% 50%; animation: dm-grow 0.6s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-rise { animation: dm-rise 0.45s var(--pop) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-drop { animation: dm-drop 0.6s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-slide { animation: dm-slide 0.6s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-p.dm-slip { animation: dm-slip 0.8s var(--pop) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-fly { animation: dm-fly 0.8s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-flip { animation: dm-flip 1.5s var(--ease) var(--at, 0s); }
+.demos.dm-anim .is-play .dm-tabs { animation: dm-tabs 3.1s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-point { animation: dm-point 0.8s var(--ease) var(--at, 0s) backwards; }
+.demos.dm-anim .is-play .dm-press { animation: dm-press 0.45s var(--ease) var(--at, 0s); }
+
+.demos.dm-anim .is-play :is(.dm-steps li, .dm-close, .dm-line, .dm-num, .dm-chips li) {
+  animation: dm-step 0.6s var(--ease) var(--at, 0s) backwards;
+}
+
+.demos.dm-anim .is-play .dm-steps li::before {
+  animation: dm-dot 0.5s var(--pop) var(--at, 0s) backwards;
+}
+
+.demos.dm-anim .is-play .dm-steps::after {
+  animation: dm-spine var(--spine, 6s) linear 0.3s backwards;
+}
+
+.demos.dm-anim .is-play .dm-wire {
+  animation: dm-wire 0.5s var(--ease) calc(var(--at, 0s) + 0.2s) backwards;
+}
+
+.demos.dm-anim .is-play .dm-yes {
+  animation-duration: 0.65s;
+}
+
+.demos.dm-anim .dm-site.is-play .c-hand {
+  animation: dm-sweep 1.7s var(--ease) 0.2s backwards;
+}
+
+.demos.dm-anim .dm-site.is-play .c-e1 { animation-delay: 0.27s; }
+.demos.dm-anim .dm-site.is-play .c-e2 { animation-delay: 0.34s; }
+.demos.dm-anim .dm-site.is-play .c-e3 { animation-delay: 0.41s; }
+
+.demos .dm-c-bird .dm-steps { --spine: 5.4s; }
+.demos .dm-c-inbox .dm-steps { --spine: 5.2s; }
+
+@keyframes dm-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes dm-pop { from { opacity: 0; transform: scale(0.4); } }
+@keyframes dm-grow { from { opacity: 0; transform: scaleX(0); } }
+@keyframes dm-rise { from { opacity: 0; transform: scaleY(0); } }
+@keyframes dm-drop { from { opacity: 0; transform: translateY(-34px); } }
+@keyframes dm-slide { from { opacity: 0; transform: translateX(26px); } }
+@keyframes dm-slip { from { opacity: 0; transform: translate(-30px, 40px) rotate(-6deg); } }
+@keyframes dm-fly { from { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } }
+@keyframes dm-step { from { opacity: 0.3; transform: translateY(6px); } }
+@keyframes dm-dot { from { transform: scale(0); } }
+@keyframes dm-spine { from { transform: scaleY(0); } }
+@keyframes dm-wire { from { transform: scaleX(0); } }
+@keyframes dm-draw { from { transform: scaleX(0); } }
+@keyframes dm-sweep { from { transform: rotate(0deg); } }
+@keyframes dm-press { 40% { transform: scale(0.86); } }
+
+@keyframes dm-flip {
+  0% { opacity: 0; transform: translateX(26px); }
+  14%, 84% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateX(-26px); }
+}
+
+@keyframes dm-tabs {
+  0%, 44% { transform: translateX(-128px); }
+  54%, 88% { transform: translateX(-64px); }
+  100% { transform: none; }
+}
+
+@keyframes dm-point {
+  from { opacity: 0; transform: translate(70px, -96px); }
+}
+
+/* Reduced motion: final states, nothing moving */
+@media (prefers-reduced-motion: reduce) {
+  .demos .dm-big,
+  .demos .dm-bar,
+  .demos .dm-beats li,
+  .demos .dm-seam i {
+    transition: none;
+  }
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 640px) {
+  /* styles.css keeps one header link on phones (Demos); its underline follows the narrower padding. */
+  .demos .dm-here::after {
+    left: 4px;
+    right: 4px;
+  }
+
+  .demos .dm-top {
+    padding: 18px 0 20px;
+  }
+
+  .demos .dm-cue {
+    bottom: 46px;
+    max-width: 92%;
+  }
+
+  .demos .dm-cue span {
+    padding: 6px 10px 7px;
+  }
+
+  .demos .dm-bands {
+    margin: 32px 0;
+  }
+
+  .demos {
+    --seam-a: 54px;
+    --seam-b: 30px;
+  }
+
+  .demos .dm-big-n {
+    font-size: 64px;
+  }
+
+  .demos .dm-end-mark {
+    width: 110px;
+  }
+}

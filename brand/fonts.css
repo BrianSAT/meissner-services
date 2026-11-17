@@ -1,0 +1,2 @@
+/* Option 7 uses installed system fonts, not redistributed font binaries. */
+:root { --ms-font: Georgia, "Iowan Old Style", "Palatino Linotype", serif; }
