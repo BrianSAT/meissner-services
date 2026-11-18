@@ -20,8 +20,9 @@ const FLOW_ART = (() => {
           rect('ki', t, 17, 48, 6, 1) + rect('ki', t, 26, 34, 6, 1) +
           [[37, 46], [42, 42], [47, 30]].map(([y, w]) => rect('ks', t, y, w, 2.5, 1)).join('') + rect('c' + acc, t, 54, 28, 9, 4.5);
       },
-      change: (s) => {
-        if (R(3) === 0) return { s: { ...s, left: !s.left }, key: 'side' + !s.left, piece: 0 };
+      asks: { side: ['Move the photo across', 'Flip the layout'], acc: ['Try a different color', 'Match our brand color'] },
+      change: (s, k) => {
+        if (k === 'side') return { s: { ...s, left: !s.left }, key: 'side' + !s.left, piece: 0 };
         const acc = [0, 1, 2].filter((a) => a !== s.acc)[R(2)];
         return { s: { ...s, acc }, key: 'acc' + acc, piece: s.left ? 3 : 2 };
       },
@@ -29,6 +30,7 @@ const FLOW_ART = (() => {
     {
       crews: ['Search', 'Check', 'List'],
       title: 'A candidate list',
+      asks: { row: ['Swap one candidate out', 'Find someone more senior', 'Drop one we already know'] },
       start: { rows: [{ l: 'M', a: 56, b: 30 }, { l: 'R', a: 46, b: 38 }, { l: 'T', a: 34, b: 24 }] },
       art: ({ rows }) => rect('kp', 0, 0, 112, 70) + rows.map((r, i) => {
         const y = 3 + i * 22.5;
@@ -45,6 +47,8 @@ const FLOW_ART = (() => {
       crews: ['Map', 'Build', 'Test'],
       title: 'A new workflow for my clients',
       start: { steps: [0, 1, 3, 2] },
+      // The steps carry no text to redraw, so "Edit the text" rides with a swap.
+      asks: { add: ['Link our Slack', 'Add an approval step', 'Add a reminder email'], swap: ['Move sign-off earlier', 'Swap those two steps', 'Edit the text'] },
       art: ({ steps }) => {
         let out = rect('kp', 0, 0, 112, 70), d = '';
         steps.forEach((c, i) => {
@@ -56,11 +60,13 @@ const FLOW_ART = (() => {
         });
         return out + `<path class="fl-ar" d="${d}"/>`;
       },
-      change: (s) => {
+      change: (s, k) => {
         const steps = s.steps.slice();
-        if (steps.length < 6 && R(2)) {
-          steps.push([0, 1, 2, 3].filter((c) => c !== steps[steps.length - 1])[R(3)]);
-          return { s: { steps }, key: 'add' + steps.length, piece: at(...flowPos(steps.length - 1)) };
+        if (k === 'add') {
+          const gone = steps.length < 6 ? -1 : steps.pop(); // six is all the art holds: the newest step makes room
+          const cs = [0, 1, 2, 3].filter((c) => c !== steps[steps.length - 1] && c !== gone);
+          steps.push(cs[R(cs.length)]);
+          return { s: { steps }, key: 'add' + steps.length + steps[steps.length - 1], piece: at(...flowPos(steps.length - 1)) };
         }
         let i = R(steps.length - 1);
         while (steps[i] === steps[i + 1]) i = (i + 1) % (steps.length - 1);
@@ -71,6 +77,7 @@ const FLOW_ART = (() => {
     {
       crews: ['Plan', 'Build', 'Test'],
       title: 'A schedule manager',
+      asks: { move: ['Move one to another day', 'Spread the week out', 'Clear that day a little'] },
       start: { blocks: [{ d: 0, s: 0, n: 2, c: 0 }, { d: 1, s: 2, n: 2, c: 1 }, { d: 2, s: 1, n: 1, c: 3 }, { d: 3, s: 0, n: 3, c: 2 }, { d: 4, s: 2, n: 1, c: 0 }] },
       art: ({ blocks }) => {
         let out = rect('kp', 0, 0, 112, 70), d = '';
@@ -93,6 +100,7 @@ const FLOW_ART = (() => {
     {
       crews: ['Sort', 'Clear', 'File'],
       title: 'Digital cleanup',
+      asks: { fold: ['Add a folder for taxes', 'Split out the photos', 'Replace the old archive'] },
       start: { f: [0, 1, 2, 3] },
       art: ({ f }) => rect('kp', 0, 0, 112, 70) + f.map((c, i) => {
         const x = 5 + i * 26.5;
@@ -157,6 +165,28 @@ const FLOW_ART = (() => {
   const big = $('#fl-big'), hole = $('#fl-hole'), sheen = $('#fl-sheen'), ticks = $$('.fl-tick'), scrs = $$('.fl-scr');
   const typing = $('#fl-typing'), bubw = $('#fl-bubw'), envArt = $('#fl-env-art'), envFlap = $('#fl-env-flap'), envShut = $('#fl-env-shut'), envSeal = $('#fl-env-seal'), shelf = $('#fl-shelf'), ask = $('#fl-ask');
   const NAMES = ['ask', 'ticket', 'scope', 'rail', 'build', 'fit', 'deliver'];
+  // "Not quite right" asks: each job deals its update texts shuffled, every one before any repeats, and never the same
+  // text twice running. Each text names the change kind its picture makes.
+  const decks = jobs.map(() => []), lastAsk = jobs.map(() => '');
+  const deal = (j) => {
+    if (!decks[j].length) {
+      const all = Object.entries(jobs[j].asks).flatMap(([k, ts]) => ts.map((t) => ({ k, t })));
+      for (let n = all.length - 1; n > 0; n--) { const r = R(n + 1); [all[n], all[r]] = [all[r], all[n]]; }
+      if (all[all.length - 1].t === lastAsk[j]) all.unshift(all.pop()); // dealt from the end
+      decks[j] = all;
+    }
+    const a = decks[j].pop();
+    lastAsk[j] = a.t;
+    return a;
+  };
+  // The ask bubble fits its text: its body runs from the text's start to the tail at 0.
+  const askSay = (t) => {
+    const txt = ask.querySelector('text');
+    txt.textContent = t;
+    const x0 = -Math.ceil(txt.getComputedTextLength() + 22);
+    txt.setAttribute('x', x0 - 3);
+    ask.querySelector('path').setAttribute('d', `M${x0} -13H-25a13 13 0 0 1 12 8l13 5-13 5a13 13 0 0 1-12 8H${x0}a13 13 0 0 1 0-26z`);
+  };
 
   // Geometry shared with the SVG. Stations on the spine; the pieces' places (scope row, assembled sheet, Rail at half
   // size, finished piece at 1.2); each piece turns about the centre of its quarter.
@@ -462,6 +492,13 @@ const FLOW_ART = (() => {
     ], 760, { delay: delay + 380, easing: SETTLE });
   };
 
+  // The glowing nib writes the ticket title: the cover wipes off it left to right in d, the pen riding its edge.
+  const nib = (d, delay = 0) => {
+    tkCover.style.transform = 'scaleX(0)';
+    A(tkCover, [{ transform: 'scaleX(1)' }, { transform: 'scaleX(0)' }], d, { delay, easing: 'cubic-bezier(.35,0,.6,1)' });
+    return A(tkPen, [{ transform: 'translate(0px, 0px) scale(.5)', opacity: 0 }, { opacity: 1, offset: 0.12 }, { transform: 'translate(212px, 0px) scale(1)', opacity: 1, offset: 0.88 }, { transform: 'translate(222px, 0px) scale(.3)', opacity: 0 }], d + 20, { delay: delay - 10, easing: 'cubic-bezier(.35,0,.6,1)' });
+  };
+
   const STAGES = [
     // 1 You: the chip pulses, the waveform breathes, the job drops onto the first node and its echoes fan out.
     async (at) => {
@@ -485,9 +522,7 @@ const FLOW_ART = (() => {
       A(tkw, [{ transform: 'translate(-158px, -4px) scale(.16)', opacity: 0 }, { opacity: 1, offset: 0.25 }, { transform: 'translate(0px, 0px) scale(1)', opacity: 1 }], 580, { delay: 360, easing: SETTLE });
       tkBand.style.transform = 'none';
       A(tkBand, [{ transform: 'scaleY(0)' }, { transform: 'scaleY(1)' }], 250, { delay: 880 });
-      tkCover.style.transform = 'scaleX(0)';
-      A(tkCover, [{ transform: 'scaleX(1)' }, { transform: 'scaleX(0)' }], 620, { delay: 1020, easing: 'cubic-bezier(.35,0,.6,1)' });
-      A(tkPen, [{ transform: 'translate(0px, 0px) scale(.5)', opacity: 0 }, { opacity: 1, offset: 0.12 }, { transform: 'translate(212px, 0px) scale(1)', opacity: 1, offset: 0.88 }, { transform: 'translate(222px, 0px) scale(.3)', opacity: 0 }], 640, { delay: 1010, easing: 'cubic-bezier(.35,0,.6,1)' });
+      nib(620, 1020);
       tkLines.forEach((l, i) => { l.style.transform = 'none'; A(l, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], 300, { delay: 1560 + i * 140 }); });
       await at(g);
       await at(wait(1480));
@@ -593,6 +628,7 @@ const FLOW_ART = (() => {
   const run = async (from, until) => {
     const my = ++token, at = async (p) => { const v = await p; if (my !== token) throw 0; return v; };
     stop(); speed = 0.75; rounding = false; follow = null; pose(from - 1); again.disabled = false;
+    tkTitle.textContent = jobs[job].title; // a replay tells the job from its own ask
     try {
       for (let k = from; k <= until; k++) { setAt(k, k > from && !wide.matches); await STAGES[k](at); }
       if (until === 6 && !wide.matches) { await at(wait(6000)); if (!perfectDone) round(); }
@@ -605,11 +641,13 @@ const FLOW_ART = (() => {
     const my = ++token, at = async (p) => { const v = await p; if (my !== token) throw 0; return v; };
     answered = true;
     stop(); pose(6);
+    const want = deal(job);
     let ch;
-    do ch = jobs[job].change(state); while (ch.key === lastKey);
+    do ch = jobs[job].change(state, want.k); while (ch.key === lastKey);
     lastKey = ch.key; rounds++; roundEl.textContent = 'Round ' + rounds;
+    askSay(want.t);
     const i = ch.piece, c = CREW[i];
-    if (still) { state = ch.s; draw(); answered = false; cardSync(); return; }
+    if (still) { state = ch.s; draw(); tkTitle.textContent = want.t; answered = false; cardSync(); return; }
     again.disabled = true; speed = 0.68; rounding = true;
     if (asked === true && !wide.matches) chase();
     try {
@@ -636,7 +674,8 @@ const FLOW_ART = (() => {
       setAt(1);
       tokY = 119;
       tes.forEach((e, idx) => { e.style.transform = TE(idx, REST, 119); fade(e, 0, 1, 300); });
-      await at(A(tk, [1, 0.3, 1, 0.3, 1].map((o) => ({ opacity: o })), 480, { easing: 'ease-in-out' }).finished);
+      tkTitle.textContent = want.t; // the ask arrives and the nib writes it as the ticket's new title
+      await at(nib(460, 10).finished);
       state = ch.s;
       art2.innerHTML = jobs[job].art(state);
       hole.setAttribute('href', '#fl-p' + i);

@@ -7,7 +7,7 @@
   --f-red: var(--red); --f-lit: var(--red); --f-hot: #ee2244;
   --f-gold: #9a6c1e; --f-olive: #6c7c3d; --f-sky: #4e80ba; --f-far: #dac5a2;
   --f-paper: #ffffff; --f-pink: var(--ink); --f-psoft: var(--soft); --f-plin: #d3bc98;
-  --f-dog: var(--ink); --f-dogw: #a87a2a; --f-c2: var(--ms-echo-olive); --f-c3: var(--ms-echo-sky); --f-tink: #14171a;
+  --f-dog: #c4852f; --f-dogw: #fbf1dc; --f-dogd: #2a2019; --f-c2: var(--ms-echo-olive); --f-c3: var(--ms-echo-sky); --f-tink: #14171a;
   --f-dim: 0.72; --f-drop-alpha: 0.16; --f-well: #ebd9be;
   display: flex; flex-direction: column; gap: 14px;
 }
@@ -15,16 +15,16 @@
   --f-card: var(--linen); --f-card-hi: #1d2228; --f-in: #1e2327; --f-rule: var(--rule); --f-lit: var(--red-hover); --f-hot: var(--red-hover);
   --f-gold: #e0b45c; --f-olive: #a9b77a; --f-sky: #8fb8e6; --f-far: #5b5346;
   --f-paper: var(--ink); --f-pink: #4b3b31; --f-psoft: #735d4e; --f-plin: #f1dfc4;
-  --f-dog: var(--f-gold); --f-dogw: var(--ink); --f-c2: #9AA570; --f-c3: #C4D8F1; --f-tink: var(--linen);
+  --f-dog: #e0b45c; --f-dogw: #f6e7c6; --f-dogd: #5a3f2c; --f-c2: #9AA570; --f-c3: #C4D8F1; --f-tink: var(--linen);
   --f-dim: 0.54; --f-drop-alpha: 0.42; --f-well: #0d1013;
 }
 .flow-pick { order: 0; display: flex; flex-direction: column; gap: 6px; max-width: 420px }
-.flow-pick label { font: 700 14px/1.3 Arial, sans-serif; color: var(--ink) }
+.flow-pick label { font: 700 14px/1.3 var(--ms-font); --fvs: var(--fv-label); color: var(--ink) }
 .flow-pick select {
   appearance: none; min-height: 48px; padding: 10px 44px 10px 14px; border: 1px solid var(--ink); border-radius: 0;
   background: linear-gradient(45deg, transparent 50%, var(--ink) 0) right 22px top 50% / 7px 7px no-repeat,
     linear-gradient(-45deg, transparent 50%, var(--ink) 0) right 15px top 50% / 7px 7px no-repeat, var(--paper);
-  color: var(--ink); font: 700 16px/1.3 Arial, sans-serif; cursor: pointer;
+  color: var(--ink); font: 700 16px/1.3 var(--ms-font); --fvs: var(--fv-label); cursor: pointer;
   transition: border-color .22s;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
 }
@@ -33,23 +33,23 @@
 .flow-pic { order: 1 }
 .flow-box { container-type: inline-size; width: 100%; margin: 0 auto }
 .flow-stage { position: relative }
-.flow-caps { order: 2; list-style: none; margin: 0; padding: 0; font: 16px/1.55 Arial, sans-serif; color: var(--soft) }
+.flow-caps { order: 2; list-style: none; margin: 0; padding: 0; font: 16px/1.5 var(--ms-font); color: var(--soft) }
 .flow-caps li + li { margin-top: 18px }
-.flow-caps strong { display: block; margin-bottom: 4px; font: 400 23px/1.25 var(--ms-font); letter-spacing: -.03em; color: var(--ink) }
+.flow-caps strong { display: block; margin-bottom: 4px; font: 400 23px/1.25 var(--ms-font); --fvs: var(--fv-head); letter-spacing: -.015em; color: var(--ink) }
 .flow-dots { order: 3; display: flex; justify-content: center }
 .flow-dots button { width: 44px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer }
 .flow-dots button::before { content: ""; display: block; width: 10px; height: 10px; margin: auto; border: 2px solid var(--soft); border-radius: 50%; transition: transform .25s, background-color .25s, border-color .25s }
 .flow-dots button[aria-current=step]::before { border-color: var(--red); background: var(--red); transform: scale(1.18) }
 .flow-say { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0 }
-.flow-fine { margin: 6px 0 0; font: 12px/1.35 var(--ms-font); color: var(--soft); text-align: center }
+.flow-fine { margin: 6px 0 0; font: 600 12px/1.35 var(--ms-font); --fvs: var(--fv-label); color: var(--soft); text-align: center }
 
 /* The voicemail number: a call link that script turns into a small dialog (call, copy, close). */
 .fl-dial { width: min(92vw, 380px); padding: 22px 22px 18px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink) }
 .fl-dial::backdrop { background: color-mix(in srgb, #000 55%, transparent) }
 .fl-dial h3 { margin: 0 0 8px; font: 400 28px/1.15 var(--ms-font); letter-spacing: -.02em }
-.fl-dial p { margin: 0 0 18px; font: 16px/1.5 Arial, sans-serif; color: var(--soft) }
+.fl-dial p { margin: 0 0 18px; font: 16px/1.5 var(--ms-font); color: var(--soft) }
 .fl-dial-do { display: flex; flex-wrap: wrap; gap: 8px }
-.fl-dial-do > * { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; border: 1px solid var(--ink); background: none; color: var(--ink); font: 700 14px/1 Arial, sans-serif; text-decoration: none; cursor: pointer }
+.fl-dial-do > * { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; border: 1px solid var(--ink); background: none; color: var(--ink); font: 700 14px/1 var(--ms-font); --fvs: var(--fv-label); text-decoration: none; cursor: pointer }
 .fl-dial-do .fl-dial-call { border-color: var(--red); background: var(--red); color: #fdf5e6; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.6 * var(--cut)), calc(100% - var(--cut)) 100%, 0 100%) }
 .fl-dial-do .fl-dial-call:hover { background: var(--red-hover); color: #fdf5e6 }
 .fl-dial-do .fl-dial-call:focus-visible { outline: 2px solid #fdf5e6; outline-offset: -5px } /* the cut would clip an outside ring */
@@ -63,7 +63,7 @@
   border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); white-space: nowrap;
   box-shadow: 0 12px 30px -12px rgba(0, 0, 0, .6);
 }
-.fl-card button { min-height: 44px; padding: 0 18px; border-radius: 999px; font: 700 16px/1 var(--ms-font); cursor: pointer }
+.fl-card button { min-height: 44px; padding: 0 18px; border-radius: 999px; font: 700 16px/1 var(--ms-font); --fvs: var(--fv-label); cursor: pointer }
 .fl-again { border: 0; background: var(--red); color: #fdf5e6 }
 .fl-again:hover { background: var(--f-hot) }
 .fl-again:disabled { background: var(--soft); color: var(--paper); cursor: default }
@@ -97,7 +97,7 @@
 }
 
 /* The picture */
-.fl-svg { display: block; width: 100%; height: auto; max-width: none; overflow: visible; font-family: var(--ms-font) }
+.fl-svg { display: block; width: 100%; height: auto; max-width: none; overflow: visible; font-family: var(--ms-font); font-weight: 600; --fvs: var(--fv-label) }
 /* Parts drawn once in <defs> and shown through <use>: their selectors name no ancestor outside the drawn part, since
    a <use> copy is styled inside its own shadow tree. The f- classes are used nowhere else on the page. */
 .f-far { fill: var(--f-far) } .f-sky { fill: var(--f-sky) } .f-gold { fill: var(--f-gold) } .f-olive { fill: var(--f-olive) } .f-red { fill: var(--f-red) }
@@ -139,6 +139,7 @@
 /* paper: cream or white with brown ink in both themes */
 .fl-svg .pp { fill: var(--f-paper); stroke: var(--f-plin); stroke-width: 1.1 }
 .fl-svg .pt { fill: var(--f-pink); font-size: 13px }
+#fl-bubw .pt { font-size: 12.5px } /* Fraunces runs wide: the draft line stays inside its bubble */
 .fl-svg .pl { fill: var(--f-psoft); opacity: .52 }
 .fl-svg .fl-cover { fill: var(--f-paper); transform: scaleX(0) }
 .fl-svg .fl-pen-halo { fill: var(--f-lit); opacity: .28 }
@@ -159,8 +160,8 @@
 .fl-svg .cw { fill: var(--f-in); stroke: var(--f-rule); stroke-width: 1.1 }
 .fl-svg .cl { fill: var(--f-ink); font-size: 14px; font-weight: 700 }
 .fl-svg .tr { fill: var(--f-rule) }
-.fl-svg .fl-td { fill: #6a9a3a; stroke: var(--f-in); stroke-width: 1.4 }.f-dg { fill: var(--f-dog) } .f-dw { fill: var(--f-dogw) } .f-dgc { fill: var(--f-card) }
-.f-dgr { fill: none; stroke: var(--f-lit); stroke-width: 2.2; stroke-linecap: round }
+.fl-svg .fl-td { fill: #6a9a3a; stroke: var(--f-in); stroke-width: 1.4 }.f-dg { fill: var(--f-dog) } .f-dw { fill: var(--f-dogw) } .f-dd { fill: var(--f-dogd) } .f-ds { fill: var(--f-dogd); opacity: .42 } .f-dgc { fill: var(--f-card) }
+.f-dgr { fill: none; stroke: var(--f-lit); stroke-width: 1.8; stroke-linecap: round }
 /* what a dog carries: paper with an ink outline in both themes (the slip in the mouth takes the ink outline too) */
 .fl-svg .fl-cpp { fill: var(--f-paper); stroke: var(--f-pink); stroke-width: 1.2; stroke-linejoin: round }
 .fl-svg .fl-cin { fill: none; stroke: var(--f-pink); stroke-width: 1; stroke-linecap: round }
@@ -232,5 +233,5 @@
 #fl-bubw { transform-box: fill-box; transform-origin: 3% 100% }
 #fl-shelf rect { transform-box: fill-box; transform-origin: 50% 100% }
 .fl-dhind, .fl-dfore { transform-box: fill-box; transform-origin: 50% 0 }
-.fl-dtail { transform-box: fill-box; transform-origin: 92% 8% }
+.fl-dtail { transform-box: fill-box; transform-origin: 90% 92% }
 .fl-dhead { transform-box: fill-box; transform-origin: 18% 88% }
