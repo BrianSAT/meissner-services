@@ -195,12 +195,12 @@ const FLOW_ART = (() => {
   // Rail: each piece at half size on its slip, the quarter's top-centre 27 below its clip.
   const RAIL = [[182, 299], [226, 299], [326, 281.5], [370, 281.5]], CLIPX = [196, 268, 340, 412];
   const CEN = [[28, 17.5], [84, 17.5], [28, 52.5], [84, 52.5]], CREW = [0, 1, 2, 2];
-  // Where the dogs deliver: the bottom-row tile centres of each crew (x, picture units; the row's centre is y 454) and
+  // Where the dogs deliver: the bottom-row tile centres of each crew (x, picture units; the row's centre is y 486) and
   // which way each dog faces there. DOG is the dogs' drawn scale (read from the markup); what a dog carries is centred
   // MOUTH ahead of its feet and up, and it hands it up into the tile from REACH below the tile's centre. GUT is where
   // the Rail dog's feet run down the gutter between the second and third crews, its slip clear of both crews' tiles.
   const DOG = svg.querySelector('.fl-dp > g').transform.baseVal.consolidate().matrix.a;
-  const CREW0 = [62, 228, 394], TILEY = 454, MOUTH = [24 * DOG, 14 * DOG], REACH = 40, GUT = 362;
+  const CREW0 = [62, 228, 394], TILEY = 486, MOUTH = [24 * DOG, 14 * DOG], REACH = 40, GUT = 362;
   const DROP = { files: [[0, 1, -1], [1, 2, 1], [2, 0, 1]], lib: [[0, 2, -1], [1, 2, -1], [2, 1, -1]] }; // [crew, tile 0-2, facing]
   const PT =(i, [x, y], s = 1, r = 0) => `translate(${x}px, ${y}px) scale(${s}) translate(${CEN[i][0]}px, ${CEN[i][1]}px) rotate(${r}deg) translate(${-CEN[i][0]}px, ${-CEN[i][1]}px)`;
   const TT = (y, x = 28, r = 90, s = 0.085, tx = -290) => `translate(${x}px, ${y}px) rotate(${r}deg) scale(${s}) translate(${tx}px, 0px)`;
@@ -424,7 +424,7 @@ const FLOW_ART = (() => {
     const files = d === filesDog, [, n, face] = (files ? DROP.files : DROP.lib)[c], tx = CREW0[c] + 30 + 32 * n, X = tx - face * MOUTH[0];
     const legs = [[files ? 279 : d.hx, d.hy, (files ? 320 : 160) * k, 1], [X, TILEY + REACH + MOUTH[1], 650 * k, face], [X, TILEY + REACH + MOUTH[1], 160 * k], [d.hx, d.hy, 560 * k]];
     const tGrab = delay + legs[0][2], tGive = tGrab + legs[1][2];
-    const list = [...bound(d, legs, delay), take(d, tGrab - 120 * k, 0, 22), give(d, tGive, 0, -REACH / DOG), ...light(benches[c][3 + n], tGive + 200), dust(legs[0][0] - 10 * face, d.hy, tGrab, face)];
+    const list = [...bound(d, legs, delay), take(d, tGrab - 120 * k, 0, 22), give(d, tGive, 0, -REACH / DOG), ...light(benches[c].at(n - 3), tGive + 200), dust(legs[0][0] - 10 * face, d.hy, tGrab, face)];
     list.push(files
       ? A(lock, [{ transform: 'scale(1)' }, { transform: 'scale(1.18)', offset: 0.45 }, { transform: 'scale(1)' }], 360, { delay: tGrab - 200 * k, easing: 'ease-out', fill: 'none' })
       : A(shelf.querySelector('rect:nth-child(4)'), [{ transform: NONE }, { transform: 'translate(0px, -9px)', offset: 0.4 }, { transform: NONE }], 420, { delay: tGrab - 260 * k, easing: 'ease-in-out', fill: 'none' }));

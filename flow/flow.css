@@ -178,10 +178,10 @@
 .flow:not(.is-live) .fl-dy { transform: translate(0px, -4px) }
 .flow:not(.is-live) [data-pose=rail] .fl-dx { transform: translate(-8px, -127px) }
 .flow:not(.is-live) [data-pose=rail] .fl-dp { transform: rotate(6deg) }
-.flow:not(.is-live) [data-pose=files] .fl-dx { transform: translate(-2px, -35px) }
+.flow:not(.is-live) [data-pose=files] .fl-dx { transform: translate(8px, -10px) }
 .flow:not(.is-live) [data-pose=files] .fl-df { transform: scaleX(-1) }
 .flow:not(.is-live) [data-pose=files] .fl-dp { transform: rotate(-9deg) }
-.flow:not(.is-live) [data-pose=lib] .fl-dx { transform: translate(-30px, -35px) }
+.flow:not(.is-live) [data-pose=lib] .fl-dx { transform: translate(-30px, -10px) }
 .flow:not(.is-live) [data-pose=lib] .fl-df { transform: scaleX(-1) }
 .flow:not(.is-live) [data-pose=lib] .fl-dp { transform: rotate(-9deg) }
 .fl-svg .fl-ring { fill: none; stroke: var(--f-gold); stroke-width: 2.2; opacity: 0 }

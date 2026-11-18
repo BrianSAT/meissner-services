@@ -1460,44 +1460,6 @@ h2 {
   margin-bottom: 0;
 }
 
-/* Brian's signature: a faint silhouette behind the copy, toward the lower right, in the ink colour (decorative).
-   With motion it signs itself once, left to right, as the copy comes into view; otherwise it is simply there. */
-#who {
-  position: relative;
-}
-
-.who-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.who-sig {
-  position: absolute;
-  right: 12px;
-  bottom: 22px;
-  width: clamp(260px, 46vw, 560px);
-  aspect-ratio: 560 / 313;
-  background: var(--ink);
-  opacity: 0.08;
-  transform: rotate(-6deg);
-  pointer-events: none;
-  -webkit-mask: url("./who/signature.png") center / contain no-repeat;
-  mask: url("./who/signature.png") center / contain no-repeat;
-}
-
-.anim .who-copy:not(.is-in) + .who-sig {
-  clip-path: inset(0 100% 0 0);
-}
-
-.anim .who-copy.is-in + .who-sig {
-  animation: sig-sign 1.8s cubic-bezier(0.45, 0, 0.4, 1) 0.3s backwards;
-}
-
-@keyframes sig-sign {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
 .who-loop {
   position: relative;
   display: block;
@@ -1531,13 +1493,36 @@ h2 {
 /* The figure under "copied ... in both directions": You and Crew, with a copy line from each direction down to
    Brian. Still (no script, reduced motion, frame 0) it is the lines and arrows alone; with motion a message runs
    You to Crew and a copy drops to Brian, then one runs back and a copy drops again, slowly, on a loop. Only the
-   wrapper <g>s move. */
+   wrapper <g>s move. Behind it all, in the lightest echo color, is Brian's signature as one pen line: still, it is
+   simply there; with motion it writes itself once, while the first reply runs Crew to You, and then stays. */
 .who-fig {
   width: 100%;
   max-width: 340px;
   display: block;
   margin: 18px 0 20px;
   overflow: visible;
+}
+
+.wf-sig path {
+  fill: none;
+  stroke: var(--e-far);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.anim .wf-sig path {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.02;
+}
+
+/* One path per pen stroke, so every engine dashes them alike. Each carries its slice of one eased 2.25 s timeline
+   (cubic-bezier(.37, 0, .63, 1), from 4.95 s, as the first reply leaves Crew, to 7.2 s, as it reaches You). */
+.anim .who-copy.is-in .wf-sig path { animation: wf-sign var(--sl) var(--se) var(--sd) 1 both; }
+
+@keyframes wf-sign {
+  from { stroke-dashoffset: 1.02; }
+  to { stroke-dashoffset: 0; }
 }
 
 .wf-line {
