@@ -316,11 +316,31 @@ h1 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .stroke-labels li {
+  .anim .mark-stage:not(.is-in) .mark-motion {
+    display: none !important;
+  }
+
+  :root.anim:not([data-theme="dark"]) .mark-stage:not(.is-in) .mark-still.ms-on-cream,
+  :root.anim[data-theme="dark"] .mark-stage:not(.is-in) .mark-still.ms-on-dark {
+    display: block !important;
+    clip-path: polygon(0 83%, 72% 83%, 84% 67%, 100% 67%, 100% 100%, 0 100%);
+  }
+
+  .anim .mark-stage:not(.is-in) .stroke-labels li {
+    color: var(--soft);
+  }
+
+  .anim .mark-stage:not(.is-in) .stroke-labels li::before {
+    transform: scaleX(0);
+  }
+
+  .mark-stage:not(.anim *) .stroke-labels li,
+  .anim .mark-stage.is-in .stroke-labels li {
     animation: label-lands 0.3s cubic-bezier(0.3, 0, 0.1, 1) var(--lands) backwards;
   }
 
-  .stroke-labels li::before {
+  .mark-stage:not(.anim *) .stroke-labels li::before,
+  .anim .mark-stage.is-in .stroke-labels li::before {
     animation: leader-draws 0.3s cubic-bezier(0.3, 0, 0.1, 1) var(--lands) backwards;
   }
 }

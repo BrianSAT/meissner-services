@@ -396,6 +396,11 @@
   }
 
   /* ---------- reveals ---------- */
+  onView($('.mark-stage'), () => {
+    const stage = $('.mark-stage');
+    stage.querySelectorAll('.mark-motion').forEach((img) => { img.src = img.getAttribute('src'); });
+    stage.classList.add('is-in');
+  }, '0px 0px -42% 0px');
   for (const sel of ['.claim-more', '.kinds', '.qa-grid', '.who-copy']) {
     const el = $(sel);
     onView(el, () => el.classList.add('is-in'));
