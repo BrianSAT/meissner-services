@@ -127,6 +127,17 @@ header {
   color: var(--ink);
 }
 
+/* The wordmark swaps home and About. Where the browser can, it holds still while the page changes under it. */
+.wordmark {
+  view-transition-name: wordmark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 .wordmark img {
   width: 74px;
   height: auto;
@@ -1721,6 +1732,27 @@ h2 {
 
 .about-page h1 {
   max-width: 20ch;
+}
+
+.about-page h1 em {
+  display: block;
+}
+
+/* From the small errand to the big rebuild: the line gains weight as the jobs do. */
+.about-page h1 em span:nth-child(2) {
+  font-weight: 480;
+}
+
+.about-page h1 em span:nth-child(3) {
+  font-weight: 560;
+}
+
+.about-page h1 em span:nth-child(4) {
+  font-weight: 630;
+}
+
+.about-page h1 em span:nth-child(5) {
+  font-weight: 700;
 }
 
 .about-copy {
