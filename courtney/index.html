@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Courtney's branch · Meissner.Services</title>
+  <link rel="icon" href="../brand/echo-slash.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../brand/fonts.css" />
+  <link rel="preload" href="../type/fraunces-roman.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../type/type.css" />
+  <link rel="stylesheet" href="../brand/tokens.css" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../demos/demos.css" />
+  <link rel="stylesheet" href="./welcome.css" />
+  <script>try { if (localStorage.getItem("ms-theme") === "light") document.documentElement.removeAttribute("data-theme"); } catch {}</script>
+  <script src="../brand/theme.js"></script>
+  <script src="../demos/demos.js" defer></script>
+  <script src="./welcome.js" defer></script>
+</head>
+<body class="demos aw">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <a class="wordmark" href="../" aria-label="Meissner.Services home">
+      <img class="ms-on-cream" src="../brand/echo-slash-motion.svg" alt="" width="92" height="41" />
+      <img class="ms-on-dark" src="../diagram/stages-motion-on-dark.svg" alt="" width="92" height="41" />
+      MEISSNER<span>.</span>SERVICES
+    </a>
+  </header>
+
+  <main id="main">
+    <section class="dm-top" aria-labelledby="aw-h1">
+      <p class="eyebrow">COURTNEY'S BRANCH</p>
+      <h1 id="aw-h1">Your own copy of the site. Tell us what to change.</h1>
+      <p class="lead">Courtney, this is your branch of the Meissner.Services website. Version 1 is the site as it is today, opened in Echo, our review tool. You point at what you'd change and say why, and we build the next version from it. Nothing you do here changes the live site.</p>
+      <p class="cta-wrap aw-cta">
+        <a class="cta-btn" href="./1/">Open Version 1</a>
+        <span class="small-note">It asks you to sign in the first time. Step 1 below shows how.</span>
+      </p>
+    </section>
+
+    <section class="dm-walk" aria-labelledby="aw-walk-h">
+      <h2 id="aw-walk-h">How it works</h2>
+      <p class="section-intro">Watch the walkthrough once, or read the same steps in writing. <span class="aw-js">Press "Show me" on a step and the video jumps there.</span></p>
+      <div class="dm-walk-grid">
+        <figure class="dm-player">
+          <div class="dm-screen">
+            <div class="dm-slate" aria-hidden="true">
+              <img src="../diagram/stages-on-dark.svg" alt="" width="92" height="41" />
+              <p>How to tell us what to change</p>
+            </div>
+            <video controls playsinline preload="metadata" poster="walkthrough-poster.jpg" aria-label="Narrated walkthrough of reviewing your copy of the site in Echo.">
+              <source src="walkthrough.mp4" type="video/mp4" />
+              <track kind="captions" src="walkthrough.vtt" srclang="en" label="Captions" default />
+            </video>
+            <p class="dm-cue" aria-hidden="true" hidden><span></span></p>
+            <button type="button" class="dm-big" aria-label="Play" hidden>
+              <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><circle class="dm-big-e3" cx="40" cy="40" r="39"/><circle class="dm-big-e2" cx="40" cy="40" r="35"/><circle class="dm-big-disc" cx="40" cy="40" r="31"/><path class="dm-big-tri" d="M33 27v26l21-13z"/></svg>
+            </button>
+            <div class="dm-bar" hidden>
+              <button type="button" class="dm-ctl dm-pp" aria-label="Play" data-play-label="Play" data-pause-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="i-play" d="M8 5.5v13l11-6.5z"/><path class="i-pause" d="M7.5 5.5h3v13h-3zM13.5 5.5h3v13h-3z"/></svg></button>
+              <span class="dm-gap"></span>
+              <button type="button" class="dm-ctl dm-cc" aria-label="Captions" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="i-line" d="M3.5 7.5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><path class="i-line" d="M10.5 10.2a2.4 2.4 0 1 0 0 3.6M17 10.2a2.4 2.4 0 1 0 0 3.6"/></svg></button>
+              <button type="button" class="dm-ctl dm-mute" aria-label="Mute" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="i-fill" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-line i-waves" d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="i-line i-x" d="M15.5 9.5l5 5M20.5 9.5l-5 5"/></svg></button>
+            </div>
+            <div class="dm-prog" aria-hidden="true"><span></span></div>
+          </div>
+          <figcaption class="small-note">The voice is synthetic. The screens are Echo itself, recorded on a practice copy of your project.</figcaption>
+        </figure>
+
+        <ol class="aw-steps">
+          <li class="aw-step" data-beats="signin">
+            <div class="aw-say">
+              <h3>Sign in</h3>
+              <p>The first time, Echo asks who you are. Choose "Sign in with Email", type the email address our invitation came to, and press "Send magic link". A message from signin@meissner.services arrives with a link. Open it and you're in. The link lasts 15 minutes; if it runs out, ask for another the same way.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini aw-mini-dark" aria-hidden="true"><span class="aw-field">you@example.com</span><span class="aw-btn-cream">Send magic link</span></div>
+          </li>
+          <li class="aw-step" data-beats="live">
+            <div class="aw-say">
+              <h3>Look around</h3>
+              <p>Echo opens on "Live". Your copy works like the real site, so scroll around and try it.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini" aria-hidden="true"><span class="aw-switch"><b class="on">Live</b><b>Review</b></span></div>
+          </li>
+          <li class="aw-step" data-beats="review">
+            <div class="aw-say">
+              <h3>Switch to Review</h3>
+              <p>When you have something to say, press "Review". The page holds still and a panel opens beside it.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini" aria-hidden="true"><span class="aw-switch"><b>Live</b><b class="on">Review</b></span></div>
+          </li>
+          <li class="aw-step" data-beats="pin">
+            <div class="aw-say">
+              <h3>Click the part you mean</h3>
+              <p>A numbered pin lands right where you clicked, and the panel shows that part.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini aw-mini-page" aria-hidden="true"><span class="aw-headline">Yours is ready now.</span><span class="aw-pin">1</span></div>
+          </li>
+          <li class="aw-step" data-beats="rate">
+            <div class="aw-say">
+              <h3>Rate it, if you like</h3>
+              <p>"Style" is the look and "Copy" is the words. 1 is "not for me", 5 is "love it". Skip either one.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini" aria-hidden="true"><span class="aw-rate"><b>1</b><b>2</b><b>3</b><b class="on">4</b><b>5</b><b>N/A</b></span></div>
+          </li>
+          <li class="aw-step" data-beats="comment">
+            <div class="aw-say">
+              <h3>Say it in your own words</h3>
+              <p>What you like, or what you would change. A few words are plenty: "too long", or "I'd expect a price here".</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini" aria-hidden="true"><span class="aw-box">I'd make this headline shorter.</span></div>
+          </li>
+          <li class="aw-step" data-beats="save">
+            <div class="aw-say">
+              <h3>Press "Save rating"</h3>
+              <p>It sits at the bottom of the panel, so scroll the panel down if you don't see it. Your pin stays on the page, and the top right corner reads "All feedback saved".</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini" aria-hidden="true"><span class="aw-btn-green">Save rating</span></div>
+          </li>
+          <li class="aw-step" data-beats="more change">
+            <div class="aw-say">
+              <h3>Keep going</h3>
+              <p>Add as many pins as you like. "Page Notes", in the same panel, is for your reaction to the whole page. Changed your mind? Click a pin, edit it, and save again.</p>
+              <button type="button" class="aw-seek" hidden>Show me</button>
+            </div>
+            <div class="aw-mini aw-mini-page" aria-hidden="true"><span class="aw-pin">1</span><span class="aw-pin">2</span><span class="aw-pin">3</span></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="aw-next" aria-labelledby="aw-next-h" data-play data-beats="end">
+      <h2 id="aw-next-h">What happens next</h2>
+      <p class="section-intro">We read every pin, build Version 2 from what you said, and email you when it is ready.</p>
+      <ol class="aw-ladder">
+        <li class="aw-v1"><i aria-hidden="true"></i><div><strong>Version 1</strong><span>The site as it is today.</span><a href="./1/">meissner.services/courtney/1</a></div><em>Ready now</em></li>
+        <li class="aw-v2"><i aria-hidden="true"></i><div><strong>Version 2</strong><span>Built from what you tell us.</span><code>meissner.services/courtney/2</code></div><em>After your first round</em></li>
+        <li class="aw-v3"><i aria-hidden="true"></i><div><strong>Version 3</strong><span>The round after that, and so on.</span><code>meissner.services/courtney/3</code></div><em>After your second</em></li>
+      </ol>
+    </section>
+
+    <section class="aw-know" aria-labelledby="aw-know-h">
+      <h2 id="aw-know-h">Good to know</h2>
+      <ul>
+        <li><strong>Use a computer.</strong> Echo is made for a computer screen. On a phone it says so, and lets you carry on if you like.</li>
+        <li><strong>Name the page.</strong> Pins are filed under the home page. If your comment is about the About or Demos page, say so in the comment.</li>
+        <li><strong>The live site is safe.</strong> Nothing you do in Echo changes meissner.services itself.</li>
+        <li><strong>Stuck, or would rather just tell us?</strong> Reply to our email, or write to <a href="mailto:team@meissner.services">team@meissner.services</a>.</li>
+      </ul>
+      <p class="cta-wrap aw-cta"><a class="cta-btn" href="./1/">Open Version 1</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>MEISSNER.SERVICES</strong>
+    <a href="mailto:team@meissner.services">team@meissner.services</a>
+    <a href="../">Home</a>
+    <a href="https://meissner.services/privacy/">Privacy</a>
+  </footer>
+</body>
+</html>
