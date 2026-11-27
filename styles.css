@@ -438,6 +438,27 @@ h2 {
   margin-bottom: 12px;
 }
 
+/* "How do we get to your files?": a quiet aside between the first screen and the flow, not a new headline. */
+.files-aside {
+  padding: 26px 0 28px;
+}
+
+.files-aside h2 {
+  font-size: clamp(18px, 1.9vw, 21px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.files-aside p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(15.5px, 1.55vw, 17.5px);
+  line-height: 1.55;
+  color: var(--soft);
+}
+
 .section-intro {
   margin: 0 0 22px;
   color: var(--soft);
@@ -1412,6 +1433,15 @@ h2 {
   background: var(--red);
   vertical-align: 1px;
   transition: transform 0.4s var(--pop);
+}
+
+/* A row's quiet second line under its label (what the request was), in the note rows' italic and colour. */
+.record-table .rec-sub {
+  display: block;
+  margin-top: 2px;
+  padding-left: 19px;
+  font: italic 14px/1.45 var(--ms-font);
+  color: var(--soft);
 }
 
 .record-table .rec-row,
