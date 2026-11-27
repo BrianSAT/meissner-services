@@ -9,7 +9,7 @@
     The canvas is scaled by a whole number of device pixels whenever that fills at least 80% of
     the box; otherwise it is scaled to fit (nearest-neighbour when enlarging).
   - Beats: luchador taunt on black (luchador.mp3 + speech bubble) -> fade to blue river ->
-    two trajineras ("TOXICA" his, "OTRA TOXICA" hers) converge, he drops his phone ("!") ->
+    two trajineras ("TOXICO" his, "TOXICA" hers, Brian Nov 26 11:0x PM CT) converge, he drops his phone ("!") ->
     boats bump, kiss -> they straighten out and pole side by side into dusk -> stage on the
     shore, band steps aside, curtain opens, the screen zooms to fill the view -> gallery.
     Run time before the photos is about 40 seconds.
@@ -84,6 +84,14 @@ canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;image
 #spot{position:fixed;left:10px;top:10px;z-index:8;width:min(300px,46vw);height:140px;opacity:.88;transition:opacity .3s}
 #spot:hover{opacity:1}
 #spot iframe{border:0;display:block;border-radius:10px}
+#spottab{display:none;position:fixed;left:10px;top:10px;z-index:9;width:44px;height:44px;padding:0;font:700 22px/1 system-ui,sans-serif;
+  color:#1a1030;background:#ff9a2e;border:3px solid #1a1030;box-shadow:0 3px 0 #000;cursor:pointer}
+/* short screens (a phone turned sideways): the player tucks away behind a tab and keeps playing */
+@media (max-height:500px){
+  #spot{transform:translateX(calc(-100% - 20px));transition:transform .3s}
+  #spot.open{transform:none;left:62px}
+  #spot:not([hidden])~#spottab{display:block}
+}
 .tile{position:relative;padding:0;margin:0;border:max(2px,var(--u)) solid #ff9a2e;background:#000;cursor:pointer;overflow:hidden;min-width:0;min-height:0;border-radius:0}
 .tile:hover,.tile:focus-visible{border-color:#fff;outline:none}
 .tile img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -124,7 +132,7 @@ body.galon #mute{position:fixed;right:10px;top:10px;min-height:44px;font-size:13
     <div id="tiles" hidden></div>
     <div id="bar">
       <button class="btn" id="prev" aria-label="Previous">&laquo; Prev</button>
-      <span id="count">1 / 12</span>
+      <span id="count">1 / 13</span>
       <button class="btn" id="next" aria-label="Next photo">Next &raquo;</button>
       <button class="btn" id="tile">Tiles</button>
       <button class="btn" id="dl">Download</button>
@@ -140,7 +148,7 @@ body.galon #mute{position:fixed;right:10px;top:10px;min-height:44px;font-size:13
     <button class="btn dark" id="back">Back to photos</button>
   </div>
 </div></div>
-<div id="spot" hidden></div>
+<div id="spot" hidden></div><button id="spottab" aria-label="Show the music player" aria-expanded="false">&#9835;</button>
 <script>
 'use strict';
 /* ============================================================ basics */
@@ -340,9 +348,9 @@ function heart(x,y,sc,col,hi){for(let r=0;r<6;r++)for(let q=0;q<7;q++)if(HEART[r
 
 /* ---------- boats */
 const BOAT_HIS={hull:'#2f6fe0',hullD:'#1f4fb0',trim:'#ffd23a',deco:'#ff5a3c',deco2:'#ffffff',roof:'#e23b3b',roofHi:'#ff7a6a',roofD:'#a82222',
-  fringe:'#ffd23a',post:'#ffd23a',postD:'#b8901e',arch:'#e23b3b',arch2:'#8f1d1d',field:'#fff3d6',ink:'#1c3fae',lines:['TOXICA']};
+  fringe:'#ffd23a',post:'#ffd23a',postD:'#b8901e',arch:'#e23b3b',arch2:'#8f1d1d',field:'#fff3d6',ink:'#1c3fae',lines:['TOXICO']};
 const BOAT_HER={hull:'#e83e8c',hullD:'#b0286a',trim:'#3ad6c0',deco:'#ffe04a',deco2:'#ffffff',roof:'#8a4fd8',roofHi:'#b58af0',roofD:'#5e2fa6',
-  fringe:'#ffe04a',post:'#3ad6c0',postD:'#1f9a8a',arch:'#2bb673',arch2:'#146b40',field:'#fff3d6',ink:'#c2185b',lines:['OTRA','TOXICA']};
+  fringe:'#ffe04a',post:'#3ad6c0',postD:'#1f9a8a',arch:'#2bb673',arch2:'#146b40',field:'#fff3d6',ink:'#c2185b',lines:['TOXICA']};
 const BOX=8,BOY=72;
 function buildBoat(p){
   const k=mk(160,76),x=k.getContext('2d');c=x;const ox=BOX,oy=BOY;const B=(bx,by,w,h,col)=>R(ox+bx,oy+by,w,h,col);
@@ -786,13 +794,13 @@ function drawTitle(t){
     for(let q=0;q<4;q++)R(fxp+3+q*7,30+sw,4,2,'#07060f');
     R(fxp+13,15,4,1,'#07060f');R(fxp+12,16,6,4,'#07060f');R(fxp+13,20,4,1,'#07060f');
     R(fxp+6,14,2,2,'#07060f');R(fxp+22,14,2,2,'#07060f');R(fxp+6,24,2,2,'#07060f');R(fxp+22,24,2,2,'#07060f');R(fxp+9,19,2,1,'#07060f');R(fxp+19,19,2,1,'#07060f');}
-  const s='TOXICA',sc=6,x0=Math.round((W-tw(s,sc))/2),wave=i=>Math.sin(t*2.6+i*.8)*2.5;
+  const s='TOXICO',sc=6,x0=Math.round((W-tw(s,sc))/2),wave=i=>Math.sin(t*2.6+i*.8)*2.5;
   txt(s,x0+3,57,'#6a0f2e',sc,wave);txt(s,x0,54,'#ff8a1e',sc,wave);
   c.fillStyle=pat('#ffd23a',0);
   txt(s,x0,54,pat('#ffd23a',0),sc,i=>wave(i));
   // re-ink the lower half so the dither only catches the top
   c.save();c.beginPath();c.rect(0,74,W,60);c.clip();txt(s,x0,54,'#ff8a1e',sc,wave);c.restore();
-  const s2='& OTRA TOXICA';txt(s2,Math.round((W-tw(s2,2))/2)+1,109,'#3a1050',2);txt(s2,Math.round((W-tw(s2,2))/2),108,'#3ad6c0',2);
+  const s2='& TOXICA';txt(s2,Math.round((W-tw(s2,2))/2)+1,109,'#3a1050',2);txt(s2,Math.round((W-tw(s2,2))/2),108,'#3ad6c0',2);
   const k=Math.floor(t*3);for(let i=0;i<30;i++)tri(1+i*14,H-1,13,10,'u',OR[(i+k)%3]);
   if(Math.floor(t*2)%2){const s3='SOUND ON - CON SONIDO';txt(s3,Math.round((W-tw(s3))/2),194,'#8a84a8');}
 }
@@ -882,7 +890,7 @@ function drawFinale(ft){
 }
 
 /* ============================================================ media: Brian's album (Nov 26, 2026, 10:09 PM CT), in album order */
-const MEDIA=['v','v','p','p','v','p','p','v','p','p','p','p'].map((k,i)=>{const n=String(i+1).padStart(2,'0');
+const MEDIA=['v','v','p','p','v','p','p','v','p','p','p','v','p'].map((k,i)=>{const n=String(i+1).padStart(2,'0');
   return k==='v'?{video:true,src:'media/item-'+n+'.mp4',poster:'media/item-'+n+'-poster.jpg',name:'toxica-'+n+'.mp4'}
                :{video:false,src:'media/item-'+n+'.jpg',name:'toxica-'+n+'.jpg'};});
 const PHOTOS=MEDIA;
@@ -996,6 +1004,7 @@ function unlockAudio(){
 $('start').addEventListener('click',()=>{unlockAudio();songPlay();startShow(0);});
 $('skip').addEventListener('click',()=>{songPlay();enterGallery();});
 $('mute').addEventListener('click',()=>setMuted(!muted));
+$('spottab').addEventListener('click',()=>{const o=$('spot').classList.toggle('open');$('spottab').setAttribute('aria-expanded',o?'true':'false');});
 $('prev').addEventListener('click',()=>showPhoto(idx-1));
 $('next').addEventListener('click',()=>showPhoto(idx+1));
 $('tile').addEventListener('click',()=>setTiles(!tilesOn));
