@@ -26,6 +26,7 @@
   - Music: "La ritournelle" (Sebastien Tellier) through Deezer's own embedded player, created by the
     Start click (full song for listeners signed in to Deezer in that browser, Deezer's preview
     otherwise). Sound off removes the player and mutes the voice; Sound on brings the song back.
+    Videos start muted so they never talk over the song (Brian, 10:5x PM CT); their own speaker control can unmute.
 
   Round 2 (Brian, Nov 26, 2026, 10:09 PM CT): his new album (8 photos, 4 videos with a play button),
   media fill the whole window once we reach the stage, buttons pause from the last photo until the
@@ -118,7 +119,7 @@ body.galon #mute{position:fixed;right:10px;top:10px;min-height:44px;font-size:13
 <div id="wrap"><div id="stage">
   <canvas id="cv" width="416" height="234"></canvas>
   <div id="gal">
-    <div id="view"><img id="photo" alt="" draggable="false"><video id="vid" playsinline controls preload="metadata" hidden></video>
+    <div id="view"><img id="photo" alt="" draggable="false"><video id="vid" playsinline controls muted preload="metadata" hidden></video>
       <button id="play" aria-label="Play video" hidden><svg viewBox="0 0 8 8" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="#1a1030"/></svg></button></div>
     <div id="tiles" hidden></div>
     <div id="bar">
@@ -923,7 +924,7 @@ function hold(on){
 function showPhoto(i){
   idx=(i+MEDIA.length)%MEDIA.length;const m=MEDIA[idx];
   try{vid.pause();}catch(e){}
-  if(m.video){photo.hidden=true;photo.removeAttribute('src');vid.poster=m.poster;vid.src=m.src;vid.hidden=false;playBtn.hidden=false;
+  if(m.video){photo.hidden=true;photo.removeAttribute('src');vid.poster=m.poster;vid.src=m.src;vid.muted=true;vid.defaultMuted=true;vid.hidden=false;playBtn.hidden=false;
     vid.setAttribute('aria-label','Video '+(idx+1)+' of '+MEDIA.length);}
   else{vid.removeAttribute('src');try{vid.load();}catch(e){}vid.hidden=true;playBtn.hidden=true;photo.hidden=false;photo.src=m.src;
     photo.alt='Photo '+(idx+1)+' of '+MEDIA.length;}
