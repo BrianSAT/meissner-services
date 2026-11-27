@@ -69,7 +69,7 @@ canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;image
 #gal{position:fixed;left:0;top:0;right:0;bottom:0;z-index:2;background:#000;opacity:0;visibility:hidden;transition:opacity .6s,visibility .6s}
 #gal.on{opacity:1;visibility:visible}
 #view{position:absolute;left:0;right:0;top:0;bottom:0}
-#tiles{position:absolute;left:12px;right:12px;top:12px;bottom:calc(var(--bar) + 28px)}
+#tiles{position:absolute;left:12px;right:12px;top:160px;bottom:84px}
 #view{transition:transform 1.5s cubic-bezier(.4,0,.2,1);transform-origin:50% 50%;touch-action:none;cursor:grab}
 #photo,#vid{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;background:#000}
 #play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:96px;height:96px;padding:0;
@@ -88,7 +88,7 @@ canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;image
 .tile img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
 .tile span{position:absolute;left:0;bottom:0;background:#ff9a2e;color:#1a1030;font:inherit;font-weight:700;
   font-size:max(9px,calc(var(--u)*6));padding:0 .5em}
-#bar{position:absolute;left:0;right:0;bottom:0;height:var(--bar);padding:10px 12px 14px;z-index:4;
+#bar{position:absolute;left:0;right:0;bottom:0;min-height:44px;padding:16px 12px calc(14px + env(safe-area-inset-bottom,0px));z-index:4;flex-wrap:wrap;
   background:linear-gradient(transparent,rgba(0,0,0,.75) 45%);
   display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*3);transition:opacity .4s}
 #count{color:#ffd08a;font-weight:700;font-size:max(10px,calc(var(--u)*7));min-width:4.2em;text-align:center}
@@ -98,6 +98,19 @@ canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;image
 #end{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:6;display:flex;flex-direction:column;
   align-items:center;gap:calc(var(--u)*6)}
 #end .btn{font-size:max(12px,calc(var(--u)*9));padding:calc(var(--u)*3) calc(var(--u)*9)}
+/* gallery chrome is full-window: real touch sizes, independent of the pixel stage */
+#bar .btn{min-height:44px;min-width:44px;font-size:14px;padding:0 14px}
+#count{font-size:14px}
+body.galon #turn-hint{display:none!important}
+body.galon #mute{position:fixed;right:10px;top:10px;min-height:44px;font-size:13px;padding:0 12px}
+#end{position:fixed}
+#end .btn{min-height:44px;font-size:16px;padding:0 20px}
+@media (max-width:600px){
+  #bar{gap:6px;padding-left:6px;padding-right:6px}
+  #bar .btn{font-size:12px;padding:0 9px}
+  #count{min-width:3.4em;font-size:12px}
+  #tiles{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);bottom:132px;top:164px}
+}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -936,11 +949,13 @@ function enterGallery(){
   try{voice.pause();}catch(e){}
   state='gallery';galT=0;finPlayed=false;finOn=false;finPending=-1;
   gal.classList.remove('fin','p2');gal.classList.add('on');endEl.hidden=true;$('skip').hidden=true;$('start').hidden=true;
+  document.body.classList.add('galon');
   fg.clearRect(0,0,FW,H);hold(false);setTiles(false);showPhoto(0);startMusic();
 }
 function startShow(at){
   state='show';T=at||0;yelled=T>TL.yell+.2;finOn=false;finPending=-1;
   try{vid.pause();}catch(e){}
+  document.body.classList.remove('galon');
   gal.classList.remove('on','fin','p2','hold');endEl.hidden=true;$('start').hidden=true;$('skip').hidden=false;
   fg.clearRect(0,0,FW,H);hold(false);
 }
