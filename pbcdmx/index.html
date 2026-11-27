@@ -794,13 +794,12 @@ function drawTitle(t){
     for(let q=0;q<4;q++)R(fxp+3+q*7,30+sw,4,2,'#07060f');
     R(fxp+13,15,4,1,'#07060f');R(fxp+12,16,6,4,'#07060f');R(fxp+13,20,4,1,'#07060f');
     R(fxp+6,14,2,2,'#07060f');R(fxp+22,14,2,2,'#07060f');R(fxp+6,24,2,2,'#07060f');R(fxp+22,24,2,2,'#07060f');R(fxp+9,19,2,1,'#07060f');R(fxp+19,19,2,1,'#07060f');}
-  const s='TOXICO',sc=6,x0=Math.round((W-tw(s,sc))/2),wave=i=>Math.sin(t*2.6+i*.8)*2.5;
-  txt(s,x0+3,57,'#6a0f2e',sc,wave);txt(s,x0,54,'#ff8a1e',sc,wave);
-  c.fillStyle=pat('#ffd23a',0);
-  txt(s,x0,54,pat('#ffd23a',0),sc,i=>wave(i));
+  // both names equal: one line, same size and treatment (Brian, Nov 26, 2026: not a headliner and a sidekick)
+  const s='TOXICO & TOXICA',sc=4,x0=Math.round((W-tw(s,sc))/2),y0=60,wave=i=>Math.sin(t*2.6+i*.8)*2;
+  txt(s,x0+2,y0+3,'#6a0f2e',sc,wave);txt(s,x0,y0,'#ff8a1e',sc,wave);
+  txt(s,x0,y0,pat('#ffd23a',0),sc,wave);
   // re-ink the lower half so the dither only catches the top
-  c.save();c.beginPath();c.rect(0,74,W,60);c.clip();txt(s,x0,54,'#ff8a1e',sc,wave);c.restore();
-  const s2='& TOXICA';txt(s2,Math.round((W-tw(s2,2))/2)+1,109,'#3a1050',2);txt(s2,Math.round((W-tw(s2,2))/2),108,'#3ad6c0',2);
+  c.save();c.beginPath();c.rect(0,y0+14,W,40);c.clip();txt(s,x0,y0,'#ff8a1e',sc,wave);c.restore();
   const k=Math.floor(t*3);for(let i=0;i<30;i++)tri(1+i*14,H-1,13,10,'u',OR[(i+k)%3]);
   if(Math.floor(t*2)%2){const s3='SOUND ON - CON SONIDO';txt(s3,Math.round((W-tw(s3))/2),194,'#8a84a8');}
 }
